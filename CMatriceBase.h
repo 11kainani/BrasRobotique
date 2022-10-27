@@ -5,7 +5,7 @@
 #include <assert.h>
 #include <fstream>
 
-class CMatriceBase
+class CMatriceBase 
 {
 private:
 	unsigned int uiMATNbLigne;
@@ -26,11 +26,11 @@ public:
 
 	unsigned int MATLireNbLigne();
 
-	int MATLireElement(unsigned int uiLigne, unsigned int uiColonne);
+	float MATLireElement(unsigned int uiLigne, unsigned int uiColonne);
 
 	void MATAffiche();
 
-	CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, int* pTElements);
+	CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float* pfElements = NULL);
 
 	void operator=(CMatriceBase& MATObjet);
 

@@ -11,6 +11,13 @@ using namespace std;
 #define EXC3 3
 
 
+/**
+Constructeur par default 
+entre : néant
+necessite: neant
+sortie : neant 
+initialisation d'un objet matrice
+**/
 
 CMatriceBase::CMatriceBase()
 {
@@ -23,10 +30,6 @@ CMatriceBase::CMatriceBase(CMatriceBase& MATObjet)
 
 	uiMATNbLigne = MATObjet.uiMATNbLigne;
 	uiMATNbColonne = MATObjet.uiMATNbColonne;
-	if (pfMATElement != NULL)
-	{
-		free(pfMATElement);
-	}
 
 	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
 	if (pfMATElement == NULL)
@@ -36,7 +39,7 @@ CMatriceBase::CMatriceBase(CMatriceBase& MATObjet)
 
 	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
 	{
-		pfMATElement[uiBoucle] = MATObjet.pfMATElement[uiBoucle]; 
+		pfMATElement[uiBoucle] = MATObjet.pfMATElement[uiBoucle]; // Recopie l'élément du tableau
 	}
 	return;
 }
@@ -60,7 +63,7 @@ unsigned int CMatriceBase::MATLireNbLigne()
 	return uiMATNbLigne;
 }
 
-int CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
+float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
 {
 	CException EXCObjet;
 	if (uiLigne < 0 || uiLigne > uiMATNbLigne)
@@ -109,7 +112,7 @@ void CMatriceBase::MATAffiche()
 	return;
 }
 
-CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, int* pTElements)
+CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float* pfElements)
 {
 	unsigned int uiBoucle;
 
@@ -124,7 +127,7 @@ CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, int* 
 
 	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
 	{
-		pfMATElement[uiBoucle] = pTElements[uiBoucle]; 
+		pfMATElement[uiBoucle] = pfElements[uiBoucle]; 
 	}
 
 	return;

@@ -1,0 +1,9 @@
+Valgrind : 
+valgrind --leaks-check=yes --track-origins=yes ./prog
+
+Execution : 
+g++ *.cpp -o (-g) prog
+-g for valgrind
+
+
+

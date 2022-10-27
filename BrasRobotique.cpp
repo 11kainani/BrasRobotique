@@ -3,13 +3,26 @@
 
 #include <iostream>
 #include "CMatriceBase.h"
+#include "CMatriceExtension.h"
+#include "CMatrice.h"
+using namespace std;
 
 int main()
 {
-    int black[4] = { 1, 1, 1, 1 };
+    float black[4] = { 4, 2, 4, 2 };
+   
     std::cout << "Hello World!\n";
-    CMatriceBase wei(2,2,black);
+    CMatrice wei(2,2,black);
     wei.MATAffiche();
+
+    CMatrice full = wei;
+    full.MATTranspose();
+
+    full.MATAffiche();
+
+    CMatrice mult = wei + full;
+
+  mult.MATAffiche();
 
     
 }

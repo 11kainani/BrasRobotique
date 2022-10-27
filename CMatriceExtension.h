@@ -14,9 +14,9 @@ public:
 
 	CMatriceExtension();
 
-	CMatriceExtension(unsigned int uiLignes, unsigned int uiColonnes, int* pTElements);
+	CMatriceExtension(unsigned int uiLignes, unsigned int uiColonnes, float* pfElements);
 
-	bool MATIsEmpty();
+	/*bool MATIsEmpty();
 
 	CMatriceExtension& operator-(CMatriceBase MATObjet);
 
@@ -24,7 +24,7 @@ public:
 
 	CMatriceExtension operator/(double dValeur);
 
-	CMatriceExtension& operator+(CMatriceBase MATObjet);
+	CMatriceExtension& operator+(CMatriceBase MATObjet);*/
 
 };
 #endif
