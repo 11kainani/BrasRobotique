@@ -21,7 +21,9 @@ initialisation d'un objet matrice
 
 CMatriceBase::CMatriceBase()
 {
-	return;
+	pfMATElement = nullptr;
+	uiMATNbColonne = 0;
+	uiMATNbLigne = 0;
 }
 
 CMatriceBase::CMatriceBase(CMatriceBase& MATObjet)
@@ -50,12 +52,16 @@ CMatriceBase::~CMatriceBase()
 	{
 		free(pfMATElement);
 	}
+	uiMATNbColonne = 0;
+	uiMATNbLigne = 0;
+
+	
 
 }
 
 unsigned int CMatriceBase::MATLireNbColonne()
 {
-	return uiMATNbLigne;
+	return uiMATNbColonne;
 }
 
 unsigned int CMatriceBase::MATLireNbLigne()
@@ -66,7 +72,7 @@ unsigned int CMatriceBase::MATLireNbLigne()
 float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
 {
 	CException EXCObjet;
-	if (uiLigne < 0 || uiLigne > uiMATNbLigne)
+	if (uiLigne < 0 || uiLigne >= uiMATNbLigne)
 	{
 		// Exception Ligne invalide
 		cout << "Erreur : Ligne " << uiLigne << " invalide (0 <= uiLigne < nombre de lignes de la matrice)" << endl;
@@ -74,7 +80,7 @@ float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
 		throw EXCObjet;
 	}
 
-	if (uiColonne < 0 || uiColonne > uiMATNbColonne)
+	if (uiColonne < 0 || uiColonne >= uiMATNbColonne)
 	{
 		// Exception Colonne invalide
 		cout << "Erreur : Colonne " << uiColonne << " invalide (0 <= uiColonne < nombre de colonnes de la matrice)" << endl;

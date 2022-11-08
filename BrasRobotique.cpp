@@ -3,27 +3,61 @@
 
 #include <iostream>
 #include "CMatriceBase.h"
-#include "CMatriceExtension.h"
 #include "CMatrice.h"
 using namespace std;
 
 int main()
 {
-    float black[4] = { 4, 2, 4, 2 };
+    /*float black[4] = {4, 2, 4, 2};
    
     std::cout << "Hello World!\n";
     CMatrice wei(2,2,black);
     wei.MATAffiche();
+
+    CMatrice ouu;
+    ouu = wei * wei - wei;
+
+   // ouu.MATAffiche();
 
     CMatrice full = wei;
     full.MATTranspose();
 
     full.MATAffiche();
 
-    CMatrice mult = wei + full;
+    CMatrice  mult=  wei + full;
 
-  mult.MATAffiche();
+    mult.MATAffiche();
 
+    CMatrice testt = mult - wei * wei - full * mult;
+
+    testt.MATAffiche();
+    */
+
+    float tab[3] = { 1,2,3 };
+
+    CMatrice mat(1, 3, tab);
+
+    //mat.MATAffiche();
+
+    CMatrice tess(3,1,tab);
+
+    //tess.MATAffiche();
+
+    float test[9] = { 1,0,0,0,2,0,0,0,4 };
+
+    CMatrice Mare(3, 3, test);
+
+
+   mat.Greville();
+
+    //CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
+
+    //jupiteur.MATAffiche();
+
+    //Mare = jupiteur.MATTranspose(); 
+
+    //jupiteur.MATAffiche();
+    //
     
 }
 

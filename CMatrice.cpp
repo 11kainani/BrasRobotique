@@ -7,6 +7,7 @@
 #define ERREUR_MATRICE_VIDE 6
 #define DIVISION_PAR_ZERO 10
 #define TAILLE_INCOMPATIBLE 11
+#define MATRICEVIDE 12
 
 using namespace std;
 
@@ -19,14 +20,14 @@ CMatrice::CMatrice(unsigned int uiLignes, unsigned int uiColonnes, float * pfEle
 
 CMatrice::CMatrice() 
 {
-	return;
+	
 }
 
 CMatrice::CMatrice(CMatrice& MATObjet) : CMatriceBase(MATObjet)
 {
 }
 
-CMatrice CMatrice::MATTranspose()
+CMatrice& CMatrice::MATTranspose()
 {
 	unsigned int uiBoucle;
 	unsigned int uiLigne;
@@ -50,29 +51,35 @@ CMatrice CMatrice::MATTranspose()
 	}
 
 
-	CMatrice MATResultat(uiNbColonnes, uiNbLignes, pfElements);
+	CMatrice* MATResultat = new CMatrice(uiNbColonnes, uiNbLignes, pfElements);
 	free(pfElements);
-	MATResultat.MATAffiche();
-	return MATResultat; // Objet détruit
+	MATResultat->MATAffiche();
+	return *MATResultat; // Objet détruit
 }
 
 
-/**
- * @brief 
- * @param MATObjet 
- * @return pointeur sur matrice resultat
-*/
+
 CMatrice& CMatrice::operator*(CMatriceBase MATObjet)
 {
+	CException mistake;
 	// Dimensions de la nouvelle matrice
-	unsigned int uiNbLignes = this->MATLireNbLigne();
-	unsigned int uiNbColonnes = MATObjet.MATLireNbColonne();
+	/*unsigned int uiNbLignes = this->MATLireNbLigne();
+	unsigned int uiNbColonnes = MATObjet.MATLireNbColonne();*/
+	unsigned int uiNbLignes = MATObjet.MATLireNbLigne();
+	unsigned int uiNbColonnes = this->MATLireNbColonne();
 	unsigned int uiLigne;
 	unsigned int uiColonne;
 
 	// Sont égaux normalement sinon lancer une exception
 	unsigned int uiLignes = MATObjet.MATLireNbLigne();
 	unsigned int uiColonnes = this->MATLireNbColonne();
+
+	//Verification de la faisabilité du calcul
+	if (this->MATLireNbColonne() != MATObjet.MATLireNbLigne())
+	{
+		mistake.EXCModifierValeur(OperationInfaisable);
+		throw mistake;
+	}
 
 	float* pfElements = (float*)malloc(sizeof(float) * uiNbLignes * uiNbColonnes);
 	float fElement;
@@ -94,19 +101,137 @@ CMatrice& CMatrice::operator*(CMatriceBase MATObjet)
 	free(pfElements);
 	return *pMATResultat ; // pointeur détruit après retour par référence
 }
-/**
- * @brief 
- * @param MATObjet 
- * @return 
-*/
-CMatrice CMatrice::Greville(CMatrice MATObjet)
+
+CMatrice& CMatrice::Greville()
 {
+	unsigned int i = 0; /*itérateur boucle*/
+	unsigned int uiboucle = 1; /*itérateur boucle*/
+	unsigned int indice = 0; /*Indice dans le psuedo-matrice*/
+	float* coef = (float*)malloc(sizeof(float) * 1);
+
+	float* AMatrice = (float*)malloc(sizeof(float) * 1* this->MATLireNbLigne());
+	/*Initialisation*/
+	bool verif = false; /*Booléean qui est à faux tant que les élements d'une matrice sont égaux à 0*/
+	for (i = 0; i < this->MATLireNbLigne() || verif==false; i++)
+	{
+		if (this->MATLireElement(i, 0) != 0)
+		{
+			verif = true;
+		}
+	}
+	if (verif != true)
+	{
+		for (i = 0; i < this->MATLireNbColonne() ; i++)
+		{
+			AMatrice[i] = 0;
+		}
+	}
+	else {
+		for (i = 0; i <  this->MATLireNbLigne(); i++)
+		{
+			AMatrice[i] = this->MATLireElement(i,0);
+		}
+		
+	}
+	CMatrice psuedoMatrice(this->MATLireNbColonne(), this->MATLireNbLigne(), AMatrice);
+	/*Créarion des variables nécéssaires pour appliquer l'aglorithme*/
+	//CMatrice *a= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
+	//CMatrice *b= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
+	//CMatrice *c= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
+	//CMatrice *d= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
+
+	CMatrice a,b,c,d;
+	/*Application de l'algorithme*/
+	for (uiboucle = 1; uiboucle < this->MATLireNbColonne(); uiboucle++)
+	{
+		d = psuedoMatrice * this->MATFromColonne(uiboucle);
+		c = this->MATFromColonne(uiboucle) - (psuedoMatrice * d);
+		verif = false;
+		for (i = 0; i < c.MATLireNbLigne()* c.MATLireNbColonne() || verif == false; i++)
+		{
+			if (this->MATLireElement(i, 0) != 0)
+			{
+				verif = true;
+			}
+		}if (verif != true)
+		{
+			*coef = 1 / (CMatrice::MATIdentity(d.MATLireNbLigne(), d.MATLireNbColonne()) + d.MATTranspose() * d).MATLireElement(0, 0);
+			b =  CMatrice(1,1,coef) * d.MATTranspose() * psuedoMatrice;
+		}
+		else {
+			*coef = (c.MATTranspose() * c).MATLireElement(0,0);
+			b = CMatrice(1,1,coef) * c.MATTranspose();
+		}
+
+		//b.MATAffiche();
+		//c.MATAffiche();
+		d.MATAffiche();
+		
+	}
+	
+	/*Desallocation*/
+	/*free(a);
+	free(b);
+	free(c);
+	free(d);*/
 	return Exe;
 }
 
 CMatrice::~CMatrice()
 {
 
+}
+
+CMatrice& CMatrice::MATFromColonne(unsigned int numColonne)
+{
+	CException mistake;
+	/*Vérification de l'existance du matrice et de la colonne*/
+	if (this->MATIsEmpty() == true)
+	{
+		mistake.EXCModifierValeur(MATRICEVIDE);
+		throw mistake;
+	}
+	if (numColonne >= this->MATLireNbColonne())
+	{
+		mistake.EXCModifierValeur(TAILLE_INCOMPATIBLE);
+		throw mistake;
+	}
+	
+	float* tab; /*Tableau de float qui servira a recuperer les données d'une colonne*/
+	tab = (float*)malloc(sizeof(float) * this->MATLireNbLigne()); /*Initialisation de taab pour acceuilir le bon nombre d'élément*/
+
+	for (int i = 0; i < this->MATLireNbLigne(); i++)
+	{
+		tab[i] = this->MATLireElement(i, numColonne);
+	}
+
+	CMatrice* resultat = new CMatrice(this->MATLireNbLigne(), 1, tab);
+	free(tab);
+
+	return *resultat;
+}
+
+CMatrice& CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
+{
+	unsigned int uiboucle = 0;
+	float* tab = (float*)malloc(sizeof(float) * nbColonnes * nbLignes);
+	if (nbLignes != 0 || nbColonnes != 0)
+	{
+		for (uiboucle = 0; uiboucle < nbColonnes * nbLignes; uiboucle++)
+		{
+			tab[uiboucle] = 0;
+		}
+
+		for (uiboucle = 0; uiboucle < nbLignes && uiboucle < nbColonnes; uiboucle++)
+		{
+			tab[uiboucle * nbColonnes + uiboucle] = 1;
+		}
+	}
+
+	CMatrice* resultat = new CMatrice(nbLignes, nbColonnes, tab);
+	free(tab);
+
+	return *resultat;
 }
 
 bool CMatrice::MATIsEmpty()
@@ -146,6 +271,7 @@ CMatrice& CMatrice::operator-(CMatriceBase MATObjet)
 
 
 	CMatrice* pMATResultatDifference = new CMatrice(uiCompteurLigne, uiCompteurColonne, MATTableau);
+	free(MATTableau);
 
 	return *pMATResultatDifference;
 }
@@ -236,3 +362,4 @@ CMatrice& CMatrice::operator+(CMatriceBase MATObjet)
 
 	return *pMATResultatSomme;
 }
+

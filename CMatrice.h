@@ -4,21 +4,30 @@
 #include <iostream>
 #include <assert.h>
 #include <fstream>
-
-#include "CMatriceExtension.h"
 #include "CMatriceBase.h"
 #include "CException.h"
 
 class CMatrice : public CMatriceBase
 {
 public:
+	/**
+	* Constructeur de confort
+	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de recopie de CMatriceBase
+	 * @param uiLignes 
+	 * @param uiColonnes 
+	 * @param pfElements 
+	*/
 	CMatrice(unsigned int uiLignes, unsigned int uiColonnes, float *pfElements = nullptr);
 
+	/**
+	* Constructeur 
+	 * @brief 
+	*/
 	CMatrice();
 
 	CMatrice(CMatrice& MATObjet);
 
-	CMatrice MATTranspose();
+	CMatrice& MATTranspose();
 
 	CMatrice& operator*(CMatriceBase MATObjet);
 
@@ -32,9 +41,13 @@ public:
 
 	CMatrice& operator+(CMatriceBase MATObjet);
 
-	CMatrice Greville(CMatrice MATObjet);
+	CMatrice& Greville();
 
 	~CMatrice();
+
+	CMatrice& MATFromColonne( unsigned int numColonne);
+
+	static CMatrice& MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
 
 };
 #endif

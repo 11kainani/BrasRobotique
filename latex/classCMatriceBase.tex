@@ -1,0 +1,94 @@
+\hypertarget{classCMatriceBase}{}\doxysection{C\+Matrice\+Base Class Reference}
+\label{classCMatriceBase}\index{CMatriceBase@{CMatriceBase}}
+
+
+Inheritance diagram for C\+Matrice\+Base\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}{C\+Matrice\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui crée l\textquotesingle{}objet mais n\textquotesingle{}initialise pas ses membres. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}{C\+Matrice\+Base}} (\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
+\begin{DoxyCompactList}\small\item\em Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatrice}{C\+Matrice}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}{$\sim$\+C\+Matrice\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur qui désalloue pf\+M\+A\+T\+Element et détruit l\textquotesingle{}objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}{M\+A\+T\+Lire\+Nb\+Colonne}} ()
+\begin{DoxyCompactList}\small\item\em Ce méthode permet de savoir combien de colonne cette matrice possède \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}\label{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}} 
+unsigned int {\bfseries M\+A\+T\+Lire\+Nb\+Ligne} ()
+\item 
+\mbox{\Hypertarget{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}\label{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}} 
+float {\bfseries M\+A\+T\+Lire\+Element} (unsigned int ui\+Ligne, unsigned int ui\+Colonne)
+\item 
+\mbox{\Hypertarget{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}\label{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}} 
+void {\bfseries M\+A\+T\+Affiche} ()
+\item 
+\mbox{\Hypertarget{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}\label{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}} 
+{\bfseries C\+Matrice\+Base} (unsigned int ui\+Lignes, unsigned int ui\+Colonnes, float $\ast$pf\+Elements=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classCMatriceBase_acff23172f3355beef599a235f28b62cd}\label{classCMatriceBase_acff23172f3355beef599a235f28b62cd}} 
+void {\bfseries operator=} (\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}\label{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}} 
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par default qui crée l\textquotesingle{}objet mais n\textquotesingle{}initialise pas ses membres. 
+
+Constructeur par default
+
+Constructeur par default entre \+: néant necessite\+: neant sortie \+: neant initialisation d\textquotesingle{}un objet matrice \mbox{\Hypertarget{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}\label{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}} 
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&}]{M\+A\+T\+Objet }\end{DoxyParamCaption})}
+
+
+
+Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatrice}{C\+Matrice}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. 
+
+Constructeur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em M\+A\+T\+Objet} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}\label{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}} 
+\index{CMatriceBase@{CMatriceBase}!````~CMatriceBase@{$\sim$CMatriceBase}}
+\index{````~CMatriceBase@{$\sim$CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{$\sim$CMatriceBase()}{~CMatriceBase()}}
+{\footnotesize\ttfamily C\+Matrice\+Base\+::$\sim$\+C\+Matrice\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur qui désalloue pf\+M\+A\+T\+Element et détruit l\textquotesingle{}objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}\label{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}} 
+\index{CMatriceBase@{CMatriceBase}!MATLireNbColonne@{MATLireNbColonne}}
+\index{MATLireNbColonne@{MATLireNbColonne}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{MATLireNbColonne()}{MATLireNbColonne()}}
+{\footnotesize\ttfamily unsigned int C\+Matrice\+Base\+::\+M\+A\+T\+Lire\+Nb\+Colonne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ce méthode permet de savoir combien de colonne cette matrice possède 
+
+Lire le nombre de colonne dans la matrice \begin{DoxyReturn}{Returns}
+unsigned int qui correspond au nombre de colonne dans la matrice 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+Matrice\+Base.\+h\item 
+C\+Matrice\+Base.\+cpp\end{DoxyCompactItemize}

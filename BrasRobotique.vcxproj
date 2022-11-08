@@ -145,7 +145,6 @@
     <ClCompile Include="CLecteurBase.cpp" />
     <ClCompile Include="CMatrice.cpp" />
     <ClCompile Include="CMatriceBase.cpp" />
-    <ClCompile Include="CMatriceExtension.cpp" />
     <ClCompile Include="DenavitParameter.cpp" />
     <ClCompile Include="VariableArticulaire.cpp" />
   </ItemGroup>
@@ -155,7 +154,6 @@
     <ClInclude Include="CLecteurBase.h" />
     <ClInclude Include="CMatrice.h" />
     <ClInclude Include="CMatriceBase.h" />
-    <ClInclude Include="CMatriceExtension.h" />
     <ClInclude Include="DenavitParameter.h" />
     <ClInclude Include="VariableArticulaire.h" />
   </ItemGroup>
