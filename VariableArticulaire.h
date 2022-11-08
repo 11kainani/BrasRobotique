@@ -2,8 +2,6 @@
 #define VARIABLE_ARTICULAIRE_H
 
 #include <iostream>
-#include <assert.h>
-#include <fstream>
 
 class VariableArticulaire
 {
