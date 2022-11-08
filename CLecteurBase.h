@@ -2,13 +2,8 @@
 #define C_LECTEUR_BASE_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
-
-
-
-
-using std::ifstream;
+using namespace std;
 
 class CLecteurBase
 {
@@ -21,7 +16,7 @@ public:
 
 	bool ToInt(char* pcInput, int& iVar);
 
-	static bool ToDouble(char* pcInput, double& dVar);
+	bool ToDouble(char* pcInput, double& dVar);
 
 	bool FindWordInFileLine(ifstream& fichier, const char* pcMot, char** ppcLigne);
 
@@ -31,7 +26,7 @@ public:
 
 	bool FindWordInSameFileWithSeparator(const char* pcMot, char* pcLigne, const char separator);
 
-	char ToLower();
+	char ToLower(char cValeur);
 
 	char* FindIntInLine(char* pcLigne);
 
