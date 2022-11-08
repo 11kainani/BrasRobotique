@@ -2,15 +2,13 @@
 #define DENAVIT_PARAMETER_H
 
 #include <iostream>
-#include <assert.h>
-#include <fstream>
 
 #include "VariableArticulaire.h"
 
 class DenavitParameter
 {
 private:
-	VariableArticulaire variableArticulaire;
+	VariableArticulaire** variableArticulaire;
 
 public:
 	DenavitParameter();
