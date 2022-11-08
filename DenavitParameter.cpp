@@ -1,5 +1,4 @@
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 
 #include "DenavitParameter.h"
@@ -7,10 +6,16 @@
 
 DenavitParameter::DenavitParameter()
 {
+	variableArticulaire = nullptr;
 }
 
 DenavitParameter::DenavitParameter(VariableArticulaire** VARListe)
 {
+	variableArticulaire = (VariableArticulaire**)malloc(sizeof(VariableArticulaire*) * 4);
+	for (int i = 0; i < 4; i++)
+	{
+		variableArticulaire[i] = VARListe[i];
+	}
 }
 
 DenavitParameter::DenavitParameter(DenavitParameter& DENObject)
