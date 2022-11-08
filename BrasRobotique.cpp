@@ -1,23 +1,40 @@
 // BrasRobotique.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
+#include "..\..\..\BrasRobotique-Jesimiel\CLecteur.h"
 #include <iostream>
-#include "CMatriceBase.h"
+using namespace std;
 
 int main()
 {
-    int black[4] = { 1, 1, 1, 1 };
-    std::cout << "Hello World!\n";
-    CMatriceBase wei(2,2,black);
-    wei.MATAffiche();
+    cout << "Hello World!\n"; 
+	CLecteurBase lec;
+	int taille = 20;
+	bool res;
+	double var;
+	char* texte = (char*)malloc(sizeof(char) * taille);
+	
+	do
+	{
+		cin >> texte;
+		res = lec.FindWordInSameFileLine("h", texte);
+		cout << "Resultat : " << res << endl;
+		if (res)
+		{
+			
+		}
 
-    
+	}while (res == 1);
+
+	free(texte);
+		
+	return 0;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
 
-// Astuces pour bien démarrer : 
+// Conseils pour bien démarrer : 
 //   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
 //   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
 //   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
