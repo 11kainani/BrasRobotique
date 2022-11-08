@@ -8,31 +8,40 @@ using namespace std;
 
 int main()
 {
-    /*float black[4] = {4, 2, 4, 2};
+   float black[4] = {4, 2, 4, 2};
    
     std::cout << "Hello World!\n";
     CMatrice wei(2,2,black);
-    wei.MATAffiche();
+  //  wei.MATAffiche();
 
     CMatrice ouu;
-    ouu = wei * wei - wei;
+    ouu = wei ;
 
+
+
+    wei* ouu - wei * wei * (double)2 ;
    // ouu.MATAffiche();
-
+      
     CMatrice full = wei;
-    full.MATTranspose();
+   // full.MATTranspose();
 
-    full.MATAffiche();
+    //full.MATAffiche();
 
-    CMatrice  mult=  wei + full;
+    (full * wei * ouu).MATAffiche();
 
-    mult.MATAffiche();
+    CMatrice  mult =  wei + full;
 
-    CMatrice testt = mult - wei * wei - full * mult;
+    //mult.MATAffiche();
 
-    testt.MATAffiche();
-    */
+   CMatrice testt = wei * wei - full * mult;
 
+
+    
+
+
+    full.MATAffiche(); 
+    
+    
     float tab[3] = { 1,2,3 };
 
     CMatrice mat(1, 3, tab);
@@ -48,7 +57,7 @@ int main()
     CMatrice Mare(3, 3, test);
 
 
-   mat.Greville();
+   //Mare.Greville(); 
 
     //CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
 

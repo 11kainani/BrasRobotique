@@ -23,11 +23,13 @@ CMatrice::CMatrice()
 	
 }
 
-CMatrice::CMatrice(CMatrice& MATObjet) : CMatriceBase(MATObjet)
+
+
+CMatrice::CMatrice(const CMatrice& MATObjet) : CMatriceBase(MATObjet)
 {
 }
 
-CMatrice& CMatrice::MATTranspose()
+CMatrice CMatrice::MATTranspose()
 {
 	unsigned int uiBoucle;
 	unsigned int uiLigne;
@@ -44,22 +46,20 @@ CMatrice& CMatrice::MATTranspose()
 		uiColonne = uiBoucle / uiNbLignes; // Colonne de l'élément à échanger
 		Element = this->MATLireElement(uiLigne, uiColonne);
 
-		cout << Element << " en position (" << uiLigne << ", " << uiColonne << ") >> ";
+	//	cout << Element << " en position (" << uiLigne << ", " << uiColonne << ") >> ";
 		pfElements[uiBoucle] = Element;
-		cout << " (" << uiColonne << ", " << uiLigne << ")\n";
+	//	cout << " (" << uiColonne << ", " << uiLigne << ")\n";
 
 	}
 
 
-	CMatrice* MATResultat = new CMatrice(uiNbColonnes, uiNbLignes, pfElements);
-	free(pfElements);
-	MATResultat->MATAffiche();
-	return *MATResultat; // Objet détruit
+	CMatrice MATResultat(uiNbColonnes, uiNbLignes, pfElements);
+	return MATResultat; // Objet détruit
 }
 
 
 
-CMatrice& CMatrice::operator*(CMatriceBase MATObjet)
+CMatrice CMatrice::operator*(CMatrice MATObjet)
 {
 	CException mistake;
 	// Dimensions de la nouvelle matrice
@@ -97,17 +97,20 @@ CMatrice& CMatrice::operator*(CMatriceBase MATObjet)
 		pfElements[uiBoucle] = fElement;
 	}
 	
-	CMatrice* pMATResultat = new CMatrice(uiNbLignes, uiNbColonnes, pfElements);
+	
+
+	CMatrice MATResultat(uiNbLignes, uiNbColonnes, pfElements);
 	free(pfElements);
-	return *pMATResultat ; // pointeur détruit après retour par référence
+	return MATResultat ; // pointeur détruit après retour par référence
 }
 
-CMatrice& CMatrice::Greville()
+CMatrice CMatrice::Greville()
 {
 	unsigned int i = 0; /*itérateur boucle*/
 	unsigned int uiboucle = 1; /*itérateur boucle*/
 	unsigned int indice = 0; /*Indice dans le psuedo-matrice*/
 	float* coef = (float*)malloc(sizeof(float) * 1);
+	CMatrice temp;
 
 	float* AMatrice = (float*)malloc(sizeof(float) * 1* this->MATLireNbLigne());
 	/*Initialisation*/
@@ -135,17 +138,15 @@ CMatrice& CMatrice::Greville()
 	}
 	CMatrice psuedoMatrice(this->MATLireNbColonne(), this->MATLireNbLigne(), AMatrice);
 	/*Créarion des variables nécéssaires pour appliquer l'aglorithme*/
-	//CMatrice *a= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
-	//CMatrice *b= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
-	//CMatrice *c= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
-	//CMatrice *d= (CMatrice*)malloc(sizeof(CMatrice)*this->MATLireNbColonne());
 
 	CMatrice a,b,c,d;
 	/*Application de l'algorithme*/
 	for (uiboucle = 1; uiboucle < this->MATLireNbColonne(); uiboucle++)
 	{
-		d = psuedoMatrice * this->MATFromColonne(uiboucle);
-		c = this->MATFromColonne(uiboucle) - (psuedoMatrice * d);
+		temp = this->MATFromColonne(uiboucle);
+		d = psuedoMatrice * temp;
+		c = temp - (psuedoMatrice * d);
+		c.MATAffiche();
 		verif = false;
 		for (i = 0; i < c.MATLireNbLigne()* c.MATLireNbColonne() || verif == false; i++)
 		{
@@ -162,18 +163,10 @@ CMatrice& CMatrice::Greville()
 			*coef = (c.MATTranspose() * c).MATLireElement(0,0);
 			b = CMatrice(1,1,coef) * c.MATTranspose();
 		}
-
-		//b.MATAffiche();
-		//c.MATAffiche();
-		d.MATAffiche();
 		
 	}
 	
-	/*Desallocation*/
-	/*free(a);
-	free(b);
-	free(c);
-	free(d);*/
+	
 	return Exe;
 }
 
@@ -182,7 +175,7 @@ CMatrice::~CMatrice()
 
 }
 
-CMatrice& CMatrice::MATFromColonne(unsigned int numColonne)
+CMatrice CMatrice::MATFromColonne(unsigned int numColonne)
 {
 	CException mistake;
 	/*Vérification de l'existance du matrice et de la colonne*/
@@ -205,13 +198,13 @@ CMatrice& CMatrice::MATFromColonne(unsigned int numColonne)
 		tab[i] = this->MATLireElement(i, numColonne);
 	}
 
-	CMatrice* resultat = new CMatrice(this->MATLireNbLigne(), 1, tab);
+	CMatrice resultat(this->MATLireNbLigne(), 1, tab);
 	free(tab);
 
-	return *resultat;
+	return resultat;
 }
 
-CMatrice& CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
+CMatrice CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
 {
 	unsigned int uiboucle = 0;
 	float* tab = (float*)malloc(sizeof(float) * nbColonnes * nbLignes);
@@ -228,11 +221,13 @@ CMatrice& CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
 		}
 	}
 
-	CMatrice* resultat = new CMatrice(nbLignes, nbColonnes, tab);
+	CMatrice resultat(nbLignes, nbColonnes, tab);
 	free(tab);
 
-	return *resultat;
+	return resultat;
 }
+
+
 
 bool CMatrice::MATIsEmpty()
 {
@@ -246,7 +241,7 @@ bool CMatrice::MATIsEmpty()
 	}
 }
 
-CMatrice& CMatrice::operator-(CMatriceBase MATObjet)
+CMatrice CMatrice::operator-(CMatrice MATObjet)
 {
 	unsigned int uiCompteurLigne = 0; //itarateurs de boucles
 	unsigned int uiCompteurColonne = 0; //itarateurs de boucles
@@ -270,13 +265,12 @@ CMatrice& CMatrice::operator-(CMatriceBase MATObjet)
 	}
 
 
-	CMatrice* pMATResultatDifference = new CMatrice(uiCompteurLigne, uiCompteurColonne, MATTableau);
+	CMatrice MATResultatDifference(uiCompteurLigne, uiCompteurColonne, MATTableau);
 	free(MATTableau);
-
-	return *pMATResultatDifference;
+	return MATResultatDifference;
 }
 
-CMatrice& CMatrice::operator*(double dValeur)
+CMatrice CMatrice::operator*(double dValeur)
 {
 	unsigned int uiCompteurLignes = 0; //Itérateur de boucles
 	unsigned int uiCompteurColonne = 0; //Itérateur de boucles
@@ -297,9 +291,9 @@ CMatrice& CMatrice::operator*(double dValeur)
 		}
 	}
 
-	CMatrice* pMATResultatProduit = new CMatrice(uiCompteurLignes, uiCompteurColonne, MATTableau);
-
-	return *pMATResultatProduit;
+	CMatrice MATResultatProduit(uiCompteurLignes, uiCompteurColonne, MATTableau);
+	free(MATTableau);
+	return MATResultatProduit;
 }
 
 CMatrice CMatrice::operator/(double dValeur)
@@ -330,12 +324,13 @@ CMatrice CMatrice::operator/(double dValeur)
 		}
 	}
 
-	CMatrice* pMATResultatDivison = new CMatrice(uiCompteurLignes, uiCompteurColonne, MATTableau);
+	CMatrice MATResultatDivison(uiCompteurLignes, uiCompteurColonne, MATTableau);
 
-	return *pMATResultatDivison;
+	free(MATTableau);
+	return MATResultatDivison;
 }
 
-CMatrice& CMatrice::operator+(CMatriceBase MATObjet)
+CMatrice CMatrice::operator+(CMatrice MATObjet)
 {
 	unsigned int uiCompteurLigne, uiCompteurColonne;
 	CException EXCObjet;
@@ -358,8 +353,8 @@ CMatrice& CMatrice::operator+(CMatriceBase MATObjet)
 	}
 
 
-	CMatrice* pMATResultatSomme = new CMatrice(uiCompteurLigne, uiCompteurColonne, MATTableau);
-
-	return *pMATResultatSomme;
+	CMatrice MATResultatSomme(uiCompteurLigne, uiCompteurColonne, MATTableau);
+	free(MATTableau);
+	return MATResultatSomme;
 }
 

@@ -12,7 +12,7 @@ class CMatrice : public CMatriceBase
 public:
 	/**
 	* Constructeur de confort
-	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de recopie de CMatriceBase
+	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de confort de CMatriceBase
 	 * @param uiLignes 
 	 * @param uiColonnes 
 	 * @param pfElements 
@@ -20,34 +20,41 @@ public:
 	CMatrice(unsigned int uiLignes, unsigned int uiColonnes, float *pfElements = nullptr);
 
 	/**
-	* Constructeur 
-	 * @brief 
+	* Constructeur par default
+	 * @brief Creation d'un objet CMatrice vide
 	*/
 	CMatrice();
 
-	CMatrice(CMatrice& MATObjet);
+	/**
+	* Constructeur de recopie
+	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de recopie de CMatriceBase
+	 * @param MATObjet 
+	*/
+	CMatrice(const CMatrice& MATObjet);
 
-	CMatrice& MATTranspose();
+	CMatrice MATTranspose();
 
-	CMatrice& operator*(CMatriceBase MATObjet);
+	CMatrice operator*(CMatrice MATObjet);
 
 	bool MATIsEmpty();
 
-	CMatrice& operator-(CMatriceBase MATObjet);
+	CMatrice operator-(CMatrice MATObjet);
 
-	CMatrice& operator*(double dValeur);
+	CMatrice operator*(double dValeur);
 
 	CMatrice operator/(double dValeur);
 
-	CMatrice& operator+(CMatriceBase MATObjet);
+	CMatrice operator+(CMatrice MATObjet);
 
-	CMatrice& Greville();
+	CMatrice Greville();
 
 	~CMatrice();
 
-	CMatrice& MATFromColonne( unsigned int numColonne);
+	CMatrice MATFromColonne( unsigned int numColonne);
 
-	static CMatrice& MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
+	static CMatrice MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
+
+	
 
 };
 #endif

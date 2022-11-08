@@ -27,7 +27,7 @@ public:
 	 * @brief Constructeur qui crée l'objet CMatriceBase et initialise ses membres en recopiant les membres d'un autre objet CMatriceBase.
 	 * @param MATObjet 
 	*/
-	CMatriceBase(CMatriceBase& MATObjet);
+	CMatriceBase(const CMatriceBase& MATObjet);
 
 	/**
 	* Constructeur de confort 
@@ -78,7 +78,7 @@ public:
 	 * @brief La méthode pour surcharger l'opérateur = permettant une recopie d'élément à élément
 	 * @param MATObjet 
 	*/
-	void operator=(CMatriceBase& MATObjet);
+	void operator=(const CMatriceBase& MATObjet);
 
 };
 #endif

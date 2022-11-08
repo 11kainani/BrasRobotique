@@ -26,7 +26,7 @@ CMatriceBase::CMatriceBase()
 	uiMATNbLigne = 0;
 }
 
-CMatriceBase::CMatriceBase(CMatriceBase& MATObjet)
+CMatriceBase::CMatriceBase(const CMatriceBase& MATObjet)
 {
 	unsigned int uiBoucle;
 
@@ -139,7 +139,7 @@ CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float
 	return;
 }
 
-void CMatriceBase::operator=(CMatriceBase& MATObjet)
+void CMatriceBase::operator=(const CMatriceBase& MATObjet)
 {
 	unsigned int uiBoucle;
 	uiMATNbLigne = MATObjet.uiMATNbLigne;
