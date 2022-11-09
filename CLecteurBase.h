@@ -7,36 +7,53 @@ using namespace std;
 
 class CLecteurBase
 {
+
+	char* pcFichier;
+	char* pcLigne; // Ligne en cours de lecture
+	ifstream ifStream;
+
 public:
-	CLecteurBase();
+	CLecteurBase();   // 
 
-	bool IsInt(char* pcInput);
+	CLecteurBase(char* pcFichier); //
 
-	bool IsDouble(char* pcInput);
+	void Load(); //
 
-	bool ToInt(char* pcInput, int& iVar);
+	bool NextLine(); //
 
-	bool ToDouble(char* pcInput, double& dVar);
+	bool EmptyLine(); //
 
-	bool FindWordInFileLine(ifstream& fichier, const char* pcMot, char** ppcLigne);
+	void NextChar(unsigned int longueur); //
 
-	//bool FindWordInFileLine(ifstream& fichier, const char* pcMot, char** ppcLigne);
+	char* LECLireNomFichier(); //
 
-	bool FindWordInSameFileLine(const char* pcMot, char* pcLigne);
+	void LECModifierFichier(const char* fichier); //
 
-	bool FindWordInSameFileWithSeparator(const char* pcMot, char* pcLigne, const char separator);
+	bool IsInt(char* pcInput); //
 
-	char ToLower(char cValeur);
+	bool IsDouble(char* pcInput); //
 
-	char* FindIntInLine(char* pcLigne);
+	bool ToInt(char* pcInput, int& iVar); //
 
-	char* FindIntInLineWithSeparator(char* pcLigne, const char separator);
+	bool ToDouble(char* pcInput, double& dVar); //
 
-	char* FindIntInLineAfterSeparator(char* pcLigne, const char separator);
+	bool FindWordInFileLine(const char* pcMot, char separateur); //
 
-	char** FindValuesInLine(char* pcLigne, const char separator);
+	// bool FindWordInSameFileWithSeparator(const char* pcMot, char* pcLigne, const char separator);
 
-	void InputIntPositif(const char* pcMessage, int& iVariable);
+	char ToLower(char cValeur); //
+
+	char* FindIntInLine(char separateur); //
+
+	char* FindDoubleInLine(char separateur); //
+
+	// char* FindIntInLineWithSeparator(char* pcLigne, const char separator); 
+
+	// char* FindIntInLineAfterSeparator(char* pcLigne, const char separator);
+
+	// char** FindValuesInLine(char* pcLigne, const char separator);
+
+	// void InputIntPositif(const char* pcMessage, int& iVariable);
 
 };
 #endif

@@ -24,15 +24,15 @@ public:
 
 	float LireValeur();
 
-	void ModifierValeur(float fValue);
+	bool ModifierValeur(float fValue);
 
 	float LireMax();
 
-	void ModifierMax(float max);
+	bool ModifierMax(float max);
 
 	float LireMin();
 
-	void ModifierMin(float min);
+	bool ModifierMin(float min);
 
 	bool LireBVariable();
 

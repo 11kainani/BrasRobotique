@@ -2,13 +2,14 @@
 #define DENAVIT_PARAMETER_H
 
 #include <iostream>
-
 #include "VariableArticulaire.h"
+using namespace std;
+#define NB_VARIABLES 4
 
 class DenavitParameter
 {
 private:
-	VariableArticulaire** variableArticulaire;
+	VariableArticulaire** pVARVariable;
 
 public:
 	DenavitParameter();
@@ -19,11 +20,13 @@ public:
 
 	~DenavitParameter();
 
-	void AddParameter(int iIndice, VariableArticulaire VARvariable);
+	void SetVariable(int iIndice, VariableArticulaire* VARvariable);
 
-	void DeleteParameter(int iIndice);
+	void DeleteVariable(int iIndice);
 
-	void Swap(int iFrom, int iDestination);
+	// void Swap(int iFrom, int iDestination);
+
+	void Affiche();
 
 };
 #endif

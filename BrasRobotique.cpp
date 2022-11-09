@@ -1,50 +1,72 @@
 // BrasRobotique.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
-#include "..\..\..\BrasRobotique-Jesimiel\DenavitParameter.h"
+#include "DenavitParameter.h"
+#include "CLecteurBase.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!\n"; 
+	cout << "Hello World!\n\n";
+
 	
-	/*
-	CLecteurBase lec;
-	int taille = 20;
-	bool res;
+	CLecteurBase lec((char*)"test.txt");
+	DenavitParameter dp;
+	bool res = false;
 	double var;
-	char* texte = (char*)malloc(sizeof(char) * taille);
-	
+	char* texte = nullptr;
+
+	cout << "read" << endl;
 	do
 	{
-		cin >> texte;
-		res = lec.FindWordInSameFileLine("h", texte);
-		cout << "Resultat : " << res << endl;
-		if (res)
+		texte = lec.FindDoubleInLine(',');
+		if (texte != nullptr)
+		{
+			lec.ToDouble(texte, var);
+			cout << var << " ";
+			res = true;
+		}
+		else
 		{
 			
+			if (lec.EmptyLine())
+			{
+				cout << endl;
+				res = lec.NextLine();
+			}
+			else
+			{
+				cout << "Nan ";
+				res = true;
+			}
 		}
-
 	}while (res == 1);
 
 	free(texte);
-	*/
+	
 
-	VariableArticulaire v1(10, 0, 12, 1);
+
+	/*
+	VariableArticulaire v1(10, 5, 10, 1);
 	VariableArticulaire v2(9, 0, 12, 1);
 	VariableArticulaire v3(8, 0, 12, 1);
 	VariableArticulaire v4(10, 0, 12, 1);
 
-	VariableArticulaire** pv = (VariableArticulaire**)malloc(sizeof(VariableArticulaire*) * 4);
-	pv[0] = &v1;
-	pv[1] = &v2;
-	pv[2] = &v3;
-	pv[3] = &v4;
+	DenavitParameter dp;
+	dp.SetVariable(0, &v1);
+	dp.SetVariable(1, &v2);
+	dp.SetVariable(2, &v3);
+	dp.Affiche();
+	dp.DeleteVariable(2);
+	for (int i = 0; i < 10; i++)
+	{
+		v1.ModifierValeur(10-i);
+		dp.Affiche();
 
-	DenavitParameter dp(pv);
+	}
+	*/
 
-		
 	return 0;
 }
 

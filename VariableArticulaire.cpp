@@ -6,10 +6,19 @@
 
 VariableArticulaire::VariableArticulaire()
 {
+	fvaleur = 0;
+	fmin = 0;
+	fmax = 0;
+	bvariable = 0;
 }
 
 VariableArticulaire::VariableArticulaire(float fValue, int fMinValue, int fMaxValue, int bIsVariable)
 {
+	if (fMinValue > fMaxValue)
+	{
+		// Exception
+	}
+
 	fvaleur = fValue;
 	fmin = fMinValue;
 	fmax = fMaxValue;
@@ -25,9 +34,17 @@ float VariableArticulaire::LireValeur()
 	return fvaleur;
 }
 
-void VariableArticulaire::ModifierValeur(float fValue)
+bool VariableArticulaire::ModifierValeur(float fValue)
 {
+	if (fValue < fmin || fValue > fmax)
+	{
+		return false;
+	}
+
 	fvaleur = fValue;
+
+	return true;
+	
 }
 
 float VariableArticulaire::LireMax()
@@ -35,9 +52,17 @@ float VariableArticulaire::LireMax()
 	return fmax;
 }
 
-void VariableArticulaire::ModifierMax(float max)
+bool VariableArticulaire::ModifierMax(float max)
 {
+	if (max < fmin) { return false; }
+	
+	if(fvaleur > max)
+	{
+		fvaleur = max;
+	}
+
 	fmax = max;
+	return true;
 }
 
 float VariableArticulaire::LireMin()
@@ -45,9 +70,17 @@ float VariableArticulaire::LireMin()
 	return fmin;
 }
 
-void VariableArticulaire::ModifierMin(float min)
+bool VariableArticulaire::ModifierMin(float min)
 {
+	if (min > fmax) { return false; }
+
+	if (fvaleur < min)
+	{
+		fvaleur = min;
+	}
+
 	fmin = min;
+	return true;
 }
 
 bool VariableArticulaire::LireBVariable()
