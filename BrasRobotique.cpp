@@ -26,25 +26,34 @@ int main()
 			lec.ToDouble(texte, var);
 			cout << var << " ";
 			res = true;
+			free(texte);
 		}
 		else
 		{
 			
 			if (lec.EmptyLine())
 			{
+				lec.RewindTo(',', 1, true);
+				if (lec.FindWordInFileLine("h", ','))
+				{
+					cout << "h ";
+				}
+
 				cout << endl;
 				res = lec.NextLine();
 			}
 			else
 			{
-				cout << "Nan ";
+				lec.RewindTo(',', 2, true);
+				if (lec.FindWordInFileLine("h", ','))
+				{
+					cout << "h ";
+				}
+				else { cout << "Nan "; }
 				res = true;
 			}
 		}
 	}while (res == 1);
-
-	free(texte);
-	
 
 
 	/*

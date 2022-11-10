@@ -6,13 +6,33 @@ CLecteurBase::CLecteurBase()
 {
 	pcFichier = nullptr;
 	pcLigne = nullptr;
+	pcCurseur = nullptr;
 }
 
 CLecteurBase::CLecteurBase(char* fichier)
 {
 	pcFichier = fichier;
 	pcLigne = nullptr;
+	pcCurseur = nullptr;
 	Load();
+}
+
+CLecteurBase::~CLecteurBase()
+{
+	if (ifStream.is_open())
+	{
+		ifStream.close();
+		if (pcLigne != nullptr)
+		{
+			free(pcLigne);
+		}
+
+		if (pcCurseur != nullptr)
+		{
+			free(nullptr);
+		}
+	}
+
 }
 
 
@@ -63,9 +83,16 @@ void CLecteurBase::Load()
 		}
 
 		pcLigne = (char*)malloc(sizeof(char) * 255);
+		pcCurseur = (char*)malloc(sizeof(char) * 255);
+	}
+	else
+	{
+		// Exception : Aucun fichier fourni
+		return;
 	}
 
 	ifStream.getline(pcLigne, 255);
+	pcCurseur = pcLigne;
 
 }
 
@@ -78,47 +105,58 @@ bool CLecteurBase::NextLine()
 		ifStream.getline(pcLigne, 255);
 	}
 
+	pcCurseur = pcLigne;
+
 	// Retourne Vrai si le contenu de la ligne a changé
 	return ((pcLigne)[0] != '\0');
 }
 
 bool CLecteurBase::EmptyLine()
 {
-	return (pcLigne[0] == '\0');
+	return (pcCurseur[0] == '\0');
 }
 
 
 
 void CLecteurBase::NextChar(unsigned int longueur)
 {
-	char* nouveau = (char*)malloc(sizeof(char) * 255);
 	unsigned int uiBoucle = 0;
-	unsigned int uiBoucle2 = 0;
 
-	// Vérification que taille(pcLigne) > longueur
+	// Décalage du curseur
 	while (uiBoucle < longueur)
 	{
-		if (pcLigne[uiBoucle] == '\0')
+		if (*pcCurseur == '\0')
 		{
 			// Exception : Il n'y a pas d'autres caractères
 			return;
 		}
 
 		uiBoucle++;
+		pcCurseur++;
 	}
 
-	do
+}
+
+void CLecteurBase::RewindTo(char cible, unsigned int n, bool afterCible)
+{
+	while (n > 0)
 	{
-		nouveau[uiBoucle2] = pcLigne[uiBoucle2 + uiBoucle];
-		uiBoucle2++;
+		while (pcCurseur != pcLigne && *pcCurseur != cible)
+		{
+			pcCurseur--;
+		}
+		n--;
 
-	} while (pcLigne[uiBoucle2-1 + uiBoucle] != '\0');
+		if (n > 0 && pcCurseur != pcLigne)
+		{
+			pcCurseur--;
+		}
+	}
 
-	nouveau[uiBoucle2] = '\0';
-
-	free(pcLigne);
-	pcLigne = nouveau;
-
+	if (afterCible && pcCurseur != pcLigne)
+	{
+		pcCurseur++;
+	}
 }
 
 bool CLecteurBase::IsInt(char* pcInput)
@@ -280,32 +318,33 @@ bool CLecteurBase::FindWordInFileLine(const char* pcMot, char separateur)
 	unsigned int uiBoucle;
 	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
 	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
+	unsigned int uiLength = 0; // nb de caractères analysés
 	char* pcCaractere = nullptr;  // Caractère en cours d'analyse
 
-	pcCaractere = &(pcLigne)[0];
+	pcCaractere = pcCurseur;
 
 	// Recherche du mot pcMot suivit d'un separateur dans la ligne
-	do
+	while (pcCaractere[0] != '\0' && pcCaractere[0] != separateur)
 	{
-		while (*pcCaractere != '\0' && *pcCaractere != separateur)
+		// Récupére tous les caractéres autre que separateur et ' '
+		if (*pcCaractere != ' ')
 		{
-			// Récupére tous les caractéres autre que separateur et ' '
-			if (*pcCaractere != ' ')
-			{
-				pcTexte[uiIndice] = ToLower(*pcCaractere);
-				uiIndice++;
-			}
-
-			pcCaractere++; // passe au caractére suivant
+			pcTexte[uiIndice] = ToLower(*pcCaractere);
+			uiIndice++;
 		}
 
-		//if (*pcCaractere != '=') // Si le caractére '=' n'a pas été rencontré
-			//fichier.getline(pcLigne, 255); // Lis la ligne suivante
-	} while (pcTexte[0] == '\0' && (*pcCaractere != '\0' || *pcCaractere != separateur));
+		pcCaractere++; // passe au caractére suivant
+		uiLength++;
+	}
 
 	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
 
-	NextChar(uiIndice); // On passe au texte après le mot récupéré
+	NextChar(uiLength); // On passe au texte après le mot récupéré
+
+	if (pcCaractere[0] == separateur)
+	{
+		NextChar(1);
+	}
 
 	// Retourne la comparaison des deux mots
 	uiBoucle = 0;
@@ -391,7 +430,7 @@ char* CLecteurBase::FindIntInLine(char separateur)
 	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
 	char* pcCaractere = nullptr;
 
-	pcCaractere = &(pcLigne)[0];
+	pcCaractere = pcCurseur;
 	while (*pcCaractere != separateur && *pcCaractere != '\0')
 	{
 		pcCaractere++;
@@ -438,7 +477,7 @@ char* CLecteurBase::FindDoubleInLine(char separateur)
 	unsigned int uiLength = 0; // nombre de caractères analysés
 	char* pcCaractere = nullptr;
 
-	pcCaractere = &(pcLigne)[0];
+	pcCaractere = pcCurseur;
 
 	// Recherche d'un réel suivit d'un caractére separateur sur la méme ligne
 	while (*pcCaractere != '\0' && *pcCaractere != '\n' && *pcCaractere != separateur)
@@ -458,7 +497,7 @@ char* CLecteurBase::FindDoubleInLine(char separateur)
 
 	NextChar(uiLength); // On passe au texte après le nombre récupéré
 
-	if (uiIndice > 0)
+	if (pcCaractere[0] == separateur)
 	{
 		NextChar(1);
 	}

@@ -9,11 +9,14 @@ class CLecteurBase
 {
 
 	char* pcFichier;
-	char* pcLigne; // Ligne en cours de lecture
+	char* pcLigne; // Ligne en cours de lecture (alloué sur le tas)
+	char* pcCurseur;  // Texte en cours de lecture
 	ifstream ifStream;
 
 public:
 	CLecteurBase();   // 
+
+	~CLecteurBase(); //
 
 	CLecteurBase(char* pcFichier); //
 
@@ -24,6 +27,8 @@ public:
 	bool EmptyLine(); //
 
 	void NextChar(unsigned int longueur); //
+
+	void RewindTo(char cible, unsigned int n = 1, bool afterCible = false); //
 
 	char* LECLireNomFichier(); //
 
