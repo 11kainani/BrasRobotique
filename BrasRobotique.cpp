@@ -9,55 +9,20 @@ using namespace std;
 int main()
 {
    float black[4] = {4, 2, 4, 2};
+   float noir[6] = {1, 4, 2,3,1,7};
    
-    std::cout << "Hello World!\n";
     CMatrice wei(2,2,black);
-  //  wei.MATAffiche();
+ 
+   
 
-    CMatrice ouu;
-    ouu = wei ;
-
-
-
-    wei* ouu - wei * wei * (double)2 ;
-   // ouu.MATAffiche();
-      
-    CMatrice full = wei;
-   // full.MATTranspose();
-
-    //full.MATAffiche();
-
-    (full * wei * ouu).MATAffiche();
-
-    CMatrice  mult =  wei + full;
-
-    //mult.MATAffiche();
-
-   CMatrice testt = wei * wei - full * mult;
-
-
-    
-
-
-    full.MATAffiche(); 
-    
-    
-    float tab[3] = { 1,2,3 };
-
-    CMatrice mat(1, 3, tab);
-
-    //mat.MATAffiche();
-
-    CMatrice tess(3,1,tab);
-
-    //tess.MATAffiche();
-
-    float test[9] = { 1,0,0,0,2,0,0,0,4 };
+    float test[9] = { 1,2,3,4,5,6,7,8,4 };
 
     CMatrice Mare(3, 3, test);
+    CMatrice essai(2,3, noir);
+   
+  Mare.Greville().MATAffiche();
 
-
-   //Mare.Greville(); 
+  // essai.Greville().MATAffiche();
 
     //CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
 

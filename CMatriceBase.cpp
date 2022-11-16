@@ -70,6 +70,7 @@ unsigned int CMatriceBase::MATLireNbLigne()
 }
 
 float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
+
 {
 	CException EXCObjet;
 	if (uiLigne < 0 || uiLigne >= uiMATNbLigne)
@@ -125,7 +126,7 @@ CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float
 	uiMATNbLigne = uiLignes;
 	uiMATNbColonne = uiColonnes;
 	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
-	
+
 	if (pfMATElement == NULL)
 	{
 		cout << "Erreur\n";
@@ -133,7 +134,7 @@ CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float
 
 	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
 	{
-		pfMATElement[uiBoucle] = pfElements[uiBoucle]; 
+		pfMATElement[uiBoucle] = pfElements[uiBoucle];
 	}
 
 	return;
@@ -160,3 +161,62 @@ void CMatriceBase::operator=(const CMatriceBase& MATObjet)
 		pfMATElement[uiBoucle] = MATObjet.pfMATElement[uiBoucle]; // Recopie l'élément du tableau
 	}
 }
+
+void CMatriceBase::MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, float element)
+{
+	CException mistake;
+	unsigned int indice = indiceLigne * uiMATNbColonne + indiceColonne;
+	if (uiMATNbColonne * uiMATNbLigne <= indice)
+	{
+		mistake.EXCModifierValeur(EXC3);
+		throw mistake;
+
+	}
+
+	pfMATElement[indice] = element;
+}
+
+void CMatriceBase::MATModifierNbLignes(unsigned int number)
+{
+	uiMATNbLigne = number;
+}
+
+void CMatriceBase::MATModifierNbColonnes(unsigned int number)
+{
+	uiMATNbColonne = number;
+}
+
+void CMatriceBase::MATReallocMatrice(unsigned int element)
+{
+	CException mistake;
+
+	//S'occuper des cas d'erreur
+	unsigned int uiboucle, uiboucle2;
+	float* resultat = (float*)malloc(sizeof(float)*uiMATNbColonne*uiMATNbLigne + sizeof(float) * element);
+
+	if (resultat == nullptr)
+	{
+		cout << "bleuk";
+	}
+	else
+	{
+
+		for (uiboucle = 0; uiboucle < uiMATNbLigne; uiboucle++)
+		{
+			for (uiboucle2 = 0; uiboucle2 <uiMATNbLigne; uiboucle2++)
+			{
+				resultat[uiboucle * uiMATNbColonne + uiboucle2]=pfMATElement[uiboucle*uiMATNbColonne+uiboucle2];
+			}
+		}
+	}
+
+
+	free(pfMATElement);
+	pfMATElement = resultat;
+
+	
+	
+	
+
+}
+

@@ -80,5 +80,15 @@ public:
 	*/
 	void operator=(const CMatriceBase& MATObjet);
 
+	void MATModiferElement(unsigned int indiceLigne,unsigned int indiceColonne, float element);
+
+	void MATReallocMatrice(unsigned int element);
+	
+	void MATModifierNbLignes(unsigned int number);
+
+	void MATModifierNbColonnes(unsigned int number);
+
+
+	
 };
 #endif

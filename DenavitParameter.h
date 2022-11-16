@@ -10,7 +10,7 @@
 class DenavitParameter
 {
 private:
-	VariableArticulaire variableArticulaire;
+	VariableArticulaire** variableArticulaire;
 
 public:
 	DenavitParameter();

@@ -54,6 +54,14 @@ public:
 
 	static CMatrice MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
 
+	void MATAjouterLignes(unsigned int number);
+
+	void MATAjouterColonnes(unsigned int number);
+
+	void MATAjouerLignesMatrice(CMatrice Objet);
+
+	void MATAjouerColonnesMatrice(CMatrice Objet);
+
 	
 
 };
