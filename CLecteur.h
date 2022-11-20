@@ -6,42 +6,42 @@
 #include <fstream>
 
 #include "CLecteurBase.h"
-#include "CMatrice.h"
+#include "VariableArticulaire.h"
 
 using std::ifstream;
 
 class CLecteur : public CLecteurBase
 {
 private:
-	char** ppcLECCheminFichier;
 
-	unsigned int uiLECNbrFichier;
-
-	CMatrice* pMATLECListe;
-
-	unsigned int uiLECnbMAtrice;
-
-	char* pcLECFichier;
+	VariableArticlaire* pVARListe; 		// Liste dynamique d'objet VariableArticulaire
+	VariableArticulaire** ppVARVariables; 	// Liste dynamique de pointeurs d'objet VariableArticulaire
+	unsigned int uiNbElements; 		// Nombre d'objets contenus dans pVARListe
+	unsigned int uiNbVariables; 		// Nombre de pointeurs contenus dans ppVARVariables
 
 
 public:
-	CLecteur(char* ppcCheminFichier);
+	CLecteur(char* pcCheminFichier);
 
 	CLecteur();
 
 	~CLecteur();
 
-	CMatrice LECLireNbMatrice();
+	unsigned int LireNbElements();
+	
+	unsigned int LireNbVariables();
 
-	unsigned int& LECLireMatrice(unsigned int uiIndice);
+	VariableArticulaire& LireElement(unsigned int uiIndice);
+	
+	VariableArticulaire& LireVariable(unsigned int uiIndice);
 
-	bool LECFindElement(char* pcLigne, char* pccMot);
+	// bool LECFindElement(char* pcLigne, char* pccMot);
 
-	int LECFindColonneEtLigne(char* pcPhrase);
+	// int LECFindColonneEtLigne(char* pcPhrase);
 
-	int& LECLireFichier();
+	void LireFichier();
 
-	void LECModifierFichier(const char* pcFichier);
+	void ModifierFichier(const char* pcFichier);
 
 };
 #endif
