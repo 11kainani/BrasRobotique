@@ -16,8 +16,11 @@ private:
 
 	VariableArticlaire* pVARListe; 		// Liste dynamique d'objet VariableArticulaire
 	VariableArticulaire** ppVARVariables; 	// Liste dynamique de pointeurs d'objet VariableArticulaire
+	DenavitParameter* pDENParametres; 	// Liste dynamique de paramètres de Denavit
 	unsigned int uiNbElements; 		// Nombre d'objets contenus dans pVARListe
 	unsigned int uiNbVariables; 		// Nombre de pointeurs contenus dans ppVARVariables
+	unsigned int uiNbParametres;		// Nombre de paramètres de Denavit dans pDENParametres
+
 
 
 public:
