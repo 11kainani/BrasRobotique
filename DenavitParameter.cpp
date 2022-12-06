@@ -1,5 +1,4 @@
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 
 #include "DenavitParameter.h"
@@ -7,13 +6,11 @@
 
 DenavitParameter::DenavitParameter()
 {
-	int i;
-	pVARVariable = (VariableArticulaire**)malloc(sizeof(VariableArticulaire*) * NB_VARIABLES +sizeof(char));
-	for ( i = 0; i < NB_VARIABLES; i++)
+	pVARVariable = (VariableArticulaire**)malloc(sizeof(VariableArticulaire*) * NB_VARIABLES);
+	for (int i = 0; i < NB_VARIABLES; i++)
 	{
 		pVARVariable[i] = nullptr;
 	}
-
 }
 
 DenavitParameter::DenavitParameter(VariableArticulaire** VARListe)
@@ -55,11 +52,12 @@ void DenavitParameter::SetVariable(int iIndice, VariableArticulaire* VARvariable
 		return;
 	}
 
+	/*
 	if (VARvariable == nullptr)
 	{
 		// Exception : Aucune variable fournie
 		return;
-	}
+	}*/
 
 	pVARVariable[iIndice] = VARvariable;
 
@@ -76,7 +74,23 @@ void DenavitParameter::DeleteVariable(int iIndice)
 	pVARVariable[iIndice] = nullptr;
 }
 
+/*
+void DenavitParameter::Swap(int iFrom, int iDestination)
+{
 
+}
+*/
+
+
+DenavitParameter& DenavitParameter::operator=(DenavitParameter& parameter)
+{
+	for (int i = 0; i < NB_VARIABLES; i++)
+	{
+		SetVariable(i, parameter.pVARVariable[i]);
+	}
+
+	return *this;
+}
 
 void DenavitParameter::Affiche()
 {
