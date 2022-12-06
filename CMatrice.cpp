@@ -10,7 +10,7 @@
 #define TAILLE_INCOMPATIBLE 11
 #define MATRICEVIDE 12
 
-#define precision 0.0001   // Define your own tolerance
+#define precision 0.0001   // Chiffres significatifs
 /**
 * @Brief Fonction qui permet de vérifier si des float sont égaux en prenant compte de la précision. En effet, les fractions en float sont directement convertit en décimal avec une précision de 0.0000001. Par conséquence certaines égalités sont fausse à cause de la conversion du compilateur. 
 */
@@ -63,6 +63,7 @@ CMatrice CMatrice::MATTranspose()
 
 
 	CMatrice MATResultat(uiNbColonnes, uiNbLignes, pfElements);
+	free(pfElements);
 	return MATResultat; // Objet détruit
 }
 
@@ -115,34 +116,36 @@ CMatrice CMatrice::operator*(CMatrice MATObjet)
 
 CMatrice CMatrice::Greville()
 {
+	/**Declaration*/
 	unsigned int i = 0; /*itérateur boucle*/
 	unsigned int uiboucle = 1; /*itérateur boucle*/
 	unsigned int indice = 0; /*Indice dans le psuedo-matrice*/
-	float* coef = (float*)malloc(sizeof(float) * 1);
-	CMatrice temp;
-	CMatrice kPremieresColonnes;
-	CMatrice psuedoMatrice;
+	float* coef = (float*)malloc(sizeof(float) * 1); /*Valeur intermédiare nécessaire pour le calcul de b lorsque c n'est pas une matrice null*/
+	CMatrice kPremieresColonnes; /*Matrice des k premières colonnes de la matrice A*/
+	CMatrice psuedoMatrice; /*La matrice inverse de A (dans certains cas : pseudoMatrice)*/
+	CMatrice a, b, c, d; 
+	float* AMatrice = (float*)malloc(sizeof(float) * 1* this->MATLireNbLigne()); /**Initialisation d'un pointeur de float de la taille de la première colonne de A nécessaire pour l'initialisation de la pseudomatrice*/
 
-	float* AMatrice = (float*)malloc(sizeof(float) * 1* this->MATLireNbLigne());
-	/*Initialisation*/
-	bool verif = false; /*Booléean qui est à faux tant que les élements d'une matrice sont égaux à 0*/
-	for (i = 0; i < this->MATLireNbLigne() && verif==false; i++)
+	/**Initialisation*/
+	bool verif = false; /**Booléean qui est à faux tant que les élements d'une matrice sont égaux à 0*/
+	for (i = 0; i < this->MATLireNbLigne() && verif==false; i++) /**tant qu'on a pas trouvé un élément non nul dans la première colonne de la matrice A et qu'il y a encore des element dans la matrice A*/
 	{
-		if (this->MATLireElement(i, 0) != 0)
+		if (this->MATLireElement(i, 0) != 0) 
 		{
-			verif = true;
+			verif = true; /**On a trouvé un élément non null dans la première colonne de la matrice A. */
 		}
 	}
-	if (verif != true)
+	if (verif != true) /**Si dans la première colonne de A, tous les éléments sont égaux à 0 exactement*/
 	{
 		for (i = 0; i < this->MATLireNbColonne() ; i++)
 		{
+			/*On crée une matrice de taille 1xNombreDeLignesDansA null qu'on affecte à la matrice pseudoMatrice*/
 			AMatrice[i] = 0;
 			CMatrice MATTemp (1, this->MATLireNbLigne(), AMatrice);
-			psuedoMatrice = MATTemp;
+			psuedoMatrice = MATTemp; 
 		}
 	}
-	else {
+	else { /*Sinon, pseudoMatrice vaut: (a1.transpose*a)^-1 * a.transpose*/
 		for (i = 0; i <  this->MATLireNbLigne(); i++)
 		{
 			AMatrice[i] = this->MATLireElement(i,0);
@@ -154,21 +157,15 @@ CMatrice CMatrice::Greville()
 		}
 		
 	}
-//	CMatrice psuedoMatrice(this->MATLireNbColonne(), this->MATLireNbLigne(), AMatrice);
-	//CMatrice psuedoMatrice(1,this->MATLireNbLigne(), AMatrice);
-	/*Créarion des variables nécéssaires pour appliquer l'aglorithme*/
 
-	CMatrice a, b,c,cTemp,d, dbtemp;
+
 	/*Application de l'algorithme*/
 	for (uiboucle = 1; uiboucle < this->MATLireNbColonne(); uiboucle++)
 	{
-		cout << "La pseudo matrice :"  <<  uiboucle << "\n" ;
 		psuedoMatrice.MATAffiche();
-		cout << "matrice  a : " << uiboucle +1 << "\n";
 		a = this->MATFromColonne(uiboucle);
 		a.MATAffiche();
 		d = psuedoMatrice * a;
-		cout << "La matrice d" << uiboucle + 1 << ":\n";
 		d.MATAffiche();
 		if (uiboucle == 1)
 		{
@@ -179,14 +176,12 @@ CMatrice CMatrice::Greville()
 			kPremieresColonnes.MATAjouerColonnesMatrice(this->MATFromColonne(uiboucle - 1));
 		}
 		
-		cout << "La matrice A" << uiboucle + 1 << ":\n";
-		(kPremieresColonnes).MATAffiche();
-		
-		c = a - (kPremieresColonnes * d); //K premiers colonnes de la matrice A
-		cout << "La matrice c" << uiboucle+1 << ":\n";
-		c.MATAffiche();
+		c = a - (kPremieresColonnes * d);
 	
-		
+		/**
+		 * @brief Est ce que la matrice c
+		 * @return false si la matrice c est null sinon true 
+		*/
 		verif = false;
 		for (i = 0; i < c.MATLireNbLigne()* c.MATLireNbColonne() && verif == false; i++)
 		{
@@ -198,10 +193,13 @@ CMatrice CMatrice::Greville()
 			{
 				verif = true;
 			}
-		}if (verif != true)
+		}
+		/**
+		 * Selon les valeurs de la matrice C, on calcule b de manière différente
+		*/
+		if (verif != true)
 		{
-			/**coef = 1 / (CMatrice::MATIdentity(d.MATLireNbLigne(), d.MATLireNbColonne()) + d.MATTranspose() * d).MATLireElement(0, 0);
-			b =  CMatrice(1,1,coef) * d.MATTranspose() * psuedoMatrice;*/
+
 			CMatrice temp = (CMatrice::MATIdentity(1, 1) + d.MATTranspose() * d);
 			float fintermediaire = 1 / temp.MATLireElement(0, 0);
 			b =  (d.MATTranspose()* fintermediaire) * psuedoMatrice;
@@ -211,13 +209,15 @@ CMatrice CMatrice::Greville()
 			b = CMatrice(1,1,coef) * c.MATTranspose();
 			
 		}
-		cout << "Matrice b " << uiboucle - 1 << "\n";
-		b.MATAffiche();
 		psuedoMatrice = psuedoMatrice - d * b;
 		psuedoMatrice.MATAjouerLignesMatrice(b);
 	}
 	
-	
+	/**
+	 *Libération
+	*/
+	free(coef);
+	free(AMatrice);
 	return psuedoMatrice;
 	
 }
@@ -445,7 +445,7 @@ CMatrice CMatrice::operator-(CMatrice MATObjet)
 	return MATResultatDifference;
 }
 
-CMatrice CMatrice::operator*(double dValeur)
+CMatrice CMatrice::operator*(float fValeur)
 {
 	unsigned int uiCompteurLignes = 0; //Itérateur de boucles
 	unsigned int uiCompteurColonne = 0; //Itérateur de boucles
@@ -462,7 +462,7 @@ CMatrice CMatrice::operator*(double dValeur)
 	{
 		for (uiCompteurColonne = 0; uiCompteurColonne < this->MATLireNbColonne(); uiCompteurColonne++)
 		{
-			MATTableau[uiCompteurLignes * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLignes, uiCompteurColonne) * dValeur;
+			MATTableau[uiCompteurLignes * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLignes, uiCompteurColonne) * fValeur;
 		}
 	}
 
@@ -471,7 +471,7 @@ CMatrice CMatrice::operator*(double dValeur)
 	return MATResultatProduit;
 }
 
-CMatrice CMatrice::operator/(double dValeur)
+CMatrice CMatrice::operator/(float fValeur)
 {
 	unsigned int uiCompteurLignes = 0; //Iterateur de boucle
 	unsigned int uiCompteurColonne = 0; //Iterateur de boucle
@@ -484,7 +484,7 @@ CMatrice CMatrice::operator/(double dValeur)
 		throw EXCObjet;
 	}
 
-	if (dValeur == 0)
+	if (fValeur == 0)
 	{
 		EXCObjet.EXCModifierValeur(DIVISION_PAR_ZERO);
 		std::cout << "Divison par 0. Impossible";
@@ -495,7 +495,7 @@ CMatrice CMatrice::operator/(double dValeur)
 	{
 		for (uiCompteurColonne = 0; uiCompteurColonne < this->MATLireNbColonne(); uiCompteurColonne++)
 		{
-			MATTableau[uiCompteurLignes * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLignes, uiCompteurColonne) / dValeur;
+			MATTableau[uiCompteurLignes * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLignes, uiCompteurColonne) / fValeur;
 		}
 	}
 
@@ -507,7 +507,8 @@ CMatrice CMatrice::operator/(double dValeur)
 
 CMatrice CMatrice::operator+(CMatrice MATObjet)
 {
-	unsigned int uiCompteurLigne, uiCompteurColonne;
+	unsigned int uiCompteurLigne = 0;
+	unsigned int uiCompteurColonne = 0;
 	CException EXCObjet;
 
 	if (this->MATLireNbColonne() != MATObjet.MATLireNbColonne() || this->MATLireNbLigne() != MATObjet.MATLireNbLigne())
@@ -516,17 +517,22 @@ CMatrice CMatrice::operator+(CMatrice MATObjet)
 		std::cout << "Taille imcompatible";
 		throw EXCObjet;
 	}
+	
 	float* MATTableau = (float*)malloc(sizeof(float) * this->MATLireNbLigne() * this->MATLireNbColonne());
 
-	for (uiCompteurLigne = 0; uiCompteurLigne < this->MATLireNbLigne(); uiCompteurLigne++)
+	if (MATTableau)
 	{
-		for (uiCompteurColonne = 0; uiCompteurColonne < this->MATLireNbColonne(); uiCompteurColonne++)
+
+
+		for (uiCompteurLigne = 0; uiCompteurLigne < this->MATLireNbLigne(); uiCompteurLigne++)
 		{
-			MATTableau[uiCompteurLigne * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLigne, uiCompteurColonne) + MATObjet.MATLireElement(uiCompteurLigne, uiCompteurColonne);
+			for (uiCompteurColonne = 0; uiCompteurColonne < this->MATLireNbColonne(); uiCompteurColonne++)
+			{
+				MATTableau[uiCompteurLigne * this->MATLireNbColonne() + uiCompteurColonne] = this->MATLireElement(uiCompteurLigne, uiCompteurColonne) + MATObjet.MATLireElement(uiCompteurLigne, uiCompteurColonne);
+			}
+
 		}
-
 	}
-
 
 	CMatrice MATResultatSomme(uiCompteurLigne, uiCompteurColonne, MATTableau);
 	free(MATTableau);

@@ -126,17 +126,18 @@ CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float
 	uiMATNbLigne = uiLignes;
 	uiMATNbColonne = uiColonnes;
 	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
-
-	if (pfMATElement == NULL)
+	if (pfMATElement)
 	{
-		cout << "Erreur\n";
-	}
+		if (pfMATElement == NULL)
+		{
+			cout << "Erreur\n";
+		}
 
-	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
-	{
-		pfMATElement[uiBoucle] = pfElements[uiBoucle];
+		for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
+		{
+			pfMATElement[uiBoucle] = pfElements[uiBoucle];
+		}
 	}
-
 	return;
 }
 
@@ -194,25 +195,28 @@ void CMatriceBase::MATReallocMatrice(unsigned int element)
 	unsigned int uiboucle, uiboucle2;
 	float* resultat = (float*)malloc(sizeof(float)*uiMATNbColonne*uiMATNbLigne + sizeof(float) * element);
 
-	if (resultat == nullptr)
+	if (resultat)
 	{
-		cout << "bleuk";
-	}
-	else
-	{
-
-		for (uiboucle = 0; uiboucle < uiMATNbLigne; uiboucle++)
-		{
-			for (uiboucle2 = 0; uiboucle2 <uiMATNbLigne; uiboucle2++)
+		if (resultat == nullptr)
 			{
-				resultat[uiboucle * uiMATNbColonne + uiboucle2]=pfMATElement[uiboucle*uiMATNbColonne+uiboucle2];
+				cout << "bleuk";
 			}
-		}
+			else
+			{
+
+				for (uiboucle = 0; uiboucle < uiMATNbLigne; uiboucle++)
+				{
+					for (uiboucle2 = 0; uiboucle2 <uiMATNbLigne; uiboucle2++)
+					{
+						resultat[uiboucle * uiMATNbColonne + uiboucle2]=pfMATElement[uiboucle*uiMATNbColonne+uiboucle2];
+					}
+				}
+			}
+		free(pfMATElement);
+		pfMATElement = resultat;
 	}
-
-
-	free(pfMATElement);
-	pfMATElement = resultat;
+	
+	
 
 	
 	

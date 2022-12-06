@@ -81,6 +81,7 @@ public:
 	void operator=(const CMatriceBase& MATObjet);
 
 	void MATModiferElement(unsigned int indiceLigne,unsigned int indiceColonne, float element);
+protected :
 
 	void MATReallocMatrice(unsigned int element);
 	

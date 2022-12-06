@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_2a_21',['operator*',['../classCMatrice.html#af122d50a6b296441544d911f18363ead',1,'CMatrice']]]
+  ['operator_3d_28',['operator=',['../classCMatriceBase.html#ae26668eae6853140d8bf5014ab5d2512',1,'CMatriceBase']]]
 ];

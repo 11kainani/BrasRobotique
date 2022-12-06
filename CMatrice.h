@@ -32,18 +32,58 @@ public:
 	*/
 	CMatrice(const CMatrice& MATObjet);
 
+	/**
+	* Transposition de matrice
+	 * @brief Transpose une matrice
+	 * @return la matrice transposé
+	*/
 	CMatrice MATTranspose();
 
+	/**
+	* Surcharge de l'operateur *
+	 * @brief Surcharge de l'operateur * pour permettre la multiplication entre 2 matrices
+	 * @param MATObjet 
+	 * @return Le produit de 2 matrices
+	*/
 	CMatrice operator*(CMatrice MATObjet);
 
+	/**
+	* La matrice est-elle vide ? 
+	 * @brief Vérifie si la matrice est vide
+	 * @return true si la matrice est vide sinon false
+	*/
 	bool MATIsEmpty();
 
+	/**
+	* Surcharge de l'operateur -
+	 * @brief Surcharge de l'opérateur -
+	 * @param MATObjet 
+	 * @return La différence entre 2 matrices
+	*/
 	CMatrice operator-(CMatrice MATObjet);
 
-	CMatrice operator*(double dValeur);
+	/**
+	* Surcharge de l'operateur *
+	 * @brief Surcharge de l'operateur * pour permettre la multiplication d'une matrice avec un float
+	 * @param fValeur 
+	 * @return la matrice résultat multipée par le float
+	*/
+	CMatrice operator*(float fValeur);
 
-	CMatrice operator/(double dValeur);
+	/**
+	* Surcharge de l'operateur /
+	 * @brief Surcharge de l'operateur / pour permettre la division d'une matrice avec un float
+	 * @param fValeur 
+	 * @return 
+	*/
+	CMatrice operator/(float fValeur);
 
+	/**
+	* Surcharge de l'operateur +
+	 * @brief Surcharge de l'o^perateur + pour 
+	 * @param MATObjet 
+	 * @return 
+	*/
 	CMatrice operator+(CMatrice MATObjet);
 
 	CMatrice Greville();

@@ -22,11 +22,11 @@ int main()
    
   Mare.Greville().MATAffiche();
 
-  // essai.Greville().MATAffiche();
+   essai.Greville().MATAffiche();
 
-    //CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
+    CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
 
-    //jupiteur.MATAffiche();
+    jupiteur.MATAffiche();
 
     //Mare = jupiteur.MATTranspose(); 
 

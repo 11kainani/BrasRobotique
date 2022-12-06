@@ -8,27 +8,34 @@ Inheritance diagram for C\+Matrice\+Base\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}{C\+Matrice\+Base}} ()
-\begin{DoxyCompactList}\small\item\em Constructeur par default qui crée l\textquotesingle{}objet mais n\textquotesingle{}initialise pas ses membres. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}{C\+Matrice\+Base}} (\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
-\begin{DoxyCompactList}\small\item\em Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatrice}{C\+Matrice}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui crée l\textquotesingle{}objet et initialise ses membres à null. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCMatriceBase_a1ebd7392df8bed3964f1ca2ccbd0eba5}{C\+Matrice\+Base}} (const \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
+\begin{DoxyCompactList}\small\item\em Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}{C\+Matrice\+Base}} (unsigned int ui\+Lignes, unsigned int ui\+Colonnes, float $\ast$pf\+Elements=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Constructeur qui crée et initialise un object \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}{$\sim$\+C\+Matrice\+Base}} ()
 \begin{DoxyCompactList}\small\item\em Destructeur qui désalloue pf\+M\+A\+T\+Element et détruit l\textquotesingle{}objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. \end{DoxyCompactList}\item 
 unsigned int \mbox{\hyperlink{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}{M\+A\+T\+Lire\+Nb\+Colonne}} ()
 \begin{DoxyCompactList}\small\item\em Ce méthode permet de savoir combien de colonne cette matrice possède \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}\label{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}} 
-unsigned int {\bfseries M\+A\+T\+Lire\+Nb\+Ligne} ()
+unsigned int \mbox{\hyperlink{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}{M\+A\+T\+Lire\+Nb\+Ligne}} ()
+\begin{DoxyCompactList}\small\item\em Ce méthode permet de savoir combien de lignes cette matrice possède \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}{M\+A\+T\+Lire\+Element}} (unsigned int ui\+Ligne, unsigned int ui\+Colonne)
+\begin{DoxyCompactList}\small\item\em Lire l\textquotesingle{}élément à la ligne ui\+Ligne et dans le colonne ui\+Colonne de la matrice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}{M\+A\+T\+Affiche}} ()
+\begin{DoxyCompactList}\small\item\em Affiche la matrice dans la sortie standard. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCMatriceBase_ae26668eae6853140d8bf5014ab5d2512}{operator=}} (const \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
+\begin{DoxyCompactList}\small\item\em La méthode pour surcharger l\textquotesingle{}opérateur = permettant une recopie d\textquotesingle{}élément à élément. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCMatriceBase_a04a079d136b766830660963981c2bc42}\label{classCMatriceBase_a04a079d136b766830660963981c2bc42}} 
+void {\bfseries M\+A\+T\+Modifer\+Element} (unsigned int indice\+Ligne, unsigned int indice\+Colonne, float element)
 \item 
-\mbox{\Hypertarget{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}\label{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}} 
-float {\bfseries M\+A\+T\+Lire\+Element} (unsigned int ui\+Ligne, unsigned int ui\+Colonne)
+\mbox{\Hypertarget{classCMatriceBase_afc27895698685ffd4db4005b9bf78df0}\label{classCMatriceBase_afc27895698685ffd4db4005b9bf78df0}} 
+void {\bfseries M\+A\+T\+Realloc\+Matrice} (unsigned int element)
 \item 
-\mbox{\Hypertarget{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}\label{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}} 
-void {\bfseries M\+A\+T\+Affiche} ()
+\mbox{\Hypertarget{classCMatriceBase_ac46eb85c7eb313f55facdb885c868642}\label{classCMatriceBase_ac46eb85c7eb313f55facdb885c868642}} 
+void {\bfseries M\+A\+T\+Modifier\+Nb\+Lignes} (unsigned int number)
 \item 
-\mbox{\Hypertarget{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}\label{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}} 
-{\bfseries C\+Matrice\+Base} (unsigned int ui\+Lignes, unsigned int ui\+Colonnes, float $\ast$pf\+Elements=N\+U\+LL)
-\item 
-\mbox{\Hypertarget{classCMatriceBase_acff23172f3355beef599a235f28b62cd}\label{classCMatriceBase_acff23172f3355beef599a235f28b62cd}} 
-void {\bfseries operator=} (\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&M\+A\+T\+Objet)
+\mbox{\Hypertarget{classCMatriceBase_a9c47a5e112c70d541648219c758659a5}\label{classCMatriceBase_a9c47a5e112c70d541648219c758659a5}} 
+void {\bfseries M\+A\+T\+Modifier\+Nb\+Colonnes} (unsigned int number)
 \end{DoxyCompactItemize}
 
 
@@ -36,28 +43,47 @@ void {\bfseries operator=} (\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base
 \mbox{\Hypertarget{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}\label{classCMatriceBase_a86fb3623a8fb6f74bf51e27a9b823aa2}} 
 \index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
 \index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
-\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Constructeur par default qui crée l\textquotesingle{}objet mais n\textquotesingle{}initialise pas ses membres. 
+Constructeur par default qui crée l\textquotesingle{}objet et initialise ses membres à null. 
 
 Constructeur par default
 
-Constructeur par default entre \+: néant necessite\+: neant sortie \+: neant initialisation d\textquotesingle{}un objet matrice \mbox{\Hypertarget{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}\label{classCMatriceBase_a83f9fd3c530d6a8df9ae6b19a873623c}} 
+Constructeur par default entre \+: néant necessite\+: neant sortie \+: neant initialisation d\textquotesingle{}un objet matrice \mbox{\Hypertarget{classCMatriceBase_a1ebd7392df8bed3964f1ca2ccbd0eba5}\label{classCMatriceBase_a1ebd7392df8bed3964f1ca2ccbd0eba5}} 
 \index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
 \index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
-\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&}]{M\+A\+T\+Objet }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&}]{M\+A\+T\+Objet }\end{DoxyParamCaption})}
 
 
 
-Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatrice}{C\+Matrice}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. 
+Constructeur qui crée l\textquotesingle{}objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} et initialise ses membres en recopiant les membres d\textquotesingle{}un autre objet \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. 
 
 Constructeur de recopie 
 \begin{DoxyParams}{Parameters}
 {\em M\+A\+T\+Objet} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}\label{classCMatriceBase_a4e7ff65154e4b5ee870d30755804d939}} 
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\index{CMatriceBase@{CMatriceBase}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{CMatriceBase()}{CMatriceBase()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily C\+Matrice\+Base\+::\+C\+Matrice\+Base (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Lignes,  }\item[{unsigned int}]{ui\+Colonnes,  }\item[{float $\ast$}]{pf\+Elements = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Constructeur qui crée et initialise un object \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}}. 
+
+Constructeur de confort 
+\begin{DoxyParams}{Parameters}
+{\em ui\+Lignes} & \\
+\hline
+{\em ui\+Colonnes} & \\
+\hline
+{\em pf\+Elements} & \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}\label{classCMatriceBase_a577a9c3dda440738eaf68557812c3ccb}} 
@@ -73,6 +99,36 @@ Destructeur qui désalloue pf\+M\+A\+T\+Element et détruit l\textquotesingle{}obj
 Destructeur 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}\label{classCMatriceBase_abbb3aa6041dc6e430ef29f0fd551afd0}} 
+\index{CMatriceBase@{CMatriceBase}!MATAffiche@{MATAffiche}}
+\index{MATAffiche@{MATAffiche}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{MATAffiche()}{MATAffiche()}}
+{\footnotesize\ttfamily void C\+Matrice\+Base\+::\+M\+A\+T\+Affiche (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche la matrice dans la sortie standard. 
+
+Afficher la matrice \mbox{\Hypertarget{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}\label{classCMatriceBase_ac574b14445dae168cef99cb1f9628bac}} 
+\index{CMatriceBase@{CMatriceBase}!MATLireElement@{MATLireElement}}
+\index{MATLireElement@{MATLireElement}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{MATLireElement()}{MATLireElement()}}
+{\footnotesize\ttfamily float C\+Matrice\+Base\+::\+M\+A\+T\+Lire\+Element (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Ligne,  }\item[{unsigned int}]{ui\+Colonne }\end{DoxyParamCaption})}
+
+
+
+Lire l\textquotesingle{}élément à la ligne ui\+Ligne et dans le colonne ui\+Colonne de la matrice. 
+
+Lire un element de la matrice 
+\begin{DoxyParams}{Parameters}
+{\em ui\+Ligne} & \\
+\hline
+{\em ui\+Colonne} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float correspondant à l\textquotesingle{}élément lu 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}\label{classCMatriceBase_afb1549ee80c6dd152ea20f723c2b7612}} 
 \index{CMatriceBase@{CMatriceBase}!MATLireNbColonne@{MATLireNbColonne}}
 \index{MATLireNbColonne@{MATLireNbColonne}!CMatriceBase@{CMatriceBase}}
@@ -83,9 +139,37 @@ Destructeur
 
 Ce méthode permet de savoir combien de colonne cette matrice possède 
 
-Lire le nombre de colonne dans la matrice \begin{DoxyReturn}{Returns}
-unsigned int qui correspond au nombre de colonne dans la matrice 
+Lire le nombre de colonnes dans la matrice \begin{DoxyReturn}{Returns}
+unsigned int qui correspond au nombre de colonnes dans la matrice 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}\label{classCMatriceBase_a28e9dc8c12f961b9fc2b63d7be60a093}} 
+\index{CMatriceBase@{CMatriceBase}!MATLireNbLigne@{MATLireNbLigne}}
+\index{MATLireNbLigne@{MATLireNbLigne}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{MATLireNbLigne()}{MATLireNbLigne()}}
+{\footnotesize\ttfamily unsigned int C\+Matrice\+Base\+::\+M\+A\+T\+Lire\+Nb\+Ligne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ce méthode permet de savoir combien de lignes cette matrice possède 
+
+Lire le nombre de lignes dans la matrice \begin{DoxyReturn}{Returns}
+unsigned int qui correspond au nombre de lignes dans la matrice 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCMatriceBase_ae26668eae6853140d8bf5014ab5d2512}\label{classCMatriceBase_ae26668eae6853140d8bf5014ab5d2512}} 
+\index{CMatriceBase@{CMatriceBase}!operator=@{operator=}}
+\index{operator=@{operator=}!CMatriceBase@{CMatriceBase}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void C\+Matrice\+Base\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \&}]{M\+A\+T\+Objet }\end{DoxyParamCaption})}
+
+
+
+La méthode pour surcharger l\textquotesingle{}opérateur = permettant une recopie d\textquotesingle{}élément à élément. 
+
+Surcharge d\textquotesingle{}operateur égal 
+\begin{DoxyParams}{Parameters}
+{\em M\+A\+T\+Objet} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
