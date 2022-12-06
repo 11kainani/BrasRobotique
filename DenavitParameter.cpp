@@ -52,11 +52,12 @@ void DenavitParameter::SetVariable(int iIndice, VariableArticulaire* VARvariable
 		return;
 	}
 
+	/*
 	if (VARvariable == nullptr)
 	{
 		// Exception : Aucune variable fournie
 		return;
-	}
+	}*/
 
 	pVARVariable[iIndice] = VARvariable;
 
@@ -79,6 +80,17 @@ void DenavitParameter::Swap(int iFrom, int iDestination)
 
 }
 */
+
+
+DenavitParameter& DenavitParameter::operator=(DenavitParameter& parameter)
+{
+	for (int i = 0; i < NB_VARIABLES; i++)
+	{
+		SetVariable(i, parameter.pVARVariable[i]);
+	}
+
+	return *this;
+}
 
 void DenavitParameter::Affiche()
 {

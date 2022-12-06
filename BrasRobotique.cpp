@@ -2,7 +2,7 @@
 //
 
 #include "DenavitParameter.h"
-#include "CLecteurBase.h"
+#include "CLecteur.h"
 #include <iostream>
 using namespace std;
 
@@ -11,50 +11,13 @@ int main()
 	cout << "Hello World!\n\n";
 
 	
-	CLecteurBase lec((char*)"test.txt");
-	DenavitParameter dp;
+	CLecteur lec((char*)"test.txt");
+	// DenavitParameter dp;
 	bool res = false;
 	double var;
 	char* texte = nullptr;
 
-	cout << "read" << endl;
-	do
-	{
-		texte = lec.FindDoubleInLine(',');
-		if (texte != nullptr)
-		{
-			lec.ToDouble(texte, var);
-			cout << var << " ";
-			res = true;
-			free(texte);
-		}
-		else
-		{
-			
-			if (lec.EmptyLine())
-			{
-				lec.RewindTo(',', 1, true);
-				if (lec.FindWordInFileLine("h", ','))
-				{
-					cout << "h ";
-				}
-
-				cout << endl;
-				res = lec.NextLine();
-			}
-			else
-			{
-				lec.RewindTo(',', 2, true);
-				if (lec.FindWordInFileLine("h", ','))
-				{
-					cout << "h ";
-				}
-				else { cout << "Nan "; }
-				res = true;
-			}
-		}
-	}while (res == 1);
-
+	lec.LireFichier();
 
 	/*
 	VariableArticulaire v1(10, 5, 10, 1);

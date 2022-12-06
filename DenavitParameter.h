@@ -24,6 +24,8 @@ public:
 
 	void DeleteVariable(int iIndice);
 
+	DenavitParameter& operator=(DenavitParameter& parameter);
+
 	// void Swap(int iFrom, int iDestination);
 
 	void Affiche();

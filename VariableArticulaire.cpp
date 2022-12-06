@@ -54,7 +54,7 @@ float VariableArticulaire::LireMax()
 
 bool VariableArticulaire::ModifierMax(float max)
 {
-	if (max < fmin) { return false; }
+	// if (max < fmin) { return false; }
 	
 	if(fvaleur > max)
 	{
@@ -72,7 +72,7 @@ float VariableArticulaire::LireMin()
 
 bool VariableArticulaire::ModifierMin(float min)
 {
-	if (min > fmax) { return false; }
+	// if (min > fmax) { return false; }
 
 	if (fvaleur < min)
 	{

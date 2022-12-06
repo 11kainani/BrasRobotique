@@ -163,6 +163,8 @@ bool CLecteurBase::IsInt(char* pcInput)
 {
 	unsigned int uiBoucle = 1;
 
+	if (pcInput == nullptr) { return false; }
+
 	// Retourne false si le premier caractére n'est pas un chiffre ou le signe négatif
 	if (pcInput[0] != '-' && (pcInput[0] < '0' || pcInput[0] > '9'))
 	{
@@ -431,13 +433,9 @@ char* CLecteurBase::FindIntInLine(char separateur)
 	char* pcCaractere = nullptr;
 
 	pcCaractere = pcCurseur;
-	while (*pcCaractere != separateur && *pcCaractere != '\0')
-	{
-		pcCaractere++;
-	}
 
-	// Recherche d'un entier précédé d'un caractére separateur sur la méme ligne
-	while (*pcCaractere != '\0' && *pcCaractere != '\n')
+	// Recherche d'un entier suivit d'un caractére separateur sur la méme ligne
+	while (*pcCaractere != '\0' && *pcCaractere != separateur)
 	{
 		// Récupére tous les caractéres autre que '\n', separateur et ' '
 		if (*pcCaractere != ' ' && *pcCaractere != separateur)
