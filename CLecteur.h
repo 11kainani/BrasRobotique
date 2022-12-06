@@ -2,46 +2,50 @@
 #define C_LECTEUR_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 
 #include "CLecteurBase.h"
-#include "CMatrice.h"
+#include "VariableArticulaire.h"
+#include "DenavitParameter.h"
 
 using std::ifstream;
+using namespace std;
 
 class CLecteur : public CLecteurBase
 {
 private:
-	char** ppcLECCheminFichier;
 
-	unsigned int uiLECNbrFichier;
+	VariableArticulaire* pVARListe; 		// Liste dynamique d'objet VariableArticulaire
+	VariableArticulaire** ppVARVariables; 	// Liste dynamique de pointeurs d'objet VariableArticulaire
+	DenavitParameter* pDENParametres; 	// Liste dynamique de paramètres de Denavit
+	unsigned int uiNbElements; 		// Nombre d'objets contenus dans pVARListe
+	unsigned int uiNbVariables; 		// Nombre de pointeurs contenus dans ppVARVariables
+	unsigned int uiNbParametres;		// Nombre de paramètres de Denavit dans pDENParametres
 
-	CMatrice* pMATLECListe;
-
-	unsigned int uiLECnbMAtrice;
-
-	char* pcLECFichier;
 
 
 public:
-	CLecteur(char* ppcCheminFichier);
+	CLecteur(char* pcCheminFichier);
 
 	CLecteur();
 
 	~CLecteur();
 
-	CMatrice LECLireNbMatrice();
+	unsigned int LireNbElements();
 
-	unsigned int& LECLireMatrice(unsigned int uiIndice);
+	unsigned int LireNbVariables();
 
-	bool LECFindElement(char* pcLigne, char* pccMot);
+	VariableArticulaire& LireElement(unsigned int uiIndice);
 
-	int LECFindColonneEtLigne(char* pcPhrase);
+	VariableArticulaire& LireVariable(unsigned int uiIndice);
 
-	int& LECLireFichier();
+	// bool LECFindElement(char* pcLigne, char* pccMot);
 
-	void LECModifierFichier(const char* pcFichier);
+	// int LECFindColonneEtLigne(char* pcPhrase);
+
+	void LireFichier();
+
+	void ModifierFichier(const char* pcFichier);
 
 };
 #endif
