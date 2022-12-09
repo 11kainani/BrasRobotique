@@ -9,6 +9,7 @@
 #define DIVISION_PAR_ZERO 10
 #define TAILLE_INCOMPATIBLE 11
 #define MATRICEVIDE 12
+#include <math.h>
 
 #define precision 0.0001   // Chiffres significatifs
 /**
@@ -35,6 +36,34 @@ CMatrice::CMatrice()
 
 CMatrice::CMatrice(const CMatrice& MATObjet) : CMatriceBase(MATObjet)
 {
+
+}
+
+CMatrice CMatrice::MATDenavit(DenavitParameter DENObject)
+{
+	float * pfMATElementaire = (float*)malloc(sizeof(float)*16);
+
+	pfMATElementaire[0] = cos(DENObject.DENLireVariable(0)->LireValeur());
+	pfMATElementaire[1] = -sin(DENObject.DENLireVariable(0)->LireValeur()) * cos(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[2] = sin(DENObject.DENLireVariable(0)->LireValeur()) * cos(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[3] = DENObject.DENLireVariable(3)->LireValeur() * cos(DENObject.DENLireVariable(0)->LireValeur());
+	pfMATElementaire[4] = sin(DENObject.DENLireVariable(0)->LireValeur());
+	pfMATElementaire[5] = cos(DENObject.DENLireVariable(0)->LireValeur()) * cos(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[6] = -cos(DENObject.DENLireVariable(0)->LireValeur()) * sin(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[7] = (DENObject.DENLireVariable(3)->LireValeur()) * sin(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[8] = 0;
+	pfMATElementaire[9] = sin(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[10] = cos(DENObject.DENLireVariable(2)->LireValeur());
+	pfMATElementaire[11] = (DENObject.DENLireVariable(1)->LireValeur());
+	pfMATElementaire[12] = 0;
+	pfMATElementaire[13] = 0;
+	pfMATElementaire[14] = 0;
+	pfMATElementaire[15] = 1;
+
+	CMatrice MATResultat (4, 4, pfMATElementaire);
+
+	free(pfMATElementaire);
+	return MATResultat;
 
 }
 
