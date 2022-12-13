@@ -104,3 +104,4 @@ VariableArticulaire* DenavitParameter::DENLireVariable(unsigned int uiIndice)
 	
 	return pVARVariable[uiIndice];
 }
+

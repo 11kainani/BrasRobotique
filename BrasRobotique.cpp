@@ -2,10 +2,12 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "CMatriceBase.h"
 #include "CMatrice.h"
 #include "VariableArticulaire.h"
 #include "DenavitParameter.h"
+#include "CEcriture.h"
 
 using namespace std;
 
@@ -41,10 +43,22 @@ int main()
 
    cout << "\n";
 
+   
    CMatrice deny = CMatrice::MATDenavit(Denavit);
 
    deny.MATAffiche();
-   
+
+
+  DenavitParameter** listes = new DenavitParameter*[3]();
+  listes[0] = &Denavit;
+  listes[1] = &Denavit;
+  listes[2] = &Denavit;
+
+
+  CEcriture test10((char*)"text.txt", listes, 3);
+  test10.ECREcrireNouveauFichier();
+
+
 
    /*Desallocation*/
 
@@ -53,6 +67,8 @@ int main()
    delete alpha; 
    delete a;
    free(parameter);
+
+ //  delete[] listes;
 
 }
 

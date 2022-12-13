@@ -28,5 +28,7 @@ public:
 
 	VariableArticulaire* DENLireVariable(unsigned int uiIndice);
 
+
+
 };
 #endif
