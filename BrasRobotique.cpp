@@ -2,8 +2,13 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include "CMatriceBase.h"
 #include "CMatrice.h"
+#include "VariableArticulaire.h"
+#include "DenavitParameter.h"
+#include "CEcriture.h"
+
 using namespace std;
 
 int main()
@@ -11,28 +16,60 @@ int main()
    float black[4] = {4, 2, 4, 2};
    float noir[6] = {1, 4, 2,3,1,7};
    
-    CMatrice wei(2,2,black);
+   CMatrice wei(2,2,black);
  
    
 
-    float test[9] = { 1,2,3,4,5,6,7,8,4 };
+   float test[9] = { 1,2,3,4,5,6,7,8,4 };
+   CMatrice Mare(3, 3, test);
+   CMatrice essai(2,3, noir);
 
-    CMatrice Mare(3, 3, test);
-    CMatrice essai(2,3, noir);
+   VariableArticulaire *theta = new VariableArticulaire(5, 8, 2, true);
+   VariableArticulaire *d = new VariableArticulaire(12, 12, 12, false);
+   VariableArticulaire *alpha = new VariableArticulaire(1, 5, 1, true);
+   VariableArticulaire *a = new VariableArticulaire(10, 20, 0, true);
    
-  Mare.Greville().MATAffiche();
-
-   essai.Greville().MATAffiche();
-
-    CMatrice jupiteur = CMatrice::MATIdentity(5, 2);
-
-    jupiteur.MATAffiche();
-
-    //Mare = jupiteur.MATTranspose(); 
-
-    //jupiteur.MATAffiche();
-    //
+   VariableArticulaire** parameter = (VariableArticulaire**)malloc(sizeof(VariableArticulaire*) * 4);
+   
+   DenavitParameter Denavit(parameter);
     
+   Denavit.SetVariable(0, theta);
+   Denavit.SetVariable(1, d);
+   Denavit.SetVariable(2,alpha);
+   Denavit.SetVariable(3,a);
+   
+
+   Denavit.Affiche();
+
+   cout << "\n";
+
+   
+   CMatrice deny = CMatrice::MATDenavit(Denavit);
+
+   deny.MATAffiche();
+
+
+  DenavitParameter** listes = new DenavitParameter*[3]();
+  listes[0] = &Denavit;
+  listes[1] = &Denavit;
+  listes[2] = &Denavit;
+
+
+  CEcriture test10((char*)"text.txt", listes, 3);
+  test10.ECREcrireNouveauFichier();
+
+
+
+   /*Desallocation*/
+
+   delete theta;
+   delete d;
+   delete alpha; 
+   delete a;
+   free(parameter);
+
+ //  delete[] listes;
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

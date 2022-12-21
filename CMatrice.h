@@ -6,6 +6,8 @@
 #include <fstream>
 #include "CMatriceBase.h"
 #include "CException.h"
+#include "DenavitParameter.h"
+#include "VariableArticulaire.h"
 
 class CMatrice : public CMatriceBase
 {
@@ -31,6 +33,7 @@ public:
 	 * @param MATObjet 
 	*/
 	CMatrice(const CMatrice& MATObjet);
+
 
 	/**
 	* Transposition de matrice
@@ -101,6 +104,10 @@ public:
 	void MATAjouerLignesMatrice(CMatrice Objet);
 
 	void MATAjouerColonnesMatrice(CMatrice Objet);
+
+	static CMatrice MATDenavit(DenavitParameter DENObject);
+
+
 
 	
 

@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BrasRobotique.cpp" />
+    <ClCompile Include="CEcriture.cpp" />
     <ClCompile Include="CException.cpp" />
     <ClCompile Include="CLecteur.cpp" />
     <ClCompile Include="CLecteurBase.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="CMatrice.h" />
     <ClInclude Include="CMatriceBase.h" />
     <ClInclude Include="DenavitParameter.h" />
+    <ClInclude Include="CEcriture.h" />
     <ClInclude Include="VariableArticulaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -30,5 +30,9 @@ public:
 
 	void Affiche();
 
+	VariableArticulaire* DENLireVariable(unsigned int uiIndice);
+
+
+
 };
 #endif
