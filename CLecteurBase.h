@@ -1,47 +1,70 @@
-#ifndef C_LECTEUR_BASE_H
+﻿#ifndef C_LECTEUR_BASE_H
 #define C_LECTEUR_BASE_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
-
-
-
-
-using std::ifstream;
+using namespace std;
 
 class CLecteurBase
 {
+
+	char* pcFichier;
+	char* pcLigne; // Ligne en cours de lecture (allou� sur le tas)
+	char* pcCurseur;  // Texte en cours de lecture
+	ifstream ifStream;
+
 public:
-	CLecteurBase();
+	CLecteurBase();   // 
 
-	bool IsInt(char* pcInput);
+	~CLecteurBase(); //
 
-	bool IsDouble(char* pcInput);
+	CLecteurBase(char* pcFichier); //
 
-	bool ToInt(char* pcInput, int& iVar);
+	void Load(); //
 
-	static bool ToDouble(char* pcInput, double& dVar);
+	bool NextLine(); //
 
-	bool FindWordInFileLine(ifstream& fichier, const char* pcMot, char** ppcLigne);
+	bool EmptyLine(); //
 
-	//bool FindWordInFileLine(ifstream& fichier, const char* pcMot, char** ppcLigne);
+	void NextChar(unsigned int longueur); //
 
-	bool FindWordInSameFileLine(const char* pcMot, char* pcLigne);
+	void RewindTo(char cible, unsigned int n = 1, bool afterCible = false); //
 
-	bool FindWordInSameFileWithSeparator(const char* pcMot, char* pcLigne, const char separator);
+	char* LECLireNomFichier(); //
 
-	char ToLower();
+	void LECModifierFichier(const char* fichier); //
 
-	char* FindIntInLine(char* pcLigne);
+	bool IsInt(char* pcInput); //
 
-	char* FindIntInLineWithSeparator(char* pcLigne, const char separator);
+	bool IsDouble(char* pcInput); //
 
-	char* FindIntInLineAfterSeparator(char* pcLigne, const char separator);
+	bool ToInt(char* pcInput, int& iVar); //
 
-	char** FindValuesInLine(char* pcLigne, const char separator);
+	bool ToDouble(char* pcInput, double& dVar); //
 
-	void InputIntPositif(const char* pcMessage, int& iVariable);
+	bool FindWordInFileLine(const char* pcMot, char separateur); //
 
+	// bool FindWordInSameFileWithSeparator(const char* pcMot, char* pcLigne, const char separator);
+
+	char ToLower(char cValeur); //
+
+	char* FindIntInLine(char separateur); //
+
+	char* FindDoubleInLine(char separateur); //
+
+	// char* FindIntInLineWithSeparator(char* pcLigne, const char separator); 
+
+	// char* FindIntInLineAfterSeparator(char* pcLigne, const char separator);
+
+	// char** FindValuesInLine(char* pcLigne, const char separator);
+
+	// void InputIntPositif(const char* pcMessage, int& iVariable);
+
+	
+
+	char** SplitLineBySeparateur(unsigned int nbSplits, char separateur);
+	char** SplitWordBySeparateur(char* pcWord, unsigned int nbSplits, char separateur);
+	char* FindDoubleInLine(char* pcWord, char separateur);
+	
 };
 #endif

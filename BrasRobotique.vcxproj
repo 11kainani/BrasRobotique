@@ -146,6 +146,7 @@
     <ClCompile Include="CLecteurBase.cpp" />
     <ClCompile Include="CMatrice.cpp" />
     <ClCompile Include="CMatriceBase.cpp" />
+    <ClCompile Include="CTrajectoire.cpp" />
     <ClCompile Include="DenavitParameter.cpp" />
     <ClCompile Include="VariableArticulaire.cpp" />
   </ItemGroup>
@@ -157,6 +158,7 @@
     <ClInclude Include="CMatriceBase.h" />
     <ClInclude Include="DenavitParameter.h" />
     <ClInclude Include="CEcriture.h" />
+    <ClInclude Include="CTrajectoire.h" />
     <ClInclude Include="VariableArticulaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,12 +8,13 @@
 #include "VariableArticulaire.h"
 #include "DenavitParameter.h"
 #include "CEcriture.h"
+#include "CTrajectoire.h"
 
 using namespace std;
 
 int main()
 {
-   float black[4] = {4, 2, 4, 2};
+  /* float black[4] = {4, 2, 4, 2};
    float noir[6] = {1, 4, 2,3,1,7};
    
    CMatrice wei(2,2,black);
@@ -62,14 +63,19 @@ int main()
 
    /*Desallocation*/
 
-   delete theta;
+  /*  delete theta;
    delete d;
    delete alpha; 
    delete a;
-   free(parameter);
+   free(parameter); */
 
  //  delete[] listes;
 
+    CTrajectoire test((char*)"trajectoire.txt");
+
+    test.LireFichier();
+
+    test.AffichierMatrices();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
