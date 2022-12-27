@@ -752,6 +752,7 @@ char** CLecteurBase::SplitWordBySeparateur(char* pcWord, unsigned int nbSplits, 
 
 	while (pcCaractere[uiLength] != '\0' && pcCaractere[uiLength] != '\n' && uiSplit < nbSplits)
 	{
+
 		uiIndice = 0;
 		while (pcCaractere[uiLength] != separateur && pcCaractere[uiLength] != '\0' && pcCaractere[uiLength] != '\n')
 		{
