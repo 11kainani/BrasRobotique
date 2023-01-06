@@ -9,7 +9,7 @@ CLecteurBase::CLecteurBase()
 	pcCurseur = nullptr;
 }
 
-CLecteurBase::CLecteurBase(char* fichier)
+CLecteurBase::CLecteurBase(const char* fichier)
 {
 	pcFichier = fichier;
 	pcLigne = nullptr;
@@ -26,11 +26,6 @@ CLecteurBase::~CLecteurBase()
 		{
 			free(pcLigne);
 		}
-
-		if (pcCurseur != nullptr)
-		{
-			free(nullptr);
-		}
 	}
 
 }
@@ -38,12 +33,12 @@ CLecteurBase::~CLecteurBase()
 
 /***********************************************************************************************************************************
 * Name : LECModifierFichier ********************************************************************************************************
-* Entrée : pcFichier  **************************************************************************************************************
-* Nécessite : pcLECFichier correspond à un fichier avec le bon format **************************************************************
-* Sortie : néant *******************************************************************************************************************
-* Entraîne :Modifier pcLECFichier  *************************************************************************************************
+* EntrÃ©e : pcFichier  **************************************************************************************************************
+* NÃ©cessite : pcLECFichier correspond Ã  un fichier avec le bon format **************************************************************
+* Sortie : nÃ©ant *******************************************************************************************************************
+* EntraÃ®ne :Modifier pcLECFichier  *************************************************************************************************
 ************************************************************************************************************************************/
-char* CLecteurBase::LECLireNomFichier()
+const char* CLecteurBase::LECLireNomFichier()
 {
 	return pcFichier;
 
@@ -52,10 +47,10 @@ char* CLecteurBase::LECLireNomFichier()
 
 /***********************************************************************************************************************************
 * Name : LECModifierFichier ********************************************************************************************************
-* Entrée : pcFichier  **************************************************************************************************************
-* Nécessite : pcLECFichier correspond à un fichier avec le bon format **************************************************************
-* Sortie : néant *******************************************************************************************************************
-* Entraîne :Modifier pcLECFichier  *************************************************************************************************
+* EntrÃ©e : pcFichier  **************************************************************************************************************
+* NÃ©cessite : pcLECFichier correspond Ã  un fichier avec le bon format **************************************************************
+* Sortie : nÃ©ant *******************************************************************************************************************
+* EntraÃ®ne :Modifier pcLECFichier  *************************************************************************************************
 ************************************************************************************************************************************/
 void CLecteurBase::LECModifierFichier(const char* fichier)
 {
@@ -78,12 +73,16 @@ void CLecteurBase::Load()
 		ifStream.open(pcFichier, ifstream::in);
 		if (ifStream.is_open() == false)
 		{
-			// Exception : Chargement échoué
+			// Exception : Chargement Ã©chouÃ©
 			return;
 		}
 
+		if (pcLigne != nullptr)
+		{
+			free(pcLigne);
+		}
+
 		pcLigne = (char*)malloc(sizeof(char) * 255);
-		pcCurseur = (char*)malloc(sizeof(char) * 255);
 	}
 	else
 	{
@@ -122,12 +121,12 @@ void CLecteurBase::NextChar(unsigned int longueur)
 {
 	unsigned int uiBoucle = 0;
 
-	// Décalage du curseur
+	// DÃ©calage du curseur
 	while (uiBoucle < longueur)
 	{
 		if (*pcCurseur == '\0')
 		{
-			// Exception : Il n'y a pas d'autres caractères
+			// Exception : Il n'y a pas d'autres caractÃ¨res
 			return;
 		}
 
@@ -165,16 +164,16 @@ bool CLecteurBase::IsInt(char* pcInput)
 
 	if (pcInput == nullptr) { return false; }
 
-	// Retourne false si le premier caractére n'est pas un chiffre ou le signe négatif
+	// Retourne false si le premier caractÃ©re n'est pas un chiffre ou le signe nÃ©gatif
 	if (pcInput[0] != '-' && (pcInput[0] < '0' || pcInput[0] > '9'))
 	{
 		return false;
 	}
 
-	// Pour chaque caractére suivant
+	// Pour chaque caractÃ©re suivant
 	while (pcInput[uiBoucle] != '\0')
 	{
-		// Retourne false si le caractére n'est pas un chiffre
+		// Retourne false si le caractÃ©re n'est pas un chiffre
 		if (pcInput[uiBoucle] < '0' || pcInput[uiBoucle] > '9')
 		{
 			return false;
@@ -190,33 +189,35 @@ bool CLecteurBase::IsInt(char* pcInput)
 bool CLecteurBase::IsDouble(char* pcInput)
 {
 	unsigned int uiBoucle = 1;
-	bool bPoint = false; // Un caractére point a été lu
+	bool bPoint = false; // Un caractÃ©re point a Ã©tÃ© lu
 
-	// Retourne false si le premier caractére n'est pas un chiffre, signe négatif ou point
+	if (pcInput == nullptr) { return false; }
+
+	// Retourne false si le premier caractÃ©re n'est pas un chiffre, signe nÃ©gatif ou point
 	if (pcInput[0] != '-' && pcInput[0] != '.' && (pcInput[0] < '0' || pcInput[0] > '9'))
 	{
 		return false;
 	}
 
-	// S'il s'agit d'un format ".i", le caractére point est le premier caractére
+	// S'il s'agit d'un format ".i", le caractÃ©re point est le premier caractÃ©re
 	if (pcInput[0] == '.')
 	{
 		bPoint = true;
 	}
 
-	// Pour chaque caractére suivant
+	// Pour chaque caractÃ©re suivant
 	while (pcInput[uiBoucle] != '\0')
 	{
 		// S'il s'agit d'un point
 		if (pcInput[uiBoucle] == '.')
 		{
-			if (bPoint) // Retourner false si ce n'est pas la premiére fois qu'il a été lu
+			if (bPoint) // Retourner false si ce n'est pas la premiÃ©re fois qu'il a Ã©tÃ© lu
 			{
 				return false;
 			}
-			bPoint = true; // Le caractére point a été lu pour la premiére fois
+			bPoint = true; // Le caractÃ©re point a Ã©tÃ© lu pour la premiÃ©re fois
 		}
-		// Retourne false si le caractére n'est pas un chiffre
+		// Retourne false si le caractÃ©re n'est pas un chiffre
 		else if (pcInput[uiBoucle] < '0' || pcInput[uiBoucle] > '9')
 		{
 			return false;
@@ -234,7 +235,7 @@ bool CLecteurBase::ToInt(char* pcInput, int& iVar)
 	if (IsInt(pcInput) == false)
 		return false;
 
-	iVar = 0; // Affectation de la valeur par défaut
+	iVar = 0; // Affectation de la valeur par dÃ©faut
 	if (pcInput[0] != '-')
 	{
 		iVar = (int)(pcInput[0] - '0'); // Affectation du premier chiffre si nombre positif
@@ -243,7 +244,7 @@ bool CLecteurBase::ToInt(char* pcInput, int& iVar)
 	// Pour les chiffres suivants
 	while (pcInput[uiBoucle] != '\0')
 	{
-		// Si nombre négatif 
+		// Si nombre nÃ©gatif 
 		if (pcInput[0] == '-')
 		{
 			iVar = iVar * 10 - (int)(pcInput[uiBoucle] - '0');
@@ -263,12 +264,12 @@ bool CLecteurBase::ToInt(char* pcInput, int& iVar)
 bool CLecteurBase::ToDouble(char* pcInput, double& dVar)
 {
 	unsigned int uiBoucle = 1;
-	bool bPoint = false; // Le caractére point a été lu
-	double dDiviseur = 10; // divisera le chiffre avant de l'ajouter é dVar
+	bool bPoint = false; // Le caractÃ©re point a Ã©tÃ© lu
+	double dDiviseur = 10; // divisera le chiffre avant de l'ajouter Ã© dVar
 	if (IsDouble(pcInput) == false)
 		return false;
 
-	dVar = 0; // Affectation de la valeur par défaut
+	dVar = 0; // Affectation de la valeur par dÃ©faut
 	if ('0' <= pcInput[0] && pcInput[0] <= '9')
 	{
 		dVar = (double)(pcInput[0] - '0');
@@ -318,30 +319,30 @@ bool CLecteurBase::ToDouble(char* pcInput, double& dVar)
 bool CLecteurBase::FindWordInFileLine(const char* pcMot, char separateur)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
-	unsigned int uiLength = 0; // nb de caractères analysés
-	char* pcCaractere = nullptr;  // Caractère en cours d'analyse
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
+	unsigned int uiLength = 0; // nb de caractÃ¨res analysÃ©s
+	char* pcCaractere = nullptr;  // CaractÃ¨re en cours d'analyse
 
 	pcCaractere = pcCurseur;
 
 	// Recherche du mot pcMot suivit d'un separateur dans la ligne
 	while (pcCaractere[0] != '\0' && pcCaractere[0] != separateur)
 	{
-		// Récupére tous les caractéres autre que separateur et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que separateur et ' '
 		if (*pcCaractere != ' ')
 		{
 			pcTexte[uiIndice] = ToLower(*pcCaractere);
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 		uiLength++;
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-	NextChar(uiLength); // On passe au texte après le mot récupéré
+	NextChar(uiLength); // On passe au texte aprÃ¨s le mot rÃ©cupÃ©rÃ©
 
 	if (pcCaractere[0] == separateur)
 	{
@@ -352,11 +353,11 @@ bool CLecteurBase::FindWordInFileLine(const char* pcMot, char separateur)
 	uiBoucle = 0;
 	while (pcMot[uiBoucle] != '\0')
 	{
-		// Si le mot recherché est plus grand que celui récupéré
+		// Si le mot recherchÃ© est plus grand que celui rÃ©cupÃ©rÃ©
 		if (uiBoucle >= uiIndice)
 			return false;
 
-		// Si un caractère est différent entre les deux mots
+		// Si un caractÃ¨re est diffÃ©rent entre les deux mots
 		if (pcTexte[uiBoucle] != ToLower(pcMot[uiBoucle]))
 			return false;
 
@@ -370,8 +371,8 @@ bool CLecteurBase::FindWordInFileLine(const char* pcMot, char separateur)
 bool CLecteurBase::FindWordInSameFileLineWithSeparator(const char* pcMot, char* pcLigne, const char separator)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
 	char* pcCaractere = nullptr;
 
 	pcCaractere = &pcLigne[0];
@@ -381,30 +382,30 @@ bool CLecteurBase::FindWordInSameFileLineWithSeparator(const char* pcMot, char* 
 	}
 
 
-	// Recherche du mot pcMot précédé d'un caractére '=' sur la méme ligne
+	// Recherche du mot pcMot prÃ©cÃ©dÃ© d'un caractÃ©re '=' sur la mÃ©me ligne
 	while (*pcCaractere != '\0' && *pcCaractere != '=')
 	{
-		// Récupére tous les caractéres autre que '=' et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que '=' et ' '
 		if (*pcCaractere != ' ' && *pcCaractere != separator)
 		{
 			pcTexte[uiIndice] = ToLower(*pcCaractere);
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
 	// Retourne la comparaison des deux mots
 	uiBoucle = 0;
 	while (pcMot[uiBoucle] != '\0')
 	{
-		// Si le mot recherché est plus grand que celui récupéré
+		// Si le mot recherchÃ© est plus grand que celui rÃ©cupÃ©rÃ©
 		if (uiBoucle >= uiIndice)
 			return false;
 
-		// Si un caractère est différent entre les deux mots
+		// Si un caractÃ¨re est diffÃ©rent entre les deux mots
 		if (pcTexte[uiBoucle] != ToLower(pcMot[uiBoucle]))
 			return false;
 
@@ -428,30 +429,30 @@ char CLecteurBase::ToLower(char cLettre)
 char* CLecteurBase::FindIntInLine(char separateur)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
 	char* pcCaractere = nullptr;
 
 	pcCaractere = pcCurseur;
 
-	// Recherche d'un entier suivit d'un caractére separateur sur la méme ligne
+	// Recherche d'un entier suivit d'un caractÃ©re separateur sur la mÃ©me ligne
 	while (*pcCaractere != '\0' && *pcCaractere != separateur)
 	{
-		// Récupére tous les caractéres autre que '\n', separateur et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que '\n', separateur et ' '
 		if (*pcCaractere != ' ' && *pcCaractere != separateur)
 		{
 			pcTexte[uiIndice] = *pcCaractere;
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-	NextChar(uiIndice); // On passe au texte après le nombre récupéré
+	NextChar(uiIndice); // On passe au texte aprÃ¨s le nombre rÃ©cupÃ©rÃ©
 
-	// S'il s'agit d'un entier, on retourne sa chaine de caractére allouée sur le tas
+	// S'il s'agit d'un entier, on retourne sa chaine de caractÃ©re allouÃ©e sur le tas
 	if (IsInt(pcTexte))
 	{
 		pcCaractere = (char*)malloc(sizeof(char) * (uiIndice + 1));
@@ -470,37 +471,37 @@ char* CLecteurBase::FindIntInLine(char separateur)
 char* CLecteurBase::FindDoubleInLine(char separateur)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
-	unsigned int uiLength = 0; // nombre de caractères analysés
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
+	unsigned int uiLength = 0; // nombre de caractÃ¨res analysÃ©s
 	char* pcCaractere = nullptr;
 
 	pcCaractere = pcCurseur;
 
-	// Recherche d'un réel suivit d'un caractére separateur sur la méme ligne
+	// Recherche d'un rÃ©el suivit d'un caractÃ©re separateur sur la mÃ©me ligne
 	while (*pcCaractere != '\0' && *pcCaractere != '\n' && *pcCaractere != separateur)
 	{
-		// Récupére tous les caractéres autre que '\n' et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que '\n' et ' '
 		if (*pcCaractere != ' ')
 		{
 			pcTexte[uiIndice] = *pcCaractere;
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 		uiLength++;
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-	NextChar(uiLength); // On passe au texte après le nombre récupéré
+	NextChar(uiLength); // On passe au texte aprÃ¨s le nombre rÃ©cupÃ©rÃ©
 
 	if (pcCaractere[0] == separateur)
 	{
 		NextChar(1);
 	}
 
-	// S'il s'agit d'un réel, on retourne sa chaine de caractére allouée sur le tas
+	// S'il s'agit d'un rÃ©el, on retourne sa chaine de caractÃ©re allouÃ©e sur le tas
 	if (IsDouble(pcTexte))
 	{
 		pcCaractere = (char*)malloc(sizeof(char) * (uiIndice + 1));
@@ -516,12 +517,17 @@ char* CLecteurBase::FindDoubleInLine(char separateur)
 	return nullptr;
 }
 
+char CLecteurBase::GetChar()
+{
+	return *pcCurseur;
+}
+
 /*
 char* CLecteurBase::FindIntInLineWithSeparator(char* pcLigne, const char separator)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
 	char* pcCaractere = nullptr;
 
 	pcCaractere = &pcLigne[0];
@@ -530,22 +536,22 @@ char* CLecteurBase::FindIntInLineWithSeparator(char* pcLigne, const char separat
 		pcCaractere++;
 	}
 
-	// Recherche d'un entier précédé d'un caractére '=' sur la méme ligne
+	// Recherche d'un entier prÃ©cÃ©dÃ© d'un caractÃ©re '=' sur la mÃ©me ligne
 	while (*pcCaractere != '\0' && *pcCaractere != '\n' && *pcCaractere != separator)
 	{
-		// Récupére tous les caractéres autre que '\n', '=' et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que '\n', '=' et ' '
 		if (*pcCaractere != ' ' && *pcCaractere != '=')
 		{
 			pcTexte[uiIndice] = *pcCaractere;
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-	// S'il s'agit d'un entier, on retourne sa chaine de caractére allouée sur le tas
+	// S'il s'agit d'un entier, on retourne sa chaine de caractÃ©re allouÃ©e sur le tas
 	if (IsInt(pcTexte))
 	{
 		pcCaractere = (char*)malloc(sizeof(char) * (uiIndice + 1));
@@ -566,8 +572,8 @@ char* CLecteurBase::FindIntInLineWithSeparator(char* pcLigne, const char separat
 char* CLecteurBase::FindIntInLineAfterSeparator(char* pcLigne, const char separator)
 {
 	unsigned int uiBoucle;
-	char pcTexte[255] = "\0"; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice = 0; // indice du dernier caractére de pcTexte
+	char pcTexte[255] = "\0"; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice = 0; // indice du dernier caractÃ©re de pcTexte
 	char* pcCaractere = nullptr;
 
 	pcCaractere = &pcLigne[0];
@@ -580,22 +586,22 @@ char* CLecteurBase::FindIntInLineAfterSeparator(char* pcLigne, const char separa
 		pcCaractere++;
 	}
 
-	// Recherche d'un entier précédé d'un caractére '=' sur la méme ligne
+	// Recherche d'un entier prÃ©cÃ©dÃ© d'un caractÃ©re '=' sur la mÃ©me ligne
 	while (*pcCaractere != '\0' && *pcCaractere != '\n' && *pcCaractere != separator)
 	{
-		// Récupére tous les caractéres autre que '\n', '=' et ' '
+		// RÃ©cupÃ©re tous les caractÃ©res autre que '\n', '=' et ' '
 		if (*pcCaractere != ' ' && *pcCaractere != '=')
 		{
 			pcTexte[uiIndice] = *pcCaractere;
 			uiIndice++;
 		}
 
-		pcCaractere++; // passe au caractére suivant
+		pcCaractere++; // passe au caractÃ©re suivant
 	}
 
-	pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+	pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-	// S'il s'agit d'un entier, on retourne sa chaine de caractére allouée sur le tas
+	// S'il s'agit d'un entier, on retourne sa chaine de caractÃ©re allouÃ©e sur le tas
 	if (IsInt(pcTexte))
 	{
 		pcCaractere = (char*)malloc(sizeof(char) * (uiIndice + 1));
@@ -617,14 +623,14 @@ char** CLecteurBase::FindValuesInLine(char* pcLigne, unsigned int uiNbValeurs)
 {
 	unsigned int uiBoucle;
 	unsigned int uiBoucle2;
-	char pcTexte[255]; // Un tableau contenant les caractéres autres que ' ' du fichier
-	unsigned int uiIndice; // indice du dernier caractére de pcTexte
+	char pcTexte[255]; // Un tableau contenant les caractÃ©res autres que ' ' du fichier
+	unsigned int uiIndice; // indice du dernier caractÃ©re de pcTexte
 	char* pcCaractere = nullptr;
 	char** ppcValeurs = (char**)malloc(sizeof(char*) * uiNbValeurs);
 
 	pcCaractere = &pcLigne[0];
 
-	// Récupére les nombres contenus dans la ligne
+	// RÃ©cupÃ©re les nombres contenus dans la ligne
 	for (uiBoucle = 0; uiBoucle < uiNbValeurs; uiBoucle++)
 	{
 		// ignore les espaces avant le nombre
@@ -634,17 +640,17 @@ char** CLecteurBase::FindValuesInLine(char* pcLigne, unsigned int uiNbValeurs)
 		}
 
 		uiIndice = 0;
-		// Récupére tous les caractéres jusqu'é lire ' ', '\0' ou '\n' 
+		// RÃ©cupÃ©re tous les caractÃ©res jusqu'Ã© lire ' ', '\0' ou '\n'
 		while (*pcCaractere != ' ' && *pcCaractere != '\0' && *pcCaractere != '\n')
 		{
 			pcTexte[uiIndice] = *pcCaractere;
 			uiIndice++;
 
-			pcCaractere++; // passe au caractére suivant
+			pcCaractere++; // passe au caractÃ©re suivant
 		}
-		pcTexte[uiIndice] = '\0'; // Ajout du caractére de fin de chaine
+		pcTexte[uiIndice] = '\0'; // Ajout du caractÃ©re de fin de chaine
 
-		// Récupére les caractéres de pcTexte
+		// RÃ©cupÃ©re les caractÃ©res de pcTexte
 		ppcValeurs[uiBoucle] = (char*)malloc(sizeof(char) * (uiIndice + 1));
 		for (uiBoucle2 = 0; uiBoucle2 < uiIndice; uiBoucle2++)
 		{
@@ -654,17 +660,17 @@ char** CLecteurBase::FindValuesInLine(char* pcLigne, unsigned int uiNbValeurs)
 
 	}
 
-	// Vérification du type de chaque chaine récoltée
+	// VÃ©rification du type de chaque chaine rÃ©coltÃ©e
 	for (uiBoucle = 0; uiBoucle < uiNbValeurs; uiBoucle++)
 	{
-		// Si l'une d'elles n'a pas le format d'un double, Arrét de la boucle
+		// Si l'une d'elles n'a pas le format d'un double, ArrÃ©t de la boucle
 		if (IsDouble(ppcValeurs[uiBoucle]) == false)
 		{
 			uiBoucle = uiNbValeurs;
 		}
 	}
 
-	// S'il y a eu arrét de la boucle, on désalloue ppcValeurs et on retournera nullptr
+	// S'il y a eu arrÃ©t de la boucle, on dÃ©salloue ppcValeurs et on retournera nullptr
 	if (uiBoucle > uiNbValeurs)
 	{
 		for (uiBoucle = 0; uiBoucle < uiNbValeurs; uiBoucle++)
@@ -675,7 +681,7 @@ char** CLecteurBase::FindValuesInLine(char* pcLigne, unsigned int uiNbValeurs)
 		ppcValeurs = nullptr;
 	}
 
-	// Sinon retourne les valeurs récoltées sous forme de chaines
+	// Sinon retourne les valeurs rÃ©coltÃ©es sous forme de chaines
 	return ppcValeurs;
 }
 */

@@ -8,8 +8,19 @@
 #include "VariableArticulaire.h"
 #include "DenavitParameter.h"
 
+
+#define PI 3.14159265
+
+
 using std::ifstream;
 using namespace std;
+
+#define EXC_NB_PARAMS_MANQUANT 1
+#define EXC_NB_PARAMS_NEGATIF 2
+#define EXC_VARIABLE_X_ABSENTE 3
+#define EXC_VARIABLE_MIN 4
+#define EXC_VARIABLE_MAX 5
+#define EXC_PARAMETRE_INCOMPLET 6
 
 class CLecteur : public CLecteurBase
 {
@@ -25,7 +36,7 @@ private:
 
 
 public:
-	CLecteur(char* pcCheminFichier);
+	CLecteur(const char* pcCheminFichier);
 
 	CLecteur();
 
@@ -35,9 +46,13 @@ public:
 
 	unsigned int LireNbVariables();
 
+	unsigned int LireNbParametres();
+
 	VariableArticulaire& LireElement(unsigned int uiIndice);
 
 	VariableArticulaire& LireVariable(unsigned int uiIndice);
+
+	DenavitParameter& LireParametre(unsigned int uiIndice);
 
 	// bool LECFindElement(char* pcLigne, char* pccMot);
 

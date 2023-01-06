@@ -26,6 +26,12 @@ public:
 
 	DenavitParameter& operator=(DenavitParameter& parameter);
 
+	double* LireVariable(int Iindice);
+
+	double LireValeur(int Iindice);
+	
+	bool LireBVariable(int Iindice);
+
 	// void Swap(int iFrom, int iDestination);
 
 	void Affiche();
