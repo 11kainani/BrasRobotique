@@ -1,5 +1,5 @@
-#ifndef C_LECTEUR_H
-#define C_LECTEUR_H
+#ifndef C_TRAJECTOIRE_H
+#define C_TRAJECTOIRE_H
 
 #include <iostream>
 #include <fstream>
@@ -11,28 +11,44 @@
 
 class CTrajectoire : public CLecteurBase
 {
+
+private:
+	/**
+	 * @brief Objet CMatrice nï¿½cessaire pour dï¿½finir la liste de points de trajectoire
+	*/
+	CMatrice* TRAMatrice;
+	/**
+	 * @brief Nombre de matrice correctement lue
+	*/
+	unsigned int uiMatriceLues;
+	/**
+	 * @brief Nombre de point de trajectoire dans le fichier
+	*/
+	unsigned int uiNbPoints;
+
+
 public:
 	/**
 	 * @brief Constructeur par default
-	 * Crée et initialiser un objet CTrajectoire
+	 * Crï¿½e et initialiser un objet CTrajectoire
 	*/
 	CTrajectoire();
 	/**
 	 * @brief Constructeur de confort
 	 * @param pcCheminFicher 
-	 * Cree et initialiser un objet CTrajectoire avec un chemin du fichier à lire
+	 * Cree et initialiser un objet CTrajectoire avec un chemin du fichier ï¿½ lire
 	*/
-	CTrajectoire(char* pcCheminFicher);
+	CTrajectoire(const char* pcCheminFicher);
 	/**
 	* @brief Destructeur par defaut
-	* Désalloue et détruit un objet CTrajectoire
+	* Dï¿½salloue et dï¿½truit un objet CTrajectoire
 	*/
 	~CTrajectoire();
 
 	/**
 	 * @brief Lire matrice 
 	 * @param uiIndice 
-	 * Lire matrice à l'indice (uiIndice)
+	 * Lire matrice ï¿½ l'indice (uiIndice)
 	*/
 	CMatrice TRALireMatrice(unsigned int uiIndice);
 
@@ -54,31 +70,13 @@ public:
 
 	/**
 	 * @brief Lire le fichier 
-	 * Necessite : Le chemin du fichier soit correctement initialisé
+	 * Necessite : Le chemin du fichier soit correctement initialisï¿½
 	 * 
 	*/
 	void LireFichier();
 
 
 	void AffichierMatrices();
-
-
-
-	
-
-private:
-	/**
-	 * @brief Objet CMatrice nécessaire pour définir la liste de points de trajectoire
-	*/
-	CMatrice* TRAMatrice;
-	/**
-	 * @brief Nombre de matrice correctement lue
-	*/
-	unsigned int uiMatriceLues; 
-	/**
-	 * @brief Nombre de point de trajectoire dans le fichier 
-	*/
-	unsigned int uiNbPoints;
 
 };
 

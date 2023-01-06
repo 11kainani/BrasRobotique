@@ -1,14 +1,14 @@
-﻿#ifndef C_LECTEUR_BASE_H
+#ifndef C_LECTEUR_BASE_H
 #define C_LECTEUR_BASE_H
 
-#include <iostream>
 #include <fstream>
+#include "CException.h"
 using namespace std;
 
 class CLecteurBase
 {
 
-	char* pcFichier;
+	const char* pcFichier;
 	char* pcLigne; // Ligne en cours de lecture (allou� sur le tas)
 	char* pcCurseur;  // Texte en cours de lecture
 	ifstream ifStream;
@@ -18,7 +18,7 @@ public:
 
 	~CLecteurBase(); //
 
-	CLecteurBase(char* pcFichier); //
+	CLecteurBase(const char* pcFichier); //
 
 	void Load(); //
 
@@ -30,7 +30,7 @@ public:
 
 	void RewindTo(char cible, unsigned int n = 1, bool afterCible = false); //
 
-	char* LECLireNomFichier(); //
+	const char* LECLireNomFichier(); //
 
 	void LECModifierFichier(const char* fichier); //
 
@@ -52,6 +52,8 @@ public:
 
 	char* FindDoubleInLine(char separateur); //
 
+	char GetChar(); // 
+
 	// char* FindIntInLineWithSeparator(char* pcLigne, const char separator); 
 
 	// char* FindIntInLineAfterSeparator(char* pcLigne, const char separator);
@@ -60,11 +62,6 @@ public:
 
 	// void InputIntPositif(const char* pcMessage, int& iVariable);
 
-	
 
-	char** SplitLineBySeparateur(unsigned int nbSplits, char separateur);
-	char** SplitWordBySeparateur(char* pcWord, unsigned int nbSplits, char separateur);
-	char* FindDoubleInLine(char* pcWord, char separateur);
-	
 };
 #endif

@@ -1,95 +1,99 @@
-#ifndef C_MATRICE_BASE_H
+ï»¿#ifndef C_MATRICE_BASE_H
 #define C_MATRICE_BASE_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 
-class CMatriceBase 
+class CMatriceBase
 {
 private:
 	unsigned int uiMATNbLigne;
 
 	unsigned int uiMATNbColonne;
 
-	float* pfMATElement;
+	double* pdMATElement;
 
 
 public:
 	/**
 	* Constructeur par default
-	 * @brief Constructeur par default qui crée l'objet et initialise ses membres à null. 
+	 * @brief Constructeur par default qui crï¿½e l'objet et initialise ses membres ï¿½ null.
 	*/
-	CMatriceBase() ;
+	CMatriceBase();
 
 	/**
 	* Constructeur de recopie
-	 * @brief Constructeur qui crée l'objet CMatriceBase et initialise ses membres en recopiant les membres d'un autre objet CMatriceBase.
-	 * @param MATObjet 
+	 * @brief Constructeur qui crï¿½e l'objet CMatriceBase et initialise ses membres en recopiant les membres d'un autre objet CMatriceBase.
+	 * @param MATObjet
 	*/
 	CMatriceBase(const CMatriceBase& MATObjet);
 
 	/**
-	* Constructeur de confort 
-	 * @brief Constructeur qui crée et initialise un object CMatriceBase
-	 * @param uiLignes 
-	 * @param uiColonnes 
-	 * @param pfElements 
+	* Constructeur de confort
+	 * @brief Constructeur qui crï¿½e et initialise un object CMatriceBase
+	 * @param uiLignes
+	 * @param uiColonnes
+	 * @param pfElements
 	*/
-	CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float* pfElements = NULL);
+	CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, double* pfElements = NULL);
 
 	/**
 	* Destructeur
-	* @brief Destructeur qui désalloue pfMATElement et détruit l'objet CMatriceBase
+	* @brief Destructeur qui dï¿½salloue pdMATElement et dï¿½truit l'objet CMatriceBase
 	*/
 	~CMatriceBase();
 
 	/**
 	* Lire le nombre de colonnes dans la matrice
-	 * @brief Ce méthode permet de savoir combien de colonne cette matrice possède
-	 * @return unsigned int qui correspond au nombre de colonnes dans la matrice 
+	 * @brief Ce mï¿½thode permet de savoir combien de colonne cette matrice possï¿½de
+	 * @return unsigned int qui correspond au nombre de colonnes dans la matrice
 	*/
 	unsigned int MATLireNbColonne();
 
 	/**
 	* Lire le nombre de lignes dans la matrice
-	 * @brief Ce méthode permet de savoir combien de lignes cette matrice possède
+	 * @brief Ce mï¿½thode permet de savoir combien de lignes cette matrice possï¿½de
 	 * @return unsigned int qui correspond au nombre de lignes dans la matrice
 	*/
 	unsigned int MATLireNbLigne();
 
 	/**
 	* Lire un element de la matrice
-	 * @brief Lire l'élément à la ligne uiLigne et dans le colonne uiColonne de la matrice.
-	 * @param uiLigne 
-	 * @param uiColonne 
-	 * @return float correspondant à l'élément lu
+	 * @brief Lire l'ï¿½lï¿½ment ï¿½ la ligne uiLigne et dans le colonne uiColonne de la matrice.
+	 * @param uiLigne
+	 * @param uiColonne
+	 * @return double correspondant ï¿½ l'ï¿½lï¿½ment lu
 	*/
-	float MATLireElement(unsigned int uiLigne, unsigned int uiColonne);
+	double MATLireElement(unsigned int uiLigne, unsigned int uiColonne);
 
 	/**
 	* Afficher la matrice
 	 * @brief Affiche la matrice dans la sortie standard.
 	*/
 	void MATAffiche();
-	
+
 	/**
-	* Surcharge d'operateur égal
-	 * @brief La méthode pour surcharger l'opérateur = permettant une recopie d'élément à élément
-	 * @param MATObjet 
+	* Surcharge d'operateur ï¿½gal
+	 * @brief La mï¿½thode pour surcharger l'opï¿½rateur = permettant une recopie d'ï¿½lï¿½ment ï¿½ ï¿½lï¿½ment
+	 * @param MATObjet
 	*/
 	void operator=(const CMatriceBase& MATObjet);
 
-	void MATModiferElement(unsigned int indiceLigne,unsigned int indiceColonne, float element);
-protected :
+	void MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, double element);
+
+
+protected:
 
 	void MATReallocMatrice(unsigned int element);
-	
+
 	void MATModifierNbLignes(unsigned int number);
 
 	void MATModifierNbColonnes(unsigned int number);
 
+	// A supprimer
+	double Superieur(double, double);
+	double Precision(double, int);
 
-	
+
 };
 #endif

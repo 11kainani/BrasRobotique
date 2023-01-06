@@ -2,7 +2,6 @@
 #define C_MATRICE_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 #include "CMatriceBase.h"
 #include "CException.h"
@@ -14,12 +13,12 @@ class CMatrice : public CMatriceBase
 public:
 	/**
 	* Constructeur de confort
-	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de confort de CMatriceBase
-	 * @param uiLignes 
-	 * @param uiColonnes 
-	 * @param pfElements 
+	 * @brief Crï¿½ation et initialisation d'un objet CMatrice en appelant le constructeur de confort de CMatriceBase
+	 * @param uiLignes
+	 * @param uiColonnes
+	 * @param pfElements
 	*/
-	CMatrice(unsigned int uiLignes, unsigned int uiColonnes, float *pfElements = nullptr);
+	CMatrice(unsigned int uiLignes, unsigned int uiColonnes, double *pfElements = nullptr);
 
 	/**
 	* Constructeur par default
@@ -29,8 +28,8 @@ public:
 
 	/**
 	* Constructeur de recopie
-	 * @brief Création et initialisation d'un objet CMatrice en appelant le constructeur de recopie de CMatriceBase
-	 * @param MATObjet 
+	 * @brief Crï¿½ation et initialisation d'un objet CMatrice en appelant le constructeur de recopie de CMatriceBase
+	 * @param MATObjet
 	*/
 	CMatrice(const CMatrice& MATObjet);
 
@@ -38,54 +37,54 @@ public:
 	/**
 	* Transposition de matrice
 	 * @brief Transpose une matrice
-	 * @return la matrice transposé
+	 * @return la matrice transposï¿½
 	*/
 	CMatrice MATTranspose();
 
 	/**
 	* Surcharge de l'operateur *
 	 * @brief Surcharge de l'operateur * pour permettre la multiplication entre 2 matrices
-	 * @param MATObjet 
+	 * @param MATObjet
 	 * @return Le produit de 2 matrices
 	*/
 	CMatrice operator*(CMatrice MATObjet);
 
 	/**
-	* La matrice est-elle vide ? 
-	 * @brief Vérifie si la matrice est vide
+	* La matrice est-elle vide ?
+	 * @brief Vï¿½rifie si la matrice est vide
 	 * @return true si la matrice est vide sinon false
 	*/
 	bool MATIsEmpty();
 
 	/**
 	* Surcharge de l'operateur -
-	 * @brief Surcharge de l'opérateur -
-	 * @param MATObjet 
-	 * @return La différence entre 2 matrices
+	 * @brief Surcharge de l'opï¿½rateur -
+	 * @param MATObjet
+	 * @return La diffï¿½rence entre 2 matrices
 	*/
 	CMatrice operator-(CMatrice MATObjet);
 
 	/**
 	* Surcharge de l'operateur *
-	 * @brief Surcharge de l'operateur * pour permettre la multiplication d'une matrice avec un float
-	 * @param fValeur 
-	 * @return la matrice résultat multipée par le float
+	 * @brief Surcharge de l'operateur * pour permettre la multiplication d'une matrice avec un double
+	 * @param fValeur
+	 * @return la matrice rï¿½sultat multipï¿½e par le double
 	*/
-	CMatrice operator*(float fValeur);
+	CMatrice operator*(double fValeur);
 
 	/**
 	* Surcharge de l'operateur /
-	 * @brief Surcharge de l'operateur / pour permettre la division d'une matrice avec un float
-	 * @param fValeur 
-	 * @return 
+	 * @brief Surcharge de l'operateur / pour permettre la division d'une matrice avec un double
+	 * @param fValeur
+	 * @return
 	*/
-	CMatrice operator/(float fValeur);
+	CMatrice operator/(double fValeur);
 
 	/**
 	* Surcharge de l'operateur +
-	 * @brief Surcharge de l'o^perateur + pour 
-	 * @param MATObjet 
-	 * @return 
+	 * @brief Surcharge de l'o^perateur + pour
+	 * @param MATObjet
+	 * @return
 	*/
 	CMatrice operator+(CMatrice MATObjet);
 
@@ -93,7 +92,7 @@ public:
 
 	~CMatrice();
 
-	CMatrice MATFromColonne( unsigned int numColonne);
+	CMatrice MATFromColonne(unsigned int numColonne);
 
 	static CMatrice MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
 
@@ -105,11 +104,11 @@ public:
 
 	void MATAjouerColonnesMatrice(CMatrice Objet);
 
-	static CMatrice MATDenavit(DenavitParameter DENObject);
+	// static CMatrice MATDenavit(DenavitParameter DENObject);
 
 
 
-	
+
 
 };
 #endif

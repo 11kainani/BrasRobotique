@@ -6,37 +6,47 @@
 class VariableArticulaire
 {
 private:
-	float fvaleur;
+	double dvaleur;
 
-	float fmin;
+	double dvariable;  // copie de fvaleur accessible uniquement en lecture
 
-	float fmax;
+	double fmin;
+
+	double fmax;
 
 	bool bvariable;
+
+	bool bAngulaire;
 
 
 public:
 	VariableArticulaire();
 
-	VariableArticulaire(float fValue, int fMinValue, int fMaxValue, int bIsVariable);
+	VariableArticulaire(double fValue, int fMinValue, int fMaxValue, int bIsVariable);
 
 	~VariableArticulaire();
 
-	float LireValeur();
+	double LireValeur();
 
-	bool ModifierValeur(float fValue);
+	bool ModifierValeur(double fValue);
 
-	float LireMax();
+	double* LireVariable();
 
-	bool ModifierMax(float max);
+	double LireMax();
 
-	float LireMin();
+	bool ModifierMax(double max);
 
-	bool ModifierMin(float min);
+	double LireMin();
+
+	bool ModifierMin(double min);
 
 	bool LireBVariable();
 
 	void ModifierBVariable(bool bValue);
+
+	bool LireBAngulaire();
+
+	void ModifierBAngulaire(bool bValue);
 
 };
 #endif

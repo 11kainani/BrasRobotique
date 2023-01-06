@@ -2,77 +2,68 @@
 #define CECRITUREH
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 #include "DenavitParameter.h"
 using namespace std;
 #endif
 
 /**
- * @brief Classe permettant d'écrire dans un fichier texte des paramètres Denavit
+ * @brief Classe permettant d'Ã©crire dans un fichier texte des paramÃ¨tres Denavit
 */
 class CEcriture
 {
+
+private:
+	const char* pcECRCheminFichier;
+	ofstream fichier;
+
 public:
 	/**
 	* Constrcuteur par default
-	 * @brief Constructeur par default qui crée un objet CEcriture et qui initialise tous les élement de CEcriture à null
+	 * @brief Constructeur par default qui crÃ©e un objet CEcriture et qui initialise tous les Ã©lement de CEcriture Ã  null
 	*/
 	CEcriture();
 	/**
 	* Costructeur de confort
-	 * @brief Constructeur de confort qui crée un objet CEcriture et qui initialise pcECRCheminFichier
-	 * @param pcChemin 
+	 * @brief Constructeur de confort qui crÃ©e un objet CEcriture et qui initialise pcECRCheminFichier
+	 * @param pcChemin
+	 * @param truncMode
 	*/
-	CEcriture(char* pcChemin);
+	CEcriture(const char* pcChemin, bool truncMode = true);
 	/**
-	* Constructeur de confort
-	 * @brief Constructeur de confort qui crée et initialise tous les membres de l'objet CEcriture
-	 * @param pcChemin 
-	 * @param pDENParameter 
-	 * @param uiNbParameter 
-	*/
-	CEcriture(char* pcChemin, DenavitParameter** pDENParameter, unsigned int uiNbParameter);
-	/**
-	* Destructeur 
-	* @Brief Destructeur par default qui s'occupe de désallouer et détruire l'objet CEcriture
+	* Destructeur
+	* @Brief Destructeur par default qui s'occupe de dÃ©sallouer et dÃ©truire l'objet CEcriture
 	*/
 	~CEcriture();
 
 	/**
+	* Ecrire
+	* @Brief Ecrit un texte dans le fichier en mode append
+	* @param texte
+	*/
+	void Ecrire(const char* texte);
+
+	/**
 	* ECREcrireNouveauFiche
-	 * @brief Méthode qui écrit sur un nouveau fichier texte. 
-	 Si le fichier existe déjà: les données existant seront supprimées  
+	 * @brief MÃ©thode qui Ã©crit sur un nouveau fichier texte.
+	 Si le fichier existe dÃ©jÃ : les donnÃ©es existant seront supprimÃ©es
 	 Si le fichier n'existe pas : un nouveau fichier avec le nom choisit.
 	*/
-	void ECREcrireNouveauFichier();
-
-	/**
-	* ECRContinuerEcriture
-	 * @brief  Méthode qui écrit sur un fichier txt.
-	 * Si le fichier existe déjà: On écrirera à la suite 
-	 * Si le fichier n'existe pas : un nouveau fichier sera crée.
-	*/
-	void ECRContinuerEcriture();
+	void EcrireParametre(DenavitParameter parametre);
 
 
+private:
 	/**
 	* Open
-	 * @brief Ouvre un fichier texte. Si le fichier texte n'existe pas, on le crée. 
+	 * @brief Ouvre un fichier texte. Si le fichier texte n'existe pas, on le crÃ©e.
 	 * @param newFile vaut true si on veut ouvrir en mode trunc sinon on ouvre le fichier en mode append
-	 * 
+	 *
 	*/
-	void open(bool newFile);
+	void open(bool newFile = false);
 
 	/**
 	 * @brief methode pour fermer un fichier
 	*/
 	void close();
 
-private:
-	char* pcECRCheminFichier;
-	DenavitParameter** ppDENListe;
-	unsigned int uiECRNbDenavit;
-	ofstream fichier;
 };
-

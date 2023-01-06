@@ -6,77 +6,88 @@
 
 VariableArticulaire::VariableArticulaire()
 {
-	fvaleur = 0;
+	dvaleur = 0;
+	dvariable = 0;
 	fmin = 0;
 	fmax = 0;
-	bvariable = 0;
+	bvariable = false;
+	bAngulaire = false;
 }
 
-VariableArticulaire::VariableArticulaire(float fValue, int fMinValue, int fMaxValue, int bIsVariable)
+VariableArticulaire::VariableArticulaire(double fValue, int fMinValue, int fMaxValue, int bIsVariable)
 {
 	if (fMinValue > fMaxValue)
 	{
 		// Exception
 	}
 
-	fvaleur = fValue;
+	dvaleur = fValue;
+	dvariable = dvaleur;
 	fmin = fMinValue;
 	fmax = fMaxValue;
 	bvariable = bIsVariable;
+	bAngulaire = false;
 }
 
 VariableArticulaire::~VariableArticulaire()
 {
 }
 
-float VariableArticulaire::LireValeur()
+double VariableArticulaire::LireValeur()
 {
-	return fvaleur;
+	return dvaleur;
 }
 
-bool VariableArticulaire::ModifierValeur(float fValue)
+bool VariableArticulaire::ModifierValeur(double fValue)
 {
+	/*
 	if (fValue < fmin || fValue > fmax)
 	{
 		return false;
 	}
-
-	fvaleur = fValue;
+	*/
+	dvaleur = fValue;
+	dvariable = dvaleur;
 
 	return true;
 
 }
 
-float VariableArticulaire::LireMax()
+double* VariableArticulaire::LireVariable()
+{
+	return &dvariable;
+}
+
+double VariableArticulaire::LireMax()
 {
 	return fmax;
 }
 
-bool VariableArticulaire::ModifierMax(float max)
+bool VariableArticulaire::ModifierMax(double max)
 {
-	if (max < fmin) { return false; }
+	// if (max < fmin) { return false; }
 
-	if (fvaleur > max)
+	if (dvaleur > max)
 	{
-		fvaleur = max;
+		ModifierValeur(max);
 	}
 
 	fmax = max;
 	return true;
 }
 
-float VariableArticulaire::LireMin()
+double VariableArticulaire::LireMin()
 {
 	return fmin;
 }
 
-bool VariableArticulaire::ModifierMin(float min)
+bool VariableArticulaire::ModifierMin(double min)
 {
-	if (min > fmax) { return false; }
+	// if (min > fmax) { return false; }
 
-	if (fvaleur < min)
+	if (dvaleur < min)
 	{
-		fvaleur = min;
+		ModifierValeur(min);
 	}
 
 	fmin = min;
@@ -91,4 +102,14 @@ bool VariableArticulaire::LireBVariable()
 void VariableArticulaire::ModifierBVariable(bool bValue)
 {
 	bvariable = bValue;
+}
+
+bool VariableArticulaire::LireBAngulaire()
+{
+	return bAngulaire;
+}
+
+void VariableArticulaire::ModifierBAngulaire(bool bValue)
+{
+	bAngulaire = bValue;
 }

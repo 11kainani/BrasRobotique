@@ -92,6 +92,39 @@ DenavitParameter& DenavitParameter::operator=(DenavitParameter& parameter)
 	return *this;
 }
 
+double* DenavitParameter::LireVariable(int iIndice)
+{
+	if (iIndice >= NB_VARIABLES || iIndice < 0)
+	{
+		// Exception : Indice incorrect
+		return nullptr;
+	}
+
+	return pVARVariable[iIndice]->LireVariable();
+}
+
+double DenavitParameter::LireValeur(int iIndice)
+{
+	if (iIndice >= NB_VARIABLES || iIndice < 0)
+	{
+		// Exception : Indice incorrect
+		return 0;
+	}
+
+	return pVARVariable[iIndice]->LireValeur();
+}
+
+bool DenavitParameter::LireBVariable(int iIndice)
+{
+	if (iIndice >= NB_VARIABLES || iIndice < 0)
+	{
+		// Exception : Indice incorrect
+		return false;
+	}
+
+	return pVARVariable[iIndice]->LireBVariable();
+}
+
 void DenavitParameter::Affiche()
 {
 	for (int i = 0; i < NB_VARIABLES; i++)
@@ -100,7 +133,7 @@ void DenavitParameter::Affiche()
 		if (i == 0) { cout << "("; }
 		if (pVARVariable[i] != nullptr)
 		{
-			cout << (*(pVARVariable[i])).LireValeur();
+			cout << pVARVariable[i]->LireValeur();
 		}
 		else
 		{
@@ -111,11 +144,3 @@ void DenavitParameter::Affiche()
 	}
 
 }
-
-VariableArticulaire* DenavitParameter::DENLireVariable(unsigned int uiIndice)
-{
-	
-	
-	return pVARVariable[uiIndice];
-}
-

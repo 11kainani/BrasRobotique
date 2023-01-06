@@ -7,7 +7,7 @@ CTrajectoire::CTrajectoire() : CLecteurBase()
 	uiNbPoints = 0;
 }
 
-CTrajectoire::CTrajectoire(char* pcCheminFicher) : CLecteurBase(pcCheminFicher)
+CTrajectoire::CTrajectoire(const char* pcCheminFicher) : CLecteurBase(pcCheminFicher)
 {
 	TRAMatrice = nullptr;
 	uiMatriceLues = 0;
@@ -43,73 +43,87 @@ void CTrajectoire::ModifierFichier(const char* pcFichier)
 
 void CTrajectoire::LireFichier()
 {
-	Load(); //Ouverture du fichier (sera fermé lorsque le destructeur sera appelé)
-
-	unsigned int uiBoucle;
-	unsigned int uiBoucle2;
 	unsigned int uiNbVecteur = 4;
-	int uiNbElements;
-	unsigned int uiElement = 0; // Elements créés
-	unsigned int uiVariables = 0; // Eléments variables détéctés
+	unsigned int uiNbComposants = 3;
+	unsigned int uiBoucle, uiBoucle2, uiNbElements;
+	int iNbPoints;
 	double dValeur;
 	char* pcTexte;
 	bool bSuccess;
 
-	// Lecture du nombre de variable
+
+	Load(); //Ouverture du fichier (sera fermï¿½ lorsque le destructeur sera appelï¿½)
+
+	// Lecture du nombre de points
 	pcTexte = FindIntInLine('\0');
-	bSuccess = ToInt(pcTexte, uiNbElements);
+	bSuccess = ToInt(pcTexte, iNbPoints);
 	free(pcTexte);
 
-	TRAMatrice = (CMatrice*)malloc(sizeof(CMatrice) * 4);
 	if (bSuccess == false)
 	{
-		// Exception : Le nombre de variable n'est pas spécifié
+		// Exception : Le nombre de points n'est pas spï¿½cifiï¿½
+		cout << "Erreur de Trajectoire : Le nombre de points n'est pas dans le fichier";
 		return;
 	}
-	else if (uiNbElements < 1)
+	else if (iNbPoints < 1)
 	{
-		// Exception : Le nombre de variable n'est pas correct (iNbElements > 1)
+		// Exception : Le nombre de variable n'est pas correct (iNbPoints > 0)
+		cout << "Erreur de Trajectoire : Le nombre de points est inferieur ou egal a 0";
 		return;
 	}
 
-	uiNbPoints = uiNbElements;
+	// On enregistre le nombre de points
+	uiNbPoints = iNbPoints;
 
-	//Allocation de a liste de matrice
-	TRAMatrice = new CMatrice[4];
-
-
-	NextLine();
-	//¨Premier point du trajectoire
+	// Allocation de la liste de matrice
+	TRAMatrice = new CMatrice[uiNbPoints];
 	
-	//pcTexte = SplitLineBySlash(4);
-	char** ppcSplit;
-	char** ppcVecteurs;
 
-	for (uiNbElements = 0; uiNbElements < uiNbPoints; uiNbElements++)
+	// Pour chaque point Et s'il existe une ligne pour ce point
+	for (uiNbElements = 0; uiNbElements < uiNbPoints && NextLine(); uiNbElements++)
 	{
-		char** ppcSplit = SplitLineBySeparateur(uiNbVecteur , 47);
-		TRAMatrice[uiNbElements].MATAjouterColonnes(4);
-		TRAMatrice[uiNbElements].MATAjouterLignes(4);
-		for (uiBoucle = 0; uiBoucle < uiNbVecteur  ; uiBoucle++)
+		// Crï¿½ation d'une matrice identitï¿½ 4x4
+		TRAMatrice[uiNbElements] = CMatrice::MATIdentity(uiNbComposants+1, uiNbVecteur);
+
+		// Pour chaque vecteur du point
+		for (uiBoucle = 0; uiBoucle < uiNbVecteur; uiBoucle++)
 		{
-			ppcVecteurs = SplitWordBySeparateur(ppcSplit[uiBoucle], uiNbVecteur , 44);
-			
-			for (uiBoucle2 = 0; uiBoucle2 < uiNbVecteur -1 ; uiBoucle2++)
+			// Lecture des composantes du vecteur
+			for (uiBoucle2 = 0; uiBoucle2 < uiNbComposants; uiBoucle2++)
 			{
-				TRAMatrice[uiNbElements].MATModiferElement(uiBoucle2, uiBoucle, atof(ppcVecteurs[uiBoucle2]));
+				// Recherche d'un rï¿½el suivit d'un '/' si dernier composant sinon rï¿½el suivit d'un ','
+				pcTexte = FindDoubleInLine((uiBoucle2 == uiNbComposants-1 ? '/' : ','));
+				bSuccess = ToDouble(pcTexte, dValeur);
 
+				if (bSuccess == false)
+				{
+					// Exception : Valeur rï¿½elle incorrecte
+					cout << "Erreur de Trajectoire au point " << uiNbElements + 1 <<
+						" a la composante " << uiNbComposants + 1 << " : Valeur reelle incorrecte\n";
+					cout << "Valeur lue : " << pcTexte;
+					free(pcTexte);
+					return;
+				}
+				free(pcTexte);
+
+				// Affectation du rï¿½el dans la matrice 4x4
+				TRAMatrice[uiNbElements].MATModiferElement(uiBoucle2, uiBoucle, dValeur);
 			}
-			
 
-
-
+			// Affectation en derniï¿½re ligne de la matrice (Si derniï¿½re colonne 1 sinon 0)
+			TRAMatrice[uiNbElements].MATModiferElement(uiNbComposants, uiBoucle, (uiBoucle == uiNbVecteur-1 ? 1 : 0));
 		}
-		if (uiBoucle = uiBoucle2)
-		{
-			TRAMatrice[uiNbElements].MATModiferElement(uiBoucle2, uiBoucle, 1);
-		}
-		NextLine();
 
+		uiMatriceLues++;
+
+	}
+
+
+	if (uiMatriceLues != uiNbPoints)
+	{
+		// Exception : Le nombre de points lus ne correspond pas
+		cout << "Erreur de Trajectoire : Le nombre de points lu ne correspond pas au nombre de matrices lues\n";
+		return;
 	}
 	
 	
@@ -123,7 +137,7 @@ void CTrajectoire::AffichierMatrices()
 {
 	for (unsigned int uiBoucle = 0; uiBoucle < uiNbPoints; uiBoucle++)
 	{
-		TRAMatrice[uiBoucle].MATLireNbLigne() << '\n'; 
+		cout << TRAMatrice[uiBoucle].MATLireNbLigne() << '\n'; 
 		TRAMatrice[uiBoucle].MATAffiche();
 		
 	}
