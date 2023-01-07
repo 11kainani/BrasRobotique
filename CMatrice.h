@@ -106,8 +106,12 @@ public:
 
 	// static CMatrice MATDenavit(DenavitParameter DENObject);
 
+	bool operator==(CMatrice MATObjet);
+	bool operator!=(CMatrice MATObjet);
 
+	bool bMATOrthonormal();
 
+	double static dMATNorme(CMatrice MATObjet);
 
 
 };

@@ -92,6 +92,7 @@ void ConvertToTask(CMatrice& matrice)
 //	return points;
 //}
 
+/*
 int main()
 {
 	std::cout << "Hello World!\n\n";
@@ -248,7 +249,14 @@ int main()
 }
 
 
+*/
 
+int main()
+{
+	double p[9] = { 3,0,4,4,3,0,0,5,0};
+	CMatrice test(3, 3, p);
+	cout << test.bMATOrthonormal();
+}
 // ExÃ©cuter le programmeÂ : Ctrl+F5 ou menu DÃ©boguerÂ > ExÃ©cuter sans dÃ©bogage
 // DÃ©boguer le programmeÂ : F5 ou menu DÃ©boguerÂ > DÃ©marrer le dÃ©bogage
 

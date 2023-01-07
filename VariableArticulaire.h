@@ -19,6 +19,8 @@ private:
 	bool bAngulaire;
 
 
+
+
 public:
 	VariableArticulaire();
 

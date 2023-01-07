@@ -29,7 +29,8 @@ Fonction* FonctionSin::Derive(double* pdComposant)
 	FonctionInterface FONElement;
 
 	// cos(u)
-	FONElement = &FonctionCos(FONInterface);
+	FonctionCos fCos(FONInterface);
+	FONElement = &fCos;
 	LISDerives.AddFonction(FONElement);
 
 	// u'

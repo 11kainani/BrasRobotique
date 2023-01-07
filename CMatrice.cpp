@@ -563,3 +563,108 @@ CMatrice CMatrice::operator+(CMatrice MATObjet)
 	free(MATTableau);
 	return MATResultatSomme;
 }
+
+bool CMatrice::operator==(CMatrice MATObjet)
+{
+	unsigned int uiBoucle;
+	unsigned int uiBoucle2;
+
+
+	if (this->MATLireNbColonne() != MATObjet.MATLireNbColonne() || this->MATLireNbLigne() != MATObjet.MATLireNbLigne())
+	{
+		return false;
+	}
+
+	for (uiBoucle = 0; uiBoucle < this->MATLireNbLigne(); uiBoucle++)
+	{
+		for (uiBoucle2 = 0; uiBoucle2 < this->MATLireNbColonne(); uiBoucle2++)
+		{
+			if (this->MATLireElement(uiBoucle, uiBoucle2) != MATObjet.MATLireElement(uiBoucle, uiBoucle2))
+			{
+				return false;
+			}
+		}
+	}
+	
+	
+	return true;
+
+}bool CMatrice::operator!=(CMatrice MATObjet)
+{
+	unsigned int uiBoucle;
+	unsigned int uiBoucle2;
+
+	if (this->MATLireNbColonne() != MATObjet.MATLireNbColonne() || this->MATLireNbLigne() != MATObjet.MATLireNbLigne())
+	{
+		return true;
+	}
+
+	for (uiBoucle = 0; uiBoucle < this->MATLireNbLigne(); uiBoucle++)
+	{
+		for (uiBoucle2 = 0; uiBoucle2 < this->MATLireNbColonne(); uiBoucle2++)
+		{
+			if (this->MATLireElement(uiBoucle, uiBoucle2) != MATObjet.MATLireElement(uiBoucle, uiBoucle2))
+			{
+				return true;
+			}
+		}
+	}
+	
+	
+	return false;
+}
+
+bool CMatrice::bMATOrthonormal()
+{
+	unsigned int uiBoucle;
+	unsigned int uiBoucle2;
+	
+	//Si la transposé d'une matrice est égale à l'inverse de cette matrice, cette matrice est orthogonale
+	if (this->Greville() != this->MATTranspose())
+	{
+		return false;
+	}
+
+	for (uiBoucle = 0; uiBoucle < this->MATLireNbColonne(); uiBoucle++)
+	{
+		for (uiBoucle2 = 0; uiBoucle2 < this->MATLireNbColonne(); uiBoucle2++)
+		{
+			if (uiBoucle == uiBoucle2)
+			{
+				
+			}
+			else
+			{
+				if (CMatrice::dMATNorme(this->MATFromColonne(uiBoucle)) != CMatrice::dMATNorme(this->MATFromColonne(uiBoucle2)))
+				{
+					return false;
+				}
+			}
+		}
+	}
+	
+	
+	
+	return true;
+}
+
+double CMatrice::dMATNorme(CMatrice MATObjet)
+{
+	CException mistake;
+	double dResultat =0.0;
+	unsigned int uiBoucle;
+	//On verifie que la matrice est une matrice colonne 
+	if (MATObjet.MATLireNbColonne() != 1)
+	{
+		mistake.EXCModifierValeur(TAILLE_INCOMPATIBLE);
+		throw mistake;
+	}
+
+	for (uiBoucle = 0; uiBoucle < MATObjet.MATLireNbLigne(); uiBoucle++)
+	{
+		dResultat += (MATObjet.MATLireElement(uiBoucle, 0) * MATObjet.MATLireElement(uiBoucle, 0));
+	}
+
+	
+	return sqrt(dResultat);
+}

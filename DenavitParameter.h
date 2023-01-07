@@ -11,6 +11,8 @@ class DenavitParameter
 private:
 	VariableArticulaire** pVARVariable;
 
+	double DENnbVariables = 0; 
+
 public:
 	DenavitParameter();
 
@@ -35,6 +37,11 @@ public:
 	// void Swap(int iFrom, int iDestination);
 
 	void Affiche();
+
+	void UpdateDENVariables();
+
+	double LireNbVariables();
+
 
 };
 #endif

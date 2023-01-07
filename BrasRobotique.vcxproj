@@ -148,6 +148,18 @@
     <ClCompile Include="CMatriceBase.cpp" />
     <ClCompile Include="CTrajectoire.cpp" />
     <ClCompile Include="DenavitParameter.cpp" />
+    <ClCompile Include="Fonction.cpp" />
+    <ClCompile Include="FonctionConstante.cpp" />
+    <ClCompile Include="FonctionCos.cpp" />
+    <ClCompile Include="FonctionInterface.cpp" />
+    <ClCompile Include="FonctionMath.cpp" />
+    <ClCompile Include="FonctionOperation.cpp" />
+    <ClCompile Include="FonctionProduit.cpp" />
+    <ClCompile Include="FonctionSin.cpp" />
+    <ClCompile Include="FonctionSomme.cpp" />
+    <ClCompile Include="FonctionVariable.cpp" />
+    <ClCompile Include="ListFonction.cpp" />
+    <ClCompile Include="MatriceFonction.cpp" />
     <ClCompile Include="VariableArticulaire.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +171,18 @@
     <ClInclude Include="DenavitParameter.h" />
     <ClInclude Include="CEcriture.h" />
     <ClInclude Include="CTrajectoire.h" />
+    <ClInclude Include="Fonction.h" />
+    <ClInclude Include="FonctionConstante.h" />
+    <ClInclude Include="FonctionCos.h" />
+    <ClInclude Include="FonctionInterface.h" />
+    <ClInclude Include="FonctionMath.h" />
+    <ClInclude Include="FonctionOperation.h" />
+    <ClInclude Include="FonctionProduit.h" />
+    <ClInclude Include="FonctionSin.h" />
+    <ClInclude Include="FonctionSomme.h" />
+    <ClInclude Include="FonctionVariable.h" />
+    <ClInclude Include="ListFonction.h" />
+    <ClInclude Include="MatriceFonction.h" />
     <ClInclude Include="VariableArticulaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

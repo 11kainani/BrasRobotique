@@ -51,6 +51,8 @@ public:
 	*/
 	void EcrireParametre(DenavitParameter parametre);
 
+	void Ecrire(DenavitParameter DENparametre, double dEcrire, int indice);
+
 
 private:
 	/**

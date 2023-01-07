@@ -144,3 +144,21 @@ void DenavitParameter::Affiche()
 	}
 
 }
+
+void DenavitParameter::UpdateDENVariables()
+{
+	unsigned int uiBoucle; 
+	DENnbVariables = 0;
+	for (uiBoucle = 0; uiBoucle < NB_VARIABLES; uiBoucle++)
+	{
+		if (pVARVariable[uiBoucle]->LireBVariable() == true)
+		{
+			DENnbVariables++;
+		}
+	}
+}
+
+double DenavitParameter::LireNbVariables()
+{
+	return DENnbVariables;
+}
