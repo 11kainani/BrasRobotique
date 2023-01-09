@@ -92,7 +92,6 @@ void ConvertToTask(CMatrice& matrice)
 //	return points;
 //}
 
-/*
 int main()
 {
 	std::cout << "Hello World!\n\n";
@@ -101,15 +100,15 @@ int main()
 	CLecteur lec("test.txt");
 	CTrajectoire trajectoire("trajectoire.txt");
 
-	CMatrice J, DeltaX, DTheta, Ecart, Resultat, Point;
-	MatriceFonction X, JTheta;
-	ListFonction LISElements;
+	CMatrice J, G, Z, I, DeltaX, DTheta, Ecart, Resultat, Point;
+	MatriceFonction X, JTheta, ZTheta;
+	ListFonction LISElements, LISProduits;
 	FonctionInterface FONElement;
 	unsigned int nbParameter, nbElements, nbVariables, nbPoints;
 	unsigned int i, j, k;
 	double* Tab;
 
-	
+	// Lecture des fichiers
 	try
 	{
 		lec.LireFichier();
@@ -130,6 +129,7 @@ int main()
 		return 1;
 	}
 
+	// Enregistrement des parametres des fichiers
 	nbParameter = lec.LireNbParametres();
 	nbElements = lec.LireNbElements();
 	nbVariables = lec.LireNbVariables();
@@ -141,6 +141,9 @@ int main()
 		//* exit(1);
 		return 1;
 	}
+
+
+
 
 
 	// Matrice 4x4 Identité
@@ -155,6 +158,10 @@ int main()
 	X.Show();
 	X.Result().MATAffiche();
 
+
+
+
+
 	// Initialisation de la matrice J(theta)
 	LISElements = (ListFonction&)ListFonction(12 * nbVariables);
 	for (j = 0; j < 4; j++)
@@ -165,18 +172,68 @@ int main()
 			{
 				FONElement = (FonctionInterface&)X[i][j].Derive(lec.LireVariable(k).LireVariable());
 				LISElements.AddFonction(FONElement);
+				cout << "|";
 			}
 		}
 	}
+	cout << endl;
 	JTheta = (MatriceFonction&)MatriceFonction(LISElements, 12, nbVariables);
+	cout << "J" << endl;
 	JTheta.Show();
+
+
+	
+	// Initialisation de la matrice Z(Theta)
+	LISElements = (ListFonction&)ListFonction(nbVariables);
+	for (i = 0; i < nbVariables; i++)
+	{
+		double min, max;
+		VariableArticulaire* var = &lec.LireVariable(i);
+		
+		min = var->LireMin();
+		max = var->LireMax();
+		
+		// variable - ((max - min) / 2)
+		LISProduits = (ListFonction&)ListFonction(2);
+
+		FONElement = &FonctionVariable(var->LireVariable());
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionConstante(-0.5 * (max-min));
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
+
+		// N = nbVariables
+		// [ (N-1)/N ] * [ ( variable - ((max - min) / 2) ) / (max - min) ]
+		LISProduits = (ListFonction&)ListFonction(2);
+		LISProduits.AddFonction(FONElement);
+
+		// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
+		FONElement = &FonctionConstante(2 / (3 * (max - min)));
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionProduit(LISProduits);  // (variable + (-0.5 * (max - min))) * ((N-1) / (N * (max - min)))
+
+		LISElements.AddFonction(FONElement);
+	}
+	ZTheta = (MatriceFonction&)MatriceFonction(LISElements, nbVariables, 1);
+	cout << "Z" << endl;
+	ZTheta.Show();
+	
 
 	// Initialisation du vecteur Tache DeltaX
 	DeltaX = CMatrice::MATIdentity(4, 4);
 
+	I = CMatrice::MATIdentity(nbVariables, nbVariables);
+
 	// Nouvelles valeurs articulaires
 	Tab = (double*)malloc(sizeof(double)*nbVariables);
 
+
+
+
+	// Calcul Trajectoire
 	for (k = 0; k < nbPoints; k++)
 	{
 		// Point k de la trajectoire
@@ -184,19 +241,25 @@ int main()
 		cout << "Point " << k + 1 << endl;
 		Point.MATAffiche();
 
-		// Calcul de J
+		// Calcul de J, G et Z
 		J = JTheta.Result();
+		G = J.Greville();
+		Z = ZTheta.Result();
+
+		cout << "Z" << endl;
+		Z.MATTranspose().MATAffiche();
 
 		// Calcul du vecteur DeltaX entre le point précédent et le point k
 		DeltaX = Point - DeltaX;
 		ConvertToTask(DeltaX);
-		DeltaX.MATTranspose().MATAffiche();
+		//DeltaX.MATTranspose().MATAffiche();
 		//J.MATAffiche();
 		//J.Greville().MATAffiche();
-		DeltaX.MATAffiche();
+		//DeltaX.MATAffiche();
 
 		// Calcul de DTheta
-		DTheta = J.Greville() * DeltaX;
+		DTheta = G * DeltaX + (G * J - I) * Z;
+		cout << "DTheta" << endl;
 		DTheta.MATTranspose().MATAffiche();
 
 		// Modification des variables articulaires
@@ -231,13 +294,24 @@ int main()
 		}
 
 		// Affichage de l'écart par rapport à la trajectoire
+		cout << "ecart" << endl;
 		Ecart.MATAffiche();
 		std::cout << endl;
 
 		// Enregistrement des parametres denavit
 		log.Ecrire("Parametre(s) Denavit :\n");
+		// k = 0;  // cumulateur
 		for (i = 0; i < nbParameter; i++)
 		{
+			/*for (j = 0; j < lec.LireParametre(i).nbVari(); j++)
+			{
+
+				log.EcrireParametre(lec.LireParametre(i), Tab[i + j + k], j);
+				if (j > 0)
+				{
+					k++;
+				}
+			}*/
 			log.EcrireParametre(lec.LireParametre(i));
 		}
 		log.Ecrire("-------------\n");
@@ -249,14 +323,7 @@ int main()
 }
 
 
-*/
 
-int main()
-{
-	double p[9] = { 3,0,4,4,3,0,0,5,0};
-	CMatrice test(3, 3, p);
-	cout << test.bMATOrthonormal();
-}
 // ExÃ©cuter le programmeÂ : Ctrl+F5 ou menu DÃ©boguerÂ > ExÃ©cuter sans dÃ©bogage
 // DÃ©boguer le programmeÂ : F5 ou menu DÃ©boguerÂ > DÃ©marrer le dÃ©bogage
 
