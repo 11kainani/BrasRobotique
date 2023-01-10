@@ -7,28 +7,83 @@ class FonctionSomme : public FonctionOperation
 {
 
 public:
+
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionSomme();
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionSomme(ListFonction& fonctions);
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	~FonctionSomme();
 
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	// Retourne la somme des résultats de chaque sous fonction
-	virtual double Result();
+	double Result();
 
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	// Retourne la somme des dérivées par rapport à la composante donnée
-	virtual Fonction* Derive(double* pcComposante);
+	Fonction* Derive(double* pcComposante);
 
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	// Retourne une copie polymorphique FonctionSomme
-	virtual Fonction* Copy();
+	Fonction* Copy();
 
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	void Show();
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	bool Zero();
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	bool Un();
 
 private:
 	// Retourne une fonction constante egal a la somme de deux fonctions constantes
-	virtual FonctionConstante OperationConstante(FonctionInterface& constante1, FonctionInterface& constante2);
+	FonctionConstante OperationConstante(FonctionInterface& constante1, FonctionInterface& constante2);
 
-	virtual double ElementNeutre();
+	double ElementNeutre();
 
 
 };

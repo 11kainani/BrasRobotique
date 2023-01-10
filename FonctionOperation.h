@@ -13,12 +13,44 @@ protected:
 	ListFonction LISFonctions;
 
 public:
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionOperation();
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionOperation(ListFonction& fonctions);
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionOperation(FonctionOperation& FONOperationCopie);
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	~FonctionOperation();
 
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	FonctionOperation& operator=(FonctionOperation& FONOperationCopie);
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	bool Constant();
 
 protected:

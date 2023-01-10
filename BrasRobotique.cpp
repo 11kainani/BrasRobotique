@@ -9,15 +9,7 @@
 using namespace std;
 
 
-//// matrice 4 x 4
-//void SetPosition(CMatrice& matrice, double x, double y, double z)
-//{
-//	matrice.MATModiferElement(0, 3, x);
-//	matrice.MATModiferElement(1, 3, y);
-//	matrice.MATModiferElement(2, 3, z);
-//}
-
-// matrice 4 x 4 >>> matrice 12 x 1
+// Conversion d'une matrice 4 x 4 en matrice 12 x 1
 void ConvertToTask(CMatrice& matrice)
 {
 	double* tab = (double*)malloc(sizeof(double) * 12);
@@ -35,80 +27,29 @@ void ConvertToTask(CMatrice& matrice)
 	matrice = resultat;
 }
 
-//CMatrice RotateWithAandN(double theta, double alpha)
-//{
-//	double * pfMATElementaire = (double*)malloc(sizeof(double) * 16);
-//
-//	theta *= PI / 180;
-//	alpha *= PI / 180;
-//
-//	pfMATElementaire[0] = cos(theta);
-//	pfMATElementaire[1] = -sin(theta) * cos(alpha);
-//	pfMATElementaire[2] = sin(theta) * sin(alpha);
-//	pfMATElementaire[3] = 0;
-//	pfMATElementaire[4] = sin(theta);
-//	pfMATElementaire[5] = cos(theta) * cos(alpha);
-//	pfMATElementaire[6] = -cos(theta) * sin(alpha);
-//	pfMATElementaire[7] = 0;
-//	pfMATElementaire[8] = 0;
-//	pfMATElementaire[9] = sin(alpha);
-//	pfMATElementaire[10] = cos(alpha);
-//	pfMATElementaire[11] = 0;
-//	pfMATElementaire[12] = 0;
-//	pfMATElementaire[13] = 0;
-//	pfMATElementaire[14] = 0;
-//	pfMATElementaire[15] = 1;
-//
-//	CMatrice result(4, 4, pfMATElementaire);
-//	std::free(pfMATElementaire);
-//
-//	return result;
-//}
-
-//// Crée une trajectoire test
-//CMatrice* Trajectoire()
-//{
-//	int nb = 3;
-//	CMatrice* points = new CMatrice[nb];
-//
-//	// init
-//	for (int i = 0; i < nb; i++)
-//	{
-//		points[i] = RotateWithAandN(0, 0);
-//	}
-//
-//	points[0] = points[0] * (RotateWithAandN(5, 0));
-//	SetPosition(points[1], 5, 0, 0);
-//	points[2] = points[2] * (RotateWithAandN(0, 5));
-//
-//	// Mise en vecteur 12*1
-//	for (int i = 0; i < nb; i++)
-//	{
-//		std::cout << "Point " << i + 1 << endl;
-//		points[i].MATAffiche();
-//		ConvertToTask(points[i]);
-//	}
-//
-//	return points;
-//}
 
 int main()
 {
 	std::cout << "Hello World!\n\n";
 
+	// Entrées et Sorties
 	CEcriture log("result.txt");
 	CLecteur lec("test.txt");
 	CTrajectoire trajectoire("trajectoire.txt");
 
-	CMatrice J, DeltaX, DTheta, Ecart, Resultat, Point;
-	MatriceFonction X, JTheta;
-	ListFonction LISElements;
+	// Matrices et formules mathématiques
+	CMatrice J, G, Z, I, DeltaX, DTheta, Ecart, Resultat, Point;
+	MatriceFonction X, JTheta, ZTheta;
+	ListFonction LISElements, LISProduits;
 	FonctionInterface FONElement;
+
+	// Données, intervalles, itérateurs et tableau de résultats
 	unsigned int nbParameter, nbElements, nbVariables, nbPoints;
-	unsigned int i, j, k;
+	double min, max;
+	unsigned int i, j, k, d;
 	double* Tab;
 
-	
+	// Lecture du fichier d'architecture
 	try
 	{
 		lec.LireFichier();
@@ -119,6 +60,7 @@ int main()
 		return 1;
 	}
 
+	// Lecture du fichier de trajectoire
 	try
 	{
 		trajectoire.LireFichier();
@@ -129,6 +71,7 @@ int main()
 		return 1;
 	}
 
+	// Enregistrement des parametres des fichiers
 	nbParameter = lec.LireNbParametres();
 	nbElements = lec.LireNbElements();
 	nbVariables = lec.LireNbVariables();
@@ -137,78 +80,167 @@ int main()
 	if (nbParameter * 4 != nbElements) 
 	{
 		std::cout << "Erreur NbParameter et nbElements" << endl;
-		//* exit(1);
 		return 1;
 	}
 
 
+
+
+	cout << "Generation de la matrice X" << endl;
 	// Matrice 4x4 Identité
 	X = (MatriceFonction&)MatriceFonction(4, 4);
 
 	// Calcul de X par multiplication de chaque matrice elementaire de Denavit
 	for (i = 0; i < nbParameter; i++)
 	{
+		// Multiplication des matrices elementaires selon le modele geometrique direct (M1(M2(M3(...(Mn-1(Mn*I))))))
 		X = (MatriceFonction&)(MatriceFonction(lec.LireParametre(nbParameter-1-i), nbParameter - i) * X);
 	}
 
+	// Affichage de la matrice de l'organe terminal
+	cout << "X" << endl;
 	X.Show();
 	X.Result().MATAffiche();
+	cout << endl;
 
-	// Initialisation de la matrice J(theta)
+
+
+
+	cout << "Generation de la matrice J(theta)" << endl;
+	// Initialisation de la matrice J(theta) 12 x NbVariables
 	LISElements = (ListFonction&)ListFonction(12 * nbVariables);
+
+	// Pour chaque vecteur de X (n, o, a, p)
 	for (j = 0; j < 4; j++)
 	{
+		// Pour chaque composante de ce vecteur
 		for (i = 0; i < 3; i++)
 		{
 			for (k = 0; k < nbVariables; k++)
 			{
+				// Calcul de la dérivée partielle à partir des variables articulaires
 				FONElement = (FonctionInterface&)X[i][j].Derive(lec.LireVariable(k).LireVariable());
 				LISElements.AddFonction(FONElement);
+				cout << "|";
 			}
 		}
 	}
+
+	// Creation et Affichage de la matrice J(theta)
+	cout << endl;
 	JTheta = (MatriceFonction&)MatriceFonction(LISElements, 12, nbVariables);
+	cout << "J(theta)" << endl;
 	JTheta.Show();
+	cout << endl;
 
-	// Initialisation du vecteur Tache DeltaX
+
+	
+	cout << "Generation de la matrice Z" << endl;
+	// Initialisation de la matrice Z(theta)  NbVariables x 1
+	LISElements = (ListFonction&)ListFonction(nbVariables);
+
+	// Pour chaque variable articulaire
+	for (i = 0; i < nbVariables; i++)
+	{
+		VariableArticulaire* var = &lec.LireVariable(i);
+
+		// Valeur minimale et maximale possible pour la variable
+		min = var->LireMin();
+		max = var->LireMax();
+		
+		// variable - ((max - min) / 2)
+		LISProduits = (ListFonction&)ListFonction(2);
+
+		FONElement = &FonctionVariable(var->LireVariable());
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionConstante(-0.5 * (max-min));
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
+
+		// ( 2/3 ) * [ ( variable - ((max - min) / 2) ) / (max - min) ]
+		LISProduits = (ListFonction&)ListFonction(2);
+		LISProduits.AddFonction(FONElement);
+
+		/// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
+		FONElement = &FonctionConstante(2 / (3 * (max - min)));
+		LISProduits.AddFonction(FONElement);
+
+		FONElement = &FonctionProduit(LISProduits);  // (variable + (-0.5 * (max - min))) * (2 / (3 * (max - min)))
+
+		LISElements.AddFonction(FONElement);
+	}
+
+	// Creation et Affichage de la matrice Z(theta)
+	ZTheta = (MatriceFonction&)MatriceFonction(LISElements, nbVariables, 1);
+	cout << "Z" << endl;
+	ZTheta.Show();
+	cout << endl;
+	
+
+	// Initialisation du vecteur Tache DeltaX, la matrice d'Ecart et la matrice Identité I;
 	DeltaX = CMatrice::MATIdentity(4, 4);
+	Ecart = CMatrice::MATIdentity(3, 4);
+	I = CMatrice::MATIdentity(nbVariables, nbVariables);
 
-	// Nouvelles valeurs articulaires
+	// Allocation du tableau de résultats
 	Tab = (double*)malloc(sizeof(double)*nbVariables);
+
+
+	// Calcul Trajectoire
+	cout << endl << "-- Calcul de Trajectoire --" << endl;
 
 	for (k = 0; k < nbPoints; k++)
 	{
-		// Point k de la trajectoire
+		// Affichage du Point k de la trajectoire
 		Point = trajectoire.TRALireMatrice(k);
 		cout << "Point " << k + 1 << endl;
 		Point.MATAffiche();
 
-		// Calcul de J
+		// Calcul de J, G et Z
 		J = JTheta.Result();
+		G = J.Greville();
+		Z = ZTheta.Result();
+
+		/// Affichage optionnel
+		cout << "Z" << endl;
+		Z.MATTranspose().MATAffiche();
+		///
 
 		// Calcul du vecteur DeltaX entre le point précédent et le point k
 		DeltaX = Point - DeltaX;
-		ConvertToTask(DeltaX);
-		DeltaX.MATTranspose().MATAffiche();
-		//J.MATAffiche();
-		//J.Greville().MATAffiche();
-		DeltaX.MATAffiche();
+		ConvertToTask(DeltaX); // Conversion en vecteur 12 x 1
 
 		// Calcul de DTheta
-		DTheta = J.Greville() * DeltaX;
+		DTheta = G * DeltaX + (G * J - I) * Z;
+
+		/// Affichage optionnel
+		cout << "G * J" << endl;
+		(G*J).MATAffiche();
+		///
+
+		// Affichage du resultat du calcul
+		cout << "DTheta" << endl;
 		DTheta.MATTranspose().MATAffiche();
 
-		// Modification des variables articulaires
+		// Modification des variables articulaires par DTheta
 		for (i = 0; i < nbVariables; i++)
 		{
 			Tab[i] = DTheta.MATLireElement(i, 0);
 
+			// Si la variable articulaire affecte la rotation du bras robotique
 			if (lec.LireVariable(i).LireBAngulaire())
 			{
+				// La valeur est limitée à l'intervalle du sinus
 				if (Tab[i] < -1) { Tab[i] = -1; }
 				if (Tab[i] > 1) { Tab[i] = 1; }
+
+				// Calcul de l'angle en radian 
 				Tab[i] = asin(Tab[i]);
 			}
+
+			// Modification de la variable articulaire
 			lec.LireVariable(i).ModifierValeur(lec.LireVariable(i).LireValeur() + Tab[i]);
 		}
 
@@ -219,24 +251,42 @@ int main()
 		// Affichage de la nouvelle position-orientation
 		std::cout << "Position " << k + 1 << endl;
 		Resultat.MATAffiche();
+		cout << endl;
 
 		// Calcul de l'écart par rapport au point k
-		Ecart = Resultat;
 		for (i = 0; i < 12; i++)
 		{
 			unsigned int ligne = i % 3;
 			unsigned int colonne = i/3;
-			Ecart.MATModiferElement(ligne, colonne, Ecart.MATLireElement(ligne, colonne) - Point.MATLireElement(ligne, colonne));
+			Ecart.MATModiferElement(ligne, colonne, Resultat.MATLireElement(ligne, colonne) - Point.MATLireElement(ligne, colonne));
 		}
 
 		// Affichage de l'écart par rapport à la trajectoire
+		cout << "Ecart" << endl;
 		Ecart.MATAffiche();
-		std::cout << endl;
+		std::cout << endl << endl;
+
 
 		// Enregistrement des parametres denavit
 		log.Ecrire("Parametre(s) Denavit :\n");
+
+		d = 0;  // decalage
+		// Pour chaque paramètre
 		for (i = 0; i < nbParameter; i++)
 		{
+			// Pour chaque variable articulaire non-constante
+			/*for (j = 0; j < lec.LireParametre(i).nbVari(); j++)
+			{
+
+				log.EcrireParametre(lec.LireParametre(i), Tab[i + j + d], j);
+
+				// incremente le decalage en cas de plusieurs variables articulaires dans le paramètre
+				if (j > 0)
+				{
+					d++;
+				}
+			}*/
+
 			log.EcrireParametre(lec.LireParametre(i));
 		}
 		log.Ecrire("-------------\n");
