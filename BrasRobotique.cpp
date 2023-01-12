@@ -151,23 +151,23 @@ int main()
 		// variable - ((max - min) / 2)
 		LISProduits = (ListFonction&)ListFonction(2);
 
-		FONElement = &FonctionVariable(var->LireVariable());
+		FONElement = new FonctionVariable(var->LireVariable());
 		LISProduits.AddFonction(FONElement);
 
-		FONElement = &FonctionConstante(-0.5 * (max-min));
+		FONElement = new FonctionConstante(-0.5 * (max-min));
 		LISProduits.AddFonction(FONElement);
 
-		FONElement = &FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
+		FONElement = new FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
 
 		// ( 2/3 ) * [ ( variable - ((max - min) / 2) ) / (max - min) ]
 		LISProduits = (ListFonction&)ListFonction(2);
 		LISProduits.AddFonction(FONElement);
 
 		/// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
-		FONElement = &FonctionConstante(2 / (3 * (max - min)));
+		FONElement = new FonctionConstante(2 / (3 * (max - min)));
 		LISProduits.AddFonction(FONElement);
 
-		FONElement = &FonctionProduit(LISProduits);  // (variable + (-0.5 * (max - min))) * (2 / (3 * (max - min)))
+		FONElement = new FonctionProduit(LISProduits);  // (variable + (-0.5 * (max - min))) * (2 / (3 * (max - min)))
 
 		LISElements.AddFonction(FONElement);
 	}

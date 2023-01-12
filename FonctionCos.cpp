@@ -28,11 +28,11 @@ Fonction* FonctionCos::Derive(double* pdComposant)
 	FonctionInterface FONElement;
 
 	// -1
-	FONElement = &FonctionConstante(-1);
+	FONElement = new FonctionConstante(-1);
 	LISDerives.AddFonction(FONElement);
 
 	// sin(u)
-	FONElement = &FonctionSin(FONInterface);
+	FONElement = new FonctionSin(FONInterface);
 	LISDerives.AddFonction(FONElement);
 
 	// u'

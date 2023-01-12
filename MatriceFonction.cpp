@@ -19,7 +19,7 @@ MatriceFonction::MatriceFonction(unsigned int nbLignes, unsigned int nbColonnes)
 	{
 		for (unsigned int j = 0; j < nbColonnes; j++)
 		{
-			FONElement = &FonctionConstante((i == j ? 1 : 0));
+			FONElement = new FonctionConstante((i == j ? 1 : 0));
 			LISFonctions.AddFonction(FONElement);
 		}
 	}
@@ -77,27 +77,27 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	D = (FonctionInterface&)Param(param, 1, dd);		// d
 	Alpha = (FonctionInterface&)Param(param, 2, al);	// alpha
 	A = (FonctionInterface&)Param(param, 3, aa);		// a
-	Zero = &FonctionConstante(0);	// 0
-	Un = &FonctionConstante(1);		// 1
+	Zero = new FonctionConstante(0);	// 0
+	Un = new FonctionConstante(1);		// 1
 
 	// cos(theta)
-	FONCos = &(FonctionCos((FonctionInterface&)Theta.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
 	LISFonctions.AddFonction(FONCos);
 	//////
 
 	// -1 * sin(theta) * cos(alpha)
 	LISElements = (ListFonction&)ListFonction(3);
 
-	FONElement = &FonctionConstante(-1);
+	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
 
-	FONSin = &(FonctionSin((FonctionInterface&)Theta.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
-	FONCos = &(FonctionCos((FonctionInterface&)Alpha.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
 	LISElements.AddFonction(FONCos); // cos(alpha)
 
-	FONElement = &FonctionProduit(LISElements); // -1*sin(theta)*cos(alpha)
+	FONElement = new FonctionProduit(LISElements); // -1*sin(theta)*cos(alpha)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
@@ -105,13 +105,13 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	// sin(theta) * sin(alpha)
 	LISElements = (ListFonction&)ListFonction(2);
 
-	FONSin = &(FonctionSin((FonctionInterface&)Theta.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
-	FONSin = &(FonctionSin((FonctionInterface&)Alpha.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
 	LISElements.AddFonction(FONSin); // sin(alpha)
 
-	FONElement = &FonctionProduit(LISElements); // sin(theta)*sin(alpha)
+	FONElement = new FonctionProduit(LISElements); // sin(theta)*sin(alpha)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
@@ -120,44 +120,44 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 
 	LISElements.AddFonction(A, false);
 
-	FONCos = &(FonctionCos((FonctionInterface&)Theta.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
-	FONElement = &FonctionProduit(LISElements); // a * cos(theta)
+	FONElement = new FonctionProduit(LISElements); // a * cos(theta)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
 	// sin(theta)
-	FONSin = &(FonctionSin((FonctionInterface&)Theta.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
 	LISFonctions.AddFonction(FONSin); // sin(theta)
 	//////
 
 	// cos(theta) * cos(alpha)
 	LISElements = (ListFonction&)ListFonction(2);
 
-	FONCos = &(FonctionCos((FonctionInterface&)Theta.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
-	FONCos = &(FonctionCos((FonctionInterface&)Alpha.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
 	LISElements.AddFonction(FONCos); // cos(alpha)
 
-	FONElement = &FonctionProduit(LISElements); // cos(theta) * cos(alpha)
+	FONElement = new FonctionProduit(LISElements); // cos(theta) * cos(alpha)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
 	// -1 * cos(theta) * sin(alpha)
 	LISElements = (ListFonction&)ListFonction(3);
 
-	FONElement = &FonctionConstante(-1);
+	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
 
-	FONCos = &(FonctionCos((FonctionInterface&)Theta.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
-	FONSin = &(FonctionSin((FonctionInterface&)Alpha.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
 	LISElements.AddFonction(FONSin); // sin(alpha)
 
-	FONElement = &FonctionProduit(LISElements); // -1*cos(theta)*sin(alpha)
+	FONElement = new FonctionProduit(LISElements); // -1*cos(theta)*sin(alpha)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
@@ -166,10 +166,10 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 
 	LISElements.AddFonction(A, false);
 
-	FONSin = &(FonctionSin((FonctionInterface&)Theta.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
-	FONElement = &FonctionProduit(LISElements); // a * sin(theta)
+	FONElement = new FonctionProduit(LISElements); // a * sin(theta)
 	LISFonctions.AddFonction(FONElement);
 	//////
 
@@ -178,12 +178,12 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// sin(alpha)
-	FONSin = &(FonctionSin((FonctionInterface&)Alpha.Copy()));
+	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
 	LISFonctions.AddFonction(FONSin); // sin(alpha)
 	//////
 
 	// cos(alpha)
-	FONCos = &(FonctionCos((FonctionInterface&)Alpha.Copy()));
+	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
 	LISFonctions.AddFonction(FONCos); // cos(alpha)
 	//////
 
@@ -283,12 +283,12 @@ MatriceFonction MatriceFonction::operator*(MatriceFonction& MATMatrice)
 				LISElements.AddFonction(LISFonctions[i*uiNbColonnes + k], false);
 				LISElements.AddFonction(MATMatrice.LISFonctions[k*MATMatrice.uiNbColonnes + j], false);
 
-				FONElement = &FonctionProduit(LISElements);
+				FONElement = new FonctionProduit(LISElements);
 				LISProduits.AddFonction(FONElement);
 			}
 
 			
-			FONElement = &FonctionSomme(LISProduits);
+			FONElement = new FonctionSomme(LISProduits);
 			LISSommes.AddFonction(FONElement);
 		}
 	}
@@ -359,11 +359,11 @@ FonctionInterface MatriceFonction::Param(DenavitParameter& param, unsigned int u
 	
 	if (param.LireBVariable(uiIndice) == false)
 	{
-		FONInterface = &FonctionConstante(param.LireValeur(uiIndice));
+		FONInterface = new FonctionConstante(param.LireValeur(uiIndice));
 	}
 	else
 	{
-		FONInterface = &FonctionVariable(param.LireVariable(uiIndice), nom);
+		FONInterface = new FonctionVariable(param.LireVariable(uiIndice), nom);
 	}
 
 	return FONInterface;

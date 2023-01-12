@@ -12,13 +12,13 @@ FonctionSomme::FonctionSomme(ListFonction& fonctions) : FonctionOperation(foncti
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	double ElementNeutre = 0;
 	ListFonction Temp(uiTaille);
-	FonctionInterface FONConstante = &FonctionConstante(ElementNeutre);
+	FonctionInterface FONConstante = new FonctionConstante(ElementNeutre);
 
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		if (LISFonctions[i].Constant())
 		{
-			FONConstante = &FonctionConstante(FONConstante.Result() + LISFonctions[i].Result());
+			FONConstante = new FonctionConstante(FONConstante.Result() + LISFonctions[i].Result());
 		}
 		else
 		{

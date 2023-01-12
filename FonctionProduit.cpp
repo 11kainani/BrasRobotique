@@ -11,13 +11,13 @@ FonctionProduit::FonctionProduit(ListFonction& fonctions) : FonctionOperation(fo
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	double ElementNeutre = 1;
 	ListFonction Temp(uiTaille);
-	FonctionInterface FONConstante = &FonctionConstante(ElementNeutre);
+	FonctionInterface FONConstante = new FonctionConstante(ElementNeutre);
 
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		if (LISFonctions[i].Constant())
 		{
-			FONConstante = &FonctionConstante(FONConstante.Result() * LISFonctions[i].Result());
+			FONConstante = new FonctionConstante(FONConstante.Result() * LISFonctions[i].Result());
 		}
 		else
 		{
@@ -81,7 +81,7 @@ Fonction* FonctionProduit::Derive(double* pdComposant)
 				LISProduits.AddFonction(LISFonctions[j], (LISFonctions[j].Constant() == false));
 			}
 		}
-		DeriveInterface = &(FonctionProduit(LISProduits));
+		DeriveInterface = new FonctionProduit(LISProduits);
 		LISDerives.AddFonction(DeriveInterface);
 	}
 	pFONDerive = new FonctionSomme(LISDerives);

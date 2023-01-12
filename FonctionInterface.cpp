@@ -51,7 +51,8 @@ FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 FonctionInterface& FonctionInterface::operator=(Fonction* fonction)
 {
 	Desalloc();
-	Alloc(fonction, true);
+	Alloc(fonction, false);
+	bDynamique = true;
 	bTemporaire = true;
 
 	return *this;
