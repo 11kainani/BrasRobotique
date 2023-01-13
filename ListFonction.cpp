@@ -30,6 +30,25 @@ ListFonction::~ListFonction()
 	Desalloc();
 }
 
+void ListFonction::init(unsigned int taille)
+{
+	Desalloc();
+	Alloc(taille);
+}
+
+void ListFonction::init(ListFonction LISCopie)
+{
+	FonctionInterface FONElement;
+	Desalloc();
+	Alloc(LISCopie.uiNbFonctions);
+
+	for (unsigned int i = 0; i < LISCopie.uiNbFonctions; i++)
+	{
+		AddFonction(LISCopie.pLISFonctions[i]);
+	}
+}
+
+
 ListFonction& ListFonction::operator=(ListFonction& LISCopie)
 {
 	FonctionInterface FONElement;
@@ -72,7 +91,7 @@ void ListFonction::AddFonction(FonctionInterface& pFonction, bool delegation)
 
 	if (delegation)
 	{
-		pLISFonctions[uiNbFonctions] = (FonctionInterface&)FonctionInterface(pFonction);
+		pLISFonctions[uiNbFonctions].init(pFonction);
 	}
 	else
 	{

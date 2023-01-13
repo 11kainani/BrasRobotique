@@ -33,6 +33,26 @@ FonctionInterface::~FonctionInterface()
 	Desalloc();
 }
 
+void FonctionInterface::init(Fonction* pFonction, bool bTemp)
+{
+	Desalloc();
+	Alloc(pFonction, true);
+	bTemporaire = bTemp;
+}
+
+void FonctionInterface::init(FonctionInterface FONInterface)
+{
+	Desalloc();
+	Alloc(FONInterface.pnFONFonction, false);
+
+	// delegation si l'objet est temporaire
+	if (FONInterface.bTemporaire && FONInterface.bDynamique)
+	{
+		bDynamique = true;
+		FONInterface.bDynamique = false;
+	}
+}
+
 FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 {
 	Desalloc();
@@ -111,6 +131,12 @@ bool FonctionInterface::Un()
 
 bool FonctionInterface::Constant()
 {
+	if (pnFONFonction == nullptr)
+	{
+		cout << "Erreur FonctionInterface::Constant()  :  pointeur nullptr" << endl;
+		return false;
+	}
+
 	return pnFONFonction->Constant();
 }
 

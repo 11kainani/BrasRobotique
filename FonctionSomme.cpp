@@ -31,7 +31,7 @@ FonctionSomme::FonctionSomme(ListFonction& fonctions) : FonctionOperation(foncti
 		Temp.AddFonction(FONConstante);
 	}
 
-	LISFonctions = (ListFonction&)ListFonction(Temp);
+	LISFonctions.init(Temp);
 }
 
 FonctionSomme::~FonctionSomme()

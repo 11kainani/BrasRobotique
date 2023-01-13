@@ -10,7 +10,35 @@ MatriceFonction::MatriceFonction()
 
 MatriceFonction::MatriceFonction(unsigned int nbLignes, unsigned int nbColonnes)
 {
-	LISFonctions = (ListFonction&)ListFonction(nbLignes*nbColonnes);
+	init(nbLignes, nbColonnes);
+}
+
+MatriceFonction::MatriceFonction(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes)
+{
+	init(fonctions, nbLignes, nbColonnes);
+}
+
+MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
+{
+	init(param, num);
+
+}
+
+MatriceFonction::MatriceFonction(MatriceFonction& MATCopie)
+{
+	LISFonctions = MATCopie.LISFonctions;
+	uiNbLignes = MATCopie.uiNbLignes;
+	uiNbColonnes = MATCopie.uiNbColonnes;
+}
+
+
+MatriceFonction::~MatriceFonction()
+{
+}
+
+void MatriceFonction::init(unsigned int nbLignes, unsigned int nbColonnes)
+{
+	LISFonctions.init(nbLignes*nbColonnes);
 	FonctionInterface FONElement;
 	uiNbLignes = nbLignes;
 	uiNbColonnes = nbColonnes;
@@ -25,16 +53,16 @@ MatriceFonction::MatriceFonction(unsigned int nbLignes, unsigned int nbColonnes)
 	}
 }
 
-MatriceFonction::MatriceFonction(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes)
+void MatriceFonction::init(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes)
 {
 	LISFonctions = fonctions;
 	uiNbLignes = nbLignes;
 	uiNbColonnes = nbColonnes;
 }
 
-MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
+void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 {
-	LISFonctions = (ListFonction&)ListFonction(16);
+	LISFonctions.init(16);
 	uiNbLignes = 4;
 	uiNbColonnes = 4;
 
@@ -53,7 +81,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	th[2] = 'e';
 	th[3] = 't';
 	th[4] = 'a';
-	th[5] = '0'+num;
+	th[5] = '0' + num;
 	th[6] = '\0';
 
 	dd[0] = 'd';
@@ -86,7 +114,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// -1 * sin(theta) * cos(alpha)
-	LISElements = (ListFonction&)ListFonction(3);
+	LISElements.init(3);
 
 	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
@@ -103,7 +131,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 
 
 	// sin(theta) * sin(alpha)
-	LISElements = (ListFonction&)ListFonction(2);
+	LISElements.init(2);
 
 	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
@@ -116,7 +144,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// a * cos(theta)
-	LISElements = (ListFonction&)ListFonction(2);
+	LISElements.init(2);
 
 	LISElements.AddFonction(A, false);
 
@@ -133,7 +161,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// cos(theta) * cos(alpha)
-	LISElements = (ListFonction&)ListFonction(2);
+	LISElements.init(2);
 
 	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
@@ -146,7 +174,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// -1 * cos(theta) * sin(alpha)
-	LISElements = (ListFonction&)ListFonction(3);
+	LISElements.init(3);
 
 	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
@@ -162,7 +190,7 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	//////
 
 	// a * sin(theta)
-	LISElements = (ListFonction&)ListFonction(2);
+	LISElements.init(2);
 
 	LISElements.AddFonction(A, false);
 
@@ -206,20 +234,15 @@ MatriceFonction::MatriceFonction(DenavitParameter& param, unsigned int num)
 	// 1
 	LISFonctions.AddFonction(Un);
 	//////
-
 }
 
-MatriceFonction::MatriceFonction(MatriceFonction& MATCopie)
+void MatriceFonction::init(MatriceFonction MATCopie)
 {
 	LISFonctions = MATCopie.LISFonctions;
 	uiNbLignes = MATCopie.uiNbLignes;
 	uiNbColonnes = MATCopie.uiNbColonnes;
 }
 
-
-MatriceFonction::~MatriceFonction()
-{
-}
 
 
 CMatrice MatriceFonction::Result()
@@ -270,16 +293,16 @@ MatriceFonction MatriceFonction::operator*(MatriceFonction& MATMatrice)
 	nbLignes = uiNbLignes;
 	nbColonnes = MATMatrice.uiNbColonnes;
 
-	LISSommes = (ListFonction&)ListFonction(nbLignes*nbColonnes);
+	LISSommes.init(nbLignes*nbColonnes);
 	for (i = 0; i < nbLignes; i++)
 	{
 		for (j = 0; j < nbColonnes; j++)
 		{
-			LISProduits = (ListFonction&)ListFonction(uiNbColonnes);
+			LISProduits.init(uiNbColonnes);
 			for (k = 0; k < uiNbColonnes; k++)
 			{
 				// a(i, k) * b(k, j)
-				LISElements = (ListFonction&)ListFonction(2);
+				LISElements.init(2);
 				LISElements.AddFonction(LISFonctions[i*uiNbColonnes + k], false);
 				LISElements.AddFonction(MATMatrice.LISFonctions[k*MATMatrice.uiNbColonnes + j], false);
 
@@ -321,7 +344,7 @@ ListFonction MatriceFonction::operator[](unsigned int uiIndice)
 		return LISLigne;
 	}
 
-	LISLigne = (ListFonction&)ListFonction(uiNbColonnes);
+	LISLigne.init(uiNbColonnes);
 	for (unsigned int i = 0; i < uiNbColonnes; i++)
 	{
 		FONElement = LISFonctions[uiIndice*uiNbColonnes + i];

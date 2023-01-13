@@ -37,6 +37,9 @@ public:
 	*/
 	~ListFonction();
 
+	void init(unsigned int taille);
+
+	void init(ListFonction LISCopie);
 
 	/**
 	 * Surcharge de l'opérateur =

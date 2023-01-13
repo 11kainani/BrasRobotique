@@ -30,7 +30,7 @@ FonctionProduit::FonctionProduit(ListFonction& fonctions) : FonctionOperation(fo
 		Temp.AddFonction(FONConstante);
 	}
 
-	LISFonctions = (ListFonction&)ListFonction(Temp);
+	LISFonctions.init(Temp);
 }
 
 FonctionProduit::~FonctionProduit()
@@ -66,10 +66,10 @@ Fonction* FonctionProduit::Derive(double* pdComposant)
 	uiTaille = LISFonctions.GetNbFonctions();
 	if (uiTaille == 0) { return new FonctionConstante(0); }
 
-	LISDerives = (ListFonction&)ListFonction(uiTaille);
+	LISDerives.init(uiTaille);
 	for (i = 0; i < uiTaille; i++)
 	{
-		LISProduits = (ListFonction&)ListFonction(uiTaille);
+		LISProduits.init(uiTaille);
 		for (j = 0; j < uiTaille; j++)
 		{
 			if (i == j) 

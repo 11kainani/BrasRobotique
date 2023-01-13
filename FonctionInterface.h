@@ -29,7 +29,7 @@ public:
 	 * @param fonction : adresse d'un objet Fonction ou pointeur Fonction*
 	 * @param bTemp : L'objet créé est-il temporaire ? (vrai par défaut)
 	*/
-	FonctionInterface(Fonction* fonction, bool bTemp = true);
+	FonctionInterface(Fonction* pFonction, bool bTemp = true);
 
 	/**
 	 * Constructeur de recopie
@@ -43,6 +43,10 @@ public:
 	 * @brief Détruis l'objet et, si bDynamique est vrai, l'objet Fonction contenu est désalloué de la mémoire
 	*/
 	~FonctionInterface();
+
+	void init(Fonction* pFonction, bool bTemp = true);
+
+	void init(FonctionInterface FONInterface);
 
 
 	/**

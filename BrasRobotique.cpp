@@ -39,7 +39,7 @@ int main()
 
 	// Matrices et formules mathématiques
 	CMatrice J, G, Z, I, DeltaX, DTheta, Ecart, Resultat, Point;
-	MatriceFonction X, JTheta, ZTheta;
+	MatriceFonction X, M, JTheta, ZTheta;
 	ListFonction LISElements, LISProduits;
 	FonctionInterface FONElement;
 
@@ -88,13 +88,14 @@ int main()
 
 	cout << "Generation de la matrice X" << endl;
 	// Matrice 4x4 Identité
-	X = (MatriceFonction&)MatriceFonction(4, 4);
+	X .init(4, 4);
 
 	// Calcul de X par multiplication de chaque matrice elementaire de Denavit
 	for (i = 0; i < nbParameter; i++)
 	{
 		// Multiplication des matrices elementaires selon le modele geometrique direct (M1(M2(M3(...(Mn-1(Mn*I))))))
-		X = (MatriceFonction&)(MatriceFonction(lec.LireParametre(nbParameter-1-i), nbParameter - i) * X);
+		M.init(lec.LireParametre(nbParameter - 1 - i), nbParameter - i);
+		X.init((MatriceFonction&)(M * X));
 	}
 
 	// Affichage de la matrice de l'organe terminal
@@ -108,7 +109,7 @@ int main()
 
 	cout << "Generation de la matrice J(theta)" << endl;
 	// Initialisation de la matrice J(theta) 12 x NbVariables
-	LISElements = (ListFonction&)ListFonction(12 * nbVariables);
+	LISElements.init(12 * nbVariables);
 
 	// Pour chaque vecteur de X (n, o, a, p)
 	for (j = 0; j < 4; j++)
@@ -128,7 +129,7 @@ int main()
 
 	// Creation et Affichage de la matrice J(theta)
 	cout << endl;
-	JTheta = (MatriceFonction&)MatriceFonction(LISElements, 12, nbVariables);
+	JTheta.init(LISElements, 12, nbVariables);
 	cout << "J(theta)" << endl;
 	JTheta.Show();
 	cout << endl;
@@ -137,7 +138,7 @@ int main()
 	
 	cout << "Generation de la matrice Z" << endl;
 	// Initialisation de la matrice Z(theta)  NbVariables x 1
-	LISElements = (ListFonction&)ListFonction(nbVariables);
+	LISElements.init(nbVariables);
 
 	// Pour chaque variable articulaire
 	for (i = 0; i < nbVariables; i++)
@@ -149,7 +150,7 @@ int main()
 		max = var->LireMax();
 		
 		// variable - ((max - min) / 2)
-		LISProduits = (ListFonction&)ListFonction(2);
+		LISProduits.init(2);
 
 		FONElement = new FonctionVariable(var->LireVariable());
 		LISProduits.AddFonction(FONElement);
@@ -160,7 +161,7 @@ int main()
 		FONElement = new FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
 
 		// ( 2/3 ) * [ ( variable - ((max - min) / 2) ) / (max - min) ]
-		LISProduits = (ListFonction&)ListFonction(2);
+		LISProduits.init(2);
 		LISProduits.AddFonction(FONElement);
 
 		/// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
@@ -173,7 +174,7 @@ int main()
 	}
 
 	// Creation et Affichage de la matrice Z(theta)
-	ZTheta = (MatriceFonction&)MatriceFonction(LISElements, nbVariables, 1);
+	ZTheta.init(LISElements, nbVariables, 1);
 	cout << "Z" << endl;
 	ZTheta.Show();
 	cout << endl;

@@ -28,6 +28,13 @@ public:
 	MatriceFonction(MatriceFonction& MATCopie);
 	~MatriceFonction();
 
+	
+
+	void init(unsigned int nbLignes, unsigned int nbColonnes);
+	void init(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes);
+	void init(DenavitParameter& param, unsigned int num = 0);
+	void init(MatriceFonction MATCopie);
+
 	CMatrice Result();
 
 	MatriceFonction& operator=(MatriceFonction& MATMatrice);

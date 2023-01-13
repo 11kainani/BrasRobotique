@@ -47,7 +47,7 @@ ListFonction FonctionOperation::Copies()
 	unsigned int i, uiTaille;
 	
 	uiTaille = LISFonctions.GetNbFonctions();
-	copies = (ListFonction&)ListFonction(uiTaille);
+	copies.init(uiTaille);
 
 	for (i = 0; i < uiTaille; i++)
 	{

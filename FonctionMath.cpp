@@ -8,7 +8,7 @@ FonctionMath::FonctionMath()
 
 FonctionMath::FonctionMath(FonctionInterface& fonction)
 {
-	FONInterface = (FonctionInterface&)FonctionInterface(fonction);
+	FONInterface.init(fonction);
 }
 
 FonctionMath::FonctionMath(FonctionMath& FONMath)
