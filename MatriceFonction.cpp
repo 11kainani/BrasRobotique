@@ -31,6 +31,12 @@ MatriceFonction::MatriceFonction(MatriceFonction& MATCopie)
 	uiNbColonnes = MATCopie.uiNbColonnes;
 }
 
+MatriceFonction::MatriceFonction(MatriceFonction&& MATCopie)
+{
+	LISFonctions = MATCopie.LISFonctions;
+	uiNbLignes = MATCopie.uiNbLignes;
+	uiNbColonnes = MATCopie.uiNbColonnes;
+}
 
 MatriceFonction::~MatriceFonction()
 {
@@ -101,15 +107,15 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	aa[2] = '\0';
 
 
-	Theta = (FonctionInterface&)Param(param, 0, th);	// theta
-	D = (FonctionInterface&)Param(param, 1, dd);		// d
-	Alpha = (FonctionInterface&)Param(param, 2, al);	// alpha
-	A = (FonctionInterface&)Param(param, 3, aa);		// a
+	Theta = Param(param, 0, th);	// theta
+	D = Param(param, 1, dd);		// d
+	Alpha = Param(param, 2, al);	// alpha
+	A = Param(param, 3, aa);		// a
 	Zero = new FonctionConstante(0);	// 0
 	Un = new FonctionConstante(1);		// 1
 
 	// cos(theta)
-	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
+	FONCos = new FonctionCos(Theta.Copy());
 	LISFonctions.AddFonction(FONCos);
 	//////
 
@@ -119,10 +125,10 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
 
-	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
+	FONSin = new FonctionSin(Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
-	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
+	FONCos = new FonctionCos(Alpha.Copy());
 	LISElements.AddFonction(FONCos); // cos(alpha)
 
 	FONElement = new FonctionProduit(LISElements); // -1*sin(theta)*cos(alpha)
@@ -133,10 +139,10 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	// sin(theta) * sin(alpha)
 	LISElements.init(2);
 
-	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
+	FONSin = new FonctionSin(Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
-	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
+	FONSin = new FonctionSin(Alpha.Copy());
 	LISElements.AddFonction(FONSin); // sin(alpha)
 
 	FONElement = new FonctionProduit(LISElements); // sin(theta)*sin(alpha)
@@ -148,7 +154,7 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 
 	LISElements.AddFonction(A, false);
 
-	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
+	FONCos = new FonctionCos(Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
 	FONElement = new FonctionProduit(LISElements); // a * cos(theta)
@@ -156,17 +162,17 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	//////
 
 	// sin(theta)
-	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
+	FONSin = new FonctionSin(Theta.Copy());
 	LISFonctions.AddFonction(FONSin); // sin(theta)
 	//////
 
 	// cos(theta) * cos(alpha)
 	LISElements.init(2);
 
-	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
+	FONCos = new FonctionCos(Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
-	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
+	FONCos = new FonctionCos(Alpha.Copy());
 	LISElements.AddFonction(FONCos); // cos(alpha)
 
 	FONElement = new FonctionProduit(LISElements); // cos(theta) * cos(alpha)
@@ -179,10 +185,10 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	FONElement = new FonctionConstante(-1);
 	LISElements.AddFonction(FONElement); // -1
 
-	FONCos = new FonctionCos((FonctionInterface&)Theta.Copy());
+	FONCos = new FonctionCos(Theta.Copy());
 	LISElements.AddFonction(FONCos); // cos(theta)
 
-	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
+	FONSin = new FonctionSin(Alpha.Copy());
 	LISElements.AddFonction(FONSin); // sin(alpha)
 
 	FONElement = new FonctionProduit(LISElements); // -1*cos(theta)*sin(alpha)
@@ -194,7 +200,7 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 
 	LISElements.AddFonction(A, false);
 
-	FONSin = new FonctionSin((FonctionInterface&)Theta.Copy());
+	FONSin = new FonctionSin(Theta.Copy());
 	LISElements.AddFonction(FONSin); // sin(theta)
 
 	FONElement = new FonctionProduit(LISElements); // a * sin(theta)
@@ -206,12 +212,12 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	//////
 
 	// sin(alpha)
-	FONSin = new FonctionSin((FonctionInterface&)Alpha.Copy());
+	FONSin = new FonctionSin(Alpha.Copy());
 	LISFonctions.AddFonction(FONSin); // sin(alpha)
 	//////
 
 	// cos(alpha)
-	FONCos = new FonctionCos((FonctionInterface&)Alpha.Copy());
+	FONCos = new FonctionCos(Alpha.Copy());
 	LISFonctions.AddFonction(FONCos); // cos(alpha)
 	//////
 

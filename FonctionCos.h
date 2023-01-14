@@ -28,6 +28,13 @@ public:
 	 * @brief
 	 * @param
 	*/
+	FonctionCos(FonctionInterface&& FONInterface);
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	~FonctionCos();
 
 

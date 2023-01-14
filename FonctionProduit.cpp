@@ -74,7 +74,7 @@ Fonction* FonctionProduit::Derive(double* pdComposant)
 		{
 			if (i == j) 
 			{ 
-				LISProduits.AddFonction((FonctionInterface&)LISFonctions[j].Derive(pdComposant)); 
+				LISProduits.AddFonction(LISFonctions[j].Derive(pdComposant)); 
 			}
 			else
 			{

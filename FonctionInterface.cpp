@@ -27,6 +27,19 @@ FonctionInterface::FonctionInterface(FonctionInterface& FONInterface)
 	}
 }
 
+FonctionInterface::FonctionInterface(FonctionInterface&& FONInterface)
+{
+	Alloc(FONInterface.pnFONFonction, false);
+	bTemporaire = true;
+
+	// delegation
+	if (FONInterface.bDynamique)
+	{
+		bDynamique = true;
+		FONInterface.bDynamique = false;
+	}
+}
+
 
 FonctionInterface::~FonctionInterface()
 {
@@ -45,7 +58,7 @@ void FonctionInterface::init(FonctionInterface FONInterface)
 	Desalloc();
 	Alloc(FONInterface.pnFONFonction, false);
 
-	// delegation si l'objet est temporaire
+	// delegation si l'objet est temporaire et dynamique
 	if (FONInterface.bTemporaire && FONInterface.bDynamique)
 	{
 		bDynamique = true;
@@ -55,10 +68,37 @@ void FonctionInterface::init(FonctionInterface FONInterface)
 
 FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 {
+	// Ne rien faire si l'objet de droite est également celui de gauche
+	if (this == &FONInterface)
+	{
+		return *this;
+	}
+
 	Desalloc();
 	Alloc(FONInterface.pnFONFonction, false);
 
-	// delegation si l'objet est temporaire
+	// delegation si l'objet est temporaire et dynamique
+	if (FONInterface.bTemporaire && FONInterface.bDynamique)
+	{
+		bDynamique = true;
+		FONInterface.bDynamique = false;
+	}
+
+	return *this;
+}
+
+FonctionInterface& FonctionInterface::operator=(FonctionInterface&& FONInterface)
+{
+	// Ne rien faire si l'objet de droite est également celui de gauche
+	if (this == &FONInterface)
+	{
+		return *this;
+	}
+
+	Desalloc();
+	Alloc(FONInterface.pnFONFonction, false);
+
+	// delegation si l'objet est temporaire et dynamique
 	if (FONInterface.bTemporaire && FONInterface.bDynamique)
 	{
 		bDynamique = true;

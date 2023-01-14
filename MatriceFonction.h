@@ -26,6 +26,7 @@ public:
 	MatriceFonction(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes);
 	MatriceFonction(DenavitParameter& param, unsigned int num = 0);
 	MatriceFonction(MatriceFonction& MATCopie);
+	MatriceFonction(MatriceFonction&& MATCopie);
 	~MatriceFonction();
 
 	

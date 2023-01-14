@@ -88,14 +88,14 @@ int main()
 
 	cout << "Generation de la matrice X" << endl;
 	// Matrice 4x4 Identité
-	X .init(4, 4);
+	X.init(4, 4);
 
 	// Calcul de X par multiplication de chaque matrice elementaire de Denavit
 	for (i = 0; i < nbParameter; i++)
 	{
 		// Multiplication des matrices elementaires selon le modele geometrique direct (M1(M2(M3(...(Mn-1(Mn*I))))))
 		M.init(lec.LireParametre(nbParameter - 1 - i), nbParameter - i);
-		X.init((MatriceFonction&)(M * X));
+		X.init(M * X);
 	}
 
 	// Affichage de la matrice de l'organe terminal
@@ -120,7 +120,7 @@ int main()
 			for (k = 0; k < nbVariables; k++)
 			{
 				// Calcul de la dérivée partielle à partir des variables articulaires
-				FONElement = (FonctionInterface&)X[i][j].Derive(lec.LireVariable(k).LireVariable());
+				FONElement = X[i][j].Derive(lec.LireVariable(k).LireVariable());
 				LISElements.AddFonction(FONElement);
 				cout << "|";
 			}

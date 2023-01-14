@@ -95,8 +95,21 @@ void ListFonction::AddFonction(FonctionInterface& pFonction, bool delegation)
 	}
 	else
 	{
-		pLISFonctions[uiNbFonctions] = (FonctionInterface&)pFonction.Copy();
+		pLISFonctions[uiNbFonctions] = pFonction.Copy();
 	}
+
+	uiNbFonctions++;
+}
+
+void ListFonction::AddFonction(FonctionInterface&& pFonction)
+{
+	if (uiNbFonctions == uiTaille)
+	{
+		cout << "Erreur : Liste complete" << endl;
+		return;
+	}
+
+	pLISFonctions[uiNbFonctions].init(pFonction);
 
 	uiNbFonctions++;
 }

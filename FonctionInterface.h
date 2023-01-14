@@ -39,6 +39,13 @@ public:
 	FonctionInterface(FonctionInterface& FONInterface);
 
 	/**
+	 * Constructeur de déplacement
+	 * @brief Crée un objet temporaire ayant récupéré l'objet Fonction contenu dans un autre objet temporaire FonctionInterface
+	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera récupéré par délégation
+	*/
+	FonctionInterface(FonctionInterface&& FONInterface);
+
+	/**
 	 * Destructeur
 	 * @brief Détruis l'objet et, si bDynamique est vrai, l'objet Fonction contenu est désalloué de la mémoire
 	*/
@@ -55,6 +62,13 @@ public:
 	 * @param FONInterface : Objet FonctionInterface dont le contenu sera récupéré par délégation si celui-ci est temporaire
 	*/
 	FonctionInterface& operator=(FonctionInterface& FONInterface);
+
+	/**
+	 * Surcharge de l'opérateur =
+	 * @brief Récupère l'objet Fonction contenu dans l'objet temporaire de droite
+	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera récupéré par délégation
+	*/
+	FonctionInterface& operator=(FonctionInterface&& FONInterface);
 
 	/**
 	 * Surcharge de l'opérateur égal

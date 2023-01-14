@@ -64,6 +64,13 @@ public:
 	void AddFonction(FonctionInterface& pFonction, bool delegation = true);
 
 	/**
+	 * Ajout de fonction
+	 * @brief Ajoute, par délégation ou référence, l'objet Fonction contenu dans l'objet temporaire FonctionInterface fournit
+	 * @param pFonction : Objet temporaire FonctionInterface
+	*/
+	void AddFonction(FonctionInterface&& pFonction);
+
+	/**
 	 * Getter
 	 * @brief Retourne le nombre de FonctionInterface que la liste peut contenir
 	*/

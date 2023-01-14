@@ -10,6 +10,9 @@ FonctionSin::FonctionSin(FonctionInterface& FONInterface) : FonctionMath(FONInte
 {
 }
 
+FonctionSin::FonctionSin(FonctionInterface&& FONInterface) : FonctionMath(FONInterface)
+{
+}
 
 FonctionSin::~FonctionSin()
 {
@@ -33,7 +36,7 @@ Fonction* FonctionSin::Derive(double* pdComposant)
 	LISDerives.AddFonction(FONElement);
 
 	// u'
-	FONElement = (FonctionInterface&)FONInterface.Derive(pdComposant);
+	FONElement = FONInterface.Derive(pdComposant);
 	LISDerives.AddFonction(FONElement);
 
 	// ( sin(u) )' = cos(u)*u'

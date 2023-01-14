@@ -28,6 +28,13 @@ public:
 	 * @brief
 	 * @param
 	*/
+	FonctionSin(FonctionInterface&& FONInterface);
+
+	/**
+	 * Surcharge de Fonction::
+	 * @brief
+	 * @param
+	*/
 	~FonctionSin();
 
 

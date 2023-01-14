@@ -67,7 +67,7 @@ Fonction* FonctionSomme::Derive(double* pdComposant)
 	for (i = 0; i < uiTaille; i++)
 	{
 		// On ajoute la dérivée de chaque sous fonction dans la liste
-		LISDerives.AddFonction((FonctionInterface&)(LISFonctions[i].Derive(pdComposant)));
+		LISDerives.AddFonction((LISFonctions[i].Derive(pdComposant)));
 	}
 
 	// Allocation par new et création de copies des dérivés

@@ -132,7 +132,7 @@ double CMatriceBase::Precision(double valeur, int precision)
 {
 
 	return valeur;
-
+	/*
 	double p = 1;
 	bool retenue;
 	bool negatif = (valeur < 0);
@@ -159,6 +159,7 @@ double CMatriceBase::Precision(double valeur, int precision)
 	valeur /= p;
 
 	return valeur;
+	*/
 	
 }
 

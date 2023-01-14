@@ -10,6 +10,10 @@ FonctionCos::FonctionCos(FonctionInterface& FONInterface) : FonctionMath(FONInte
 {
 }
 
+FonctionCos::FonctionCos(FonctionInterface&& FONInterface) : FonctionMath(FONInterface)
+{
+}
+
 FonctionCos::~FonctionCos()
 {
 	// Appel de ~FonctionMath()
@@ -36,7 +40,7 @@ Fonction* FonctionCos::Derive(double* pdComposant)
 	LISDerives.AddFonction(FONElement);
 
 	// u'
-	FONElement = (FonctionInterface&)FONInterface.Derive(pdComposant);
+	FONElement = FONInterface.Derive(pdComposant);
 	LISDerives.AddFonction(FONElement);
 
 	// ( cos(u) )' = -1*sin(u)*u'
