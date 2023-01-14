@@ -63,15 +63,53 @@ void CEcriture::EcrireParametre(DenavitParameter parametre)
 
 void CEcriture::Ecrire(DenavitParameter DENparametre, double dEcrire, int indice)
 {
+	unsigned int uiBoucle;
+	unsigned int uiChoix=0;
+	char buffer[20];
+	
 	DENparametre.UpdateDENVariables();
-	if (DENparametre.LireNbVariables() == 0)
+	if (DENparametre.LireNbVariables() == 0 || indice > DENparametre.LireNbVariables())
 	{
 		cout << "Ce parametre de Denavit n'a pas de variable articuaire qui varie."; 
 	}
 	else
 	{
+		for (uiBoucle = 0; uiBoucle < NB_VARIABLES; uiBoucle++)
+		{
+			if (DENparametre.LireBVariable(uiBoucle) == true)
+			{
+				uiChoix++;
+				
+			}
+			if (uiChoix == indice)
+			{
+				break;
+			}
 
+		}
+
+		switch (uiBoucle)
+		{
+		case 0: //Ecriture du double en char*
+			sprintf_s(buffer, "Theta %f", dEcrire);
+			break;
+		case 1://Ecriture du double en char*
+			sprintf_s(buffer, "D %f", dEcrire);
+			break;
+		case 2://Ecriture du double en char*
+			sprintf_s(buffer, "Alpha %f", dEcrire);
+			break;
+		case 3://Ecriture du double en char*
+			sprintf_s(buffer, "A %f", dEcrire);
+			break;
+
+		default:
+			break;
+		}
+		cout << buffer;
 	}
+
+	
 }
 
 void CEcriture::open(bool newFile)

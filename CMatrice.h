@@ -37,7 +37,7 @@ public:
 	/**
 	* Transposition de matrice
 	 * @brief Transpose une matrice
-	 * @return la matrice transpos�
+	 * @return la matrice transposée
 	*/
 	CMatrice MATTranspose();
 
@@ -88,29 +88,89 @@ public:
 	*/
 	CMatrice operator+(CMatrice MATObjet);
 
+	/**
+	* Algorithme de Greville 
+	 * @brief ALgortime de Greveille qui permet de calculer l'inverse (ou pseudoInverse) d'une matrice 
+	 * @return CMatrice qui correspond à l'inverse.
+	*/
 	CMatrice Greville();
 
+	/**
+	 * Destructeur par default
+	 * @brief Cette méthode appelle au destructeur de sa classe mère (CMatriceBase)
+	*/
 	~CMatrice();
 
+	/**
+	* MATFromColonne
+	 * @brief Retourne une matrice colonne correspondant à la matrice colonne à l'indice numColonne 
+	 * @param numColonne qui correspond à l'indice de la colonne a retourner
+	 * @return Une matrice colonne à l'indice numColonne
+	*/
 	CMatrice MATFromColonne(unsigned int numColonne);
 
+	/**
+	* MATIdentity
+	 * @brief Permet de générer une matrice identity 
+	 * @param nbLignes nombre de lignes dans la matrice identité à générer
+	 * @param nbColonnes nombre de colonnes dans la matrice identité à générer 
+	 * @return Une matrice identité de nbLignes Lignes de nbColonnes Colonnes
+	*/
 	static CMatrice MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
 
+	/**
+	* MATAjouterLignes
+	 * @brief Permet d'ajouter des lignes vides à la matrice  
+	 * @param number qui correspond au nombre de lignes à ajouter
+	*/
 	void MATAjouterLignes(unsigned int number);
-
+	/**
+	* MATAjouterColonnes
+	 * @brief Permet d'ajouter des colonnes vides à la matrice
+	 * @param number qui correspond au nombre de Colonnes à ajouter
+	*/
 	void MATAjouterColonnes(unsigned int number);
-
+	/**
+	* MATAjouterLignesMatrice
+	 * @brief Ajouter des lignes de matrice à la suite du "this" matrice
+	 * @param Objet un object CMatrice qui correspond à la matrice a ajouter 
+	*/
 	void MATAjouerLignesMatrice(CMatrice Objet);
-
+	/**
+	* MATAjouterColonnesMatrice
+	 * @brief Ajouter des colonnes de matrice à la suite du "this" matrice
+	 * @param Objet un object CMatrice qui correspond à la matrice a ajouter
+	*/
 	void MATAjouerColonnesMatrice(CMatrice Objet);
 
 	// static CMatrice MATDenavit(DenavitParameter DENObject);
-
+	
+	/**
+	* Operator ==
+	 * @brief Surcharge de l'operateur== qui permet de comparer 2 matrices
+	 * @param MATObjet Matrice à comparer
+	 * @return true si les deux matrice sont identiques sinon false
+	*/
 	bool operator==(CMatrice MATObjet);
+	/**
+	* Operator !=
+	 * @brief Surcharge de l'operateur!= qui permet de comparer 2 matrices
+	 * @param MATObjet Matrice à comparer
+	 * @return false si les deux matrice sont identiques sinon true
+	*/
 	bool operator!=(CMatrice MATObjet);
-
+	/**
+	* bMATOrthonormal
+	 * @brief Permet de savoir si la matrice est orthonormal
+	 * @return true si la matrice est orthonormal sinon false
+	*/
 	bool bMATOrthonormal();
-
+	/**
+	* dMATNorme
+	 * @brief Savoir la norme d'une matrice colonne 
+	 * @param MATObjet la matrice colonne qu'il faut calculer la norme
+	 * @return la norme de la matrice colonnes
+	*/
 	double static dMATNorme(CMatrice MATObjet);
 
 

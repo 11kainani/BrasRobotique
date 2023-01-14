@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ProjetBrasRobotique.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\MatriceFonction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionSomme.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionSin.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionProduit.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionInterface.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionCos.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\VariableArticulaire.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\DenavitParameter.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CTrajectoire.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CMatriceBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CMatrice.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CLecteurBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CLecteur.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CEcriture.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\ListFonction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionVariable.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionOperation.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionMath.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionConstante.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\Fonction.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CException.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionMath.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\VariableArticulaire.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\DenavitParameter.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CTrajectoire.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CMatriceBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CMatrice.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CLecteurBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CLecteur.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CEcriture.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\MatriceFonction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\ListFonction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionVariable.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionSomme.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionSin.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionProduit.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionOperation.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionInterface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionCos.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\FonctionConstante.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\Fonction.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Documents\Cours\Polytech Tours\S7\Projet Professionelle\Project\BrasRobotique\CException.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

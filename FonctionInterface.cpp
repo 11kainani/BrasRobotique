@@ -1,4 +1,4 @@
-#include "FonctionInterface.h"
+ï»¿#include "FonctionInterface.h"
 
 
 
@@ -51,7 +51,8 @@ FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 FonctionInterface& FonctionInterface::operator=(Fonction* fonction)
 {
 	Desalloc();
-	Alloc(fonction, true);
+	Alloc(fonction, false);
+	bDynamique = true;
 	bTemporaire = true;
 
 	return *this;
@@ -72,10 +73,10 @@ FonctionInterface FonctionInterface::Derive(double* pdComposant)
 {
 	FonctionInterface DeriveInterface;
 
-	if (pnFONFonction == nullptr) 
+	if (pnFONFonction == nullptr)
 	{
 		cout << "Erreur : Fonction null -> Derive null" << endl;
-		return DeriveInterface; 
+		return DeriveInterface;
 	}
 
 	// DeriveInterface pointe la fonction resultante de Derive()
@@ -113,7 +114,7 @@ bool FonctionInterface::Constant()
 	return pnFONFonction->Constant();
 }
 
-//// Fonctions privées ////
+//// Fonctions privï¿½es ////
 void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 {
 	pnFONFonction = nullptr;
@@ -124,7 +125,7 @@ void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 	{
 		if (pFonction->Constant())
 		{
-			// Allocation d'une constante contenant le résultat
+			// Allocation d'une constante contenant le rï¿½sultat
 			pnFONFonction = new FonctionConstante(pFonction->Result());
 		}
 		else
@@ -135,7 +136,7 @@ void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 	}
 	else
 	{
-		// L'interface pointe la même fonction
+		// L'interface pointe la mï¿½me fonction
 		pnFONFonction = pFonction;
 	}
 }

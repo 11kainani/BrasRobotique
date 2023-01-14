@@ -5,6 +5,7 @@
 #include "CLecteur.h"
 #include "CEcriture.h"
 #include "CTrajectoire.h"
+#include "ListFonction.h"
 #include <iostream>
 using namespace std;
 
@@ -27,6 +28,7 @@ void ConvertToTask(CMatrice& matrice)
 	matrice = resultat;
 }
 
+#pragma once
 
 int main()
 {
@@ -39,9 +41,10 @@ int main()
 
 	// Matrices et formules mathématiques
 	CMatrice J, G, Z, I, DeltaX, DTheta, Ecart, Resultat, Point;
-	MatriceFonction X, JTheta, ZTheta;
+	MatriceFonction X, M, JTheta, ZTheta;
 	ListFonction LISElements, LISProduits;
 	FonctionInterface FONElement;
+
 
 	// Données, intervalles, itérateurs et tableau de résultats
 	unsigned int nbParameter, nbElements, nbVariables, nbPoints;
@@ -88,14 +91,14 @@ int main()
 
 	cout << "Generation de la matrice X" << endl;
 	// Matrice 4x4 Identité
-	X = (MatriceFonction&)MatriceFonction(4, 4);
+	X.init(4, 4);
 
 	// Calcul de X par multiplication de chaque matrice elementaire de Denavit
 	for (i = 0; i < nbParameter; i++)
 	{
 		// Multiplication des matrices elementaires selon le modele geometrique direct (M1(M2(M3(...(Mn-1(Mn*I))))))
-		(MatriceFonction&)(MatriceFonction(lec.LireParametre(nbParameter - 1 - i), nbParameter - i));
-		X = (MatriceFonction&)(MatriceFonction(lec.LireParametre(nbParameter - 1 - i), nbParameter - i) * X);
+		M.init(lec.LireParametre(nbParameter - 1 - i), nbParameter - i);
+		X.init((MatriceFonction&)(M * X));
 	}
 
 	// Affichage de la matrice de l'organe terminal
@@ -109,7 +112,7 @@ int main()
 
 	cout << "Generation de la matrice J(theta)" << endl;
 	// Initialisation de la matrice J(theta) 12 x NbVariables
-	LISElements = (ListFonction&)ListFonction(12 * nbVariables);
+	LISElements.init(12 * nbVariables);
 
 	// Pour chaque vecteur de X (n, o, a, p)
 	for (j = 0; j < 4; j++)
@@ -129,7 +132,7 @@ int main()
 
 	// Creation et Affichage de la matrice J(theta)
 	cout << endl;
-	JTheta = (MatriceFonction&)MatriceFonction(LISElements, 12, nbVariables);
+	JTheta.init(LISElements, 12, nbVariables);
 	cout << "J(theta)" << endl;
 	JTheta.Show();
 	cout << endl;
@@ -138,7 +141,8 @@ int main()
 
 	cout << "Generation de la matrice Z" << endl;
 	// Initialisation de la matrice Z(theta)  NbVariables x 1
-	LISElements = (ListFonction&)ListFonction(nbVariables);
+	LISElements.init(nbVariables);
+
 
 	// Pour chaque variable articulaire
 	for (i = 0; i < nbVariables; i++)
@@ -150,7 +154,7 @@ int main()
 		max = var->LireMax();
 
 		// variable - ((max - min) / 2)
-		LISProduits = (ListFonction&)ListFonction(2);
+		LISProduits.init(2);
 
 		FONElement = new FonctionVariable(var->LireVariable());
 		LISProduits.AddFonction(FONElement);
@@ -160,8 +164,8 @@ int main()
 
 		FONElement = new FonctionSomme(LISProduits);  // variable + (-0.5 * (max - min))
 
-		// ( 2/3 ) * [ ( variable - ((max - min) / 2) ) / (max - min) ]
-		LISProduits = (ListFonction&)ListFonction(2);
+													  // ( 2/3 ) * [ ( variable - ((max - min) / 2) ) / (max - min) ]
+		LISProduits.init(2);
 		LISProduits.AddFonction(FONElement);
 
 		/// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
@@ -174,7 +178,7 @@ int main()
 	}
 
 	// Creation et Affichage de la matrice Z(theta)
-	ZTheta = (MatriceFonction&)MatriceFonction(LISElements, nbVariables, 1);
+	ZTheta.init(LISElements, nbVariables, 1);
 	cout << "Z" << endl;
 	ZTheta.Show();
 	cout << endl;
@@ -186,7 +190,7 @@ int main()
 	I = CMatrice::MATIdentity(nbVariables, nbVariables);
 
 	// Allocation du tableau de résultats
-	Tab = (double*)malloc(sizeof(double) * nbVariables);
+	Tab = (double*)malloc(sizeof(double)*nbVariables);
 
 
 	// Calcul Trajectoire
@@ -213,12 +217,12 @@ int main()
 		DeltaX = Point - DeltaX;
 		ConvertToTask(DeltaX); // Conversion en vecteur 12 x 1
 
-		// Calcul de DTheta
+							   // Calcul de DTheta
 		DTheta = G * DeltaX + (G * J - I) * Z;
 
 		/// Affichage optionnel
 		cout << "G * J" << endl;
-		(G * J).MATAffiche();
+		(G*J).MATAffiche();
 		///
 
 		// Affichage du resultat du calcul
@@ -272,20 +276,20 @@ int main()
 		log.Ecrire("Parametre(s) Denavit :\n");
 
 		d = 0;  // decalage
-		// Pour chaque paramètre
+				// Pour chaque paramètre
 		for (i = 0; i < nbParameter; i++)
 		{
 			// Pour chaque variable articulaire non-constante
 			/*for (j = 0; j < lec.LireParametre(i).nbVari(); j++)
 			{
 
-				log.EcrireParametre(lec.LireParametre(i), Tab[i + j + d], j);
+			log.EcrireParametre(lec.LireParametre(i), Tab[i + j + d], j);
 
-				// incremente le decalage en cas de plusieurs variables articulaires dans le paramètre
-				if (j > 0)
-				{
-					d++;
-				}
+			// incremente le decalage en cas de plusieurs variables articulaires dans le paramètre
+			if (j > 0)
+			{
+			d++;
+			}
 			}*/
 
 			log.EcrireParametre(lec.LireParametre(i));
@@ -299,8 +303,6 @@ int main()
 }
 
 
-
-// ExÃ©cuter le programmeÂ : Ctrl+F5 ou menu DÃ©boguerÂ > ExÃ©cuter sans dÃ©bogage
 // DÃ©boguer le programmeÂ : F5 ou menu DÃ©boguerÂ > DÃ©marrer le dÃ©bogage
 
 // Conseils pour bien dÃ©marrerÂ : 

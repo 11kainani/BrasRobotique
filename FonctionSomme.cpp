@@ -1,4 +1,4 @@
-#include "FonctionSomme.h"
+ï»¿#include "FonctionSomme.h"
 
 
 
@@ -12,15 +12,13 @@ FonctionSomme::FonctionSomme(ListFonction& fonctions) : FonctionOperation(foncti
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	double ElementNeutre = 0;
 	ListFonction Temp(uiTaille);
-	FonctionConstante fCos(ElementNeutre);
-	FonctionInterface FONConstante = &fCos;
+	FonctionInterface FONConstante = new FonctionConstante(ElementNeutre);
 
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		if (LISFonctions[i].Constant())
 		{
-			FonctionConstante fConst(FONConstante.Result() + LISFonctions[i].Result());
-			FONConstante = &fConst;
+			FONConstante = new FonctionConstante(FONConstante.Result() + LISFonctions[i].Result());
 		}
 		else
 		{
@@ -58,24 +56,24 @@ double FonctionSomme::Result()
 Fonction* FonctionSomme::Derive(double* pdComposant)
 {
 	unsigned int i, uiTaille;
-	Fonction* pFONDerive; // Résultat de la dérivée
-	ListFonction LISDerives(LISFonctions.GetNbFonctions());  // Dérivées de chaque sous fonction
+	Fonction* pFONDerive; // Rï¿½sultat de la dï¿½rivï¿½e
+	ListFonction LISDerives(LISFonctions.GetNbFonctions());  // Dï¿½rivï¿½es de chaque sous fonction
 
 
-	// Résultat nul si aucune fonction
+	// Rï¿½sultat nul si aucune fonction
 	uiTaille = LISFonctions.GetNbFonctions();
 	if (uiTaille == 0) { return new FonctionConstante(0); }
 
 	for (i = 0; i < uiTaille; i++)
 	{
-		// On ajoute la dérivée de chaque sous fonction dans la liste
+		// On ajoute la dï¿½rivï¿½e de chaque sous fonction dans la liste
 		LISDerives.AddFonction((FonctionInterface&)(LISFonctions[i].Derive(pdComposant)));
 	}
 
-	// Allocation par new et création de copies des dérivés
+	// Allocation par new et crï¿½ation de copies des dï¿½rivï¿½s
 	pFONDerive = new FonctionSomme(LISDerives);
 
-	// Retour de la dérivée contenant les éléments
+	// Retour de la dï¿½rivï¿½e contenant les ï¿½lï¿½ments
 	return pFONDerive;
 }
 
@@ -83,7 +81,7 @@ Fonction* FonctionSomme::Copy()
 {
 	Fonction* pFONCopie;
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
-	
+
 	if (uiTaille == 0) { return new FonctionConstante(0); }
 
 	// Allocation par new
@@ -97,8 +95,8 @@ void FonctionSomme::Show()
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	unsigned int uiNbNonNeutre = 0;
 
-	if (uiTaille == 0 || Zero()) 
-	{ 
+	if (uiTaille == 0 || Zero())
+	{
 		cout << "0";
 		return;
 	}
@@ -155,4 +153,3 @@ double FonctionSomme::ElementNeutre()
 {
 	return 0;
 }
-

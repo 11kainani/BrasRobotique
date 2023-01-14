@@ -15,6 +15,9 @@ public:
 	ListFonction(ListFonction& LISCopie);
 	~ListFonction();
 
+	void init(unsigned int taille);
+	void init(ListFonction LISCopie);
+
 	ListFonction& operator=(ListFonction& LISCopie);
 	FonctionInterface& operator[](int indice);
 	void AddFonction(FonctionInterface& pFonction, bool delegation = true);

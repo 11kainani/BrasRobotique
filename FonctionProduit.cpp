@@ -11,15 +11,13 @@ FonctionProduit::FonctionProduit(ListFonction& fonctions) : FonctionOperation(fo
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	double ElementNeutre = 1;
 	ListFonction Temp(uiTaille);
-	FonctionConstante fconst(ElementNeutre);
-	FonctionInterface FONConstante = &fconst;
+	FonctionInterface FONConstante = new FonctionConstante(ElementNeutre);
 
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		if (LISFonctions[i].Constant())
 		{
-			FonctionConstante fTempConst(FONConstante.Result() * LISFonctions[i].Result());
-			FONConstante = &fTempConst;
+			FONConstante = new FonctionConstante(FONConstante.Result() * LISFonctions[i].Result());
 		}
 		else
 		{
@@ -45,7 +43,7 @@ double FonctionProduit::Result()
 {
 	double resultat;
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
-	
+
 	if (uiTaille == 0) { return 0; }
 
 	resultat = 1;
@@ -74,17 +72,16 @@ Fonction* FonctionProduit::Derive(double* pdComposant)
 		LISProduits = (ListFonction&)ListFonction(uiTaille);
 		for (j = 0; j < uiTaille; j++)
 		{
-			if (i == j) 
-			{ 
-				LISProduits.AddFonction((FonctionInterface&)LISFonctions[j].Derive(pdComposant)); 
+			if (i == j)
+			{
+				LISProduits.AddFonction((FonctionInterface&)LISFonctions[j].Derive(pdComposant));
 			}
 			else
 			{
 				LISProduits.AddFonction(LISFonctions[j], (LISFonctions[j].Constant() == false));
 			}
 		}
-		FonctionProduit fProduit(LISProduits);
-		DeriveInterface = &fProduit,
+		DeriveInterface = new FonctionProduit(LISProduits);
 		LISDerives.AddFonction(DeriveInterface);
 	}
 	pFONDerive = new FonctionSomme(LISDerives);
@@ -171,7 +168,7 @@ bool FonctionProduit::Un()
 	{
 		resultat = LISFonctions[i].Un();
 	}
-	
+
 	return resultat;
 }
 
@@ -184,4 +181,3 @@ double FonctionProduit::ElementNeutre()
 {
 	return 1;
 }
-

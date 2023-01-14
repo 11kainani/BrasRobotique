@@ -16,7 +16,7 @@ class MatriceFonction
 
 	// Nombre de lignes strictement positif
 	unsigned int uiNbLignes;
-	
+
 	// Nombre de colonnes strictement positif
 	unsigned int uiNbColonnes;
 
@@ -27,6 +27,13 @@ public:
 	MatriceFonction(DenavitParameter& param, unsigned int num = 0);
 	MatriceFonction(MatriceFonction& MATCopie);
 	~MatriceFonction();
+
+
+
+	void init(unsigned int nbLignes, unsigned int nbColonnes);
+	void init(ListFonction fonctions, unsigned int nbLignes, unsigned int nbColonnes);
+	void init(DenavitParameter& param, unsigned int num = 0);
+	void init(MatriceFonction MATCopie);
 
 	CMatrice Result();
 
@@ -41,4 +48,3 @@ public:
 private:
 	FonctionInterface Param(DenavitParameter& param, unsigned int uiIndice, const char* nom = "?");
 };
-

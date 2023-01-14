@@ -122,7 +122,7 @@ CMatrice CMatrice::operator*(CMatrice MATObjet)
 
 	double* pfElements = (double*)malloc(sizeof(double) * uiNbLignes * uiNbColonnes);
 	double fElement;
-
+	//Multiplication des deux matrices
 	for (unsigned int uiBoucle = 0; uiBoucle < uiNbColonnes * uiNbLignes; uiBoucle++)
 	{
 		uiLigne = uiBoucle / uiNbColonnes;
@@ -285,6 +285,8 @@ CMatrice CMatrice::MATFromColonne(unsigned int numColonne)
 
 CMatrice CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
 {
+	//Initialisation des valeurs
+	CException mistake;
 	unsigned int uiboucle = 0;
 	double* tab = (double*)malloc(sizeof(double) * nbColonnes * nbLignes);
 	if (nbLignes != 0 || nbColonnes != 0)
@@ -298,6 +300,11 @@ CMatrice CMatrice::MATIdentity(unsigned int nbLignes, unsigned int nbColonnes)
 		{
 			tab[uiboucle * nbColonnes + uiboucle] = 1;
 		}
+	}
+	else
+	{
+		mistake.EXCModifierValeur(TAILLE_INCOMPATIBLE);
+		throw mistake;
 	}
 
 	CMatrice resultat(nbLignes, nbColonnes, tab);
