@@ -4,6 +4,10 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * Classe abstraite établissant les fonctionnalités requises des classes filles
+ * Représente un fonction mathématique donnée
+ */
 class Fonction
 {
 public:
@@ -20,7 +24,7 @@ public:
 	 * ATTENTION : Retourne un pointeur Fonction alloué dynamiquement par new
 	 * Vous devez obligatoirement utiliser l'instruction delete sur l'élément retourné
 	 * Note : Stockez l'élément dans une variable Fonction* non allouée
-	 * @param pdComposant
+	 * @param pdComposant : adresse de la variable de dérivation
 	*/
 	virtual Fonction* Derive(double* pdComposant) = 0;
 

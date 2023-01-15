@@ -19,6 +19,7 @@ ListFonction::ListFonction(ListFonction& LISCopie)
 	FonctionInterface FONElement;
 	Alloc(LISCopie.uiNbFonctions);
 
+	// Ajout par délégation des objets FonctionInterface
 	for (unsigned int i = 0; i < LISCopie.uiNbFonctions; i++)
 	{
 		AddFonction(LISCopie.pLISFonctions[i]);
@@ -89,12 +90,15 @@ void ListFonction::AddFonction(FonctionInterface& pFonction, bool delegation)
 		return;
 	}
 
+	// S'il y a délégation
 	if (delegation)
 	{
+		// L'élément de la liste récupère l'objet Fonction contenu dans pFonction
 		pLISFonctions[uiNbFonctions].init(pFonction);
 	}
 	else
 	{
+		// L'élément de la liste alloue et conserve une copie de l'objet Fonction contenu dans pFonction
 		pLISFonctions[uiNbFonctions] = pFonction.Copy();
 	}
 
@@ -109,6 +113,7 @@ void ListFonction::AddFonction(FonctionInterface&& pFonction)
 		return;
 	}
 
+	// L'objet pFonction étant temporaire, l'élément récupère l'objet Fonction qu'il contient
 	pLISFonctions[uiNbFonctions].init(pFonction);
 
 	uiNbFonctions++;
@@ -132,6 +137,7 @@ void ListFonction::Alloc(unsigned int taille)
 
 	if (uiTaille == 0) { return; }
 
+	// allocation d'un tableau d'objets initialisés par le constructeur par défaut
 	pLISFonctions = new FonctionInterface[uiTaille];
 }
 

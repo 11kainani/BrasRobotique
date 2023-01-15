@@ -53,18 +53,6 @@ Fonction* FonctionSin::Copy()
 
 void FonctionSin::Show()
 {
-	if (Zero())
-	{
-		cout << "0";
-		return;
-	}
-
-	if (Un())
-	{
-		cout << "1";
-		return;
-	}
-
 	cout << "sin(";
 	FONInterface.Show();
 	cout << ")";

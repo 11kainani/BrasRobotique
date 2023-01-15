@@ -149,7 +149,7 @@ FonctionInterface FonctionInterface::Derive(double* pdComposant)
 FonctionInterface FonctionInterface::Copy()
 {
 	FonctionInterface CopieInterface;
-	CopieInterface.Alloc(pnFONFonction, true);
+	CopieInterface.Alloc(pnFONFonction, true);  // Allocation en mémoire d'une copie de l'objet Fonction
 
 	return CopieInterface;
 }
@@ -211,7 +211,7 @@ void FonctionInterface::Desalloc()
 {
 	if (pnFONFonction != nullptr)
 	{
-		if (bDynamique)
+		if (bDynamique) // Desallocation du pointeur Fonction* si bDynamique
 		{
 			delete pnFONFonction;
 		}

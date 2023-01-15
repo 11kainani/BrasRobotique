@@ -56,19 +56,6 @@ Fonction* FonctionCos::Copy()
 
 void FonctionCos::Show()
 {
-	if (Zero())
-	{
-		cout << "0";
-		return;
-	}
-
-	if (Un())
-	{
-		cout << "1";
-		return;
-	}
-
-
 	cout << "cos(";
 	FONInterface.Show();
 	cout << ")";

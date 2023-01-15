@@ -51,8 +51,20 @@ public:
 	*/
 	~FonctionInterface();
 
+	/**
+	 * Initialiseur de comfort
+	 * @brief Recrée l'objet FonctionInterface pour contenir un objet Fonction (ou classe fille) donné
+	 * @param fonction : adresse d'un objet Fonction ou pointeur Fonction*
+	 * @param bTemp : L'objet recréé est-il temporaire ? (vrai par défaut)
+	*/
 	void init(Fonction* pFonction, bool bTemp = true);
 
+	
+	/**
+	 * Initialiseur de recopie
+	 * @brief Récupère l'objet Fonction contenu dans un autre objet FonctionInterface
+	 * @param FONInterface : Objet FonctionInterface dont le contenu sera récupéré par délégation
+	*/
 	void init(FonctionInterface FONInterface);
 
 
@@ -71,9 +83,9 @@ public:
 	FonctionInterface& operator=(FonctionInterface&& FONInterface);
 
 	/**
-	 * Surcharge de l'opérateur égal
-	 * @brief Affecte une copie de l'objet Fonction fournit en paramètre à l'objet Fonction contenu dans l'objet FonctionInterface
-	 * @param fonction : adresse de l'objet Fonction ou pointeur Fonction*
+	 * Surcharge de l'opérateur =
+	 * @brief Affecte le pointeur fournit à l'objet FonctionInterface qui gèrera sa désallocation
+	 * @param fonction : pointeur Fonction* alloué par new
 	*/
 	FonctionInterface& operator=(Fonction* fonction);
 

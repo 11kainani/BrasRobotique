@@ -40,6 +40,7 @@ MatriceFonction::MatriceFonction(MatriceFonction&& MATCopie)
 
 MatriceFonction::~MatriceFonction()
 {
+	// Destruction de LISFonctions
 }
 
 void MatriceFonction::init(unsigned int nbLignes, unsigned int nbColonnes)
@@ -49,10 +50,13 @@ void MatriceFonction::init(unsigned int nbLignes, unsigned int nbColonnes)
 	uiNbLignes = nbLignes;
 	uiNbColonnes = nbColonnes;
 
+	// Pour chaque ligne
 	for (unsigned int i = 0; i < nbLignes; i++)
 	{
+		// Pour chaque colonne
 		for (unsigned int j = 0; j < nbColonnes; j++)
 		{
+			// Création d'une valeur constante égale à 1 dans la diagonal et à 0 pour le reste
 			FONElement = new FonctionConstante((i == j ? 1 : 0));
 			LISFonctions.AddFonction(FONElement);
 		}
@@ -113,6 +117,13 @@ void MatriceFonction::init(DenavitParameter& param, unsigned int num)
 	A = Param(param, 3, aa);		// a
 	Zero = new FonctionConstante(0);	// 0
 	Un = new FonctionConstante(1);		// 1
+
+	free(th);
+	free(dd);
+	free(al);
+	free(aa);
+
+	// CREATION DES ELEMENTS DE LA MATRICE ELEMENTAIRE //
 
 	// cos(theta)
 	FONCos = new FonctionCos(Theta.Copy());
@@ -258,13 +269,14 @@ CMatrice MatriceFonction::Result()
 	
 	if (uiNbColonnes == 0 || uiNbLignes == 0) { return CMatrice(1, 1, &zero); }
 
+	// Création d'un tableau contenant le résultat de chaque formule mathématique
 	elements = (double*)malloc(sizeof(double)*uiNbLignes*uiNbColonnes);
 	for (unsigned int i = 0; i < uiNbColonnes*uiNbLignes; i++)
 	{
 		elements[i] = LISFonctions[i].Result();
 	}
 
-
+	// Création d'une matrice de réels contenant le résultat
 	CMatrice result(uiNbLignes, uiNbColonnes, elements);
 	free(elements);
 
@@ -299,29 +311,31 @@ MatriceFonction MatriceFonction::operator*(MatriceFonction& MATMatrice)
 	nbLignes = uiNbLignes;
 	nbColonnes = MATMatrice.uiNbColonnes;
 
-	LISSommes.init(nbLignes*nbColonnes);
+	LISSommes.init(nbLignes*nbColonnes);  // Liste des éléments de la matrice résultat
 	for (i = 0; i < nbLignes; i++)
 	{
 		for (j = 0; j < nbColonnes; j++)
 		{
-			LISProduits.init(uiNbColonnes);
+			LISProduits.init(uiNbColonnes);  // Liste des produits à mettre en somme
 			for (k = 0; k < uiNbColonnes; k++)
 			{
-				// a(i, k) * b(k, j)
+				// a(i, k) * b(k, j)  où a(i, k) et b(k, j) sont des copies
 				LISElements.init(2);
-				LISElements.AddFonction(LISFonctions[i*uiNbColonnes + k], false);
+				LISElements.AddFonction(LISFonctions[i*uiNbColonnes + k], false);  
 				LISElements.AddFonction(MATMatrice.LISFonctions[k*MATMatrice.uiNbColonnes + j], false);
 
+				// Ajout du produit dans la liste
 				FONElement = new FonctionProduit(LISElements);
 				LISProduits.AddFonction(FONElement);
 			}
 
-			
+			// Ajout de la somme (k allant de 1 à nbColonnes) des produits ( a(i, k)*b(k, j) ) dans la liste
 			FONElement = new FonctionSomme(LISProduits);
 			LISSommes.AddFonction(FONElement);
 		}
 	}
 
+	// Création d'une matrice de fonctions contenant la liste d'éléments
 	MatriceFonction resultat(LISSommes, nbLignes, nbColonnes);
 	return resultat;
 }
@@ -331,6 +345,7 @@ ListFonction MatriceFonction::getElements()
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	ListFonction LISCopie(uiTaille);
 
+	// Allocation d'une copie des éléments de la matrice
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		LISCopie.AddFonction(LISFonctions[i], false);
@@ -350,11 +365,16 @@ ListFonction MatriceFonction::operator[](unsigned int uiIndice)
 		return LISLigne;
 	}
 
+	// Création d'une liste dont les éléments pointent ceux de la ligne d'indice donné
 	LISLigne.init(uiNbColonnes);
 	for (unsigned int i = 0; i < uiNbColonnes; i++)
 	{
+		// FONElement pointe l'élément à ajouter car il n'est pas temporaire
 		FONElement = LISFonctions[uiIndice*uiNbColonnes + i];
-		LISLigne.AddFonction(FONElement);
+
+		// La délégation ne récupère pas l'élément car FONElement ne le possède pas
+		// L'élément de LISLigne pointe donc l'élément pointé par FONElement
+		LISLigne.AddFonction(FONElement);  
 	}
 
 	return LISLigne;
@@ -363,19 +383,24 @@ ListFonction MatriceFonction::operator[](unsigned int uiIndice)
 
 void MatriceFonction::Show()
 {
+	// Si aucune ligne ou colonne, afficher une matrice vide
 	if (uiNbColonnes == 0 || uiNbLignes == 0) 
 	{
 		cout << "(0)" << endl; 
 		return;
 	}
 
+	// Pour chaque ligne
 	for (unsigned int i = 0; i < uiNbLignes; i++)
 	{
 		cout << "| ";
+
+		// Pour chaque colonne exceptée la dernière, afficher la formule suivi d'une virgule
 		for (unsigned int j = 0; j < uiNbColonnes-1; j++)
 		{
 			LISFonctions[i*uiNbColonnes + j].Show(); cout << ", ";
 		}
+		// Afficher la formule de la dernière colonne
 		LISFonctions[i*uiNbColonnes + uiNbColonnes - 1].Show(); cout << " |" << endl;
 	}
 
@@ -386,12 +411,15 @@ FonctionInterface MatriceFonction::Param(DenavitParameter& param, unsigned int u
 {
 	FonctionInterface FONInterface;
 	
+	// Si la variable articulaire indiquée n'est pas variable
 	if (param.LireBVariable(uiIndice) == false)
 	{
+		// Allocation d'une fonction constante contenant la valeur de la variable
 		FONInterface = new FonctionConstante(param.LireValeur(uiIndice));
 	}
 	else
 	{
+		// Allocation d'une fonction variable reliée à la variable articulaire et affectation du nom donné
 		FONInterface = new FonctionVariable(param.LireVariable(uiIndice), nom);
 	}
 

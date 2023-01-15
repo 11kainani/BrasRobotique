@@ -4,6 +4,10 @@
 #include "Fonction.h"
 #include "FonctionConstante.h"
 
+/**
+ * Classe héritant de Fonction
+ * Représente une fonction f(x) = x  où x est une variable de type double du programme
+ */
 class FonctionVariable : public Fonction
 {
 
@@ -42,7 +46,7 @@ public:
 	/**
 	 * Surcharge de Fonction::Derive(double*)
 	 * @brief Retourne la dérivée (un objet FonctionConstante) égale à 1 si pdComposante pointe la même variable que pdValeur sinon 0
-	 * @param pdComposante
+	 * @param pdComposante : adresse de la variable de dérivation
 	*/
 	Fonction* Derive(double* pdComposante);
 

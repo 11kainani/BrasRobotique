@@ -18,6 +18,7 @@ FonctionMath::FonctionMath(FonctionMath& FONMath)
 
 FonctionMath::~FonctionMath()
 {
+	// Destruction de FONInterface
 	// Appel de ~Fonction()
 }
 

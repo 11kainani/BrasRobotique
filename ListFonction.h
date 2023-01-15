@@ -3,6 +3,10 @@
 
 #include "FonctionInterface.h"
 
+/**
+ * Classe représentant une liste de formules mathématiques quelconques
+ * Une capacité fixe lui est attribué lors de son initialisation
+ */
 class ListFonction
 {
 	FonctionInterface* pLISFonctions; // Liste de fonctions
@@ -33,12 +37,23 @@ public:
 
 	/**
 	 * Destructeur
-	 * @brief Détruis la liste de FonctionInterface
+	 * @brief Détruis la liste de FonctionInterface (appel du destructeur de chaque FonctionInterface)
 	*/
 	~ListFonction();
 
+	/**
+	 * Initialiseur de comfort
+	 * @brief Détruis et recrée la liste de FonctionInterface avec une taille donnée (Les fonctions ne sont pas initialisées)
+	 * @param taille : Nombre d'emplacements dans la liste
+	*/
 	void init(unsigned int taille);
 
+	/**
+	 * Initialiseur de recopie
+	 * @brief Détruis et recrée une liste de FonctionInterface
+	 * Chaque élément auront récupéré par délégation les objets Fonction des éléments de la liste fournit
+	 * @param LISCopie : Liste contenant les éléments à transmettre
+	*/
 	void init(ListFonction LISCopie);
 
 	/**

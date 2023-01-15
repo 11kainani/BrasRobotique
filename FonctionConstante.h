@@ -2,6 +2,10 @@
 #define FONCTION_CONSTANTE_H
 #include "Fonction.h"
 
+/**
+ * Classe héritant de Fonction
+ * Représente une valeur constante c
+ */
 class FonctionConstante : public Fonction
 {
 	double dValeur;

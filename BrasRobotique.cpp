@@ -164,7 +164,6 @@ int main()
 		LISProduits.init(2);
 		LISProduits.AddFonction(FONElement);
 
-		/// FONElement = &FonctionConstante((nbVariables-1) / (nbVariables * (max - min)));
 		FONElement = new FonctionConstante(2 / (3 * (max - min)));
 		LISProduits.AddFonction(FONElement);
 

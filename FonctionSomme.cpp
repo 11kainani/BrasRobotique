@@ -95,42 +95,54 @@ void FonctionSomme::Show()
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
 	unsigned int uiNbNonNeutre = 0;
 
+	// Affiche 0 si aucune sous fonctions ou la somme égale constamment 0
 	if (uiTaille == 0 || Zero()) 
 	{ 
 		cout << "0";
 		return;
 	}
 
-
+	// On compte les sous fonctions qui ne sont pas constamment égal à 0 
 	for (unsigned int i = 0; i < uiTaille; i++)
 	{
 		if (LISFonctions[i].Zero() == false) { uiNbNonNeutre++; }
 	}
 
+	// S'il y a plusieurs éléments non neutre, on les met entre crochets
 	if (uiNbNonNeutre > 1) { cout << "["; }
+
+	// Pour chaque sous fonction
 	for (unsigned int i = 0; i < uiTaille - 1; i++)
 	{
+		// Si elle ne vaut pas constamment 0, elle est affichée
 		if (LISFonctions[i].Zero() == false)
 		{
 			LISFonctions[i].Show();
+
+			// Si la sous fonction suivante ne vaut pas constamment 0, on affiche le symbole d'addition
 			if (LISFonctions[i + 1].Zero() == false)
 			{
 				cout << " + ";
 			}
 		}
 	}
+
+	// Si la dernière sous fonction ne vaut pas constamment 0, on l'affiche
 	if (LISFonctions[uiTaille - 1].Zero() == false)
 	{
 		LISFonctions[uiTaille - 1].Show();
 	}
+
+	// S'il y avait plusieurs éléments non neutre, on les mets entre crochets
 	if (uiNbNonNeutre > 1) { cout << "]"; }
 }
 
 bool FonctionSomme::Zero()
 {
 	unsigned int uiTaille = LISFonctions.GetNbFonctions();
-	bool resultat = true;
+	bool resultat = true;  // On considère toutes les sous fonctions constamment égal à 0
 
+	// Parcours des sous fonctions jusqu'à trouver une fonction qui n'est pas constamment égale à 0
 	for (unsigned int i = 0; i < uiTaille && resultat; i++)
 	{
 		resultat = LISFonctions[i].Zero();
