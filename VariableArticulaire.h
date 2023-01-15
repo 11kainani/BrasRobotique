@@ -2,43 +2,101 @@
 #define VARIABLE_ARTICULAIRE_H
 
 #include <iostream>
-#include <assert.h>
-#include <fstream>
 
 class VariableArticulaire
 {
 private:
-	float fvaleur;
+	double dvaleur;
 
-	float fmin;
+	double dvariable;  // copie de fvaleur accessible uniquement en lecture
 
-	float fmax;
+	double fmin;
+
+	double fmax;
 
 	bool bvariable;
 
+	bool bAngulaire;
+
 
 public:
+	/**
+	 * @brief Constructeur par default qui crée un objet VariableArticulaire
+	*/
 	VariableArticulaire();
 
-	VariableArticulaire(float fValue, int fMinValue, int fMaxValue, int bIsVariable);
+	/**
+	 * @brief Construteur de confort qui crée et initialise les champs de VariableArticulaire
+	 * @param fValue valeur de lla variableArticulaire 
+	 * @param fMinValue valeur mini si la variableArticulaire varie
+	 * @param fMaxValue valeur max si la variableArticulaire varie
+	 * @param bIsVariable Est ce que la variableArticualire varie ?
+	*/
+	VariableArticulaire(double fValue, int fMinValue, int fMaxValue, int bIsVariable);
 
+	/**
+	 * @brief Destructeur par default qui désaloue et détrruit l'objet VariableArticulaire
+	*/
 	~VariableArticulaire();
-
-	float LireValeur();
-
-	void ModifierValeur(float fValue);
-
-	float LireMax();
-
-	void ModifierMax(float max);
-
-	float LireMin();
-
-	void ModifierMin(float min);
-
+	/**
+	 * @brief Lis la valeur de la variablearticculaire
+	 * @return la valuer lue
+	*/
+	double LireValeur();
+	/**
+	 * @brief Modifie la valeur de cette variable articulaire
+	 * @param fValue la nouvelle valeur de la variablearticulaire
+	 * @return true si la modification a eu lieu sion false
+	*/
+	bool ModifierValeur(double fValue);
+	/**
+	 * @brief Lis la valeur dvariable
+	 * @return le pointeur sur dvariable
+	*/
+	double* LireVariable();
+	/**
+	 * @brief Lire la valeur max
+	 * @return la valeur lue
+	*/
+	double LireMax();
+	/**
+	 * @brief Modifier la valeur max
+	 * @param max la nouvelle valeur max
+	 * @return true si la modification a eu lieu sinon false
+	*/
+	bool ModifierMax(double max);
+	/**
+	 * @brief Lire la valeur min
+	 * @return la valeur lue 
+	*/
+	double LireMin();
+	/**
+	 * @brief Modifier la valeur minimale
+	 * @param min la nouvelle valeur minimale
+	 * @return true si la valeur a été modifié sinon false
+	*/
+	bool ModifierMin(double min);
+	/**
+	 * @brief Lire le booléan BVariable
+	 * @return true si ette variablearticulaire varie sinon false
+	*/
 	bool LireBVariable();
-
+	/**
+	 * @brief Modifier le booléan BVariable
+	 * @param bValue la nouvelle valeur de bVariable
+	*/
 	void ModifierBVariable(bool bValue);
+
+	/**
+	 * @brief Lire le booléan BAngulaire
+	 * @return la valeur lue
+	*/
+	bool LireBAngulaire();
+	/**
+	 * @brief Modifier le booléan BAngulaire
+	 * @param bValue la nouvelle valeur de BAngulaire
+	*/
+	void ModifierBAngulaire(bool bValue);
 
 };
 #endif

@@ -2,7 +2,6 @@
 #define C_EXCEPTION_H
 
 #include <iostream>
-#include <assert.h>
 #include <fstream>
 
 class CException
