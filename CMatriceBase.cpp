@@ -1,9 +1,7 @@
-#include <iostream>
-#include <assert.h>
+ï»¿#include <iostream>
 #include <fstream>
 
 #include "CMatriceBase.h"
-#include <assert.h>
 #include "CException.h"
 using namespace std;
 #define EXC1 1
@@ -12,16 +10,16 @@ using namespace std;
 
 
 /**
-Constructeur par default 
-entre : néant
+Constructeur par default
+entre : nï¿½ant
 necessite: neant
-sortie : neant 
+sortie : neant
 initialisation d'un objet matrice
 **/
 
 CMatriceBase::CMatriceBase()
 {
-	pfMATElement = nullptr;
+	pdMATElement = nullptr;
 	uiMATNbColonne = 0;
 	uiMATNbLigne = 0;
 }
@@ -33,29 +31,29 @@ CMatriceBase::CMatriceBase(const CMatriceBase& MATObjet)
 	uiMATNbLigne = MATObjet.uiMATNbLigne;
 	uiMATNbColonne = MATObjet.uiMATNbColonne;
 
-	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
-	if (pfMATElement == NULL)
+	pdMATElement = (double*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(double));
+	if (pdMATElement == NULL)
 	{
 		cout << "Erreur\n";
 	}
 
 	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
 	{
-		pfMATElement[uiBoucle] = MATObjet.pfMATElement[uiBoucle]; // Recopie l'élément du tableau
+		pdMATElement[uiBoucle] = MATObjet.pdMATElement[uiBoucle]; // Recopie l'ï¿½lï¿½ment du tableau
 	}
 	return;
 }
 
 CMatriceBase::~CMatriceBase()
 {
-	if (pfMATElement != NULL)
+	if (pdMATElement != NULL)
 	{
-		free(pfMATElement);
+		free(pdMATElement);
 	}
 	uiMATNbColonne = 0;
 	uiMATNbLigne = 0;
 
-	
+
 
 }
 
@@ -69,7 +67,7 @@ unsigned int CMatriceBase::MATLireNbLigne()
 	return uiMATNbLigne;
 }
 
-float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
+double CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
 
 {
 	CException EXCObjet;
@@ -90,14 +88,14 @@ float CMatriceBase::MATLireElement(unsigned int uiLigne, unsigned int uiColonne)
 	}
 
 
-	return pfMATElement[uiLigne * uiMATNbColonne + uiColonne];
+	return pdMATElement[uiLigne * uiMATNbColonne + uiColonne];
 }
 
 void CMatriceBase::MATAffiche()
 {
 	// Affiche
 
-	//Erreur de parcours de chaine, la matrice s'affiche transposé donc j'ai modifié le code pour contrer cela
+	//Erreur de parcours de chaine, la matrice s'affiche transposï¿½ donc j'ai modifiï¿½ le code pour contrer cela
 	unsigned int uiBoucleLigne;
 	unsigned int uiBoucleColonne;
 
@@ -112,31 +110,78 @@ void CMatriceBase::MATAffiche()
 	{
 		for (uiBoucleColonne = 0; uiBoucleColonne < uiMATNbColonne; uiBoucleColonne++)
 		{
-			cout << pfMATElement[uiBoucleLigne * uiMATNbColonne + uiBoucleColonne] << " ";
+			cout << Precision(pdMATElement[uiBoucleLigne * uiMATNbColonne + uiBoucleColonne], 1) << "\t";
 		}
 		cout << endl;
 	}
 	return;
 }
 
-CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, float* pfElements)
+// A Supprimer
+double CMatriceBase::Superieur(double valeur, double min)
+{
+	if (valeur < min)
+	{
+		return 0;
+	}
+
+	return valeur;
+}
+
+double CMatriceBase::Precision(double valeur, int precision)
+{
+
+	return valeur;
+	/*
+	double p = 1;
+	bool retenue;
+	bool negatif = (valeur < 0);
+	
+	for (int i = 0; i < precision; i++)
+	{
+		p = 10 * p;
+	}
+
+	valeur *= p;
+
+	if (negatif == false)
+	{
+		retenue = (valeur - floor(valeur) > 0.5/p);
+		valeur = floor(valeur);
+		if (retenue) { valeur++; }
+	}
+	else
+	{
+		retenue = (valeur - ceil(valeur) > 0.5/p);
+		valeur = ceil(valeur);
+		if (retenue) { valeur--; }
+	}
+	valeur /= p;
+
+	return valeur;
+	*/
+	
+}
+
+CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, double* pfElements)
 {
 	unsigned int uiBoucle;
 
 	uiMATNbLigne = uiLignes;
 	uiMATNbColonne = uiColonnes;
-	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
-
-	if (pfMATElement == NULL)
+	pdMATElement = (double*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(double));
+	if (pdMATElement)
 	{
-		cout << "Erreur\n";
-	}
+		if (pdMATElement == NULL)
+		{
+			cout << "Erreur\n";
+		}
 
-	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
-	{
-		pfMATElement[uiBoucle] = pfElements[uiBoucle];
+		for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
+		{
+			pdMATElement[uiBoucle] = pfElements[uiBoucle];
+		}
 	}
-
 	return;
 }
 
@@ -145,24 +190,24 @@ void CMatriceBase::operator=(const CMatriceBase& MATObjet)
 	unsigned int uiBoucle;
 	uiMATNbLigne = MATObjet.uiMATNbLigne;
 	uiMATNbColonne = MATObjet.uiMATNbColonne;
-	if (pfMATElement != NULL)
+	if (pdMATElement != NULL)
 	{
-		free(pfMATElement);
+		free(pdMATElement);
 	}
 
-	pfMATElement = (float*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(float));
-	if (pfMATElement == NULL)
+	pdMATElement = (double*)malloc(uiMATNbLigne * uiMATNbColonne * sizeof(double));
+	if (pdMATElement == NULL)
 	{
 		cout << "Erreur\n";
 	}
 
 	for (uiBoucle = 0; uiBoucle < uiMATNbLigne * uiMATNbColonne; uiBoucle++)
 	{
-		pfMATElement[uiBoucle] = MATObjet.pfMATElement[uiBoucle]; // Recopie l'élément du tableau
+		pdMATElement[uiBoucle] = MATObjet.pdMATElement[uiBoucle]; // Recopie l'ï¿½lï¿½ment du tableau
 	}
 }
 
-void CMatriceBase::MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, float element)
+void CMatriceBase::MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, double element)
 {
 	CException mistake;
 	unsigned int indice = indiceLigne * uiMATNbColonne + indiceColonne;
@@ -173,7 +218,7 @@ void CMatriceBase::MATModiferElement(unsigned int indiceLigne, unsigned int indi
 
 	}
 
-	pfMATElement[indice] = element;
+	pdMATElement[indice] = element;
 }
 
 void CMatriceBase::MATModifierNbLignes(unsigned int number)
@@ -192,31 +237,34 @@ void CMatriceBase::MATReallocMatrice(unsigned int element)
 
 	//S'occuper des cas d'erreur
 	unsigned int uiboucle, uiboucle2;
-	float* resultat = (float*)malloc(sizeof(float)*uiMATNbColonne*uiMATNbLigne + sizeof(float) * element);
+	double* resultat = (double*)malloc(sizeof(double)*uiMATNbColonne*uiMATNbLigne + sizeof(double) * element);
 
-	if (resultat == nullptr)
+	if (resultat)
 	{
-		cout << "bleuk";
-	}
-	else
-	{
-
-		for (uiboucle = 0; uiboucle < uiMATNbLigne; uiboucle++)
+		if (resultat == nullptr)
 		{
-			for (uiboucle2 = 0; uiboucle2 <uiMATNbLigne; uiboucle2++)
+			mistake.EXCModifierValeur(EXC3);
+				throw mistake;
+		}
+		else
+		{
+
+			for (uiboucle = 0; uiboucle < uiMATNbLigne; uiboucle++)
 			{
-				resultat[uiboucle * uiMATNbColonne + uiboucle2]=pfMATElement[uiboucle*uiMATNbColonne+uiboucle2];
+				for (uiboucle2 = 0; uiboucle2 < uiMATNbColonne; uiboucle2++)
+				{
+					resultat[uiboucle * uiMATNbColonne + uiboucle2] = pdMATElement[uiboucle*uiMATNbColonne + uiboucle2];
+				}
 			}
 		}
+		free(pdMATElement);
+		pdMATElement = resultat;
 	}
 
 
-	free(pfMATElement);
-	pfMATElement = resultat;
 
-	
-	
-	
+
+
+
 
 }
-
