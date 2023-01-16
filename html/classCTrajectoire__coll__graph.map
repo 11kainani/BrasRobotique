@@ -1,0 +1,4 @@
+<map id="CTrajectoire" name="CTrajectoire">
+<area shape="rect" id="node1" title="Classe permettant de lire les points de trajectoire depuis un fichier texte." alt="" coords="11,80,110,107"/>
+<area shape="rect" id="node2" href="$classCLecteurBase.html" title="Boite a outil pour les lecteurs." alt="" coords="5,5,116,32"/>
+</map>

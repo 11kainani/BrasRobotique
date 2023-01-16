@@ -1,0 +1,4 @@
+<map id="CMatrice" name="CMatrice">
+<area shape="rect" id="node1" title="Classe permettant de manipuler des matrices." alt="" coords="21,80,101,107"/>
+<area shape="rect" id="node2" href="$classCMatriceBase.html" title="Classe mere de CMatrice." alt="" coords="5,5,117,32"/>
+</map>

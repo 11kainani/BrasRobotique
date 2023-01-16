@@ -1,0 +1,5 @@
+<map id="CLecteurBase" name="CLecteurBase">
+<area shape="rect" id="node1" title="Boite a outil pour les lecteurs." alt="" coords="45,5,156,32"/>
+<area shape="rect" id="node2" href="$classCLecteur.html" title="Classe permettant de lire des variables articulaires du bras robotique." alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$classCTrajectoire.html" title="Classe permettant de lire les points de trajectoire depuis un fichier texte." alt="" coords="109,80,207,107"/>
+</map>

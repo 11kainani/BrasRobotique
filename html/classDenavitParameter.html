@@ -68,25 +68,278 @@ $(function() {
 <div class="title">DenavitParameter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe permettant de manipuler les <a class="el" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire.">VariableArticulaire</a> selon le modele geometrique direct. L'ordre des <a class="el" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire.">VariableArticulaire</a> est (theta, d, alpha, a)  
+ <a href="classDenavitParameter.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="DenavitParameter_8h_source.html">DenavitParameter.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa27ddadf31a88145db612a58b5e72a2"><td class="memItemLeft" align="right" valign="top"><a id="afa27ddadf31a88145db612a58b5e72a2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DenavitParameter</b> (<a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> **VARListe)</td></tr>
+<tr class="memitem:a66046f91116b94f5b38f84c15ebd6cee"><td class="memItemLeft" align="right" valign="top"><a id="a66046f91116b94f5b38f84c15ebd6cee"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a66046f91116b94f5b38f84c15ebd6cee">DenavitParameter</a> ()</td></tr>
+<tr class="memdesc:a66046f91116b94f5b38f84c15ebd6cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par default qui cree un objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a>. <br /></td></tr>
+<tr class="separator:a66046f91116b94f5b38f84c15ebd6cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa27ddadf31a88145db612a58b5e72a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#afa27ddadf31a88145db612a58b5e72a2">DenavitParameter</a> (<a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> **VARListe)</td></tr>
+<tr class="memdesc:afa27ddadf31a88145db612a58b5e72a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de confort qui initialise l'objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a> avec la liste de pointeurs de variableArticulaire VARListe.  <a href="classDenavitParameter.html#afa27ddadf31a88145db612a58b5e72a2">More...</a><br /></td></tr>
 <tr class="separator:afa27ddadf31a88145db612a58b5e72a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38a3b9bcc93666ad465d06dc7abdb30f"><td class="memItemLeft" align="right" valign="top"><a id="a38a3b9bcc93666ad465d06dc7abdb30f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DenavitParameter</b> (<a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;DENObject)</td></tr>
+<tr class="memitem:a38a3b9bcc93666ad465d06dc7abdb30f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a38a3b9bcc93666ad465d06dc7abdb30f">DenavitParameter</a> (<a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;DENObject)</td></tr>
+<tr class="memdesc:a38a3b9bcc93666ad465d06dc7abdb30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de recopie qui cree et initialise l'objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a>.  <a href="classDenavitParameter.html#a38a3b9bcc93666ad465d06dc7abdb30f">More...</a><br /></td></tr>
 <tr class="separator:a38a3b9bcc93666ad465d06dc7abdb30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa4db09e95e582f5823742e03788a617"><td class="memItemLeft" align="right" valign="top"><a id="afa4db09e95e582f5823742e03788a617"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddParameter</b> (int iIndice, <a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> VARvariable)</td></tr>
-<tr class="separator:afa4db09e95e582f5823742e03788a617"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d18f288e71afd3a26995fd397d11f21"><td class="memItemLeft" align="right" valign="top"><a id="a4d18f288e71afd3a26995fd397d11f21"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteParameter</b> (int iIndice)</td></tr>
-<tr class="separator:a4d18f288e71afd3a26995fd397d11f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba3d989c2f87e688df3da9bb109dd3ce"><td class="memItemLeft" align="right" valign="top"><a id="aba3d989c2f87e688df3da9bb109dd3ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Swap</b> (int iFrom, int iDestination)</td></tr>
-<tr class="separator:aba3d989c2f87e688df3da9bb109dd3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a143a94a9bbe2efdb41e8c1ca58d0dd03"><td class="memItemLeft" align="right" valign="top"><a id="a143a94a9bbe2efdb41e8c1ca58d0dd03"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a143a94a9bbe2efdb41e8c1ca58d0dd03">~DenavitParameter</a> ()</td></tr>
+<tr class="memdesc:a143a94a9bbe2efdb41e8c1ca58d0dd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur par default qui detruit l'objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a>. <br /></td></tr>
+<tr class="separator:a143a94a9bbe2efdb41e8c1ca58d0dd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e1e2e01e02cf83685c5b6500f119af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a66e1e2e01e02cf83685c5b6500f119af">SetVariable</a> (int iIndice, <a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> *VARvariable)</td></tr>
+<tr class="memdesc:a66e1e2e01e02cf83685c5b6500f119af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifie le variable articulaire a la position iIndice dans la liste de pointeurs de variableArticuaire.  <a href="classDenavitParameter.html#a66e1e2e01e02cf83685c5b6500f119af">More...</a><br /></td></tr>
+<tr class="separator:a66e1e2e01e02cf83685c5b6500f119af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d9963fe5fa7defc0090214b63324f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#ae4d9963fe5fa7defc0090214b63324f9">DeleteVariable</a> (int iIndice)</td></tr>
+<tr class="memdesc:ae4d9963fe5fa7defc0090214b63324f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprimer le variableArticulaire a la position iIndice dans la liste de pointeurs de variableArticulaire.  <a href="classDenavitParameter.html#ae4d9963fe5fa7defc0090214b63324f9">More...</a><br /></td></tr>
+<tr class="separator:ae4d9963fe5fa7defc0090214b63324f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a2960829dea5c9a7e5a7237ceabf7b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a5a2960829dea5c9a7e5a7237ceabf7b8">operator=</a> (<a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;parameter)</td></tr>
+<tr class="memdesc:a5a2960829dea5c9a7e5a7237ceabf7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Surcharge de l'egalite.  <a href="classDenavitParameter.html#a5a2960829dea5c9a7e5a7237ceabf7b8">More...</a><br /></td></tr>
+<tr class="separator:a5a2960829dea5c9a7e5a7237ceabf7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab38e807db5e45090bddcde219dc5bc14"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#ab38e807db5e45090bddcde219dc5bc14">LireVariable</a> (int Iindice)</td></tr>
+<tr class="memdesc:ab38e807db5e45090bddcde219dc5bc14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lis la valeur dVariable de la variableArticulaire a l'indice Iindice.  <a href="classDenavitParameter.html#ab38e807db5e45090bddcde219dc5bc14">More...</a><br /></td></tr>
+<tr class="separator:ab38e807db5e45090bddcde219dc5bc14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089b5484a260a1b67ab0702232f6fed3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a089b5484a260a1b67ab0702232f6fed3">LireValeur</a> (int Iindice)</td></tr>
+<tr class="memdesc:a089b5484a260a1b67ab0702232f6fed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lis la valeur dValeur de la variableArticulaire a l'indice Iindice.  <a href="classDenavitParameter.html#a089b5484a260a1b67ab0702232f6fed3">More...</a><br /></td></tr>
+<tr class="separator:a089b5484a260a1b67ab0702232f6fed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde2a4f07f5d64f7811d5df17eb1622d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#adde2a4f07f5d64f7811d5df17eb1622d">LireBVariable</a> (int Iindice)</td></tr>
+<tr class="memdesc:adde2a4f07f5d64f7811d5df17eb1622d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire la valeur BVariable.  <a href="classDenavitParameter.html#adde2a4f07f5d64f7811d5df17eb1622d">More...</a><br /></td></tr>
+<tr class="separator:adde2a4f07f5d64f7811d5df17eb1622d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee4cd2a0877c705c8f72b52f42b995f"><td class="memItemLeft" align="right" valign="top"><a id="a2ee4cd2a0877c705c8f72b52f42b995f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDenavitParameter.html#a2ee4cd2a0877c705c8f72b52f42b995f">Affiche</a> ()</td></tr>
+<tr class="memdesc:a2ee4cd2a0877c705c8f72b52f42b995f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afficher la <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a>. <br /></td></tr>
+<tr class="separator:a2ee4cd2a0877c705c8f72b52f42b995f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe permettant de manipuler les <a class="el" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire.">VariableArticulaire</a> selon le modele geometrique direct. L'ordre des <a class="el" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire.">VariableArticulaire</a> est (theta, d, alpha, a) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afa27ddadf31a88145db612a58b5e72a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa27ddadf31a88145db612a58b5e72a2">&#9670;&nbsp;</a></span>DenavitParameter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DenavitParameter::DenavitParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> **&#160;</td>
+          <td class="paramname"><em>VARListe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de confort qui initialise l'objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a> avec la liste de pointeurs de variableArticulaire VARListe. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">VARListe</td><td>liste de <a class="el" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire.">VariableArticulaire</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38a3b9bcc93666ad465d06dc7abdb30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a3b9bcc93666ad465d06dc7abdb30f">&#9670;&nbsp;</a></span>DenavitParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DenavitParameter::DenavitParameter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;&#160;</td>
+          <td class="paramname"><em>DENObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de recopie qui cree et initialise l'objet <a class="el" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....">DenavitParameter</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DENObject</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae4d9963fe5fa7defc0090214b63324f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4d9963fe5fa7defc0090214b63324f9">&#9670;&nbsp;</a></span>DeleteVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DenavitParameter::DeleteVariable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iIndice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprimer le variableArticulaire a la position iIndice dans la liste de pointeurs de variableArticulaire. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iIndice</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adde2a4f07f5d64f7811d5df17eb1622d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde2a4f07f5d64f7811d5df17eb1622d">&#9670;&nbsp;</a></span>LireBVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool DenavitParameter::LireBVariable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Iindice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire la valeur BVariable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Iindice</td><td>l'indice de la variableArticulaire dans la liste de pointeurs </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true si la variableArticulaire varie sinon false </dd></dl>
+
+</div>
+</div>
+<a id="a089b5484a260a1b67ab0702232f6fed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a089b5484a260a1b67ab0702232f6fed3">&#9670;&nbsp;</a></span>LireValeur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double DenavitParameter::LireValeur </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Iindice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lis la valeur dValeur de la variableArticulaire a l'indice Iindice. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Iindice</td><td>L'indice de la variableArticulaire dans la liste de pointeurs dans cette DevanitParameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>la valeur lue </dd></dl>
+
+</div>
+</div>
+<a id="ab38e807db5e45090bddcde219dc5bc14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab38e807db5e45090bddcde219dc5bc14">&#9670;&nbsp;</a></span>LireVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double * DenavitParameter::LireVariable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Iindice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lis la valeur dVariable de la variableArticulaire a l'indice Iindice. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Iindice</td><td>L'indice de la variableArticulaire dans la liste de pointeurs dans cette DevanitParameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>la valeur lue </dd></dl>
+
+</div>
+</div>
+<a id="a5a2960829dea5c9a7e5a7237ceabf7b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a2960829dea5c9a7e5a7237ceabf7b8">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp; DenavitParameter::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classDenavitParameter.html">DenavitParameter</a> &amp;&#160;</td>
+          <td class="paramname"><em>parameter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Surcharge de l'egalite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameter</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a66e1e2e01e02cf83685c5b6500f119af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66e1e2e01e02cf83685c5b6500f119af">&#9670;&nbsp;</a></span>SetVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DenavitParameter::SetVariable </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iIndice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classVariableArticulaire.html">VariableArticulaire</a> *&#160;</td>
+          <td class="paramname"><em>VARvariable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modifie le variable articulaire a la position iIndice dans la liste de pointeurs de variableArticuaire. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iIndice</td><td>l'indice de l'element a modifier </td></tr>
+    <tr><td class="paramname">VARvariable</td><td>le nouveau pointeur sur variableArticulaire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="DenavitParameter_8h_source.html">DenavitParameter.h</a></li>
 <li>DenavitParameter.cpp</li>
