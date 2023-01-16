@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_7ecmatricebase_10',['~CMatriceBase',['../classCMatriceBase.html#a577a9c3dda440738eaf68557812c3ccb',1,'CMatriceBase']]]
+  ['init_37',['init',['../classFonctionInterface.html#ab2597a00aec68ebd4df2861ab72ed047',1,'FonctionInterface::init(Fonction *pFonction, bool bTemp=true)'],['../classFonctionInterface.html#a11ea89593a2d67d723ec197fb0242093',1,'FonctionInterface::init(FonctionInterface FONInterface)']]],
+  ['isdouble_38',['IsDouble',['../classCLecteurBase.html#a1e5dec9a128fdb6d7298459ca858eb91',1,'CLecteurBase']]],
+  ['isint_39',['IsInt',['../classCLecteurBase.html#a978e9c8d3acea28c961aab842e04b3ba',1,'CLecteurBase']]]
 ];
