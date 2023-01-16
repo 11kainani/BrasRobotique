@@ -1,0 +1,5 @@
+<map id="FonctionSin" name="FonctionSin">
+<area shape="rect" id="node1" title="Classe heritant de FonctionMath Represente une fonction f(g) = sin(g) ou g est une formule mathematiq..." alt="" coords="12,155,109,181"/>
+<area shape="rect" id="node2" href="$classFonctionMath.html" title="Classe heritant de Fonction Represente une fonction f(g) ou g est une formule mathematique quelconque..." alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node3" href="$classFonction.html" title="Classe abstraite etablissant les fonctionnalites requises des classes filles Represente un fonction m..." alt="" coords="22,5,99,32"/>
+</map>

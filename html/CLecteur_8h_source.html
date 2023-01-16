@@ -69,53 +69,59 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define C_LECTEUR_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;CLecteurBase.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;CMatrice.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;CLecteurBase.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;VariableArticulaire.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;DenavitParameter.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> std::ifstream;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classCLecteur.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCLecteur.html">CLecteur</a> : <span class="keyword">public</span> <a class="code" href="classCLecteurBase.html">CLecteurBase</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">char</span>** ppcLECCheminFichier;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define PI 3.14159265</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using</span> std::ifstream;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLECNbrFichier;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classCMatrice.html">CMatrice</a>* pMATLECListe;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLECnbMAtrice;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">char</span>* pcLECFichier;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classCLecteur.html">CLecteur</a>(<span class="keywordtype">char</span>* ppcCheminFichier);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCLecteur.html">CLecteur</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define EXC_NB_PARAMS_MANQUANT 1</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define EXC_NB_PARAMS_NEGATIF 2</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define EXC_VARIABLE_X_ABSENTE 3</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define EXC_VARIABLE_MIN 4</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define EXC_VARIABLE_MAX 5</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define EXC_PARAMETRE_INCOMPLET 6</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classCLecteur.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCLecteur.html">CLecteur</a> : <span class="keyword">public</span> <a class="code" href="classCLecteurBase.html">CLecteurBase</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="classCLecteur.html">CLecteur</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classCMatrice.html">CMatrice</a> LECLireNbMatrice();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; LECLireMatrice(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiIndice);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> LECFindElement(<span class="keywordtype">char</span>* pcLigne, <span class="keywordtype">char</span>* pccMot);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classVariableArticulaire.html">VariableArticulaire</a>* pVARListe;         <span class="comment">// Liste dynamique d&#39;objet VariableArticulaire</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classVariableArticulaire.html">VariableArticulaire</a>** ppVARVariables;   <span class="comment">// Liste dynamique de pointeurs d&#39;objet VariableArticulaire</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classDenavitParameter.html">DenavitParameter</a>* pDENParametres;   <span class="comment">// Liste dynamique de parametres de Denavit</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiNbElements;      <span class="comment">// Nombre d&#39;objets contenus dans pVARListe</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiNbVariables;         <span class="comment">// Nombre de pointeurs contenus dans ppVARVariables</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiNbParametres;        <span class="comment">// Nombre de parametres de Denavit dans pDENParametres</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> LECFindColonneEtLigne(<span class="keywordtype">char</span>* pcPhrase);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span>&amp; LECLireFichier();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> LECModifierFichier(<span class="keyword">const</span> <span class="keywordtype">char</span>* pcFichier);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classCLecteur.html">CLecteur</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* pcCheminFichier);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classCLecteur.html">CLecteur</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ~<a class="code" href="classCLecteur.html">CLecteur</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> LireNbElements();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> LireNbVariables();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> LireNbParametres();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classVariableArticulaire.html">VariableArticulaire</a>&amp; LireElement(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiIndice);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classVariableArticulaire.html">VariableArticulaire</a>&amp; LireVariable(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiIndice);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classDenavitParameter.html">DenavitParameter</a>&amp; LireParametre(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiIndice); </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> LireFichier();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> ModifierFichier(<span class="keyword">const</span> <span class="keywordtype">char</span>* pcFichier);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassCLecteurBase_html"><div class="ttname"><a href="classCLecteurBase.html">CLecteurBase</a></div><div class="ttdef"><b>Definition:</b> CLecteurBase.h:13</div></div>
-<div class="ttc" id="aclassCLecteur_html"><div class="ttname"><a href="classCLecteur.html">CLecteur</a></div><div class="ttdef"><b>Definition:</b> CLecteur.h:13</div></div>
-<div class="ttc" id="aclassCMatrice_html"><div class="ttname"><a href="classCMatrice.html">CMatrice</a></div><div class="ttdef"><b>Definition:</b> CMatrice.h:11</div></div>
+<div class="ttc" id="aclassVariableArticulaire_html"><div class="ttname"><a href="classVariableArticulaire.html">VariableArticulaire</a></div><div class="ttdoc">Classe permettant de manipuler une variable articulaire.</div><div class="ttdef"><b>Definition:</b> VariableArticulaire.h:9</div></div>
+<div class="ttc" id="aclassDenavitParameter_html"><div class="ttname"><a href="classDenavitParameter.html">DenavitParameter</a></div><div class="ttdoc">Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct....</div><div class="ttdef"><b>Definition:</b> DenavitParameter.h:13</div></div>
+<div class="ttc" id="aclassCLecteurBase_html"><div class="ttname"><a href="classCLecteurBase.html">CLecteurBase</a></div><div class="ttdoc">Boite a outil pour les lecteurs.</div><div class="ttdef"><b>Definition:</b> CLecteurBase.h:11</div></div>
+<div class="ttc" id="aclassCLecteur_html"><div class="ttname"><a href="classCLecteur.html">CLecteur</a></div><div class="ttdoc">Classe permettant de lire des variables articulaires du bras robotique.</div><div class="ttdef"><b>Definition:</b> CLecteur.h:28</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -69,45 +69,64 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define C_MATRICE_BASE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classCMatriceBase.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCMatriceBase.html">CMatriceBase</a> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiMATNbLigne;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiMATNbColonne;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classCMatriceBase.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCMatriceBase.html">CMatriceBase</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiMATNbLigne;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">float</span>* pfMATElement;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiMATNbColonne;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>() ;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>(<a class="code" href="classCMatriceBase.html">CMatriceBase</a>&amp; MATObjet);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classCMatriceBase.html#a577a9c3dda440738eaf68557812c3ccb">~CMatriceBase</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCMatriceBase.html#afb1549ee80c6dd152ea20f723c2b7612">MATLireNbColonne</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> MATLireNbLigne();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">float</span> MATLireElement(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLigne, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiColonne);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span>* pdMATElement;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>(<span class="keyword">const</span> <a class="code" href="classCMatriceBase.html">CMatriceBase</a>&amp; MATObjet);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLignes, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiColonnes, <span class="keywordtype">double</span>* pfElements = NULL);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classCMatriceBase.html#a577a9c3dda440738eaf68557812c3ccb">~CMatriceBase</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> MATAffiche();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLignes, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiColonnes, <span class="keywordtype">float</span>* pfElements = NULL);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> operator=(<a class="code" href="classCMatriceBase.html">CMatriceBase</a>&amp; MATObjet);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCMatriceBase.html#afb1549ee80c6dd152ea20f723c2b7612">MATLireNbColonne</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classCMatriceBase.html#a28e9dc8c12f961b9fc2b63d7be60a093">MATLireNbLigne</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classCMatriceBase.html#ab2ed78bc5b4f2345f36e293485a1c912">MATLireElement</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiLigne, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> uiColonne);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#abbb3aa6041dc6e430ef29f0fd551afd0">MATAffiche</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#ae26668eae6853140d8bf5014ab5d2512">operator=</a>(<span class="keyword">const</span> <a class="code" href="classCMatriceBase.html">CMatriceBase</a>&amp; MATObjet);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#aed6c0134710c0e96ba6a5049c298eabb">MATModiferElement</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indiceLigne, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indiceColonne, <span class="keywordtype">double</span> element);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#afc27895698685ffd4db4005b9bf78df0">MATReallocMatrice</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> element);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#ac46eb85c7eb313f55facdb885c868642">MATModifierNbLignes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCMatriceBase.html#a9c47a5e112c70d541648219c758659a5">MATModifierNbColonnes</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">double</span> Superieur(<span class="keywordtype">double</span>, <span class="keywordtype">double</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">double</span> Precision(<span class="keywordtype">double</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassCMatriceBase_html_afb1549ee80c6dd152ea20f723c2b7612"><div class="ttname"><a href="classCMatriceBase.html#afb1549ee80c6dd152ea20f723c2b7612">CMatriceBase::MATLireNbColonne</a></div><div class="ttdeci">unsigned int MATLireNbColonne()</div><div class="ttdoc">Ce méthode permet de savoir combien de colonne cette matrice possède</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:59</div></div>
-<div class="ttc" id="aclassCMatriceBase_html_a86fb3623a8fb6f74bf51e27a9b823aa2"><div class="ttname"><a href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase::CMatriceBase</a></div><div class="ttdeci">CMatriceBase()</div><div class="ttdoc">Constructeur par default qui crée l'objet mais n'initialise pas ses membres.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:22</div></div>
-<div class="ttc" id="aclassCMatriceBase_html"><div class="ttname"><a href="classCMatriceBase.html">CMatriceBase</a></div><div class="ttdef"><b>Definition:</b> CMatriceBase.h:8</div></div>
-<div class="ttc" id="aclassCMatriceBase_html_a577a9c3dda440738eaf68557812c3ccb"><div class="ttname"><a href="classCMatriceBase.html#a577a9c3dda440738eaf68557812c3ccb">CMatriceBase::~CMatriceBase</a></div><div class="ttdeci">~CMatriceBase()</div><div class="ttdoc">Destructeur qui désalloue pfMATElement et détruit l'objet CMatriceBase.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:47</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_afb1549ee80c6dd152ea20f723c2b7612"><div class="ttname"><a href="classCMatriceBase.html#afb1549ee80c6dd152ea20f723c2b7612">CMatriceBase::MATLireNbColonne</a></div><div class="ttdeci">unsigned int MATLireNbColonne()</div><div class="ttdoc">Ce mï¿½thode permet de savoir combien de colonne cette matrice possï¿½de.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:60</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_afc27895698685ffd4db4005b9bf78df0"><div class="ttname"><a href="classCMatriceBase.html#afc27895698685ffd4db4005b9bf78df0">CMatriceBase::MATReallocMatrice</a></div><div class="ttdeci">void MATReallocMatrice(unsigned int element)</div><div class="ttdoc">Allouer a pdMATElement de l'espace memore.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:234</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_aed6c0134710c0e96ba6a5049c298eabb"><div class="ttname"><a href="classCMatriceBase.html#aed6c0134710c0e96ba6a5049c298eabb">CMatriceBase::MATModiferElement</a></div><div class="ttdeci">void MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, double element)</div><div class="ttdoc">Modifier un element de la matrice.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:210</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_a9c47a5e112c70d541648219c758659a5"><div class="ttname"><a href="classCMatriceBase.html#a9c47a5e112c70d541648219c758659a5">CMatriceBase::MATModifierNbColonnes</a></div><div class="ttdeci">void MATModifierNbColonnes(unsigned int number)</div><div class="ttdoc">Modifier le nombre de colonnes.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:229</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_a86fb3623a8fb6f74bf51e27a9b823aa2"><div class="ttname"><a href="classCMatriceBase.html#a86fb3623a8fb6f74bf51e27a9b823aa2">CMatriceBase::CMatriceBase</a></div><div class="ttdeci">CMatriceBase()</div><div class="ttdoc">Constructeur par default qui crï¿½e l'objet et initialise ses membres ï¿½ null.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:20</div></div>
+<div class="ttc" id="aclassCMatriceBase_html"><div class="ttname"><a href="classCMatriceBase.html">CMatriceBase</a></div><div class="ttdoc">Classe mere de CMatrice.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.h:10</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_a577a9c3dda440738eaf68557812c3ccb"><div class="ttname"><a href="classCMatriceBase.html#a577a9c3dda440738eaf68557812c3ccb">CMatriceBase::~CMatriceBase</a></div><div class="ttdeci">~CMatriceBase()</div><div class="ttdoc">Destructeur qui dï¿½salloue pdMATElement et dï¿½truit l'objet CMatriceBase.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:47</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_ab2ed78bc5b4f2345f36e293485a1c912"><div class="ttname"><a href="classCMatriceBase.html#ab2ed78bc5b4f2345f36e293485a1c912">CMatriceBase::MATLireElement</a></div><div class="ttdeci">double MATLireElement(unsigned int uiLigne, unsigned int uiColonne)</div><div class="ttdoc">Lire l'ï¿½lï¿½ment ï¿½ la ligne uiLigne et dans le colonne uiColonne de la matrice.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:70</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_ae26668eae6853140d8bf5014ab5d2512"><div class="ttname"><a href="classCMatriceBase.html#ae26668eae6853140d8bf5014ab5d2512">CMatriceBase::operator=</a></div><div class="ttdeci">void operator=(const CMatriceBase &amp;MATObjet)</div><div class="ttdoc">La mï¿½thode pour surcharger l'opï¿½rateur = permettant une recopie d'ï¿½lï¿½ment ï¿½ ï¿½lï¿½ment.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:188</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_ac46eb85c7eb313f55facdb885c868642"><div class="ttname"><a href="classCMatriceBase.html#ac46eb85c7eb313f55facdb885c868642">CMatriceBase::MATModifierNbLignes</a></div><div class="ttdeci">void MATModifierNbLignes(unsigned int number)</div><div class="ttdoc">Modifier le nombre de ligne.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:224</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_abbb3aa6041dc6e430ef29f0fd551afd0"><div class="ttname"><a href="classCMatriceBase.html#abbb3aa6041dc6e430ef29f0fd551afd0">CMatriceBase::MATAffiche</a></div><div class="ttdeci">void MATAffiche()</div><div class="ttdoc">Affiche la matrice dans la sortie standard.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:94</div></div>
+<div class="ttc" id="aclassCMatriceBase_html_a28e9dc8c12f961b9fc2b63d7be60a093"><div class="ttname"><a href="classCMatriceBase.html#a28e9dc8c12f961b9fc2b63d7be60a093">CMatriceBase::MATLireNbLigne</a></div><div class="ttdeci">unsigned int MATLireNbLigne()</div><div class="ttdoc">Ce mï¿½thode permet de savoir combien de lignes cette matrice possï¿½de.</div><div class="ttdef"><b>Definition:</b> CMatriceBase.cpp:65</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
