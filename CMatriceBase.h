@@ -106,10 +106,6 @@ protected:
 	 * @param number le nouveau nombre de colonne
 	*/
 	void MATModifierNbColonnes(unsigned int number);
-	
-	
-	double Superieur(double, double);
-	double Precision(double, int);
 
 
 };
