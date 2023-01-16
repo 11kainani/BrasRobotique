@@ -68,20 +68,66 @@ $(function() {
 <div class="textblock">
 <p><a href="hierarchy.html">Go to the textual class hierarchy</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" usemap="#CException" alt=""/>
-<!-- MAP 0 -->
+<tr><td><img src="inherit_graph_0.png" border="0" usemap="#CEcriture" alt=""/>
+<map name="CEcriture" id="CEcriture">
+<area shape="rect" href="classCEcriture.html" title="Classe permettant d&#39;ecrire dans un fichier texte des parametres Denavit." alt="" coords="5,5,87,32"/>
+</map>
 </td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" usemap="#CLecteurBase" alt=""/>
-<!-- MAP 1 -->
+<tr><td><img src="inherit_graph_1.png" border="0" usemap="#CException" alt=""/>
+<map name="CException" id="CException">
+<area shape="rect" href="classCException.html" title="Classe permettant de gerer les exceptions." alt="" coords="5,5,100,32"/>
+</map>
 </td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" usemap="#CMatriceBase" alt=""/>
-<!-- MAP 2 -->
+<tr><td><img src="inherit_graph_2.png" border="0" usemap="#CLecteurBase" alt=""/>
+<map name="CLecteurBase" id="CLecteurBase">
+<area shape="rect" href="classCLecteurBase.html" title="Boite a outil pour les lecteurs." alt="" coords="5,31,116,57"/>
+<area shape="rect" href="classCLecteur.html" title="Classe permettant de lire des variables articulaires du bras robotique." alt="" coords="174,5,253,32"/>
+<area shape="rect" href="classCTrajectoire.html" title="Classe permettant de lire les points de trajectoire depuis un fichier texte." alt="" coords="164,56,263,83"/>
+</map>
 </td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" usemap="#DenavitParameter" alt=""/>
-<!-- MAP 3 -->
+<tr><td><img src="inherit_graph_3.png" border="0" usemap="#CMatriceBase" alt=""/>
+<map name="CMatriceBase" id="CMatriceBase">
+<area shape="rect" href="classCMatriceBase.html" title="Classe mere de CMatrice." alt="" coords="5,5,117,32"/>
+<area shape="rect" href="classCMatrice.html" title="Classe permettant de manipuler des matrices." alt="" coords="165,5,245,32"/>
+</map>
 </td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" usemap="#VariableArticulaire" alt=""/>
-<!-- MAP 4 -->
+<tr><td><img src="inherit_graph_4.png" border="0" usemap="#DenavitParameter" alt=""/>
+<map name="DenavitParameter" id="DenavitParameter">
+<area shape="rect" href="classDenavitParameter.html" title="Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct...." alt="" coords="5,5,145,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_5.png" border="0" usemap="#Fonction" alt=""/>
+<map name="Fonction" id="Fonction">
+<area shape="rect" href="classFonction.html" title="Classe abstraite etablissant les fonctionnalites requises des classes filles Represente un fonction m..." alt="" coords="5,81,83,108"/>
+<area shape="rect" href="classFonctionConstante.html" title="Classe heritant de Fonction Represente une valeur constante c." alt="" coords="131,5,273,32"/>
+<area shape="rect" href="classFonctionMath.html" title="Classe heritant de Fonction Represente une fonction f(g) ou g est une formule mathematique quelconque..." alt="" coords="147,56,257,83"/>
+<area shape="rect" href="classFonctionOperation.html" title="Classe heritant de Fonction Represente l&#39;application d&#39;une operation entre plusieurs formules f quelc..." alt="" coords="131,107,273,133"/>
+<area shape="rect" href="classFonctionVariable.html" title="Classe heritant de Fonction Represente une fonction f(x) = x ou x est une variable de type double du ..." alt="" coords="137,157,267,184"/>
+<area shape="rect" href="classFonctionCos.html" title="Classe heritant de FonctionMath Represente une fonction f(g) = cos(g) ou g est une formule mathematiq..." alt="" coords="334,5,435,32"/>
+<area shape="rect" href="classFonctionSin.html" title="Classe heritant de FonctionMath Represente une fonction f(g) = sin(g) ou g est une formule mathematiq..." alt="" coords="336,56,433,83"/>
+<area shape="rect" href="classFonctionProduit.html" title="Classe heritant de FonctionOperation Represente une serie de multiplication appliquees entre formules..." alt="" coords="323,107,446,133"/>
+<area shape="rect" href="classFonctionSomme.html" title="Classe heritant de FonctionOperation Represente une serie d&#39;addition appliquees entre formules f1,..." alt="" coords="321,157,448,184"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_6.png" border="0" usemap="#FonctionInterface" alt=""/>
+<map name="FonctionInterface" id="FonctionInterface">
+<area shape="rect" href="classFonctionInterface.html" title="Classe contenant un pointeur polymorphique d&#39;un objet Fonction Elle permet de representer n&#39;importe q..." alt="" coords="5,5,140,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_7.png" border="0" usemap="#ListFonction" alt=""/>
+<map name="ListFonction" id="ListFonction">
+<area shape="rect" href="classListFonction.html" title="Classe permettant de creer des liste de FonctionInterface." alt="" coords="5,5,105,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_8.png" border="0" usemap="#MatriceFonction" alt=""/>
+<map name="MatriceFonction" id="MatriceFonction">
+<area shape="rect" href="classMatriceFonction.html" title="Classe permettant de representer des Fonctions sous forme de matrice." alt="" coords="5,5,132,32"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_9.png" border="0" usemap="#VariableArticulaire" alt=""/>
+<map name="VariableArticulaire" id="VariableArticulaire">
+<area shape="rect" href="classVariableArticulaire.html" title="Classe permettant de manipuler une variable articulaire." alt="" coords="5,5,148,32"/>
+</map>
 </td></tr>
 </table>
 </div><!-- contents -->

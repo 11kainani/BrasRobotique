@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classCLecteurBase.html" title="Boite a outil pour les lecteurs." alt="" coords="5,31,116,57"/>
+<area shape="rect" id="node2" href="$classCLecteur.html" title="Classe permettant de lire des variables articulaires du bras robotique." alt="" coords="174,5,253,32"/>
+<area shape="rect" id="node3" href="$classCTrajectoire.html" title="Classe permettant de lire les points de trajectoire depuis un fichier texte." alt="" coords="164,56,263,83"/>
+</map>
