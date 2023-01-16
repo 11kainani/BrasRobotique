@@ -56,24 +56,24 @@ double FonctionSomme::Result()
 Fonction* FonctionSomme::Derive(double* pdComposant)
 {
 	unsigned int i, uiTaille;
-	Fonction* pFONDerive; // Résultat de la dérivée
-	ListFonction LISDerives(LISFonctions.GetNbFonctions());  // Dérivées de chaque sous fonction
+	Fonction* pFONDerive; // Resultat de la derivee
+	ListFonction LISDerives(LISFonctions.GetNbFonctions());  // Derivees de chaque sous fonction
 
 
-	// Résultat nul si aucune fonction
+	// Resultat nul si aucune fonction
 	uiTaille = LISFonctions.GetNbFonctions();
 	if (uiTaille == 0) { return new FonctionConstante(0); }
 
 	for (i = 0; i < uiTaille; i++)
 	{
-		// On ajoute la dérivée de chaque sous fonction dans la liste
+		// On ajoute la derivee de chaque sous fonction dans la liste
 		LISDerives.AddFonction((LISFonctions[i].Derive(pdComposant)));
 	}
 
-	// Allocation par new et création de copies des dérivés
+	// Allocation par new et creation de copies des derives
 	pFONDerive = new FonctionSomme(LISDerives);
 
-	// Retour de la dérivée contenant les éléments
+	// Retour de la derivee contenant les elements
 	return pFONDerive;
 }
 

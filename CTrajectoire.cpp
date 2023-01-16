@@ -52,7 +52,7 @@ void CTrajectoire::LireFichier()
 	bool bSuccess;
 
 
-	Load(); //Ouverture du fichier (sera fermé lorsque le destructeur sera appelé)
+	Load(); //Ouverture du fichier (sera ferme lorsque le destructeur sera appele)
 
 	// Lecture du nombre de points
 	pcTexte = FindIntInLine('\0');
@@ -61,7 +61,7 @@ void CTrajectoire::LireFichier()
 
 	if (bSuccess == false)
 	{
-		// Exception : Le nombre de points n'est pas spécifié
+		// Exception : Le nombre de points n'est pas specifie
 		cout << "Erreur de Trajectoire : Le nombre de points n'est pas dans le fichier";
 		return;
 	}
@@ -82,7 +82,7 @@ void CTrajectoire::LireFichier()
 	// Pour chaque point Et s'il existe une ligne pour ce point
 	for (uiNbElements = 0; uiNbElements < uiNbPoints && NextLine(); uiNbElements++)
 	{
-		// Création d'une matrice identité 4x4
+		// Creation d'une matrice identite 4x4
 		TRAMatrice[uiNbElements] = CMatrice::MATIdentity(uiNbComposants+1, uiNbVecteur);
 
 		// Pour chaque vecteur du point
@@ -91,13 +91,13 @@ void CTrajectoire::LireFichier()
 			// Lecture des composantes du vecteur
 			for (uiBoucle2 = 0; uiBoucle2 < uiNbComposants; uiBoucle2++)
 			{
-				// Recherche d'un réel suivit d'un '/' si dernier composant sinon réel suivit d'un ','
+				// Recherche d'un reel suivit d'un '/' si dernier composant sinon reel suivit d'un ','
 				pcTexte = FindDoubleInLine((uiBoucle2 == uiNbComposants-1 ? '/' : ','));
 				bSuccess = ToDouble(pcTexte, dValeur);
 
 				if (bSuccess == false)
 				{
-					// Exception : Valeur réelle incorrecte
+					// Exception : Valeur reelle incorrecte
 					cout << "Erreur de Trajectoire au point " << uiNbElements + 1 <<
 						" a la composante " << uiNbComposants + 1 << " : Valeur reelle incorrecte\n";
 					cout << "Valeur lue : " << pcTexte;
@@ -106,11 +106,11 @@ void CTrajectoire::LireFichier()
 				}
 				free(pcTexte);
 
-				// Affectation du réel dans la matrice 4x4
+				// Affectation du reel dans la matrice 4x4
 				TRAMatrice[uiNbElements].MATModiferElement(uiBoucle2, uiBoucle, dValeur);
 			}
 
-			// Affectation en dernière ligne de la matrice (Si dernière colonne 1 sinon 0)
+			// Affectation en derniere ligne de la matrice (Si derniere colonne 1 sinon 0)
 			TRAMatrice[uiNbElements].MATModiferElement(uiNbComposants, uiBoucle, (uiBoucle == uiNbVecteur-1 ? 1 : 0));
 		}
 

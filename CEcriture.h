@@ -1,14 +1,13 @@
 ﻿#ifndef CECRITUREH
 #define CECRITUREH
-
 #include <iostream>
 #include <fstream>
 #include "DenavitParameter.h"
 using namespace std;
-#endif
+
 
 /**
- * @brief Classe permettant d'écrire dans un fichier texte des paramètres Denavit
+ * @brief Classe permettant d'ecrire dans un fichier texte des parametres Denavit
 */
 class CEcriture
 {
@@ -20,19 +19,19 @@ private:
 public:
 	/**
 	* Constrcuteur par default
-	 * @brief Constructeur par default qui crée un objet CEcriture et qui initialise tous les élement de CEcriture à null
+	 * @brief Constructeur par default qui cree un objet CEcriture et qui initialise tous les element de CEcriture a null
 	*/
 	CEcriture();
 	/**
 	* Costructeur de confort
-	 * @brief Constructeur de confort qui crée un objet CEcriture et qui initialise pcECRCheminFichier
+	 * @brief Constructeur de confort qui cree un objet CEcriture et qui initialise pcECRCheminFichier
 	 * @param pcChemin
 	 * @param truncMode
 	*/
 	CEcriture(const char* pcChemin, bool truncMode = true);
 	/**
 	* Destructeur
-	* @Brief Destructeur par default qui s'occupe de désallouer et détruire l'objet CEcriture
+	* @Brief Destructeur par default qui s'occupe de desallouer et detruire l'objet CEcriture
 	*/
 	~CEcriture();
 
@@ -45,8 +44,8 @@ public:
 
 	/**
 	* ECREcrireNouveauFiche
-	 * @brief Méthode qui écrit sur un nouveau fichier texte.
-	 Si le fichier existe déjà: les données existant seront supprimées
+	 * @brief Methode qui ecrit sur un nouveau fichier texte.
+	 Si le fichier existe deja: les donnees existant seront supprimees
 	 Si le fichier n'existe pas : un nouveau fichier avec le nom choisit.
 	*/
 	void EcrireParametre(DenavitParameter parametre);
@@ -55,7 +54,7 @@ public:
 private:
 	/**
 	* Open
-	 * @brief Ouvre un fichier texte. Si le fichier texte n'existe pas, on le crée.
+	 * @brief Ouvre un fichier texte. Si le fichier texte n'existe pas, on le cree.
 	 * @param newFile vaut true si on veut ouvrir en mode trunc sinon on ouvre le fichier en mode append
 	 *
 	*/
@@ -67,3 +66,4 @@ private:
 	void close();
 
 };
+#endif

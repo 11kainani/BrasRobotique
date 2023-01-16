@@ -6,6 +6,10 @@
 using namespace std;
 #define NB_VARIABLES 4
 
+
+/**
+ * @brief Classe permettant de manipuler les VariableArticulaire selon le modele geometrique direct. L'ordre des VariableArticulaire est (theta, d, alpha, a)
+*/
 class DenavitParameter
 {
 private:
@@ -13,7 +17,7 @@ private:
 
 public:
 	/**
-	 * @brief Constructeur par default qui crée un objet DenavitParameter
+	 * @brief Constructeur par default qui cree un objet DenavitParameter
 	*/
 	DenavitParameter();
 	/**
@@ -22,41 +26,41 @@ public:
 	*/
 	DenavitParameter(VariableArticulaire** VARListe);
 	/**
-	 * @brief Constructeur de recopie qui crée et initialise l'objet DenavitParameter 
+	 * @brief Constructeur de recopie qui cree et initialise l'objet DenavitParameter 
 	 * @param DENObject 
 	*/
 	DenavitParameter(DenavitParameter& DENObject);
 	/**
-	 * @brief Destructeur par default qui détruit l'objet DenavitParameter
+	 * @brief Destructeur par default qui detruit l'objet DenavitParameter
 	*/
 	~DenavitParameter();
 	/**
-	 * @brief Modifie le variable articulaire à la position iIndice dans la liste de pointeurs de variableArticuaire
-	 * @param iIndice l'indice de l'élément à modifier
+	 * @brief Modifie le variable articulaire a la position iIndice dans la liste de pointeurs de variableArticuaire
+	 * @param iIndice l'indice de l'element a modifier
 	 * @param VARvariable le nouveau pointeur sur variableArticulaire
 	*/
 	void SetVariable(int iIndice, VariableArticulaire* VARvariable);
 	/**
-	 * @brief Supprimer le variableArticulaire à la position iIndice dans la liste de pointeurs de variableArticulaire
+	 * @brief Supprimer le variableArticulaire a la position iIndice dans la liste de pointeurs de variableArticulaire
 	 * @param iIndice 
 	*/
 	void DeleteVariable(int iIndice);
 
 	/**
-	 * @brief Surcharge de l'égalité 
+	 * @brief Surcharge de l'egalite 
 	 * @param parameter 
 	 * @return 
 	*/
 	DenavitParameter& operator=(DenavitParameter& parameter);
 
 	/**
-	 * @brief Lis la valeur dVariable de la variableArticulaire à l'indice Iindice 
+	 * @brief Lis la valeur dVariable de la variableArticulaire a l'indice Iindice 
 	 * @param Iindice L'indice de la variableArticulaire dans la liste de pointeurs dans cette DevanitParameter
 	 * @return la valeur lue
 	*/
 	double* LireVariable(int Iindice);
 	/**
-	 * @brief Lis la valeur dValeur de la variableArticulaire à l'indice Iindice
+	 * @brief Lis la valeur dValeur de la variableArticulaire a l'indice Iindice
 	 * @param Iindice L'indice de la variableArticulaire dans la liste de pointeurs dans cette DevanitParameter
 	 * @return la valeur lue
 	*/

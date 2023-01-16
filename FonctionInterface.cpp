@@ -68,7 +68,7 @@ void FonctionInterface::init(FonctionInterface FONInterface)
 
 FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 {
-	// Ne rien faire si l'objet de droite est également celui de gauche
+	// Ne rien faire si l'objet de droite est egalement celui de gauche
 	if (this == &FONInterface)
 	{
 		return *this;
@@ -89,7 +89,7 @@ FonctionInterface& FonctionInterface::operator=(FonctionInterface& FONInterface)
 
 FonctionInterface& FonctionInterface::operator=(FonctionInterface&& FONInterface)
 {
-	// Ne rien faire si l'objet de droite est également celui de gauche
+	// Ne rien faire si l'objet de droite est egalement celui de gauche
 	if (this == &FONInterface)
 	{
 		return *this;
@@ -180,7 +180,7 @@ bool FonctionInterface::Constant()
 	return pnFONFonction->Constant();
 }
 
-//// Fonctions privées ////
+//// Fonctions privees ////
 void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 {
 	pnFONFonction = nullptr;
@@ -191,7 +191,7 @@ void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 	{
 		if (pFonction->Constant())
 		{
-			// Allocation d'une constante contenant le résultat
+			// Allocation d'une constante contenant le resultat
 			pnFONFonction = new FonctionConstante(pFonction->Result());
 		}
 		else
@@ -202,7 +202,7 @@ void FonctionInterface::Alloc(Fonction* pFonction, bool dynamique)
 	}
 	else
 	{
-		// L'interface pointe la même fonction
+		// L'interface pointe la meme fonction
 		pnFONFonction = pFonction;
 	}
 }

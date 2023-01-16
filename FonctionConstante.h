@@ -2,6 +2,10 @@
 #define FONCTION_CONSTANTE_H
 #include "Fonction.h"
 
+/**
+ * @brief Classe heritant de Fonction
+ * Represente une valeur constante c
+ */
 class FonctionConstante : public Fonction
 {
 	double dValeur;
@@ -9,21 +13,21 @@ class FonctionConstante : public Fonction
 public:
 
 	/**
-	 * Constructeur par défaut
-	 * @brief Crée un objet FonctionConstante dont la valeur est 0
+	 * Constructeur par defaut
+	 * @brief Cree un objet FonctionConstante dont la valeur est 0
 	*/
 	FonctionConstante();
 
 	/**
 	 * Contructeur de comfort
-	 * @brief Crée un objet FonctionConstante avec une valeur donnée
+	 * @brief Cree un objet FonctionConstante avec une valeur donnee
 	 * @param valeur
 	*/
 	FonctionConstante(double valeur);
 
 	/**
 	 * Destructeur
-	 * @brief Détruis l'objet FonctionConstante
+	 * @brief Detruis l'objet FonctionConstante
 	*/
 	~FonctionConstante();
 
@@ -36,14 +40,14 @@ public:
 
 	/**
 	 * Surcharge de Fonction::Derive(double*)
-	 * @brief Retourne un nouvel objet FonctionConstante égal à 0
+	 * @brief Retourne un nouvel objet FonctionConstante egal a 0
 	 * @param pdComposante
 	*/
 	Fonction* Derive(double* pdComposante);
 
 	/**
 	 * Surcharge de Fonction::Copy()
-	 * @brief Retourne un nouvel objet FonctionConstante alloué en mémoire avec la même valeur
+	 * @brief Retourne un nouvel objet FonctionConstante alloue en memoire avec la meme valeur
 	*/
 	Fonction* Copy();
 
@@ -56,13 +60,13 @@ public:
 
 	/**
 	 * Surcharge de Fonction::Zero()
-	 * @brief La valeur est-elle égale à 0 ?
+	 * @brief La valeur est-elle egale a 0 ?
 	*/
 	bool Zero();
 
 	/**
 	 * Surcharge de Fonction::Un()
-	 * @brief La valeur est-elle égale à 1 ?
+	 * @brief La valeur est-elle egale a 1 ?
 	*/
 	bool Un();
 

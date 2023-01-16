@@ -287,12 +287,12 @@ MatriceFonction MatriceFonction::operator*(MatriceFonction& MATMatrice)
 	ListFonction LISSommes;			// liste de sommes de produits de fonctions
 	ListFonction LISProduits;		// liste de produits de fonctions
 	ListFonction LISElements;		// liste de fonctions
-	FonctionInterface FONElement;	// Element à ajouter à une liste
+	FonctionInterface FONElement;	// Element a ajouter a une liste
 	unsigned int nbLignes, nbColonnes, i, j, k;
 
 	if (uiNbColonnes != MATMatrice.uiNbLignes) 
 	{
-		cout << "Erreur : Nombre de colonnes et lignes différents " << uiNbColonnes << " != " << MATMatrice.uiNbLignes << endl;
+		cout << "Erreur : Nombre de colonnes et lignes differents " << uiNbColonnes << " != " << MATMatrice.uiNbLignes << endl;
 		exit(1);
 	}
 
@@ -346,7 +346,7 @@ ListFonction MatriceFonction::operator[](unsigned int uiIndice)
 
 	if (uiIndice >= uiNbLignes) 
 	{
-		cout << "Erreur indice ligne dépassé " << uiIndice << "<" << uiNbLignes << endl;
+		cout << "Erreur indice ligne depasse " << uiIndice << "<" << uiNbLignes << endl;
 		return LISLigne;
 	}
 

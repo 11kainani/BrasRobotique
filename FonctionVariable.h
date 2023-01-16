@@ -4,6 +4,10 @@
 #include "Fonction.h"
 #include "FonctionConstante.h"
 
+/**
+ * @brief Classe heritant de Fonction
+ * Represente une fonction f(x) = x  ou x est une variable de type double du programme
+ */
 class FonctionVariable : public Fonction
 {
 
@@ -13,48 +17,48 @@ class FonctionVariable : public Fonction
 public:
 
 	/**
-	 * Constructeur par défaut
-	 * @brief Crée un objet FonctionVariable dont le pointeur pdValeur égal null
+	 * Constructeur par defaut
+	 * @brief Cree un objet FonctionVariable dont le pointeur pdValeur egal null
 	*/
 	FonctionVariable();
 
 	/**
 	 * Constructeur de comfort
-	 * @brief Crée un objet FonctionVariable avec un nom donné et dont le pointeur pdValeur pointe une variable donnée
-	 * @param variable : adresse d'une variable à suivre
-	 * @param nom : nom de la variable ('?' par défaut)
+	 * @brief Cree un objet FonctionVariable avec un nom donne et dont le pointeur pdValeur pointe une variable donnee
+	 * @param variable : adresse d'une variable a suivre
+	 * @param nom : nom de la variable ('?' par defaut)
 	*/
 	FonctionVariable(double* variable, const char* nom = "?");
 
 	/**
 	 * Destructeur
-	 * @brief Détruis l'objet FonctionVariable
+	 * @brief Detruis l'objet FonctionVariable
 	*/
 	~FonctionVariable();
 
 
 	/**
 	 * Surcharge de Fonction::Result()
-	 * @brief Retourne la valeur de la variable pointée par pdValeur
+	 * @brief Retourne la valeur de la variable pointee par pdValeur
 	*/
 	double Result();
 
 	/**
 	 * Surcharge de Fonction::Derive(double*)
-	 * @brief Retourne la dérivée (un objet FonctionConstante) égale à 1 si pdComposante pointe la même variable que pdValeur sinon 0
-	 * @param pdComposante
+	 * @brief Retourne la derivee (un objet FonctionConstante) egale a 1 si pdComposante pointe la meme variable que pdValeur sinon 0
+	 * @param pdComposante : adresse de la variable de derivation
 	*/
 	Fonction* Derive(double* pdComposante);
 
 	/**
 	 * Surcharge de Fonction::Copy()
-	 * @brief Retourne un nouvel objet FonctionVariable alloué en mémoire pointant la même variable que pdValeur
+	 * @brief Retourne un nouvel objet FonctionVariable alloue en memoire pointant la meme variable que pdValeur
 	*/
 	Fonction* Copy();
 
 	/**
 	 * Surcharge de Fonction::Show()
-	 * @brief Affiche le nom de la variable nomVariable ('?' par défaut)
+	 * @brief Affiche le nom de la variable nomVariable ('?' par defaut)
 	*/
 	void Show();
 

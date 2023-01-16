@@ -88,12 +88,12 @@ int CLecteur::LECFindColonneEtLigne(char* pcPhrase)
 
 void CLecteur::LireFichier()
 {
-	Load(); // Ouverture du fichier (sera fermé lorsque le destructeur sera appelé)
+	Load(); // Ouverture du fichier (sera ferme lorsque le destructeur sera appele)
 
 	unsigned int uiBoucle;
 	int iNbParametres;
-	unsigned int uiElement = 0; // Elements créés
-	unsigned int uiVariables = 0; // Eléments variables détéctés
+	unsigned int uiElement = 0; // Elements crees
+	unsigned int uiVariables = 0; // Elements variables detectes
 	double dValeur;
 	char* pcTexte;
 	bool bSuccess;
@@ -106,14 +106,14 @@ void CLecteur::LireFichier()
 
 	if (bSuccess == false)
 	{
-		// Exception : Le nombre de paramètres n'est pas spécifié
+		// Exception : Le nombre de parametres n'est pas specifie
 		cout << "Nombre de parametres introuvable dans le fichier\n";
 		exc.EXCModifierValeur(EXC_NB_PARAMS_MANQUANT);
 		throw exc;
 	}
 	else if (iNbParametres < 1)
 	{
-		// Exception : Le nombre de paramètres n'est pas correct (iNbParametres >= 1)
+		// Exception : Le nombre de parametres n'est pas correct (iNbParametres >= 1)
 		cout << "Nombre de parametres negatif ou egal a 0\n";
 		exc.EXCModifierValeur(EXC_NB_PARAMS_NEGATIF);
 		throw exc;
@@ -126,11 +126,11 @@ void CLecteur::LireFichier()
 
 	while (EmptyLine() == false && (int)uiNbParametres < iNbParametres) // Tant que la ligne n'est pas vide
 	{
-		// Lecture des 4 premières variables de la ligne
+		// Lecture des 4 premieres variables de la ligne
 		while (((uiElement > 0 && (uiElement % 4) == 0) == false))
 		{
 
-			// Recherche d'un réel
+			// Recherche d'un reel
 			pcTexte = FindDoubleInLine(',');
 			bSuccess = ToDouble(pcTexte, dValeur);
 			free(pcTexte);
@@ -138,12 +138,12 @@ void CLecteur::LireFichier()
 			// S'il n'y a pas pu avoir de conversion
 			if (bSuccess == false)
 			{
-				RewindTo(',', 1 + (EmptyLine() ? 0 : 1), true); // On revient en arrière d'un ou deux cran si suite vide ou non
+				RewindTo(',', 1 + (EmptyLine() ? 0 : 1), true); // On revient en arriere d'un ou deux cran si suite vide ou non
 				bSuccess = FindWordInFileLine("X", '[');  // S'agit-il d'une valeur variable ?
 
 				if (bSuccess == false)
 				{
-					// Exception : Format non respecté	
+					// Exception : Format non respecte	
 					cout << "Format Variable incorrect\n";
 					exc.EXCModifierValeur(EXC_VARIABLE_X_ABSENTE);
 					throw exc;
@@ -157,13 +157,13 @@ void CLecteur::LireFichier()
 
 				if (bSuccess == false)
 				{
-					// Exception : Format non respecté
+					// Exception : Format non respecte
 					cout << "Format valeur min incorrect\n";
 					exc.EXCModifierValeur(EXC_VARIABLE_MIN);
 					throw exc;
 				}
 
-				// conversion en radian si première et troisième variable du paramètre denavit
+				// conversion en radian si premiere et troisieme variable du parametre denavit
 				if (uiElement % 2 == 0)
 				{
 					pVARListe[uiNbParametres * 4 + uiElement].ModifierBAngulaire(true);
@@ -185,20 +185,20 @@ void CLecteur::LireFichier()
 				}
 				else
 				{
-					// Exception : Format non respecté
+					// Exception : Format non respecte
 					cout << "Format valeur max incorrect\n";
 					exc.EXCModifierValeur(EXC_VARIABLE_MAX);
 					throw exc;
 				}
 
-				uiVariables++; // Un élément variable a été détecté dans le format correct	
+				uiVariables++; // Un element variable a ete detecte dans le format correct	
 
-				FindWordInFileLine("", ','); // On passe à l'élément suivant dans le fichier
+				FindWordInFileLine("", ','); // On passe a l'element suivant dans le fichier
 
 			}
 			else
 			{
-				// conversion en radian si première et troisième variable du paramètre denavit
+				// conversion en radian si premiere et troisieme variable du parametre denavit
 				if (uiElement % 2 == 0)
 				{
 					pVARListe[uiNbParametres * 4 + uiElement].ModifierBAngulaire(true);
@@ -211,11 +211,11 @@ void CLecteur::LireFichier()
 				pVARListe[uiNbParametres * 4 + uiElement].ModifierBVariable(false);
 			}
 
-			uiElement++; // Un élément a été créé
+			uiElement++; // Un element a ete cree
 
 		}
 
-		// Remise à zéro du nombre d'éléments créés
+		// Remise a zero du nombre d'elements crees
 		uiElement = 0;
 
 		// S'il reste des variables sur la ligne
@@ -229,7 +229,7 @@ void CLecteur::LireFichier()
 		}
 
 
-		// Création d'un parametre de Denavit
+		// Creation d'un parametre de Denavit
 		uiNbParametres++;
 		if (pDENParametres == nullptr)
 		{
@@ -252,14 +252,14 @@ void CLecteur::LireFichier()
 			pDENParametres[uiNbParametres - 1].SetVariable(uiBoucle, &(pVARListe[(uiNbParametres-1)*4 + uiBoucle]));
 		}
 
-		NextLine();  // Passage à la ligne suivante
+		NextLine();  // Passage a la ligne suivante
 
 
 	}
 
 
 
-	// Enregistrement des éléments variables
+	// Enregistrement des elements variables
 	uiNbElements = uiNbParametres*4;
 	uiNbVariables = uiVariables;
 
@@ -272,13 +272,13 @@ void CLecteur::LireFichier()
 	// uiVariables = variable i du tableau ppVARVariables
 	// uiElement = element j du tableau pVARListe
 
-	// Ajout des adresses des éléments variables dans le tableau
+	// Ajout des adresses des elements variables dans le tableau
 	for (uiElement = 0; uiElement < uiNbElements; uiElement++)
 	{
-		// Si l'élément est variable
+		// Si l'element est variable
 		if (pVARListe[uiElement].LireBVariable())
 		{
-			// Ajout de l'élément dans le tableau
+			// Ajout de l'element dans le tableau
 			ppVARVariables[uiVariables] = &(pVARListe[uiElement]);
 			uiVariables++;
 		}

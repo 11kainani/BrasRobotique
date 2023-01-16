@@ -7,53 +7,54 @@
 
 #define PI 3.14159265
 
+/**
+ * @brief  Classe heritant de Fonction
+ * Represente une fonction f(g)  ou g est une formule mathematique quelconque
+ */
 class FonctionMath : public Fonction
 {
 protected:
-	FonctionInterface FONInterface;
+	FonctionInterface FONInterface;  // Formule mathematique g quelconque
 
 public:
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Constructeur par defaut
+	 * @brief Cree un objet vide
 	*/
 	FonctionMath();
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Constructeur de comfort
+	 * @brief Cree l'objet FonctionMath et initialise son objet FonctionInterface par delegation
+	 * @param FONInterface : Objet dont la formule sera recupere par delegation
 	*/
 	FonctionMath(FonctionInterface& FONInterface);
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Constructeur de recopie
+	 * @brief Cree l'objet FonctionMath et son objet FonctionInterface pointe la meme formule g que FONMath.FONInterface
+	 * @param FONMath : Objet a copier
 	*/
-	FonctionMath(FonctionMath& FONCopie);
+	FonctionMath(FonctionMath& FONMath);
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Destructeur 
+	 * @brief Detruis l'objet FONInterface puis l'objet FonctionMath
 	*/
 	~FonctionMath();
 
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Surcharge de l'operateur =
+	 * @brief Affecte FONInterface pour pointer la meme formule g que FONMath.FONInterface
+	 * @param FONMath : Objet a copier
 	*/
 	FonctionMath& operator=(FonctionMath& FONMath);
 
 	/**
-	 * Surcharge de Fonction::
-	 * @brief
-	 * @param
+	 * Surcharge de Fonction::Constant()
+	 * @brief Retourne vrai si l'objet FONInterface est constant
 	*/
 	bool Constant();
 

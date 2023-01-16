@@ -8,6 +8,9 @@
 #include "FonctionSin.h"
 #include "CMatrice.h"
 
+/**
+ * @brief Classe permettant de representer des Fonctions sous forme de matrice
+*/
 class MatriceFonction
 {
 

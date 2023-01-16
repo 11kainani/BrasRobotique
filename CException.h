@@ -4,6 +4,9 @@
 #include <iostream>
 #include <fstream>
 
+/**
+ * @brief Classe permettant de gerer les exceptions
+*/
 class CException
 {
 private:

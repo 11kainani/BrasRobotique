@@ -106,7 +106,7 @@ bool CLecteurBase::NextLine()
 
 	pcCurseur = pcLigne;
 
-	// Retourne Vrai si le contenu de la ligne a changé
+	// Retourne Vrai si le contenu de la ligne a change
 	return ((pcLigne)[0] != '\0');
 }
 

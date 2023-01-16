@@ -55,7 +55,7 @@ ListFonction& ListFonction::operator=(ListFonction& LISCopie)
 	Desalloc();
 	Alloc(LISCopie.uiTaille);
 
-	// Recopie des éléments de LISCopie
+	// Recopie des elements de LISCopie
 	for (unsigned int i = 0; i < LISCopie.uiNbFonctions; i++)
 	{
 		AddFonction(LISCopie.pLISFonctions[i]);
@@ -68,7 +68,7 @@ FonctionInterface& ListFonction::operator[](int indice)
 {
 	if (indice >= (int)uiNbFonctions)
 	{
-		cout << "Erreur : indice dépassé " << indice << ">" << (uiNbFonctions - 1) << endl;
+		cout << "Erreur : indice depasse " << indice << ">" << (uiNbFonctions - 1) << endl;
 		exit(1);
 	}
 
@@ -137,7 +137,7 @@ void ListFonction::Alloc(unsigned int taille)
 
 void ListFonction::Desalloc()
 {
-	// Déssalocation des éléments de la liste
+	// Dessalocation des elements de la liste
 	if (pLISFonctions != nullptr)
 	{
 		delete[] pLISFonctions;

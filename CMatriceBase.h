@@ -4,6 +4,9 @@
 #include <iostream>
 #include <fstream>
 
+/**
+* @brief Classe mere de CMatrice.  
+*/
 class CMatriceBase
 {
 private:
@@ -80,17 +83,17 @@ public:
 	void operator=(const CMatriceBase& MATObjet);
 	/**
 	 * @brief Modifier un element de la matrice
-	 * @param indiceLigne la ligne de l'élémént
-	 * @param indiceColonne la colonne de l'élément
-	 * @param element la nouvelle valeur de l'élément
+	 * @param indiceLigne la ligne de l'element
+	 * @param indiceColonne la colonne de l'element
+	 * @param element la nouvelle valeur de l'element
 	*/
 	void MATModiferElement(unsigned int indiceLigne, unsigned int indiceColonne, double element);
 
 
 protected:
 	/**
-	 * @brief Allouer à pdMATElement de l'espace mémore 
-	 * @param element le nombre d'élément de type double à allouer 
+	 * @brief Allouer a pdMATElement de l'espace memore 
+	 * @param element le nombre d'element de type double a allouer 
 	*/
 	void MATReallocMatrice(unsigned int element);
 	/**
@@ -103,7 +106,7 @@ protected:
 	 * @param number le nouveau nombre de colonne
 	*/
 	void MATModifierNbColonnes(unsigned int number);
-
+	
 	
 	double Superieur(double, double);
 	double Precision(double, int);

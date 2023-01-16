@@ -4,90 +4,102 @@
 #include "FonctionConstante.h"
 
 /**
- * Classe contenant un pointeur polymorphique d'un objet Fonction
- * Elle permet de représenter n'importe quel objet héritant de la classe Fonction
- * Le pointeur est géré dynamiquement par la classe
+ * @brief Classe contenant un pointeur polymorphique d'un objet Fonction
+ * Elle permet de representer n'importe quel objet heritant de la classe Fonction
+ * Le pointeur est gere dynamiquement par la classe
 */
 class FonctionInterface
 {
 	Fonction* pnFONFonction; // pointeur polymorphique d'une fonction
-	bool bDynamique;  // Le pointeur est-il alloué par new ?
+	bool bDynamique;  // Le pointeur est-il alloue par new ?
 	bool bTemporaire; // L'objet est-il temporaire ?
 
 public:
 
 
 	/**
-	 * Constructeur par défaut
-	 * @brief Crée un objet FonctionInterface ne contenant aucun objet Fonction
+	 * Constructeur par defaut
+	 * @brief Cree un objet FonctionInterface ne contenant aucun objet Fonction
 	*/
 	FonctionInterface();
 
 	/**
 	 * Constructeur de comfort
-	 * @brief Crée un objet FonctionInterface contenant un objet Fonction (ou classe fille)
+	 * @brief Cree un objet FonctionInterface contenant un objet Fonction (ou classe fille)
 	 * @param fonction : adresse d'un objet Fonction ou pointeur Fonction*
-	 * @param bTemp : L'objet créé est-il temporaire ? (vrai par défaut)
+	 * @param bTemp : L'objet cree est-il temporaire ? (vrai par defaut)
 	*/
 	FonctionInterface(Fonction* pFonction, bool bTemp = true);
 
 	/**
 	 * Constructeur de recopie
-	 * @brief Crée un objet temporaire ayant récupéré l'objet Fonction contenu dans un autre objet FonctionInterface
-	 * @param FONInterface : Objet FonctionInterface dont le contenu sera récupéré par délégation
+	 * @brief Cree un objet temporaire ayant recupere l'objet Fonction contenu dans un autre objet FonctionInterface
+	 * @param FONInterface : Objet FonctionInterface dont le contenu sera recupere par delegation
 	*/
 	FonctionInterface(FonctionInterface& FONInterface);
 
 	/**
-	 * Constructeur de déplacement
-	 * @brief Crée un objet temporaire ayant récupéré l'objet Fonction contenu dans un autre objet temporaire FonctionInterface
-	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera récupéré par délégation
+	 * Constructeur de deplacement
+	 * @brief Cree un objet temporaire ayant recupere l'objet Fonction contenu dans un autre objet temporaire FonctionInterface
+	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera recupere par delegation
 	*/
 	FonctionInterface(FonctionInterface&& FONInterface);
 
 	/**
 	 * Destructeur
-	 * @brief Détruis l'objet et, si bDynamique est vrai, l'objet Fonction contenu est désalloué de la mémoire
+	 * @brief Detruis l'objet et, si bDynamique est vrai, l'objet Fonction contenu est desalloue de la memoire
 	*/
 	~FonctionInterface();
 
+	/**
+	 * Initialiseur de comfort
+	 * @brief Recree l'objet FonctionInterface pour contenir un objet Fonction (ou classe fille) donne
+	 * @param fonction : adresse d'un objet Fonction ou pointeur Fonction*
+	 * @param bTemp : L'objet recree est-il temporaire ? (vrai par defaut)
+	*/
 	void init(Fonction* pFonction, bool bTemp = true);
 
+	
+	/**
+	 * Initialiseur de recopie
+	 * @brief Recupere l'objet Fonction contenu dans un autre objet FonctionInterface
+	 * @param FONInterface : Objet FonctionInterface dont le contenu sera recupere par delegation
+	*/
 	void init(FonctionInterface FONInterface);
 
 
 	/**
-	 * Surcharge de l'opérateur =
-	 * @brief Récupère l'objet Fonction contenu dans l'objet de droite si celui-ci est temporaire
-	 * @param FONInterface : Objet FonctionInterface dont le contenu sera récupéré par délégation si celui-ci est temporaire
+	 * Surcharge de l'operateur =
+	 * @brief Recupere l'objet Fonction contenu dans l'objet de droite si celui-ci est temporaire
+	 * @param FONInterface : Objet FonctionInterface dont le contenu sera recupere par delegation si celui-ci est temporaire
 	*/
 	FonctionInterface& operator=(FonctionInterface& FONInterface);
 
 	/**
-	 * Surcharge de l'opérateur =
-	 * @brief Récupère l'objet Fonction contenu dans l'objet temporaire de droite
-	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera récupéré par délégation
+	 * Surcharge de l'operateur =
+	 * @brief Recupere l'objet Fonction contenu dans l'objet temporaire de droite
+	 * @param FONInterface : Objet temporaire FonctionInterface dont le contenu sera recupere par delegation
 	*/
 	FonctionInterface& operator=(FonctionInterface&& FONInterface);
 
 	/**
-	 * Surcharge de l'opérateur égal
-	 * @brief Affecte une copie de l'objet Fonction fournit en paramètre à l'objet Fonction contenu dans l'objet FonctionInterface
-	 * @param fonction : adresse de l'objet Fonction ou pointeur Fonction*
+	 * Surcharge de l'operateur =
+	 * @brief Affecte le pointeur fournit a l'objet FonctionInterface qui gerera sa desallocation
+	 * @param fonction : pointeur Fonction* alloue par new
 	*/
 	FonctionInterface& operator=(Fonction* fonction);
 
 
 	/**
 	 * Resultat de fonction
-	 * @brief Retourne le résultat de l'objet Fonction contenu
+	 * @brief Retourne le resultat de l'objet Fonction contenu
 	*/
 	double Result();
 
 	/**
-	 * Dérivée de fonction
-	 * @brief Retourne la dérivée de l'objet Fonction contenu par rapport à l'adresse d'une variable donnée
-	 * @param pdComposant : adresse de la variable pour dériver la fonction
+	 * Derivee de fonction
+	 * @brief Retourne la derivee de l'objet Fonction contenu par rapport a l'adresse d'une variable donnee
+	 * @param pdComposant : adresse de la variable pour deriver la fonction
 	*/
 	FonctionInterface Derive(double* pdComposant);
 
@@ -100,41 +112,41 @@ public:
 
 	/**
 	 * Affichage de fonction
-	 * @brief Affiche la formule de l'objet Fonction pointé par pnFONFonction
+	 * @brief Affiche la formule de l'objet Fonction pointe par pnFONFonction
 	*/
 	void Show();
 
 	/**
-	 * Constante égal à 0
-	 * @brief Retourne vrai si l'objet Fonction contenu est constamment égal à 0
+	 * Constante egal a 0
+	 * @brief Retourne vrai si l'objet Fonction contenu est constamment egal a 0
 	*/
 	bool Zero();
 
 	/**
-	 * Constante égal à 1
-	 * @brief Retourne vrai si l'objet Fonction contenu est constamment égal à 1
+	 * Constante egal a 1
+	 * @brief Retourne vrai si l'objet Fonction contenu est constamment egal a 1
 	*/
 	bool Un();
 
 	/**
-	 * Résultat constant
-	 * @brief Retourne vrai si l'objet Fonction contenu peut être représenté par une constante
+	 * Resultat constant
+	 * @brief Retourne vrai si l'objet Fonction contenu peut etre represente par une constante
 	*/
 	bool Constant();
 
 private:
 
 	/**
-	 * Allocation mémoire de l'objet Fonction contenu
-	 * @brief Si dynamique est vrai, alors l'objet Fonction est une copie allouée en mémoire
-	 * @brief Sinon l'objet Fonction contenu est une référence à l'objet Fonction donné.
+	 * Allocation memoire de l'objet Fonction contenu
+	 * @brief Si dynamique est vrai, alors l'objet Fonction est une copie allouee en memoire
+	 * @brief Sinon l'objet Fonction contenu est une reference a l'objet Fonction donne.
 	 * @param pFonction : pointeur d'un objet Fonction
-	 * @param dynamique : Y a-t-il allocation d'une copie en mémoire ?
+	 * @param dynamique : Y a-t-il allocation d'une copie en memoire ?
 	*/
 	void Alloc(Fonction* pFonction, bool dynamique);
 
 	/**
-	 * Desallocation mémoire de l'objet Fonction contenu
+	 * Desallocation memoire de l'objet Fonction contenu
 	 * @brief Desalloue l'objet Fonction contenu si bDynamique est vrai
 	*/
 	void Desalloc();

@@ -8,6 +8,9 @@
 #include "DenavitParameter.h"
 #include "VariableArticulaire.h"
 
+/**
+* @brief Classe permettant de manipuler des matrices 
+*/
 class CMatrice : public CMatriceBase
 {
 public:
@@ -95,17 +98,17 @@ public:
 	CMatrice Greville();
 
 	/**
-	 * @brief Destructeur par default qui désalloue et détruit l'objet CMatrice
+	 * @brief Destructeur par default qui desalloue et detruit l'objet CMatrice
 	*/
 	~CMatrice();
 	/**
-	 * @brief Matrice colonne à l'indice numColonne
+	 * @brief Matrice colonne a l'indice numColonne
 	 * @param numColonne l'indice de la colonne
-	 * @return une matrice colonne à l'indice numColonne
+	 * @return une matrice colonne a l'indice numColonne
 	*/
 	CMatrice MATFromColonne(unsigned int numColonne);
 	/**
-	 * @brief Matrice identité
+	 * @brief Matrice identite
 	 * @param nbLignes nombre de ligne dans la matrice
 	 * @param nbColonnes nombre de colonne dans la matrice
 	 * @return une matrice de nbLignes lignes et nbColonnes colonnes 
@@ -113,7 +116,7 @@ public:
 	static CMatrice MATIdentity(unsigned int nbLignes, unsigned int nbColonnes);
 	/**
 	 * @brief Ajouter des lignes a la matrice 
-	 * @param number le nombre de ligne à ajouter 
+	 * @param number le nombre de ligne a ajouter 
 	*/
 	void MATAjouterLignes(unsigned int number);
 	/**
@@ -122,15 +125,15 @@ public:
 	*/
 	void MATAjouterColonnes(unsigned int number);
 	/**
-	 * @brief Ajouter une matrice à la suite de cette matrice
-	 * Il faut que la matrice à ajouter aie le même nombre de colonnes que cette matrice
-	 * @param Objet la matrice a ajouter à la suite
+	 * @brief Ajouter une matrice a la suite de cette matrice
+	 * Il faut que la matrice a ajouter aie le meme nombre de colonnes que cette matrice
+	 * @param Objet la matrice a ajouter a la suite
 	*/
 	void MATAjouerLignesMatrice(CMatrice Objet);
 	/**
-	 * @brief Ajouter des colonnes à la suite de cette matrice
-	 * Il faut que la matrice à ajouter aie le meme nombre de lignes
-	 * @param Objet La matrice à ajouter
+	 * @brief Ajouter des colonnes a la suite de cette matrice
+	 * Il faut que la matrice a ajouter aie le meme nombre de lignes
+	 * @param Objet La matrice a ajouter
 	*/
 	void MATAjouerColonnesMatrice(CMatrice Objet);
 

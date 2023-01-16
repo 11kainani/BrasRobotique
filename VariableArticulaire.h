@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+/**
+* @brief Classe permettant de manipuler une variable articulaire
+*/
 class VariableArticulaire
 {
 private:
@@ -21,12 +24,12 @@ private:
 
 public:
 	/**
-	 * @brief Constructeur par default qui crée un objet VariableArticulaire
+	 * @brief Constructeur par default qui cree un objet VariableArticulaire
 	*/
 	VariableArticulaire();
 
 	/**
-	 * @brief Construteur de confort qui crée et initialise les champs de VariableArticulaire
+	 * @brief Construteur de confort qui cree et initialise les champs de VariableArticulaire
 	 * @param fValue valeur de lla variableArticulaire 
 	 * @param fMinValue valeur mini si la variableArticulaire varie
 	 * @param fMaxValue valeur max si la variableArticulaire varie
@@ -35,7 +38,7 @@ public:
 	VariableArticulaire(double fValue, int fMinValue, int fMaxValue, int bIsVariable);
 
 	/**
-	 * @brief Destructeur par default qui désaloue et détrruit l'objet VariableArticulaire
+	 * @brief Destructeur par default qui desaloue et detrruit l'objet VariableArticulaire
 	*/
 	~VariableArticulaire();
 	/**
@@ -73,27 +76,27 @@ public:
 	/**
 	 * @brief Modifier la valeur minimale
 	 * @param min la nouvelle valeur minimale
-	 * @return true si la valeur a été modifié sinon false
+	 * @return true si la valeur a ete modifie sinon false
 	*/
 	bool ModifierMin(double min);
 	/**
-	 * @brief Lire le booléan BVariable
+	 * @brief Lire le boolean BVariable
 	 * @return true si ette variablearticulaire varie sinon false
 	*/
 	bool LireBVariable();
 	/**
-	 * @brief Modifier le booléan BVariable
+	 * @brief Modifier le boolean BVariable
 	 * @param bValue la nouvelle valeur de bVariable
 	*/
 	void ModifierBVariable(bool bValue);
 
 	/**
-	 * @brief Lire le booléan BAngulaire
+	 * @brief Lire le boolean BAngulaire
 	 * @return la valeur lue
 	*/
 	bool LireBAngulaire();
 	/**
-	 * @brief Modifier le booléan BAngulaire
+	 * @brief Modifier le boolean BAngulaire
 	 * @param bValue la nouvelle valeur de BAngulaire
 	*/
 	void ModifierBAngulaire(bool bValue);

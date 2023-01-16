@@ -9,12 +9,15 @@
 #include "CMatrice.h"
 #include "DenavitParameter.h"
 
+/**
+* @brief Classe permettant de lire les points de trajectoire depuis un fichier texte
+*/
 class CTrajectoire : public CLecteurBase
 {
 
 private:
 	/**
-	 * @brief Objet CMatrice nécessaire pour définir la liste de points de trajectoire
+	 * @brief Objet CMatrice necessaire pour definir la liste de points de trajectoire
 	*/
 	CMatrice* TRAMatrice;
 	/**
@@ -30,25 +33,25 @@ private:
 public:
 	/**
 	 * @brief Constructeur par default
-	 * Crée et initialiser un objet CTrajectoire
+	 * Cree et initialiser un objet CTrajectoire
 	*/
 	CTrajectoire();
 	/**
 	 * @brief Constructeur de confort
 	 * @param pcCheminFicher 
-	 * Cree et initialiser un objet CTrajectoire avec un chemin du fichier à lire
+	 * Cree et initialiser un objet CTrajectoire avec un chemin du fichier a lire
 	*/
 	CTrajectoire(const char* pcCheminFicher);
 	/**
 	* @brief Destructeur par defaut
-	* Désalloue et détruit un objet CTrajectoire
+	* Desalloue et detruit un objet CTrajectoire
 	*/
 	~CTrajectoire();
 
 	/**
 	 * @brief Lire matrice 
 	 * @param uiIndice 
-	 * Lire matrice à l'indice (uiIndice)
+	 * Lire matrice a l'indice (uiIndice)
 	*/
 	CMatrice TRALireMatrice(unsigned int uiIndice);
 
@@ -70,7 +73,7 @@ public:
 
 	/**
 	 * @brief Lire le fichier 
-	 * Necessite : Le chemin du fichier soit correctement initialisé
+	 * Necessite : Le chemin du fichier soit correctement initialise
 	 * 
 	*/
 	void LireFichier();
