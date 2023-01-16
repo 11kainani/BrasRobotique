@@ -1,0 +1,191 @@
+\hypertarget{classFonctionProduit}{}\doxysection{Fonction\+Produit Class Reference}
+\label{classFonctionProduit}\index{FonctionProduit@{FonctionProduit}}
+
+
+Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie de multiplication appliquees entre formules f1, f2, ... et fn.  
+
+
+
+
+{\ttfamily \#include $<$Fonction\+Produit.\+h$>$}
+
+
+
+Inheritance diagram for Fonction\+Produit\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classFonctionProduit__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fonction\+Produit\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classFonctionProduit__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFonctionProduit_a3859077e27306316f7ac66c0b36ba7e1}{Fonction\+Produit}} ()
+\begin{DoxyCompactList}\small\item\em Cree un objet vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionProduit_a742320d96a00618ce0a7717fa81eecf5}{Fonction\+Produit}} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&fonctions)
+\begin{DoxyCompactList}\small\item\em Appel le constructeur de comfort de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} et applique les multiplications entre les elements constants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionProduit_a6c18ceee590a5f50767655bb4b1dfc88}{$\sim$\+Fonction\+Produit}} ()
+\begin{DoxyCompactList}\small\item\em Appel le destructeur de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFonctionProduit_a6530fc02083fb15490fa116a70f64e4d}{Result}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de la multiplication des formules (f1$\ast$f2$\ast$...$\ast$fn) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionProduit_afe1c7cfed657491ce76c785e226d2c00}{Derive}} (double $\ast$pc\+Composante)
+\begin{DoxyCompactList}\small\item\em Alloue dynamiquement la derive du produit de fonctions (f1$\ast$f2$\ast$...$\ast$fn) -\/$>$ (f1\textquotesingle{}{\itshape f2}...$\ast$fn) + (f1$\ast$f2\textquotesingle{}$\ast$...$\ast$fn) + ... + (f1$\ast$f2$\ast$...$\ast$fn\textquotesingle{}) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionProduit_a695bfecdb831e996f1a58fbc06813184}{Copy}} ()
+\begin{DoxyCompactList}\small\item\em Alloue dynamiquement une copie de l\textquotesingle{}objet \mbox{\hyperlink{classFonctionProduit}{Fonction\+Produit}} en utilisant le constructeur de recopie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionProduit_a21272822d7b60d4a6714015c26543bc5}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le produit de fonctions sous la forme (f1 $\ast$ f2 $\ast$ ... $\ast$ fn) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionProduit_a0b8084782e2f6d9f7930d745938cf91f}{Zero}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si l\textquotesingle{}une des fonctions vaut constamment 0. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionProduit_ad08949baa8606505e52a0509aaa3dc2e}{Un}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si toutes les fonctions valent constamment 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie de multiplication appliquees entre formules f1, f2, ... et fn. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonctionProduit_a3859077e27306316f7ac66c0b36ba7e1}\label{classFonctionProduit_a3859077e27306316f7ac66c0b36ba7e1}} 
+\index{FonctionProduit@{FonctionProduit}!FonctionProduit@{FonctionProduit}}
+\index{FonctionProduit@{FonctionProduit}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{FonctionProduit()}{FonctionProduit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Fonction\+Produit\+::\+Fonction\+Produit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree un objet vide. 
+
+Constructeur par defaut \mbox{\Hypertarget{classFonctionProduit_a742320d96a00618ce0a7717fa81eecf5}\label{classFonctionProduit_a742320d96a00618ce0a7717fa81eecf5}} 
+\index{FonctionProduit@{FonctionProduit}!FonctionProduit@{FonctionProduit}}
+\index{FonctionProduit@{FonctionProduit}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{FonctionProduit()}{FonctionProduit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Fonction\+Produit\+::\+Fonction\+Produit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&}]{fonctions }\end{DoxyParamCaption})}
+
+
+
+Appel le constructeur de comfort de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} et applique les multiplications entre les elements constants. 
+
+Constructeur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em fonctions} & \+: Liste de fonctions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionProduit_a6c18ceee590a5f50767655bb4b1dfc88}\label{classFonctionProduit_a6c18ceee590a5f50767655bb4b1dfc88}} 
+\index{FonctionProduit@{FonctionProduit}!````~FonctionProduit@{$\sim$FonctionProduit}}
+\index{````~FonctionProduit@{$\sim$FonctionProduit}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{$\sim$FonctionProduit()}{~FonctionProduit()}}
+{\footnotesize\ttfamily Fonction\+Produit\+::$\sim$\+Fonction\+Produit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Appel le destructeur de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonctionProduit_a695bfecdb831e996f1a58fbc06813184}\label{classFonctionProduit_a695bfecdb831e996f1a58fbc06813184}} 
+\index{FonctionProduit@{FonctionProduit}!Copy@{Copy}}
+\index{Copy@{Copy}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Produit\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Alloue dynamiquement une copie de l\textquotesingle{}objet \mbox{\hyperlink{classFonctionProduit}{Fonction\+Produit}} en utilisant le constructeur de recopie. 
+
+Surcharge de \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction\+::\+Copy()}} 
+
+Implements \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionProduit_afe1c7cfed657491ce76c785e226d2c00}\label{classFonctionProduit_afe1c7cfed657491ce76c785e226d2c00}} 
+\index{FonctionProduit@{FonctionProduit}!Derive@{Derive}}
+\index{Derive@{Derive}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Derive()}{Derive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Produit\+::\+Derive (\begin{DoxyParamCaption}\item[{double $\ast$}]{pc\+Composante }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Alloue dynamiquement la derive du produit de fonctions (f1$\ast$f2$\ast$...$\ast$fn) -\/$>$ (f1\textquotesingle{}{\itshape f2}...$\ast$fn) + (f1$\ast$f2\textquotesingle{}$\ast$...$\ast$fn) + ... + (f1$\ast$f2$\ast$...$\ast$fn\textquotesingle{}) 
+
+Surcharge de \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Fonction\+::\+Derive(double$\ast$)}} 
+\begin{DoxyParams}{Parameters}
+{\em pd\+Composante} & \+: adresse de la variable de derivation \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionProduit_a6530fc02083fb15490fa116a70f64e4d}\label{classFonctionProduit_a6530fc02083fb15490fa116a70f64e4d}} 
+\index{FonctionProduit@{FonctionProduit}!Result@{Result}}
+\index{Result@{Result}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}}
+{\footnotesize\ttfamily double Fonction\+Produit\+::\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne le resultat de la multiplication des formules (f1$\ast$f2$\ast$...$\ast$fn) 
+
+Surcharge de \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction\+::\+Result()}} 
+
+Implements \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionProduit_a21272822d7b60d4a6714015c26543bc5}\label{classFonctionProduit_a21272822d7b60d4a6714015c26543bc5}} 
+\index{FonctionProduit@{FonctionProduit}!Show@{Show}}
+\index{Show@{Show}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily void Fonction\+Produit\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Affiche le produit de fonctions sous la forme (f1 $\ast$ f2 $\ast$ ... $\ast$ fn) 
+
+Surcharge de \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Fonction\+::\+Show()}} 
+
+Implements \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionProduit_ad08949baa8606505e52a0509aaa3dc2e}\label{classFonctionProduit_ad08949baa8606505e52a0509aaa3dc2e}} 
+\index{FonctionProduit@{FonctionProduit}!Un@{Un}}
+\index{Un@{Un}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Un()}{Un()}}
+{\footnotesize\ttfamily bool Fonction\+Produit\+::\+Un (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne vrai si toutes les fonctions valent constamment 1. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction\+::\+Un()}} 
+
+Implements \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionProduit_a0b8084782e2f6d9f7930d745938cf91f}\label{classFonctionProduit_a0b8084782e2f6d9f7930d745938cf91f}} 
+\index{FonctionProduit@{FonctionProduit}!Zero@{Zero}}
+\index{Zero@{Zero}!FonctionProduit@{FonctionProduit}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily bool Fonction\+Produit\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne vrai si l\textquotesingle{}une des fonctions vaut constamment 0. 
+
+Surcharge de \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction\+::\+Zero()}} 
+
+Implements \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction\+Produit.\+h\item 
+Fonction\+Produit.\+cpp\end{DoxyCompactItemize}

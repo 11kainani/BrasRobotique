@@ -1,10 +1,25 @@
 \doxysection{Class List}
 Here are the classes, structs, unions and interfaces with brief descriptions\+:\begin{DoxyCompactList}
-\item\contentsline{section}{\mbox{\hyperlink{classCException}{C\+Exception}} }{\pageref{classCException}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classCLecteur}{C\+Lecteur}} }{\pageref{classCLecteur}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classCLecteurBase}{C\+Lecteur\+Base}} }{\pageref{classCLecteurBase}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classCMatrice}{C\+Matrice}} }{\pageref{classCMatrice}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} }{\pageref{classCMatriceBase}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} }{\pageref{classDenavitParameter}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} }{\pageref{classVariableArticulaire}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCEcriture}{C\+Ecriture}} \\*Classe permettant d\textquotesingle{}ecrire dans un fichier texte des parametres Denavit }{\pageref{classCEcriture}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCException}{C\+Exception}} \\*Classe permettant de gerer les exceptions }{\pageref{classCException}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCLecteur}{C\+Lecteur}} \\*Classe permettant de lire des variables articulaires du bras robotique }{\pageref{classCLecteur}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCLecteurBase}{C\+Lecteur\+Base}} \\*Boite a outil pour les lecteurs }{\pageref{classCLecteurBase}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCMatrice}{C\+Matrice}} \\*Classe permettant de manipuler des matrices }{\pageref{classCMatrice}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCMatriceBase}{C\+Matrice\+Base}} \\*Classe mere de \mbox{\hyperlink{classCMatrice}{C\+Matrice}}. ~\newline
+ }{\pageref{classCMatriceBase}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCTrajectoire}{C\+Trajectoire}} \\*Classe permettant de lire les points de trajectoire depuis un fichier texte }{\pageref{classCTrajectoire}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \\*Classe permettant de manipuler les \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} selon le modele geometrique direct. L\textquotesingle{}ordre des \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} est (theta, d, alpha, a) }{\pageref{classDenavitParameter}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonction}{Fonction}} \\*Classe abstraite etablissant les fonctionnalites requises des classes filles Represente un fonction mathematique donnee }{\pageref{classFonction}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionConstante}{Fonction\+Constante}} \\*Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente une valeur constante c }{\pageref{classFonctionConstante}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionCos}{Fonction\+Cos}} \\*Classe heritant de \mbox{\hyperlink{classFonctionMath}{Fonction\+Math}} Represente une fonction f(g) = cos(g) ou g est une formule mathematique quelconque }{\pageref{classFonctionCos}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \\*Classe contenant un pointeur polymorphique d\textquotesingle{}un objet \mbox{\hyperlink{classFonction}{Fonction}} Elle permet de representer n\textquotesingle{}importe quel objet heritant de la classe \mbox{\hyperlink{classFonction}{Fonction}} Le pointeur est gere dynamiquement par la classe }{\pageref{classFonctionInterface}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionMath}{Fonction\+Math}} \\*Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente une fonction f(g) ou g est une formule mathematique quelconque }{\pageref{classFonctionMath}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \\*Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente l\textquotesingle{}application d\textquotesingle{}une operation entre plusieurs formules f quelconques }{\pageref{classFonctionOperation}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionProduit}{Fonction\+Produit}} \\*Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie de multiplication appliquees entre formules f1, f2, ... et fn }{\pageref{classFonctionProduit}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionSin}{Fonction\+Sin}} \\*Classe heritant de \mbox{\hyperlink{classFonctionMath}{Fonction\+Math}} Represente une fonction f(g) = sin(g) ou g est une formule mathematique quelconque }{\pageref{classFonctionSin}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionSomme}{Fonction\+Somme}} \\*Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie d\textquotesingle{}addition appliquees entre formules f1, f2, ..., fn }{\pageref{classFonctionSomme}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} \\*Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente une fonction f(x) = x ou x est une variable de type double du programme }{\pageref{classFonctionVariable}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \\*Classe permettant de creer des liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} }{\pageref{classListFonction}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classMatriceFonction}{Matrice\+Fonction}} \\*Classe permettant de representer des Fonctions sous forme de matrice }{\pageref{classMatriceFonction}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \\*Classe permettant de manipuler une variable articulaire }{\pageref{classVariableArticulaire}}{}
 \end{DoxyCompactList}

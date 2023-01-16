@@ -1,0 +1,207 @@
+\hypertarget{classFonctionVariable}{}\doxysection{Fonction\+Variable Class Reference}
+\label{classFonctionVariable}\index{FonctionVariable@{FonctionVariable}}
+
+
+Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente une fonction f(x) = x ou x est une variable de type double du programme.  
+
+
+
+
+{\ttfamily \#include $<$Fonction\+Variable.\+h$>$}
+
+
+
+Inheritance diagram for Fonction\+Variable\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classFonctionVariable__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fonction\+Variable\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classFonctionVariable__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFonctionVariable_acdf596734922bc1d2244194dcf93aa65}{Fonction\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em Cree un objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} dont le pointeur pd\+Valeur egal null. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionVariable_a8f68a974e46c24aeb417890908e68ef5}{Fonction\+Variable}} (double $\ast$variable, const char $\ast$nom=\char`\"{}?\char`\"{})
+\begin{DoxyCompactList}\small\item\em Cree un objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} avec un nom donne et dont le pointeur pd\+Valeur pointe une variable donnee. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionVariable_a73c5d8344183ba8f3a1d7205a61711b1}{$\sim$\+Fonction\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em Detruis l\textquotesingle{}objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFonctionVariable_a777cdfccd0a32be72bb1013e168ab858}{Result}} ()
+\begin{DoxyCompactList}\small\item\em Retourne la valeur de la variable pointee par pd\+Valeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionVariable_a0878c987ac181a79161608256f247f2b}{Derive}} (double $\ast$pd\+Composante)
+\begin{DoxyCompactList}\small\item\em Retourne la derivee (un objet \mbox{\hyperlink{classFonctionConstante}{Fonction\+Constante}}) egale a 1 si pd\+Composante pointe la meme variable que pd\+Valeur sinon 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionVariable_a4e7514b4c2e6ffb4219fefcf467a41f7}{Copy}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un nouvel objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} alloue en memoire pointant la meme variable que pd\+Valeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionVariable_a2c654e2b23ebc568d3f86a7b2373af96}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Affiche le nom de la variable nom\+Variable (\textquotesingle{}?\textquotesingle{} par defaut) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionVariable_a501175e9d986e727b7df5bda1b873424}{Zero}} ()
+\begin{DoxyCompactList}\small\item\em Retourne toujours faux. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionVariable_a61ad551a0d0551fe7be2155a6e0c49c4}{Un}} ()
+\begin{DoxyCompactList}\small\item\em Retourne toujours faux. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionVariable_a9ea71d3ec992cd4f7c9c80839e7286e9}{Constant}} ()
+\begin{DoxyCompactList}\small\item\em Retourne toujours faux. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente une fonction f(x) = x ou x est une variable de type double du programme. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonctionVariable_acdf596734922bc1d2244194dcf93aa65}\label{classFonctionVariable_acdf596734922bc1d2244194dcf93aa65}} 
+\index{FonctionVariable@{FonctionVariable}!FonctionVariable@{FonctionVariable}}
+\index{FonctionVariable@{FonctionVariable}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{FonctionVariable()}{FonctionVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Fonction\+Variable\+::\+Fonction\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree un objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} dont le pointeur pd\+Valeur egal null. 
+
+Constructeur par defaut \mbox{\Hypertarget{classFonctionVariable_a8f68a974e46c24aeb417890908e68ef5}\label{classFonctionVariable_a8f68a974e46c24aeb417890908e68ef5}} 
+\index{FonctionVariable@{FonctionVariable}!FonctionVariable@{FonctionVariable}}
+\index{FonctionVariable@{FonctionVariable}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{FonctionVariable()}{FonctionVariable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Fonction\+Variable\+::\+Fonction\+Variable (\begin{DoxyParamCaption}\item[{double $\ast$}]{variable,  }\item[{const char $\ast$}]{nom = {\ttfamily \char`\"{}?\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Cree un objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} avec un nom donne et dont le pointeur pd\+Valeur pointe une variable donnee. 
+
+Constructeur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em variable} & \+: adresse d\textquotesingle{}une variable a suivre \\
+\hline
+{\em nom} & \+: nom de la variable (\textquotesingle{}?\textquotesingle{} par defaut) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionVariable_a73c5d8344183ba8f3a1d7205a61711b1}\label{classFonctionVariable_a73c5d8344183ba8f3a1d7205a61711b1}} 
+\index{FonctionVariable@{FonctionVariable}!````~FonctionVariable@{$\sim$FonctionVariable}}
+\index{````~FonctionVariable@{$\sim$FonctionVariable}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{$\sim$FonctionVariable()}{~FonctionVariable()}}
+{\footnotesize\ttfamily Fonction\+Variable\+::$\sim$\+Fonction\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detruis l\textquotesingle{}objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonctionVariable_a9ea71d3ec992cd4f7c9c80839e7286e9}\label{classFonctionVariable_a9ea71d3ec992cd4f7c9c80839e7286e9}} 
+\index{FonctionVariable@{FonctionVariable}!Constant@{Constant}}
+\index{Constant@{Constant}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Constant()}{Constant()}}
+{\footnotesize\ttfamily bool Fonction\+Variable\+::\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne toujours faux. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a5295fd215cd15147fead4db9b4669484}{Fonction\+::\+Constant()}} 
+
+Implements \mbox{\hyperlink{classFonction_a5295fd215cd15147fead4db9b4669484}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a4e7514b4c2e6ffb4219fefcf467a41f7}\label{classFonctionVariable_a4e7514b4c2e6ffb4219fefcf467a41f7}} 
+\index{FonctionVariable@{FonctionVariable}!Copy@{Copy}}
+\index{Copy@{Copy}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Variable\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne un nouvel objet \mbox{\hyperlink{classFonctionVariable}{Fonction\+Variable}} alloue en memoire pointant la meme variable que pd\+Valeur. 
+
+Surcharge de \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction\+::\+Copy()}} 
+
+Implements \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a0878c987ac181a79161608256f247f2b}\label{classFonctionVariable_a0878c987ac181a79161608256f247f2b}} 
+\index{FonctionVariable@{FonctionVariable}!Derive@{Derive}}
+\index{Derive@{Derive}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Derive()}{Derive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Variable\+::\+Derive (\begin{DoxyParamCaption}\item[{double $\ast$}]{pd\+Composante }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne la derivee (un objet \mbox{\hyperlink{classFonctionConstante}{Fonction\+Constante}}) egale a 1 si pd\+Composante pointe la meme variable que pd\+Valeur sinon 0. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Fonction\+::\+Derive(double$\ast$)}} 
+\begin{DoxyParams}{Parameters}
+{\em pd\+Composante} & \+: adresse de la variable de derivation \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a777cdfccd0a32be72bb1013e168ab858}\label{classFonctionVariable_a777cdfccd0a32be72bb1013e168ab858}} 
+\index{FonctionVariable@{FonctionVariable}!Result@{Result}}
+\index{Result@{Result}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}}
+{\footnotesize\ttfamily double Fonction\+Variable\+::\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne la valeur de la variable pointee par pd\+Valeur. 
+
+Surcharge de \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction\+::\+Result()}} 
+
+Implements \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a2c654e2b23ebc568d3f86a7b2373af96}\label{classFonctionVariable_a2c654e2b23ebc568d3f86a7b2373af96}} 
+\index{FonctionVariable@{FonctionVariable}!Show@{Show}}
+\index{Show@{Show}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily void Fonction\+Variable\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Affiche le nom de la variable nom\+Variable (\textquotesingle{}?\textquotesingle{} par defaut) 
+
+Surcharge de \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Fonction\+::\+Show()}} 
+
+Implements \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a61ad551a0d0551fe7be2155a6e0c49c4}\label{classFonctionVariable_a61ad551a0d0551fe7be2155a6e0c49c4}} 
+\index{FonctionVariable@{FonctionVariable}!Un@{Un}}
+\index{Un@{Un}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Un()}{Un()}}
+{\footnotesize\ttfamily bool Fonction\+Variable\+::\+Un (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne toujours faux. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction\+::\+Un()}} 
+
+Implements \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionVariable_a501175e9d986e727b7df5bda1b873424}\label{classFonctionVariable_a501175e9d986e727b7df5bda1b873424}} 
+\index{FonctionVariable@{FonctionVariable}!Zero@{Zero}}
+\index{Zero@{Zero}!FonctionVariable@{FonctionVariable}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily bool Fonction\+Variable\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne toujours faux. 
+
+Surcharge de \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction\+::\+Zero()}} 
+
+Implements \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction\+Variable.\+h\item 
+Fonction\+Variable.\+cpp\end{DoxyCompactItemize}

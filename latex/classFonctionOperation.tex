@@ -1,0 +1,191 @@
+\hypertarget{classFonctionOperation}{}\doxysection{Fonction\+Operation Class Reference}
+\label{classFonctionOperation}\index{FonctionOperation@{FonctionOperation}}
+
+
+Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente l\textquotesingle{}application d\textquotesingle{}une operation entre plusieurs formules f quelconques.  
+
+
+
+
+{\ttfamily \#include $<$Fonction\+Operation.\+h$>$}
+
+
+
+Inheritance diagram for Fonction\+Operation\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{classFonctionOperation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fonction\+Operation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classFonctionOperation__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFonctionOperation_aa4205dc8c7714a8c9db5c2cb735a022e}{Fonction\+Operation}} ()
+\begin{DoxyCompactList}\small\item\em Cree un objet vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionOperation_a83453ac4149c8a268b959a7b34383f4f}{Fonction\+Operation}} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&fonctions)
+\begin{DoxyCompactList}\small\item\em Cree l\textquotesingle{}objet dont les elements de sa liste ont recupere par delegation les elements contenus dans la liste fournie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionOperation_a09c09ca8ed484531a5feeeadad0aae99}{Fonction\+Operation}} (\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \&F\+O\+N\+Operation\+Copie)
+\begin{DoxyCompactList}\small\item\em Cree l\textquotesingle{}objet dont les elements de sa liste pointent les elements contenus dans la liste de l\textquotesingle{}objet a copier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionOperation_a9fd702aa2d4a2e7222a2894da654c71e}{$\sim$\+Fonction\+Operation}} ()
+\begin{DoxyCompactList}\small\item\em Detruis la liste de fonction puis l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \& \mbox{\hyperlink{classFonctionOperation_acf856366b19ec57d07bacbedb2a6a54c}{operator=}} (\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \&F\+O\+N\+Operation\+Copie)
+\begin{DoxyCompactList}\small\item\em Affecte les elements de sa liste pour pointer ceux dans la liste de l\textquotesingle{}objet a copier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionOperation_a74214402f1e85fec6d88d67f2f368817}{Constant}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si tous les elements de sa liste sont constants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classListFonction}{List\+Fonction}} \mbox{\hyperlink{classFonctionOperation_a7d45eb5de4f1620a720c4ed4fb9d0910}{Copies}} ()
+\begin{DoxyCompactList}\small\item\em Retourne une copie de la liste de sous fonctions. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFonctionConstante}{Fonction\+Constante}} \mbox{\hyperlink{classFonctionOperation_ac0941bd38178b87db7ef8e98ffd28e3e}{Operation\+Constante}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&constante1, \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&constante2)=0
+\begin{DoxyCompactList}\small\item\em Retourne une fonction constante egale a l\textquotesingle{}application d\textquotesingle{}une operation entre deux fonctions constantes. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classFonctionOperation_ac2df9010665a5cc49bb32aae82779be7}{Element\+Neutre}} ()=0
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}element neutre de l\textquotesingle{}operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFonctionOperation_ad476b791e9ad35f0361ee90f3471d1ac}\label{classFonctionOperation_ad476b791e9ad35f0361ee90f3471d1ac}} 
+\mbox{\hyperlink{classListFonction}{List\+Fonction}} {\bfseries L\+I\+S\+Fonctions}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe heritant de \mbox{\hyperlink{classFonction}{Fonction}} Represente l\textquotesingle{}application d\textquotesingle{}une operation entre plusieurs formules f quelconques. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonctionOperation_aa4205dc8c7714a8c9db5c2cb735a022e}\label{classFonctionOperation_aa4205dc8c7714a8c9db5c2cb735a022e}} 
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{FonctionOperation()}{FonctionOperation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Fonction\+Operation\+::\+Fonction\+Operation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree un objet vide. 
+
+Constructeur par defaut \mbox{\Hypertarget{classFonctionOperation_a83453ac4149c8a268b959a7b34383f4f}\label{classFonctionOperation_a83453ac4149c8a268b959a7b34383f4f}} 
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{FonctionOperation()}{FonctionOperation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Fonction\+Operation\+::\+Fonction\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&}]{fonctions }\end{DoxyParamCaption})}
+
+
+
+Cree l\textquotesingle{}objet dont les elements de sa liste ont recupere par delegation les elements contenus dans la liste fournie. 
+
+Constructeur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em fonctions} & \+: Liste de fonctions a recuperer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionOperation_a09c09ca8ed484531a5feeeadad0aae99}\label{classFonctionOperation_a09c09ca8ed484531a5feeeadad0aae99}} 
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\index{FonctionOperation@{FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{FonctionOperation()}{FonctionOperation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Fonction\+Operation\+::\+Fonction\+Operation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \&}]{F\+O\+N\+Operation\+Copie }\end{DoxyParamCaption})}
+
+
+
+Cree l\textquotesingle{}objet dont les elements de sa liste pointent les elements contenus dans la liste de l\textquotesingle{}objet a copier. 
+
+Constructeur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Operation\+Copie} & \+: Objet a copier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionOperation_a9fd702aa2d4a2e7222a2894da654c71e}\label{classFonctionOperation_a9fd702aa2d4a2e7222a2894da654c71e}} 
+\index{FonctionOperation@{FonctionOperation}!````~FonctionOperation@{$\sim$FonctionOperation}}
+\index{````~FonctionOperation@{$\sim$FonctionOperation}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{$\sim$FonctionOperation()}{~FonctionOperation()}}
+{\footnotesize\ttfamily Fonction\+Operation\+::$\sim$\+Fonction\+Operation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detruis la liste de fonction puis l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonctionOperation_a74214402f1e85fec6d88d67f2f368817}\label{classFonctionOperation_a74214402f1e85fec6d88d67f2f368817}} 
+\index{FonctionOperation@{FonctionOperation}!Constant@{Constant}}
+\index{Constant@{Constant}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{Constant()}{Constant()}}
+{\footnotesize\ttfamily bool Fonction\+Operation\+::\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne vrai si tous les elements de sa liste sont constants. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a5295fd215cd15147fead4db9b4669484}{Fonction\+::\+Constant()}} 
+
+Implements \mbox{\hyperlink{classFonction_a5295fd215cd15147fead4db9b4669484}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionOperation_a7d45eb5de4f1620a720c4ed4fb9d0910}\label{classFonctionOperation_a7d45eb5de4f1620a720c4ed4fb9d0910}} 
+\index{FonctionOperation@{FonctionOperation}!Copies@{Copies}}
+\index{Copies@{Copies}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{Copies()}{Copies()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classListFonction}{List\+Fonction}} Fonction\+Operation\+::\+Copies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Retourne une copie de la liste de sous fonctions. 
+
+Creation d\textquotesingle{}une copie des sous fonctions \mbox{\Hypertarget{classFonctionOperation_ac2df9010665a5cc49bb32aae82779be7}\label{classFonctionOperation_ac2df9010665a5cc49bb32aae82779be7}} 
+\index{FonctionOperation@{FonctionOperation}!ElementNeutre@{ElementNeutre}}
+\index{ElementNeutre@{ElementNeutre}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{ElementNeutre()}{ElementNeutre()}}
+{\footnotesize\ttfamily virtual double Fonction\+Operation\+::\+Element\+Neutre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Retourne l\textquotesingle{}element neutre de l\textquotesingle{}operation. 
+
+Methode virtuelle pure \mbox{\Hypertarget{classFonctionOperation_ac0941bd38178b87db7ef8e98ffd28e3e}\label{classFonctionOperation_ac0941bd38178b87db7ef8e98ffd28e3e}} 
+\index{FonctionOperation@{FonctionOperation}!OperationConstante@{OperationConstante}}
+\index{OperationConstante@{OperationConstante}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{OperationConstante()}{OperationConstante()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classFonctionConstante}{Fonction\+Constante}} Fonction\+Operation\+::\+Operation\+Constante (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&}]{constante1,  }\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&}]{constante2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Retourne une fonction constante egale a l\textquotesingle{}application d\textquotesingle{}une operation entre deux fonctions constantes. 
+
+Methode virtuelle pure 
+\begin{DoxyParams}{Parameters}
+{\em constante1} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} representant une formule constante \\
+\hline
+{\em constante2} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} representant une formule constante \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionOperation_acf856366b19ec57d07bacbedb2a6a54c}\label{classFonctionOperation_acf856366b19ec57d07bacbedb2a6a54c}} 
+\index{FonctionOperation@{FonctionOperation}!operator=@{operator=}}
+\index{operator=@{operator=}!FonctionOperation@{FonctionOperation}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \& Fonction\+Operation\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} \&}]{F\+O\+N\+Operation\+Copie }\end{DoxyParamCaption})}
+
+
+
+Affecte les elements de sa liste pour pointer ceux dans la liste de l\textquotesingle{}objet a copier. 
+
+Surcharge de l\textquotesingle{}operateur = 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Operation\+Copie} & \+: Objet a copier \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction\+Operation.\+h\item 
+Fonction\+Operation.\+cpp\end{DoxyCompactItemize}

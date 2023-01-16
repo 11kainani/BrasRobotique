@@ -1,0 +1,93 @@
+\hypertarget{classCEcriture}{}\doxysection{C\+Ecriture Class Reference}
+\label{classCEcriture}\index{CEcriture@{CEcriture}}
+
+
+Classe permettant d\textquotesingle{}ecrire dans un fichier texte des parametres Denavit.  
+
+
+
+
+{\ttfamily \#include $<$C\+Ecriture.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCEcriture_ac7d600c248724ffce4387f2a83722344}{C\+Ecriture}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui cree un objet \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} et qui initialise tous les element de \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} a null. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCEcriture_aec921a9edd9824bfc6b1903a869bf4cf}{C\+Ecriture}} (const char $\ast$pc\+Chemin, bool trunc\+Mode=true)
+\begin{DoxyCompactList}\small\item\em Constructeur de confort qui cree un objet \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} et qui initialise pc\+E\+C\+R\+Chemin\+Fichier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCEcriture_a9c609d387b46c8ec21b2da5a240bb482}{$\sim$\+C\+Ecriture}} ()
+\item 
+void \mbox{\hyperlink{classCEcriture_a383e05da53f2b81ad956240fb7c7aedf}{Ecrire}} (const char $\ast$texte)
+\item 
+void \mbox{\hyperlink{classCEcriture_ae981f62e86e065bb576162d8fd64d2fa}{Ecrire\+Parametre}} (\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} parametre)
+\begin{DoxyCompactList}\small\item\em Methode qui ecrit sur un nouveau fichier texte. Si le fichier existe deja\+: les donnees existant seront supprimees Si le fichier n\textquotesingle{}existe pas \+: un nouveau fichier avec le nom choisit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant d\textquotesingle{}ecrire dans un fichier texte des parametres Denavit. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCEcriture_ac7d600c248724ffce4387f2a83722344}\label{classCEcriture_ac7d600c248724ffce4387f2a83722344}} 
+\index{CEcriture@{CEcriture}!CEcriture@{CEcriture}}
+\index{CEcriture@{CEcriture}!CEcriture@{CEcriture}}
+\doxysubsubsection{\texorpdfstring{CEcriture()}{CEcriture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily C\+Ecriture\+::\+C\+Ecriture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructeur par default qui cree un objet \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} et qui initialise tous les element de \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} a null. 
+
+Constrcuteur par default \mbox{\Hypertarget{classCEcriture_aec921a9edd9824bfc6b1903a869bf4cf}\label{classCEcriture_aec921a9edd9824bfc6b1903a869bf4cf}} 
+\index{CEcriture@{CEcriture}!CEcriture@{CEcriture}}
+\index{CEcriture@{CEcriture}!CEcriture@{CEcriture}}
+\doxysubsubsection{\texorpdfstring{CEcriture()}{CEcriture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily C\+Ecriture\+::\+C\+Ecriture (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Chemin,  }\item[{bool}]{trunc\+Mode = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Constructeur de confort qui cree un objet \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} et qui initialise pc\+E\+C\+R\+Chemin\+Fichier. 
+
+Costructeur de confort 
+\begin{DoxyParams}{Parameters}
+{\em pc\+Chemin} & \\
+\hline
+{\em trunc\+Mode} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCEcriture_a9c609d387b46c8ec21b2da5a240bb482}\label{classCEcriture_a9c609d387b46c8ec21b2da5a240bb482}} 
+\index{CEcriture@{CEcriture}!````~CEcriture@{$\sim$CEcriture}}
+\index{````~CEcriture@{$\sim$CEcriture}!CEcriture@{CEcriture}}
+\doxysubsubsection{\texorpdfstring{$\sim$CEcriture()}{~CEcriture()}}
+{\footnotesize\ttfamily C\+Ecriture\+::$\sim$\+C\+Ecriture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructeur @\+Brief Destructeur par default qui s\textquotesingle{}occupe de desallouer et detruire l\textquotesingle{}objet \mbox{\hyperlink{classCEcriture}{C\+Ecriture}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCEcriture_a383e05da53f2b81ad956240fb7c7aedf}\label{classCEcriture_a383e05da53f2b81ad956240fb7c7aedf}} 
+\index{CEcriture@{CEcriture}!Ecrire@{Ecrire}}
+\index{Ecrire@{Ecrire}!CEcriture@{CEcriture}}
+\doxysubsubsection{\texorpdfstring{Ecrire()}{Ecrire()}}
+{\footnotesize\ttfamily void C\+Ecriture\+::\+Ecrire (\begin{DoxyParamCaption}\item[{const char $\ast$}]{texte }\end{DoxyParamCaption})}
+
+Ecrire @\+Brief Ecrit un texte dans le fichier en mode append 
+\begin{DoxyParams}{Parameters}
+{\em texte} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCEcriture_ae981f62e86e065bb576162d8fd64d2fa}\label{classCEcriture_ae981f62e86e065bb576162d8fd64d2fa}} 
+\index{CEcriture@{CEcriture}!EcrireParametre@{EcrireParametre}}
+\index{EcrireParametre@{EcrireParametre}!CEcriture@{CEcriture}}
+\doxysubsubsection{\texorpdfstring{EcrireParametre()}{EcrireParametre()}}
+{\footnotesize\ttfamily void C\+Ecriture\+::\+Ecrire\+Parametre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}}]{parametre }\end{DoxyParamCaption})}
+
+
+
+Methode qui ecrit sur un nouveau fichier texte. Si le fichier existe deja\+: les donnees existant seront supprimees Si le fichier n\textquotesingle{}existe pas \+: un nouveau fichier avec le nom choisit. 
+
+E\+C\+R\+Ecrire\+Nouveau\+Fiche 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+Ecriture.\+h\item 
+C\+Ecriture.\+cpp\end{DoxyCompactItemize}

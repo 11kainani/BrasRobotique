@@ -1,0 +1,196 @@
+\hypertarget{classFonctionSomme}{}\doxysection{Fonction\+Somme Class Reference}
+\label{classFonctionSomme}\index{FonctionSomme@{FonctionSomme}}
+
+
+Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie d\textquotesingle{}addition appliquees entre formules f1, f2, ..., fn.  
+
+
+
+
+{\ttfamily \#include $<$Fonction\+Somme.\+h$>$}
+
+
+
+Inheritance diagram for Fonction\+Somme\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{classFonctionSomme__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fonction\+Somme\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classFonctionSomme__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFonctionSomme_ae2f49f513a8c0e0490e2c6e67a1af865}{Fonction\+Somme}} ()
+\begin{DoxyCompactList}\small\item\em Cree un objet vide. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionSomme_af509c3c574539e8d425629f3183648b9}{Fonction\+Somme}} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&fonctions)
+\begin{DoxyCompactList}\small\item\em Appel le constructeur de comfort de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} et applique les additions entre les elements constants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionSomme_aa3e16b926dd6e5b8dcb32aa7ba7f444d}{$\sim$\+Fonction\+Somme}} ()
+\begin{DoxyCompactList}\small\item\em Appel le destructeur de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFonctionSomme_a59a0cacb648899c304d66b2806e04e02}{Result}} ()
+\begin{DoxyCompactList}\small\item\em Retourne la somme des resultats de chaque sous fonction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionSomme_ab4a4648e2cf4a85dfb3208fdc7129702}{Derive}} (double $\ast$pc\+Composante)
+\begin{DoxyCompactList}\small\item\em Retourne la somme des derivees par rapport a la composante donnee. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonctionSomme_a92a11b8edf9e367f962705ee06be8340}{Copy}} ()
+\begin{DoxyCompactList}\small\item\em Alloue dynamiquement un objet \mbox{\hyperlink{classFonctionSomme}{Fonction\+Somme}} en utilisant le constructeur de recopie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionSomme_a33f390aac4ce69dc6d74ae4a22541dec}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Affiche la somme de fonctions sous la forme \mbox{[}f1 + f2 + ... + fn\mbox{]}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionSomme_a3f20f53727df2a44e913407eed612e98}{Zero}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si toutes les fonctions valent constamment 0. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionSomme_abfad4b7ea6647816870a448db37ae19d}{Un}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si la somme vaut constamment 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe heritant de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} Represente une serie d\textquotesingle{}addition appliquees entre formules f1, f2, ..., fn. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonctionSomme_ae2f49f513a8c0e0490e2c6e67a1af865}\label{classFonctionSomme_ae2f49f513a8c0e0490e2c6e67a1af865}} 
+\index{FonctionSomme@{FonctionSomme}!FonctionSomme@{FonctionSomme}}
+\index{FonctionSomme@{FonctionSomme}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{FonctionSomme()}{FonctionSomme()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Fonction\+Somme\+::\+Fonction\+Somme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree un objet vide. 
+
+Constructeur par defaut \mbox{\Hypertarget{classFonctionSomme_af509c3c574539e8d425629f3183648b9}\label{classFonctionSomme_af509c3c574539e8d425629f3183648b9}} 
+\index{FonctionSomme@{FonctionSomme}!FonctionSomme@{FonctionSomme}}
+\index{FonctionSomme@{FonctionSomme}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{FonctionSomme()}{FonctionSomme()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Fonction\+Somme\+::\+Fonction\+Somme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&}]{fonctions }\end{DoxyParamCaption})}
+
+
+
+Appel le constructeur de comfort de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}} et applique les additions entre les elements constants. 
+
+Constructeur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em fonctions} & \+: Liste de fonctions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionSomme_aa3e16b926dd6e5b8dcb32aa7ba7f444d}\label{classFonctionSomme_aa3e16b926dd6e5b8dcb32aa7ba7f444d}} 
+\index{FonctionSomme@{FonctionSomme}!````~FonctionSomme@{$\sim$FonctionSomme}}
+\index{````~FonctionSomme@{$\sim$FonctionSomme}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{$\sim$FonctionSomme()}{~FonctionSomme()}}
+{\footnotesize\ttfamily Fonction\+Somme\+::$\sim$\+Fonction\+Somme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Appel le destructeur de \mbox{\hyperlink{classFonctionOperation}{Fonction\+Operation}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonctionSomme_a92a11b8edf9e367f962705ee06be8340}\label{classFonctionSomme_a92a11b8edf9e367f962705ee06be8340}} 
+\index{FonctionSomme@{FonctionSomme}!Copy@{Copy}}
+\index{Copy@{Copy}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Somme\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Alloue dynamiquement un objet \mbox{\hyperlink{classFonctionSomme}{Fonction\+Somme}} en utilisant le constructeur de recopie. 
+
+Surcharge de \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction\+::\+Copy()}} 
+
+Implements \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionSomme_ab4a4648e2cf4a85dfb3208fdc7129702}\label{classFonctionSomme_ab4a4648e2cf4a85dfb3208fdc7129702}} 
+\index{FonctionSomme@{FonctionSomme}!Derive@{Derive}}
+\index{Derive@{Derive}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Derive()}{Derive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ Fonction\+Somme\+::\+Derive (\begin{DoxyParamCaption}\item[{double $\ast$}]{pc\+Composante }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne la somme des derivees par rapport a la composante donnee. 
+
+Surcharge de \mbox{\hyperlink{classFonction}{Fonction}}\+:\+: 
+\begin{DoxyParams}{Parameters}
+{\em pd\+Composante} & \+: adresse de la variable de derivation \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionSomme_a59a0cacb648899c304d66b2806e04e02}\label{classFonctionSomme_a59a0cacb648899c304d66b2806e04e02}} 
+\index{FonctionSomme@{FonctionSomme}!Result@{Result}}
+\index{Result@{Result}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}}
+{\footnotesize\ttfamily double Fonction\+Somme\+::\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne la somme des resultats de chaque sous fonction. 
+
+Surcharge de \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction\+::\+Result()}} 
+
+Implements \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionSomme_a33f390aac4ce69dc6d74ae4a22541dec}\label{classFonctionSomme_a33f390aac4ce69dc6d74ae4a22541dec}} 
+\index{FonctionSomme@{FonctionSomme}!Show@{Show}}
+\index{Show@{Show}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily void Fonction\+Somme\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Affiche la somme de fonctions sous la forme \mbox{[}f1 + f2 + ... + fn\mbox{]}. 
+
+Surcharge de \mbox{\hyperlink{classFonction}{Fonction}}\+:\+: 
+
+Implements \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionSomme_abfad4b7ea6647816870a448db37ae19d}\label{classFonctionSomme_abfad4b7ea6647816870a448db37ae19d}} 
+\index{FonctionSomme@{FonctionSomme}!Un@{Un}}
+\index{Un@{Un}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Un()}{Un()}}
+{\footnotesize\ttfamily bool Fonction\+Somme\+::\+Un (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne vrai si la somme vaut constamment 1. 
+
+Surcharge de \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction\+::\+Un()}} 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Fonction}}.
+
+\mbox{\Hypertarget{classFonctionSomme_a3f20f53727df2a44e913407eed612e98}\label{classFonctionSomme_a3f20f53727df2a44e913407eed612e98}} 
+\index{FonctionSomme@{FonctionSomme}!Zero@{Zero}}
+\index{Zero@{Zero}!FonctionSomme@{FonctionSomme}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily bool Fonction\+Somme\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Retourne vrai si toutes les fonctions valent constamment 0. 
+
+Surcharge de \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction\+::\+Zero()}} 
+
+Implements \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Fonction}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction\+Somme.\+h\item 
+Fonction\+Somme.\+cpp\end{DoxyCompactItemize}

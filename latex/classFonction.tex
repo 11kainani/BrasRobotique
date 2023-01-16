@@ -1,0 +1,167 @@
+\hypertarget{classFonction}{}\doxysection{Fonction Class Reference}
+\label{classFonction}\index{Fonction@{Fonction}}
+
+
+Classe abstraite etablissant les fonctionnalites requises des classes filles Represente un fonction mathematique donnee.  
+
+
+
+
+{\ttfamily \#include $<$Fonction.\+h$>$}
+
+
+
+Inheritance diagram for Fonction\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classFonction__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \mbox{\hyperlink{classFonction_afff0527d4316b22a231aab981f62239e}{Result}} ()=0
+\begin{DoxyCompactList}\small\item\em Retourne le resultat du calcul de la fonction. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonction_a46eba71fcd2416c7699ad03ace47860a}{Derive}} (double $\ast$pd\+Composant)=0
+\begin{DoxyCompactList}\small\item\em Retourne la derivee de la fonction A\+T\+T\+E\+N\+T\+I\+ON \+: Retourne un pointeur \mbox{\hyperlink{classFonction}{Fonction}} alloue dynamiquement par new Vous devez obligatoirement utiliser l\textquotesingle{}instruction delete sur l\textquotesingle{}element retourne Note \+: Stockez l\textquotesingle{}element dans une variable Fonction$\ast$ non allouee. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFonction}{Fonction}} $\ast$ \mbox{\hyperlink{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}{Copy}} ()=0
+\begin{DoxyCompactList}\small\item\em Retourne une copie de la fonction A\+T\+T\+E\+N\+T\+I\+ON \+: Retourne un pointeur \mbox{\hyperlink{classFonction}{Fonction}} alloue dynamiquement par new Vous devez obligatoirement utiliser l\textquotesingle{}instruction delete sur l\textquotesingle{}element retourne Note \+: Stockez l\textquotesingle{}element dans une variable Fonction$\ast$ non allouee. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}{Show}} ()=0
+\begin{DoxyCompactList}\small\item\em Affiche la formule de la fonction. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}{Zero}} ()=0
+\begin{DoxyCompactList}\small\item\em La formule vaut-\/elle constamment 0 ? \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classFonction_a60ba147ef747a309e022b1a0b841de67}{Un}} ()=0
+\begin{DoxyCompactList}\small\item\em La formule vaut-\/elle constamment 1 ? \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classFonction_a5295fd215cd15147fead4db9b4669484}{Constant}} ()=0
+\begin{DoxyCompactList}\small\item\em La formule est-\/elle une constante ? \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classFonction_ac9f7b6fabddd197e8ed20ded46c4d820}{$\sim$\+Fonction}} ()
+\begin{DoxyCompactList}\small\item\em Detruis l\textquotesingle{}objet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe abstraite etablissant les fonctionnalites requises des classes filles Represente un fonction mathematique donnee. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonction_ac9f7b6fabddd197e8ed20ded46c4d820}\label{classFonction_ac9f7b6fabddd197e8ed20ded46c4d820}} 
+\index{Fonction@{Fonction}!````~Fonction@{$\sim$Fonction}}
+\index{````~Fonction@{$\sim$Fonction}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{$\sim$Fonction()}{~Fonction()}}
+{\footnotesize\ttfamily Fonction\+::$\sim$\+Fonction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Detruis l\textquotesingle{}objet. 
+
+Destructeur virtuel 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonction_a5295fd215cd15147fead4db9b4669484}\label{classFonction_a5295fd215cd15147fead4db9b4669484}} 
+\index{Fonction@{Fonction}!Constant@{Constant}}
+\index{Constant@{Constant}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Constant()}{Constant()}}
+{\footnotesize\ttfamily virtual bool Fonction\+::\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+La formule est-\/elle une constante ? 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionVariable_a9ea71d3ec992cd4f7c9c80839e7286e9}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionConstante_a40a281c436b8e54fd9e9d8dae4d6189f}{Fonction\+Constante}}, \mbox{\hyperlink{classFonctionMath_a104a2254e0a15ace0536a4e636c0a4f1}{Fonction\+Math}}, and \mbox{\hyperlink{classFonctionOperation_a74214402f1e85fec6d88d67f2f368817}{Fonction\+Operation}}.
+
+\mbox{\Hypertarget{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}\label{classFonction_aea3b53afdf3ca3a05c45d267520aaa68}} 
+\index{Fonction@{Fonction}!Copy@{Copy}}
+\index{Copy@{Copy}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classFonction}{Fonction}}$\ast$ Fonction\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retourne une copie de la fonction A\+T\+T\+E\+N\+T\+I\+ON \+: Retourne un pointeur \mbox{\hyperlink{classFonction}{Fonction}} alloue dynamiquement par new Vous devez obligatoirement utiliser l\textquotesingle{}instruction delete sur l\textquotesingle{}element retourne Note \+: Stockez l\textquotesingle{}element dans une variable Fonction$\ast$ non allouee. 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionCos_a1c955473d7b28258bec192c6e6f69a37}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_afc5682d9d44617b32117b0431b4a2fe8}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionVariable_a4e7514b4c2e6ffb4219fefcf467a41f7}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionSomme_a92a11b8edf9e367f962705ee06be8340}{Fonction\+Somme}}, \mbox{\hyperlink{classFonctionProduit_a695bfecdb831e996f1a58fbc06813184}{Fonction\+Produit}}, and \mbox{\hyperlink{classFonctionConstante_a36951230e0e95263851620d178ea1158}{Fonction\+Constante}}.
+
+\mbox{\Hypertarget{classFonction_a46eba71fcd2416c7699ad03ace47860a}\label{classFonction_a46eba71fcd2416c7699ad03ace47860a}} 
+\index{Fonction@{Fonction}!Derive@{Derive}}
+\index{Derive@{Derive}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Derive()}{Derive()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classFonction}{Fonction}}$\ast$ Fonction\+::\+Derive (\begin{DoxyParamCaption}\item[{double $\ast$}]{pd\+Composant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retourne la derivee de la fonction A\+T\+T\+E\+N\+T\+I\+ON \+: Retourne un pointeur \mbox{\hyperlink{classFonction}{Fonction}} alloue dynamiquement par new Vous devez obligatoirement utiliser l\textquotesingle{}instruction delete sur l\textquotesingle{}element retourne Note \+: Stockez l\textquotesingle{}element dans une variable Fonction$\ast$ non allouee. 
+
+Methode virtuelle pure 
+\begin{DoxyParams}{Parameters}
+{\em pd\+Composant} & \+: adresse de la variable de derivation \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classFonctionVariable_a0878c987ac181a79161608256f247f2b}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionConstante_ad883873f5bca104dc831b145ca5fae90}{Fonction\+Constante}}, \mbox{\hyperlink{classFonctionCos_a640101c8da7ce873ffa4885fd0f655eb}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_aac229d12670d676e6f7f8353a9ee3aff}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionProduit_afe1c7cfed657491ce76c785e226d2c00}{Fonction\+Produit}}, and \mbox{\hyperlink{classFonctionSomme_ab4a4648e2cf4a85dfb3208fdc7129702}{Fonction\+Somme}}.
+
+\mbox{\Hypertarget{classFonction_afff0527d4316b22a231aab981f62239e}\label{classFonction_afff0527d4316b22a231aab981f62239e}} 
+\index{Fonction@{Fonction}!Result@{Result}}
+\index{Result@{Result}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}}
+{\footnotesize\ttfamily virtual double Fonction\+::\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Retourne le resultat du calcul de la fonction. 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionCos_a34aaa3d8cfa1686bfe9341794b9a9620}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_aa5a2fb89b4e1b0054e0f71dba769ce6c}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionVariable_a777cdfccd0a32be72bb1013e168ab858}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionProduit_a6530fc02083fb15490fa116a70f64e4d}{Fonction\+Produit}}, \mbox{\hyperlink{classFonctionSomme_a59a0cacb648899c304d66b2806e04e02}{Fonction\+Somme}}, and \mbox{\hyperlink{classFonctionConstante_a5ab3427618a10c61aee9414517874d99}{Fonction\+Constante}}.
+
+\mbox{\Hypertarget{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}\label{classFonction_a9549468f62b57fbaf8ff0a85c0972b85}} 
+\index{Fonction@{Fonction}!Show@{Show}}
+\index{Show@{Show}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily virtual void Fonction\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Affiche la formule de la fonction. 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionCos_a8078ab389b73ddf2e59813a6f00934e1}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_ae9c326d6cff4036485750c0af715667d}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionSomme_a33f390aac4ce69dc6d74ae4a22541dec}{Fonction\+Somme}}, \mbox{\hyperlink{classFonctionVariable_a2c654e2b23ebc568d3f86a7b2373af96}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionProduit_a21272822d7b60d4a6714015c26543bc5}{Fonction\+Produit}}, and \mbox{\hyperlink{classFonctionConstante_af9d7e3ec0207db2d0ea5ff408834b5e3}{Fonction\+Constante}}.
+
+\mbox{\Hypertarget{classFonction_a60ba147ef747a309e022b1a0b841de67}\label{classFonction_a60ba147ef747a309e022b1a0b841de67}} 
+\index{Fonction@{Fonction}!Un@{Un}}
+\index{Un@{Un}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Un()}{Un()}}
+{\footnotesize\ttfamily virtual bool Fonction\+::\+Un (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+La formule vaut-\/elle constamment 1 ? 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionCos_a6f278475a4720b60279f45b89a5a819f}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_abd2a0c1e9f137e6ad1e984f5d781853b}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionSomme_abfad4b7ea6647816870a448db37ae19d}{Fonction\+Somme}}, \mbox{\hyperlink{classFonctionVariable_a61ad551a0d0551fe7be2155a6e0c49c4}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionProduit_ad08949baa8606505e52a0509aaa3dc2e}{Fonction\+Produit}}, and \mbox{\hyperlink{classFonctionConstante_a25ee7112e92c5035f31f6b3cef72deb3}{Fonction\+Constante}}.
+
+\mbox{\Hypertarget{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}\label{classFonction_ab70dcd37c2aa98e4160db303bcf4d8db}} 
+\index{Fonction@{Fonction}!Zero@{Zero}}
+\index{Zero@{Zero}!Fonction@{Fonction}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily virtual bool Fonction\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+La formule vaut-\/elle constamment 0 ? 
+
+Methode virtuelle pure 
+
+Implemented in \mbox{\hyperlink{classFonctionCos_a35253c6a4f99f1a78fbb566e050d3f3a}{Fonction\+Cos}}, \mbox{\hyperlink{classFonctionSin_a4b77bf50a35637db30ace9b1bbca3295}{Fonction\+Sin}}, \mbox{\hyperlink{classFonctionSomme_a3f20f53727df2a44e913407eed612e98}{Fonction\+Somme}}, \mbox{\hyperlink{classFonctionVariable_a501175e9d986e727b7df5bda1b873424}{Fonction\+Variable}}, \mbox{\hyperlink{classFonctionProduit_a0b8084782e2f6d9f7930d745938cf91f}{Fonction\+Produit}}, and \mbox{\hyperlink{classFonctionConstante_a1859bd5813f37269adb09361aef93f33}{Fonction\+Constante}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction.\+h\item 
+Fonction.\+cpp\end{DoxyCompactItemize}

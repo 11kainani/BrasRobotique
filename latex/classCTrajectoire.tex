@@ -1,0 +1,123 @@
+\hypertarget{classCTrajectoire}{}\doxysection{C\+Trajectoire Class Reference}
+\label{classCTrajectoire}\index{CTrajectoire@{CTrajectoire}}
+
+
+Classe permettant de lire les points de trajectoire depuis un fichier texte.  
+
+
+
+
+{\ttfamily \#include $<$C\+Trajectoire.\+h$>$}
+
+
+
+Inheritance diagram for C\+Trajectoire\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{classCTrajectoire__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for C\+Trajectoire\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{classCTrajectoire__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCTrajectoire_a5b37bf9f682aba06a6a613765fd6dfda}\label{classCTrajectoire_a5b37bf9f682aba06a6a613765fd6dfda}} 
+\mbox{\hyperlink{classCTrajectoire_a5b37bf9f682aba06a6a613765fd6dfda}{C\+Trajectoire}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default Cree et initialiser un objet \mbox{\hyperlink{classCTrajectoire}{C\+Trajectoire}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCTrajectoire_a02d46c7b4ec22b5ef7612d0c9bd46896}{C\+Trajectoire}} (const char $\ast$pc\+Chemin\+Ficher)
+\begin{DoxyCompactList}\small\item\em Constructeur de confort. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCTrajectoire_a0203cf1adbbe2b2520784ac7bc38b917}\label{classCTrajectoire_a0203cf1adbbe2b2520784ac7bc38b917}} 
+\mbox{\hyperlink{classCTrajectoire_a0203cf1adbbe2b2520784ac7bc38b917}{$\sim$\+C\+Trajectoire}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par defaut Desalloue et detruit un objet \mbox{\hyperlink{classCTrajectoire}{C\+Trajectoire}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCMatrice}{C\+Matrice}} \mbox{\hyperlink{classCTrajectoire_a6023178755d9894c0e1a319a8a76444e}{T\+R\+A\+Lire\+Matrice}} (unsigned int ui\+Indice)
+\begin{DoxyCompactList}\small\item\em Lire matrice. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classCTrajectoire_a3adb7d7444c3d42ce51855c5bf67a274}{Lire\+Nb\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nombre de points du trajectoire. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCTrajectoire_afbe60a7a5a507f16b829eed374ea06c1}\label{classCTrajectoire_afbe60a7a5a507f16b829eed374ea06c1}} 
+unsigned int \mbox{\hyperlink{classCTrajectoire_afbe60a7a5a507f16b829eed374ea06c1}{Lire\+Nb\+Lu}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nombre de points lus dans le fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCTrajectoire_aa19e9a6ebcfb2e7e2d22047c7852026c}\label{classCTrajectoire_aa19e9a6ebcfb2e7e2d22047c7852026c}} 
+void \mbox{\hyperlink{classCTrajectoire_aa19e9a6ebcfb2e7e2d22047c7852026c}{Modifier\+Fichier}} (const char $\ast$pc\+Fichier)
+\begin{DoxyCompactList}\small\item\em Moiidifer le nom du fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCTrajectoire_ab8008e1ad39b706952175b3cf3682b9a}{Lire\+Fichier}} ()
+\begin{DoxyCompactList}\small\item\em Lire le fichier Necessite \+: Le chemin du fichier soit correctement initialise. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCTrajectoire_af41953c1982577a6e014aff66c59671e}\label{classCTrajectoire_af41953c1982577a6e014aff66c59671e}} 
+void \mbox{\hyperlink{classCTrajectoire_af41953c1982577a6e014aff66c59671e}{Affichier\+Matrices}} ()
+\begin{DoxyCompactList}\small\item\em Affichier la trajectoire sous forme de matrice. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de lire les points de trajectoire depuis un fichier texte. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCTrajectoire_a02d46c7b4ec22b5ef7612d0c9bd46896}\label{classCTrajectoire_a02d46c7b4ec22b5ef7612d0c9bd46896}} 
+\index{CTrajectoire@{CTrajectoire}!CTrajectoire@{CTrajectoire}}
+\index{CTrajectoire@{CTrajectoire}!CTrajectoire@{CTrajectoire}}
+\doxysubsubsection{\texorpdfstring{CTrajectoire()}{CTrajectoire()}}
+{\footnotesize\ttfamily C\+Trajectoire\+::\+C\+Trajectoire (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Chemin\+Ficher }\end{DoxyParamCaption})}
+
+
+
+Constructeur de confort. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Chemin\+Ficher} & Cree et initialiser un objet \mbox{\hyperlink{classCTrajectoire}{C\+Trajectoire}} avec un chemin du fichier a lire \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCTrajectoire_ab8008e1ad39b706952175b3cf3682b9a}\label{classCTrajectoire_ab8008e1ad39b706952175b3cf3682b9a}} 
+\index{CTrajectoire@{CTrajectoire}!LireFichier@{LireFichier}}
+\index{LireFichier@{LireFichier}!CTrajectoire@{CTrajectoire}}
+\doxysubsubsection{\texorpdfstring{LireFichier()}{LireFichier()}}
+{\footnotesize\ttfamily void C\+Trajectoire\+::\+Lire\+Fichier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le fichier Necessite \+: Le chemin du fichier soit correctement initialise. 
+
+\mbox{\Hypertarget{classCTrajectoire_a3adb7d7444c3d42ce51855c5bf67a274}\label{classCTrajectoire_a3adb7d7444c3d42ce51855c5bf67a274}} 
+\index{CTrajectoire@{CTrajectoire}!LireNbPoints@{LireNbPoints}}
+\index{LireNbPoints@{LireNbPoints}!CTrajectoire@{CTrajectoire}}
+\doxysubsubsection{\texorpdfstring{LireNbPoints()}{LireNbPoints()}}
+{\footnotesize\ttfamily unsigned int C\+Trajectoire\+::\+Lire\+Nb\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le nombre de points du trajectoire. 
+
+\begin{DoxyReturn}{Returns}
+Le nombre de points de trajectoire dans le fichier 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCTrajectoire_a6023178755d9894c0e1a319a8a76444e}\label{classCTrajectoire_a6023178755d9894c0e1a319a8a76444e}} 
+\index{CTrajectoire@{CTrajectoire}!TRALireMatrice@{TRALireMatrice}}
+\index{TRALireMatrice@{TRALireMatrice}!CTrajectoire@{CTrajectoire}}
+\doxysubsubsection{\texorpdfstring{TRALireMatrice()}{TRALireMatrice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCMatrice}{C\+Matrice}} C\+Trajectoire\+::\+T\+R\+A\+Lire\+Matrice (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Indice }\end{DoxyParamCaption})}
+
+
+
+Lire matrice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Indice} & Lire matrice a l\textquotesingle{}indice (ui\+Indice) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+Trajectoire.\+h\item 
+C\+Trajectoire.\+cpp\end{DoxyCompactItemize}

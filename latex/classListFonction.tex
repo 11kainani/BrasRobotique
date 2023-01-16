@@ -1,0 +1,192 @@
+\hypertarget{classListFonction}{}\doxysection{List\+Fonction Class Reference}
+\label{classListFonction}\index{ListFonction@{ListFonction}}
+
+
+Classe permettant de creer des liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}.  
+
+
+
+
+{\ttfamily \#include $<$List\+Fonction.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classListFonction_ab2d7797b1968fe2d151360bd7b7381e9}{List\+Fonction}} ()
+\begin{DoxyCompactList}\small\item\em Cree une liste vide de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classListFonction_a8b2ddafb597d1f6e17e187a2890cfed2}{List\+Fonction}} (unsigned int taille)
+\begin{DoxyCompactList}\small\item\em Cree une liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} avec une taille donnee (Les fonctions ne sont pas initialisees) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classListFonction_a7cc00239e9123c3df2e793b6aa0b692f}{List\+Fonction}} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&L\+I\+S\+Copie)
+\begin{DoxyCompactList}\small\item\em Cree une liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} ayant recupere par delegation les objets \mbox{\hyperlink{classFonction}{Fonction}} des elements de la liste fournit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classListFonction_a30673fdbb38a1839e2b20345e1743d2c}{$\sim$\+List\+Fonction}} ()
+\begin{DoxyCompactList}\small\item\em Detruis la liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classListFonction_a0122472337d5c2b6e3d858179e7a938b}\label{classListFonction_a0122472337d5c2b6e3d858179e7a938b}} 
+void {\bfseries init} (unsigned int taille)
+\item 
+\mbox{\Hypertarget{classListFonction_a815c1e807665c5b66dc478f8690a9223}\label{classListFonction_a815c1e807665c5b66dc478f8690a9223}} 
+void {\bfseries init} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} L\+I\+S\+Copie)
+\item 
+\mbox{\hyperlink{classListFonction}{List\+Fonction}} \& \mbox{\hyperlink{classListFonction_abe8e80cb84ae163878e5bf6c2e896d8c}{operator=}} (\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&L\+I\+S\+Copie)
+\begin{DoxyCompactList}\small\item\em Recree la liste et recupere par delegation les objets \mbox{\hyperlink{classFonction}{Fonction}} des elements de la liste de droite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& \mbox{\hyperlink{classListFonction_af2399acb8bd34232596fa4c6da7bcc10}{operator\mbox{[}$\,$\mbox{]}}} (int indice)
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}element d\textquotesingle{}indice donne. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classListFonction_a953968b3485581b6a071a113b642ed41}{Add\+Fonction}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&p\+Fonction, bool delegation=true)
+\begin{DoxyCompactList}\small\item\em Ajoute, par delegation ou reference, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} fournit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classListFonction_ab9ea75a563b8cd4bb878b63238807872}{Add\+Fonction}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&p\+Fonction)
+\begin{DoxyCompactList}\small\item\em Ajoute, par delegation ou reference, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} fournit. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classListFonction_ad0067bab630c9fe0bff09dd801a08c9c}{Get\+Taille}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} que la liste peut contenir. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classListFonction_a35ebca9d54bf2313c66aea2d30e4fe8d}{Get\+Nb\+Fonctions}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le nombre de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} actuellement dans la liste. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de creer des liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classListFonction_ab2d7797b1968fe2d151360bd7b7381e9}\label{classListFonction_ab2d7797b1968fe2d151360bd7b7381e9}} 
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{ListFonction()}{ListFonction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily List\+Fonction\+::\+List\+Fonction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree une liste vide de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Constructeur par defaut \mbox{\Hypertarget{classListFonction_a8b2ddafb597d1f6e17e187a2890cfed2}\label{classListFonction_a8b2ddafb597d1f6e17e187a2890cfed2}} 
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{ListFonction()}{ListFonction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily List\+Fonction\+::\+List\+Fonction (\begin{DoxyParamCaption}\item[{unsigned int}]{taille }\end{DoxyParamCaption})}
+
+
+
+Cree une liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} avec une taille donnee (Les fonctions ne sont pas initialisees) 
+
+Contructeur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em taille} & \+: Nombre d\textquotesingle{}emplacements dans la liste \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_a7cc00239e9123c3df2e793b6aa0b692f}\label{classListFonction_a7cc00239e9123c3df2e793b6aa0b692f}} 
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\index{ListFonction@{ListFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{ListFonction()}{ListFonction()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily List\+Fonction\+::\+List\+Fonction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&}]{L\+I\+S\+Copie }\end{DoxyParamCaption})}
+
+
+
+Cree une liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} ayant recupere par delegation les objets \mbox{\hyperlink{classFonction}{Fonction}} des elements de la liste fournit. 
+
+Constructeur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em L\+I\+S\+Copie} & \+: Liste contenant les elements a transmettre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_a30673fdbb38a1839e2b20345e1743d2c}\label{classListFonction_a30673fdbb38a1839e2b20345e1743d2c}} 
+\index{ListFonction@{ListFonction}!````~ListFonction@{$\sim$ListFonction}}
+\index{````~ListFonction@{$\sim$ListFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{$\sim$ListFonction()}{~ListFonction()}}
+{\footnotesize\ttfamily List\+Fonction\+::$\sim$\+List\+Fonction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detruis la liste de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classListFonction_ab9ea75a563b8cd4bb878b63238807872}\label{classListFonction_ab9ea75a563b8cd4bb878b63238807872}} 
+\index{ListFonction@{ListFonction}!AddFonction@{AddFonction}}
+\index{AddFonction@{AddFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{AddFonction()}{AddFonction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void List\+Fonction\+::\+Add\+Fonction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&}]{p\+Fonction }\end{DoxyParamCaption})}
+
+
+
+Ajoute, par delegation ou reference, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} fournit. 
+
+Ajout de fonction 
+\begin{DoxyParams}{Parameters}
+{\em p\+Fonction} & \+: Objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_a953968b3485581b6a071a113b642ed41}\label{classListFonction_a953968b3485581b6a071a113b642ed41}} 
+\index{ListFonction@{ListFonction}!AddFonction@{AddFonction}}
+\index{AddFonction@{AddFonction}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{AddFonction()}{AddFonction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void List\+Fonction\+::\+Add\+Fonction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&}]{p\+Fonction,  }\item[{bool}]{delegation = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Ajoute, par delegation ou reference, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} fournit. 
+
+Ajout de fonction 
+\begin{DoxyParams}{Parameters}
+{\em p\+Fonction} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \\
+\hline
+{\em delegation} & \+: Y a-\/t-\/il delegation de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans p\+Fonction ? (vrai par defaut) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_a35ebca9d54bf2313c66aea2d30e4fe8d}\label{classListFonction_a35ebca9d54bf2313c66aea2d30e4fe8d}} 
+\index{ListFonction@{ListFonction}!GetNbFonctions@{GetNbFonctions}}
+\index{GetNbFonctions@{GetNbFonctions}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{GetNbFonctions()}{GetNbFonctions()}}
+{\footnotesize\ttfamily unsigned int List\+Fonction\+::\+Get\+Nb\+Fonctions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} actuellement dans la liste. 
+
+Getter 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_ad0067bab630c9fe0bff09dd801a08c9c}\label{classListFonction_ad0067bab630c9fe0bff09dd801a08c9c}} 
+\index{ListFonction@{ListFonction}!GetTaille@{GetTaille}}
+\index{GetTaille@{GetTaille}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{GetTaille()}{GetTaille()}}
+{\footnotesize\ttfamily unsigned int List\+Fonction\+::\+Get\+Taille (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le nombre de \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} que la liste peut contenir. 
+
+Getter \mbox{\Hypertarget{classListFonction_abe8e80cb84ae163878e5bf6c2e896d8c}\label{classListFonction_abe8e80cb84ae163878e5bf6c2e896d8c}} 
+\index{ListFonction@{ListFonction}!operator=@{operator=}}
+\index{operator=@{operator=}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classListFonction}{List\+Fonction}} \& List\+Fonction\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classListFonction}{List\+Fonction}} \&}]{L\+I\+S\+Copie }\end{DoxyParamCaption})}
+
+
+
+Recree la liste et recupere par delegation les objets \mbox{\hyperlink{classFonction}{Fonction}} des elements de la liste de droite. 
+
+Surcharge de l\textquotesingle{}operateur = 
+\begin{DoxyParams}{Parameters}
+{\em L\+I\+S\+Copie} & \+: Liste contenant les elements a transmettre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classListFonction_af2399acb8bd34232596fa4c6da7bcc10}\label{classListFonction_af2399acb8bd34232596fa4c6da7bcc10}} 
+\index{ListFonction@{ListFonction}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!ListFonction@{ListFonction}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& List\+Fonction\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{indice }\end{DoxyParamCaption})}
+
+
+
+Retourne l\textquotesingle{}element d\textquotesingle{}indice donne. 
+
+Surcharge de l\textquotesingle{}operateur \mbox{[}\mbox{]} 
+\begin{DoxyParams}{Parameters}
+{\em indice} & \+: indice de l\textquotesingle{}element recherche (entre 0 et ui\+Nb\+Fonctions-\/1) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+List\+Fonction.\+h\item 
+List\+Fonction.\+cpp\end{DoxyCompactItemize}

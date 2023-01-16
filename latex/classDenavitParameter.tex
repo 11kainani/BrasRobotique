@@ -1,23 +1,185 @@
 \hypertarget{classDenavitParameter}{}\doxysection{Denavit\+Parameter Class Reference}
 \label{classDenavitParameter}\index{DenavitParameter@{DenavitParameter}}
+
+
+Classe permettant de manipuler les \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} selon le modele geometrique direct. L\textquotesingle{}ordre des \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} est (theta, d, alpha, a)  
+
+
+
+
+{\ttfamily \#include $<$Denavit\+Parameter.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classDenavitParameter_a66046f91116b94f5b38f84c15ebd6cee}\label{classDenavitParameter_a66046f91116b94f5b38f84c15ebd6cee}} 
+\mbox{\hyperlink{classDenavitParameter_a66046f91116b94f5b38f84c15ebd6cee}{Denavit\+Parameter}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui cree un objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDenavitParameter_afa27ddadf31a88145db612a58b5e72a2}{Denavit\+Parameter}} (\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} $\ast$$\ast$V\+A\+R\+Liste)
+\begin{DoxyCompactList}\small\item\em Constructeur de confort qui initialise l\textquotesingle{}objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} avec la liste de pointeurs de variable\+Articulaire V\+A\+R\+Liste. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDenavitParameter_a38a3b9bcc93666ad465d06dc7abdb30f}{Denavit\+Parameter}} (\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \&D\+E\+N\+Object)
+\begin{DoxyCompactList}\small\item\em Constructeur de recopie qui cree et initialise l\textquotesingle{}objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDenavitParameter_a143a94a9bbe2efdb41e8c1ca58d0dd03}\label{classDenavitParameter_a143a94a9bbe2efdb41e8c1ca58d0dd03}} 
+\mbox{\hyperlink{classDenavitParameter_a143a94a9bbe2efdb41e8c1ca58d0dd03}{$\sim$\+Denavit\+Parameter}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par default qui detruit l\textquotesingle{}objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDenavitParameter_a66e1e2e01e02cf83685c5b6500f119af}{Set\+Variable}} (int i\+Indice, \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} $\ast$V\+A\+Rvariable)
+\begin{DoxyCompactList}\small\item\em Modifie le variable articulaire a la position i\+Indice dans la liste de pointeurs de variable\+Articuaire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDenavitParameter_ae4d9963fe5fa7defc0090214b63324f9}{Delete\+Variable}} (int i\+Indice)
+\begin{DoxyCompactList}\small\item\em Supprimer le variable\+Articulaire a la position i\+Indice dans la liste de pointeurs de variable\+Articulaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \& \mbox{\hyperlink{classDenavitParameter_a5a2960829dea5c9a7e5a7237ceabf7b8}{operator=}} (\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \&parameter)
+\begin{DoxyCompactList}\small\item\em Surcharge de l\textquotesingle{}egalite. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{classDenavitParameter_ab38e807db5e45090bddcde219dc5bc14}{Lire\+Variable}} (int Iindice)
+\begin{DoxyCompactList}\small\item\em Lis la valeur d\+Variable de la variable\+Articulaire a l\textquotesingle{}indice Iindice. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classDenavitParameter_a089b5484a260a1b67ab0702232f6fed3}{Lire\+Valeur}} (int Iindice)
+\begin{DoxyCompactList}\small\item\em Lis la valeur d\+Valeur de la variable\+Articulaire a l\textquotesingle{}indice Iindice. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDenavitParameter_adde2a4f07f5d64f7811d5df17eb1622d}{Lire\+B\+Variable}} (int Iindice)
+\begin{DoxyCompactList}\small\item\em Lire la valeur B\+Variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDenavitParameter_a2ee4cd2a0877c705c8f72b52f42b995f}\label{classDenavitParameter_a2ee4cd2a0877c705c8f72b52f42b995f}} 
+void \mbox{\hyperlink{classDenavitParameter_a2ee4cd2a0877c705c8f72b52f42b995f}{Affiche}} ()
+\begin{DoxyCompactList}\small\item\em Afficher la \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de manipuler les \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} selon le modele geometrique direct. L\textquotesingle{}ordre des \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} est (theta, d, alpha, a) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classDenavitParameter_afa27ddadf31a88145db612a58b5e72a2}\label{classDenavitParameter_afa27ddadf31a88145db612a58b5e72a2}} 
-{\bfseries Denavit\+Parameter} (\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} $\ast$$\ast$V\+A\+R\+Liste)
-\item 
+\index{DenavitParameter@{DenavitParameter}!DenavitParameter@{DenavitParameter}}
+\index{DenavitParameter@{DenavitParameter}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{DenavitParameter()}{DenavitParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Denavit\+Parameter\+::\+Denavit\+Parameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} $\ast$$\ast$}]{V\+A\+R\+Liste }\end{DoxyParamCaption})}
+
+
+
+Constructeur de confort qui initialise l\textquotesingle{}objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} avec la liste de pointeurs de variable\+Articulaire V\+A\+R\+Liste. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V\+A\+R\+Liste} & liste de \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classDenavitParameter_a38a3b9bcc93666ad465d06dc7abdb30f}\label{classDenavitParameter_a38a3b9bcc93666ad465d06dc7abdb30f}} 
-{\bfseries Denavit\+Parameter} (\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \&D\+E\+N\+Object)
-\item 
-\mbox{\Hypertarget{classDenavitParameter_afa4db09e95e582f5823742e03788a617}\label{classDenavitParameter_afa4db09e95e582f5823742e03788a617}} 
-void {\bfseries Add\+Parameter} (int i\+Indice, \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} V\+A\+Rvariable)
-\item 
-\mbox{\Hypertarget{classDenavitParameter_a4d18f288e71afd3a26995fd397d11f21}\label{classDenavitParameter_a4d18f288e71afd3a26995fd397d11f21}} 
-void {\bfseries Delete\+Parameter} (int i\+Indice)
-\item 
-\mbox{\Hypertarget{classDenavitParameter_aba3d989c2f87e688df3da9bb109dd3ce}\label{classDenavitParameter_aba3d989c2f87e688df3da9bb109dd3ce}} 
-void {\bfseries Swap} (int i\+From, int i\+Destination)
-\end{DoxyCompactItemize}
+\index{DenavitParameter@{DenavitParameter}!DenavitParameter@{DenavitParameter}}
+\index{DenavitParameter@{DenavitParameter}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{DenavitParameter()}{DenavitParameter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Denavit\+Parameter\+::\+Denavit\+Parameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \&}]{D\+E\+N\+Object }\end{DoxyParamCaption})}
+
+
+
+Constructeur de recopie qui cree et initialise l\textquotesingle{}objet \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em D\+E\+N\+Object} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDenavitParameter_ae4d9963fe5fa7defc0090214b63324f9}\label{classDenavitParameter_ae4d9963fe5fa7defc0090214b63324f9}} 
+\index{DenavitParameter@{DenavitParameter}!DeleteVariable@{DeleteVariable}}
+\index{DeleteVariable@{DeleteVariable}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{DeleteVariable()}{DeleteVariable()}}
+{\footnotesize\ttfamily void Denavit\+Parameter\+::\+Delete\+Variable (\begin{DoxyParamCaption}\item[{int}]{i\+Indice }\end{DoxyParamCaption})}
+
+
+
+Supprimer le variable\+Articulaire a la position i\+Indice dans la liste de pointeurs de variable\+Articulaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Indice} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDenavitParameter_adde2a4f07f5d64f7811d5df17eb1622d}\label{classDenavitParameter_adde2a4f07f5d64f7811d5df17eb1622d}} 
+\index{DenavitParameter@{DenavitParameter}!LireBVariable@{LireBVariable}}
+\index{LireBVariable@{LireBVariable}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{LireBVariable()}{LireBVariable()}}
+{\footnotesize\ttfamily bool Denavit\+Parameter\+::\+Lire\+B\+Variable (\begin{DoxyParamCaption}\item[{int}]{Iindice }\end{DoxyParamCaption})}
+
+
+
+Lire la valeur B\+Variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Iindice} & l\textquotesingle{}indice de la variable\+Articulaire dans la liste de pointeurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la variable\+Articulaire varie sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDenavitParameter_a089b5484a260a1b67ab0702232f6fed3}\label{classDenavitParameter_a089b5484a260a1b67ab0702232f6fed3}} 
+\index{DenavitParameter@{DenavitParameter}!LireValeur@{LireValeur}}
+\index{LireValeur@{LireValeur}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{LireValeur()}{LireValeur()}}
+{\footnotesize\ttfamily double Denavit\+Parameter\+::\+Lire\+Valeur (\begin{DoxyParamCaption}\item[{int}]{Iindice }\end{DoxyParamCaption})}
+
+
+
+Lis la valeur d\+Valeur de la variable\+Articulaire a l\textquotesingle{}indice Iindice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Iindice} & L\textquotesingle{}indice de la variable\+Articulaire dans la liste de pointeurs dans cette Devanit\+Parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDenavitParameter_ab38e807db5e45090bddcde219dc5bc14}\label{classDenavitParameter_ab38e807db5e45090bddcde219dc5bc14}} 
+\index{DenavitParameter@{DenavitParameter}!LireVariable@{LireVariable}}
+\index{LireVariable@{LireVariable}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{LireVariable()}{LireVariable()}}
+{\footnotesize\ttfamily double $\ast$ Denavit\+Parameter\+::\+Lire\+Variable (\begin{DoxyParamCaption}\item[{int}]{Iindice }\end{DoxyParamCaption})}
+
+
+
+Lis la valeur d\+Variable de la variable\+Articulaire a l\textquotesingle{}indice Iindice. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Iindice} & L\textquotesingle{}indice de la variable\+Articulaire dans la liste de pointeurs dans cette Devanit\+Parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDenavitParameter_a5a2960829dea5c9a7e5a7237ceabf7b8}\label{classDenavitParameter_a5a2960829dea5c9a7e5a7237ceabf7b8}} 
+\index{DenavitParameter@{DenavitParameter}!operator=@{operator=}}
+\index{operator=@{operator=}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \& Denavit\+Parameter\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \&}]{parameter }\end{DoxyParamCaption})}
+
+
+
+Surcharge de l\textquotesingle{}egalite. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parameter} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDenavitParameter_a66e1e2e01e02cf83685c5b6500f119af}\label{classDenavitParameter_a66e1e2e01e02cf83685c5b6500f119af}} 
+\index{DenavitParameter@{DenavitParameter}!SetVariable@{SetVariable}}
+\index{SetVariable@{SetVariable}!DenavitParameter@{DenavitParameter}}
+\doxysubsubsection{\texorpdfstring{SetVariable()}{SetVariable()}}
+{\footnotesize\ttfamily void Denavit\+Parameter\+::\+Set\+Variable (\begin{DoxyParamCaption}\item[{int}]{i\+Indice,  }\item[{\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} $\ast$}]{V\+A\+Rvariable }\end{DoxyParamCaption})}
+
+
+
+Modifie le variable articulaire a la position i\+Indice dans la liste de pointeurs de variable\+Articuaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i\+Indice} & l\textquotesingle{}indice de l\textquotesingle{}element a modifier \\
+\hline
+{\em V\+A\+Rvariable} & le nouveau pointeur sur variable\+Articulaire \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

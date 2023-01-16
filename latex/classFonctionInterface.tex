@@ -1,0 +1,282 @@
+\hypertarget{classFonctionInterface}{}\doxysection{Fonction\+Interface Class Reference}
+\label{classFonctionInterface}\index{FonctionInterface@{FonctionInterface}}
+
+
+Classe contenant un pointeur polymorphique d\textquotesingle{}un objet \mbox{\hyperlink{classFonction}{Fonction}} Elle permet de representer n\textquotesingle{}importe quel objet heritant de la classe \mbox{\hyperlink{classFonction}{Fonction}} Le pointeur est gere dynamiquement par la classe.  
+
+
+
+
+{\ttfamily \#include $<$Fonction\+Interface.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFonctionInterface_ac0a6d7cbad7e134c1745beab08a91813}{Fonction\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Cree un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} ne contenant aucun objet \mbox{\hyperlink{classFonction}{Fonction}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface_a18186b6a4702ab8ccec742f3fdcfcf82}{Fonction\+Interface}} (\mbox{\hyperlink{classFonction}{Fonction}} $\ast$p\+Fonction, bool b\+Temp=true)
+\begin{DoxyCompactList}\small\item\em Cree un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} contenant un objet \mbox{\hyperlink{classFonction}{Fonction}} (ou classe fille) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface_ae511188550a649e5c8841d293d64ac4e}{Fonction\+Interface}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&F\+O\+N\+Interface)
+\begin{DoxyCompactList}\small\item\em Cree un objet temporaire ayant recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface_acb033916b58c487e7513cc52456ed7e1}{Fonction\+Interface}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&F\+O\+N\+Interface)
+\begin{DoxyCompactList}\small\item\em Cree un objet temporaire ayant recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface_a6bb7cdc0de369abed2b060e3147e6f7b}{$\sim$\+Fonction\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Detruis l\textquotesingle{}objet et, si b\+Dynamique est vrai, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est desalloue de la memoire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionInterface_ab2597a00aec68ebd4df2861ab72ed047}{init}} (\mbox{\hyperlink{classFonction}{Fonction}} $\ast$p\+Fonction, bool b\+Temp=true)
+\begin{DoxyCompactList}\small\item\em Recree l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} pour contenir un objet \mbox{\hyperlink{classFonction}{Fonction}} (ou classe fille) donne. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionInterface_a11ea89593a2d67d723ec197fb0242093}{init}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} F\+O\+N\+Interface)
+\begin{DoxyCompactList}\small\item\em Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& \mbox{\hyperlink{classFonctionInterface_acbab49d8a910b3774f903f7826d64477}{operator=}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&F\+O\+N\+Interface)
+\begin{DoxyCompactList}\small\item\em Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet de droite si celui-\/ci est temporaire. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& \mbox{\hyperlink{classFonctionInterface_ab2025e1033c9183972517a7c02c6254f}{operator=}} (\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&F\+O\+N\+Interface)
+\begin{DoxyCompactList}\small\item\em Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet temporaire de droite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& \mbox{\hyperlink{classFonctionInterface_aa8c48e5fbc14249746e8ff4176a28617}{operator=}} (\mbox{\hyperlink{classFonction}{Fonction}} $\ast$fonction)
+\begin{DoxyCompactList}\small\item\em Affecte le pointeur fournit a l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} qui gerera sa desallocation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classFonctionInterface_a18f26707a93e718ed8f81d2f0a5ef462}{Result}} ()
+\begin{DoxyCompactList}\small\item\em Retourne le resultat de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \mbox{\hyperlink{classFonctionInterface_ae2566c71fbf8dbbd39cfa7a8e3440410}{Derive}} (double $\ast$pd\+Composant)
+\begin{DoxyCompactList}\small\item\em Retourne la derivee de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu par rapport a l\textquotesingle{}adresse d\textquotesingle{}une variable donnee. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \mbox{\hyperlink{classFonctionInterface_a0149ad704c8894bc94c807514f69b986}{Copy}} ()
+\begin{DoxyCompactList}\small\item\em Retourne un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} contenant une copie de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFonctionInterface_a531370204504ec8cc10f00dafb3a4379}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Affiche la formule de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} pointe par pn\+F\+O\+N\+Fonction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionInterface_a52192c62782d475f373ab752c52cd2d5}{Zero}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est constamment egal a 0. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionInterface_a08f00e03499dd41eeffc9a0272d9b01f}{Un}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est constamment egal a 1. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classFonctionInterface_a24abdfb38ec159299f4d3c0d7e8299e2}{Constant}} ()
+\begin{DoxyCompactList}\small\item\em Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu peut etre represente par une constante. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe contenant un pointeur polymorphique d\textquotesingle{}un objet \mbox{\hyperlink{classFonction}{Fonction}} Elle permet de representer n\textquotesingle{}importe quel objet heritant de la classe \mbox{\hyperlink{classFonction}{Fonction}} Le pointeur est gere dynamiquement par la classe. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFonctionInterface_ac0a6d7cbad7e134c1745beab08a91813}\label{classFonctionInterface_ac0a6d7cbad7e134c1745beab08a91813}} 
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{FonctionInterface()}{FonctionInterface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Fonction\+Interface\+::\+Fonction\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cree un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} ne contenant aucun objet \mbox{\hyperlink{classFonction}{Fonction}}. 
+
+Constructeur par defaut \mbox{\Hypertarget{classFonctionInterface_a18186b6a4702ab8ccec742f3fdcfcf82}\label{classFonctionInterface_a18186b6a4702ab8ccec742f3fdcfcf82}} 
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{FonctionInterface()}{FonctionInterface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Fonction\+Interface\+::\+Fonction\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonction}{Fonction}} $\ast$}]{p\+Fonction,  }\item[{bool}]{b\+Temp = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Cree un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} contenant un objet \mbox{\hyperlink{classFonction}{Fonction}} (ou classe fille) 
+
+Constructeur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em fonction} & \+: adresse d\textquotesingle{}un objet \mbox{\hyperlink{classFonction}{Fonction}} ou pointeur Fonction$\ast$ \\
+\hline
+{\em b\+Temp} & \+: L\textquotesingle{}objet cree est-\/il temporaire ? (vrai par defaut) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_ae511188550a649e5c8841d293d64ac4e}\label{classFonctionInterface_ae511188550a649e5c8841d293d64ac4e}} 
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{FonctionInterface()}{FonctionInterface()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Fonction\+Interface\+::\+Fonction\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&}]{F\+O\+N\+Interface }\end{DoxyParamCaption})}
+
+
+
+Cree un objet temporaire ayant recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Constructeur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Interface} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} dont le contenu sera recupere par delegation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_acb033916b58c487e7513cc52456ed7e1}\label{classFonctionInterface_acb033916b58c487e7513cc52456ed7e1}} 
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\index{FonctionInterface@{FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{FonctionInterface()}{FonctionInterface()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Fonction\+Interface\+::\+Fonction\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&}]{F\+O\+N\+Interface }\end{DoxyParamCaption})}
+
+
+
+Cree un objet temporaire ayant recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Constructeur de deplacement 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Interface} & \+: Objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} dont le contenu sera recupere par delegation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_a6bb7cdc0de369abed2b060e3147e6f7b}\label{classFonctionInterface_a6bb7cdc0de369abed2b060e3147e6f7b}} 
+\index{FonctionInterface@{FonctionInterface}!````~FonctionInterface@{$\sim$FonctionInterface}}
+\index{````~FonctionInterface@{$\sim$FonctionInterface}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$FonctionInterface()}{~FonctionInterface()}}
+{\footnotesize\ttfamily Fonction\+Interface\+::$\sim$\+Fonction\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Detruis l\textquotesingle{}objet et, si b\+Dynamique est vrai, l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est desalloue de la memoire. 
+
+Destructeur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFonctionInterface_a24abdfb38ec159299f4d3c0d7e8299e2}\label{classFonctionInterface_a24abdfb38ec159299f4d3c0d7e8299e2}} 
+\index{FonctionInterface@{FonctionInterface}!Constant@{Constant}}
+\index{Constant@{Constant}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Constant()}{Constant()}}
+{\footnotesize\ttfamily bool Fonction\+Interface\+::\+Constant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu peut etre represente par une constante. 
+
+Resultat constant \mbox{\Hypertarget{classFonctionInterface_a0149ad704c8894bc94c807514f69b986}\label{classFonctionInterface_a0149ad704c8894bc94c807514f69b986}} 
+\index{FonctionInterface@{FonctionInterface}!Copy@{Copy}}
+\index{Copy@{Copy}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} Fonction\+Interface\+::\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne un objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} contenant une copie de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}}. 
+
+Copie de fonction \mbox{\Hypertarget{classFonctionInterface_ae2566c71fbf8dbbd39cfa7a8e3440410}\label{classFonctionInterface_ae2566c71fbf8dbbd39cfa7a8e3440410}} 
+\index{FonctionInterface@{FonctionInterface}!Derive@{Derive}}
+\index{Derive@{Derive}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Derive()}{Derive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} Fonction\+Interface\+::\+Derive (\begin{DoxyParamCaption}\item[{double $\ast$}]{pd\+Composant }\end{DoxyParamCaption})}
+
+
+
+Retourne la derivee de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu par rapport a l\textquotesingle{}adresse d\textquotesingle{}une variable donnee. 
+
+Derivee de fonction 
+\begin{DoxyParams}{Parameters}
+{\em pd\+Composant} & \+: adresse de la variable pour deriver la fonction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_ab2597a00aec68ebd4df2861ab72ed047}\label{classFonctionInterface_ab2597a00aec68ebd4df2861ab72ed047}} 
+\index{FonctionInterface@{FonctionInterface}!init@{init}}
+\index{init@{init}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Fonction\+Interface\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonction}{Fonction}} $\ast$}]{p\+Fonction,  }\item[{bool}]{b\+Temp = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Recree l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} pour contenir un objet \mbox{\hyperlink{classFonction}{Fonction}} (ou classe fille) donne. 
+
+Initialiseur de comfort 
+\begin{DoxyParams}{Parameters}
+{\em fonction} & \+: adresse d\textquotesingle{}un objet \mbox{\hyperlink{classFonction}{Fonction}} ou pointeur Fonction$\ast$ \\
+\hline
+{\em b\+Temp} & \+: L\textquotesingle{}objet recree est-\/il temporaire ? (vrai par defaut) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_a11ea89593a2d67d723ec197fb0242093}\label{classFonctionInterface_a11ea89593a2d67d723ec197fb0242093}} 
+\index{FonctionInterface@{FonctionInterface}!init@{init}}
+\index{init@{init}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Fonction\+Interface\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}}]{F\+O\+N\+Interface }\end{DoxyParamCaption})}
+
+
+
+Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans un autre objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}}. 
+
+Initialiseur de recopie 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Interface} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} dont le contenu sera recupere par delegation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_aa8c48e5fbc14249746e8ff4176a28617}\label{classFonctionInterface_aa8c48e5fbc14249746e8ff4176a28617}} 
+\index{FonctionInterface@{FonctionInterface}!operator=@{operator=}}
+\index{operator=@{operator=}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& Fonction\+Interface\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonction}{Fonction}} $\ast$}]{fonction }\end{DoxyParamCaption})}
+
+
+
+Affecte le pointeur fournit a l\textquotesingle{}objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} qui gerera sa desallocation. 
+
+Surcharge de l\textquotesingle{}operateur = 
+\begin{DoxyParams}{Parameters}
+{\em fonction} & \+: pointeur Fonction$\ast$ alloue par new \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_ab2025e1033c9183972517a7c02c6254f}\label{classFonctionInterface_ab2025e1033c9183972517a7c02c6254f}} 
+\index{FonctionInterface@{FonctionInterface}!operator=@{operator=}}
+\index{operator=@{operator=}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& Fonction\+Interface\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&\&}]{F\+O\+N\+Interface }\end{DoxyParamCaption})}
+
+
+
+Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet temporaire de droite. 
+
+Surcharge de l\textquotesingle{}operateur = 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Interface} & \+: Objet temporaire \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} dont le contenu sera recupere par delegation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_acbab49d8a910b3774f903f7826d64477}\label{classFonctionInterface_acbab49d8a910b3774f903f7826d64477}} 
+\index{FonctionInterface@{FonctionInterface}!operator=@{operator=}}
+\index{operator=@{operator=}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \& Fonction\+Interface\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} \&}]{F\+O\+N\+Interface }\end{DoxyParamCaption})}
+
+
+
+Recupere l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu dans l\textquotesingle{}objet de droite si celui-\/ci est temporaire. 
+
+Surcharge de l\textquotesingle{}operateur = 
+\begin{DoxyParams}{Parameters}
+{\em F\+O\+N\+Interface} & \+: Objet \mbox{\hyperlink{classFonctionInterface}{Fonction\+Interface}} dont le contenu sera recupere par delegation si celui-\/ci est temporaire \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFonctionInterface_a18f26707a93e718ed8f81d2f0a5ef462}\label{classFonctionInterface_a18f26707a93e718ed8f81d2f0a5ef462}} 
+\index{FonctionInterface@{FonctionInterface}!Result@{Result}}
+\index{Result@{Result}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Result()}{Result()}}
+{\footnotesize\ttfamily double Fonction\+Interface\+::\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne le resultat de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu. 
+
+Resultat de fonction \mbox{\Hypertarget{classFonctionInterface_a531370204504ec8cc10f00dafb3a4379}\label{classFonctionInterface_a531370204504ec8cc10f00dafb3a4379}} 
+\index{FonctionInterface@{FonctionInterface}!Show@{Show}}
+\index{Show@{Show}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily void Fonction\+Interface\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche la formule de l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} pointe par pn\+F\+O\+N\+Fonction. 
+
+Affichage de fonction \mbox{\Hypertarget{classFonctionInterface_a08f00e03499dd41eeffc9a0272d9b01f}\label{classFonctionInterface_a08f00e03499dd41eeffc9a0272d9b01f}} 
+\index{FonctionInterface@{FonctionInterface}!Un@{Un}}
+\index{Un@{Un}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Un()}{Un()}}
+{\footnotesize\ttfamily bool Fonction\+Interface\+::\+Un (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est constamment egal a 1. 
+
+Constante egal a 1 \mbox{\Hypertarget{classFonctionInterface_a52192c62782d475f373ab752c52cd2d5}\label{classFonctionInterface_a52192c62782d475f373ab752c52cd2d5}} 
+\index{FonctionInterface@{FonctionInterface}!Zero@{Zero}}
+\index{Zero@{Zero}!FonctionInterface@{FonctionInterface}}
+\doxysubsubsection{\texorpdfstring{Zero()}{Zero()}}
+{\footnotesize\ttfamily bool Fonction\+Interface\+::\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourne vrai si l\textquotesingle{}objet \mbox{\hyperlink{classFonction}{Fonction}} contenu est constamment egal a 0. 
+
+Constante egal a 0 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Fonction\+Interface.\+h\item 
+Fonction\+Interface.\+cpp\end{DoxyCompactItemize}

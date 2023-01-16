@@ -1,35 +1,239 @@
 \hypertarget{classVariableArticulaire}{}\doxysection{Variable\+Articulaire Class Reference}
 \label{classVariableArticulaire}\index{VariableArticulaire@{VariableArticulaire}}
+
+
+Classe permettant de manipuler une variable articulaire.  
+
+
+
+
+{\ttfamily \#include $<$Variable\+Articulaire.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVariableArticulaire_aeb11388d425ef8eb6992a2f273242c0c}\label{classVariableArticulaire_aeb11388d425ef8eb6992a2f273242c0c}} 
-{\bfseries Variable\+Articulaire} (float f\+Value, int f\+Min\+Value, int f\+Max\+Value, int b\+Is\+Variable)
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_a23363eafaef703c1185fdb69ed690699}\label{classVariableArticulaire_a23363eafaef703c1185fdb69ed690699}} 
-float {\bfseries Lire\+Valeur} ()
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_a015eb51ff7e2a1bff1335b8dec145a0f}\label{classVariableArticulaire_a015eb51ff7e2a1bff1335b8dec145a0f}} 
-void {\bfseries Modifier\+Valeur} (float f\+Value)
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_a67708bea6003f7eb5ff7a4dcbf297891}\label{classVariableArticulaire_a67708bea6003f7eb5ff7a4dcbf297891}} 
-float {\bfseries Lire\+Max} ()
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_a105cb362fbe3ef40f48d316af70f553d}\label{classVariableArticulaire_a105cb362fbe3ef40f48d316af70f553d}} 
-void {\bfseries Modifier\+Max} (float max)
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_af748c2832076b7ed551d1708d22e112b}\label{classVariableArticulaire_af748c2832076b7ed551d1708d22e112b}} 
-float {\bfseries Lire\+Min} ()
-\item 
-\mbox{\Hypertarget{classVariableArticulaire_a22862d815a689b2a4b318d226b4d63f9}\label{classVariableArticulaire_a22862d815a689b2a4b318d226b4d63f9}} 
-void {\bfseries Modifier\+Min} (float min)
-\item 
+\mbox{\Hypertarget{classVariableArticulaire_ab5956b02b740851eed97223a0bbe8c3f}\label{classVariableArticulaire_ab5956b02b740851eed97223a0bbe8c3f}} 
+\mbox{\hyperlink{classVariableArticulaire_ab5956b02b740851eed97223a0bbe8c3f}{Variable\+Articulaire}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui cree un objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVariableArticulaire_a95e816bf3f7cc203ad9024ff8feccd28}{Variable\+Articulaire}} (double f\+Value, int f\+Min\+Value, int f\+Max\+Value, int b\+Is\+Variable)
+\begin{DoxyCompactList}\small\item\em Construteur de confort qui cree et initialise les champs de \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVariableArticulaire_a8f976ce08531dff345a4ee27dddb6520}\label{classVariableArticulaire_a8f976ce08531dff345a4ee27dddb6520}} 
+\mbox{\hyperlink{classVariableArticulaire_a8f976ce08531dff345a4ee27dddb6520}{$\sim$\+Variable\+Articulaire}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par default qui desaloue et detrruit l\textquotesingle{}objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVariableArticulaire_a12b3cc9c6f2576bb4b87bd4ad420bae5}{Lire\+Valeur}} ()
+\begin{DoxyCompactList}\small\item\em Lis la valeur de la variablearticculaire. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVariableArticulaire_a50d9e636538a220046991230b464d2cb}{Modifier\+Valeur}} (double f\+Value)
+\begin{DoxyCompactList}\small\item\em Modifie la valeur de cette variable articulaire. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{classVariableArticulaire_a8c9ca2d9cc71ec1e293c202910e91201}{Lire\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em Lis la valeur dvariable. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVariableArticulaire_a92f7c1a66acc42090a5cbf1f9d8cb301}{Lire\+Max}} ()
+\begin{DoxyCompactList}\small\item\em Lire la valeur max. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVariableArticulaire_a31c79d8195aadf3fdf8823e86d9706d6}{Modifier\+Max}} (double max)
+\begin{DoxyCompactList}\small\item\em Modifier la valeur max. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classVariableArticulaire_a81c2d4d6a6a22eb97eaabb20757ac83f}{Lire\+Min}} ()
+\begin{DoxyCompactList}\small\item\em Lire la valeur min. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVariableArticulaire_af69be8c3a2fce9d606f4c004b1d0c6c5}{Modifier\+Min}} (double min)
+\begin{DoxyCompactList}\small\item\em Modifier la valeur minimale. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVariableArticulaire_a1ef377beb10b2397f7bdf2ec2e87550e}{Lire\+B\+Variable}} ()
+\begin{DoxyCompactList}\small\item\em Lire le boolean B\+Variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVariableArticulaire_a4274ef2505e523e6bd2ea0595c9df889}{Modifier\+B\+Variable}} (bool b\+Value)
+\begin{DoxyCompactList}\small\item\em Modifier le boolean B\+Variable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVariableArticulaire_a01114ba2d5d58348984424d88e37d765}{Lire\+B\+Angulaire}} ()
+\begin{DoxyCompactList}\small\item\em Lire le boolean B\+Angulaire. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVariableArticulaire_abe753ac5ef199af3b722c11dee081460}{Modifier\+B\+Angulaire}} (bool b\+Value)
+\begin{DoxyCompactList}\small\item\em Modifier le boolean B\+Angulaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de manipuler une variable articulaire. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVariableArticulaire_a95e816bf3f7cc203ad9024ff8feccd28}\label{classVariableArticulaire_a95e816bf3f7cc203ad9024ff8feccd28}} 
+\index{VariableArticulaire@{VariableArticulaire}!VariableArticulaire@{VariableArticulaire}}
+\index{VariableArticulaire@{VariableArticulaire}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{VariableArticulaire()}{VariableArticulaire()}}
+{\footnotesize\ttfamily Variable\+Articulaire\+::\+Variable\+Articulaire (\begin{DoxyParamCaption}\item[{double}]{f\+Value,  }\item[{int}]{f\+Min\+Value,  }\item[{int}]{f\+Max\+Value,  }\item[{int}]{b\+Is\+Variable }\end{DoxyParamCaption})}
+
+
+
+Construteur de confort qui cree et initialise les champs de \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+Value} & valeur de lla variable\+Articulaire \\
+\hline
+{\em f\+Min\+Value} & valeur mini si la variable\+Articulaire varie \\
+\hline
+{\em f\+Max\+Value} & valeur max si la variable\+Articulaire varie \\
+\hline
+{\em b\+Is\+Variable} & Est ce que la variable\+Articualire varie ? \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVariableArticulaire_a01114ba2d5d58348984424d88e37d765}\label{classVariableArticulaire_a01114ba2d5d58348984424d88e37d765}} 
+\index{VariableArticulaire@{VariableArticulaire}!LireBAngulaire@{LireBAngulaire}}
+\index{LireBAngulaire@{LireBAngulaire}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireBAngulaire()}{LireBAngulaire()}}
+{\footnotesize\ttfamily bool Variable\+Articulaire\+::\+Lire\+B\+Angulaire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le boolean B\+Angulaire. 
+
+\begin{DoxyReturn}{Returns}
+la valeur lue 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classVariableArticulaire_a1ef377beb10b2397f7bdf2ec2e87550e}\label{classVariableArticulaire_a1ef377beb10b2397f7bdf2ec2e87550e}} 
-bool {\bfseries Lire\+B\+Variable} ()
-\item 
+\index{VariableArticulaire@{VariableArticulaire}!LireBVariable@{LireBVariable}}
+\index{LireBVariable@{LireBVariable}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireBVariable()}{LireBVariable()}}
+{\footnotesize\ttfamily bool Variable\+Articulaire\+::\+Lire\+B\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le boolean B\+Variable. 
+
+\begin{DoxyReturn}{Returns}
+true si ette variablearticulaire varie sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_a92f7c1a66acc42090a5cbf1f9d8cb301}\label{classVariableArticulaire_a92f7c1a66acc42090a5cbf1f9d8cb301}} 
+\index{VariableArticulaire@{VariableArticulaire}!LireMax@{LireMax}}
+\index{LireMax@{LireMax}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireMax()}{LireMax()}}
+{\footnotesize\ttfamily double Variable\+Articulaire\+::\+Lire\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire la valeur max. 
+
+\begin{DoxyReturn}{Returns}
+la valeur lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_a81c2d4d6a6a22eb97eaabb20757ac83f}\label{classVariableArticulaire_a81c2d4d6a6a22eb97eaabb20757ac83f}} 
+\index{VariableArticulaire@{VariableArticulaire}!LireMin@{LireMin}}
+\index{LireMin@{LireMin}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireMin()}{LireMin()}}
+{\footnotesize\ttfamily double Variable\+Articulaire\+::\+Lire\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire la valeur min. 
+
+\begin{DoxyReturn}{Returns}
+la valeur lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_a12b3cc9c6f2576bb4b87bd4ad420bae5}\label{classVariableArticulaire_a12b3cc9c6f2576bb4b87bd4ad420bae5}} 
+\index{VariableArticulaire@{VariableArticulaire}!LireValeur@{LireValeur}}
+\index{LireValeur@{LireValeur}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireValeur()}{LireValeur()}}
+{\footnotesize\ttfamily double Variable\+Articulaire\+::\+Lire\+Valeur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lis la valeur de la variablearticculaire. 
+
+\begin{DoxyReturn}{Returns}
+la valuer lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_a8c9ca2d9cc71ec1e293c202910e91201}\label{classVariableArticulaire_a8c9ca2d9cc71ec1e293c202910e91201}} 
+\index{VariableArticulaire@{VariableArticulaire}!LireVariable@{LireVariable}}
+\index{LireVariable@{LireVariable}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{LireVariable()}{LireVariable()}}
+{\footnotesize\ttfamily double $\ast$ Variable\+Articulaire\+::\+Lire\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lis la valeur dvariable. 
+
+\begin{DoxyReturn}{Returns}
+le pointeur sur dvariable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_abe753ac5ef199af3b722c11dee081460}\label{classVariableArticulaire_abe753ac5ef199af3b722c11dee081460}} 
+\index{VariableArticulaire@{VariableArticulaire}!ModifierBAngulaire@{ModifierBAngulaire}}
+\index{ModifierBAngulaire@{ModifierBAngulaire}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{ModifierBAngulaire()}{ModifierBAngulaire()}}
+{\footnotesize\ttfamily void Variable\+Articulaire\+::\+Modifier\+B\+Angulaire (\begin{DoxyParamCaption}\item[{bool}]{b\+Value }\end{DoxyParamCaption})}
+
+
+
+Modifier le boolean B\+Angulaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Value} & la nouvelle valeur de B\+Angulaire \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classVariableArticulaire_a4274ef2505e523e6bd2ea0595c9df889}\label{classVariableArticulaire_a4274ef2505e523e6bd2ea0595c9df889}} 
-void {\bfseries Modifier\+B\+Variable} (bool b\+Value)
-\end{DoxyCompactItemize}
+\index{VariableArticulaire@{VariableArticulaire}!ModifierBVariable@{ModifierBVariable}}
+\index{ModifierBVariable@{ModifierBVariable}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{ModifierBVariable()}{ModifierBVariable()}}
+{\footnotesize\ttfamily void Variable\+Articulaire\+::\+Modifier\+B\+Variable (\begin{DoxyParamCaption}\item[{bool}]{b\+Value }\end{DoxyParamCaption})}
+
+
+
+Modifier le boolean B\+Variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Value} & la nouvelle valeur de b\+Variable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVariableArticulaire_a31c79d8195aadf3fdf8823e86d9706d6}\label{classVariableArticulaire_a31c79d8195aadf3fdf8823e86d9706d6}} 
+\index{VariableArticulaire@{VariableArticulaire}!ModifierMax@{ModifierMax}}
+\index{ModifierMax@{ModifierMax}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{ModifierMax()}{ModifierMax()}}
+{\footnotesize\ttfamily bool Variable\+Articulaire\+::\+Modifier\+Max (\begin{DoxyParamCaption}\item[{double}]{max }\end{DoxyParamCaption})}
+
+
+
+Modifier la valeur max. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max} & la nouvelle valeur max \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la modification a eu lieu sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_af69be8c3a2fce9d606f4c004b1d0c6c5}\label{classVariableArticulaire_af69be8c3a2fce9d606f4c004b1d0c6c5}} 
+\index{VariableArticulaire@{VariableArticulaire}!ModifierMin@{ModifierMin}}
+\index{ModifierMin@{ModifierMin}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{ModifierMin()}{ModifierMin()}}
+{\footnotesize\ttfamily bool Variable\+Articulaire\+::\+Modifier\+Min (\begin{DoxyParamCaption}\item[{double}]{min }\end{DoxyParamCaption})}
+
+
+
+Modifier la valeur minimale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & la nouvelle valeur minimale \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la valeur a ete modifie sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVariableArticulaire_a50d9e636538a220046991230b464d2cb}\label{classVariableArticulaire_a50d9e636538a220046991230b464d2cb}} 
+\index{VariableArticulaire@{VariableArticulaire}!ModifierValeur@{ModifierValeur}}
+\index{ModifierValeur@{ModifierValeur}!VariableArticulaire@{VariableArticulaire}}
+\doxysubsubsection{\texorpdfstring{ModifierValeur()}{ModifierValeur()}}
+{\footnotesize\ttfamily bool Variable\+Articulaire\+::\+Modifier\+Valeur (\begin{DoxyParamCaption}\item[{double}]{f\+Value }\end{DoxyParamCaption})}
+
+
+
+Modifie la valeur de cette variable articulaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f\+Value} & la nouvelle valeur de la variablearticulaire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la modification a eu lieu sion false 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

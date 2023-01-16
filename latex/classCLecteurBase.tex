@@ -2,53 +2,342 @@
 \label{classCLecteurBase}\index{CLecteurBase@{CLecteurBase}}
 
 
-Inheritance diagram for C\+Lecteur\+Base\+:
-% FIG 0
+Boite a outil pour les lecteurs.  
+
+
+
+
+{\ttfamily \#include $<$C\+Lecteur\+Base.\+h$>$}
+
+
+
+Inheritance diagram for C\+Lecteur\+Base\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{classCLecteurBase__inherit__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCLecteurBase_a978e9c8d3acea28c961aab842e04b3ba}\label{classCLecteurBase_a978e9c8d3acea28c961aab842e04b3ba}} 
-bool {\bfseries Is\+Int} (char $\ast$pc\+Input)
-\item 
+\mbox{\Hypertarget{classCLecteurBase_addf008dec01c74e882687c9db8be7cbb}\label{classCLecteurBase_addf008dec01c74e882687c9db8be7cbb}} 
+\mbox{\hyperlink{classCLecteurBase_addf008dec01c74e882687c9db8be7cbb}{C\+Lecteur\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default aui cree l\textquotesingle{}objet \mbox{\hyperlink{classCLecteurBase}{C\+Lecteur\+Base}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCLecteurBase_a098f404bb668405d575037503c4710ec}\label{classCLecteurBase_a098f404bb668405d575037503c4710ec}} 
+\mbox{\hyperlink{classCLecteurBase_a098f404bb668405d575037503c4710ec}{$\sim$\+C\+Lecteur\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par default qui desalloue et detruit l\textquotesingle{}objet \mbox{\hyperlink{classCLecteurBase}{C\+Lecteur\+Base}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCLecteurBase_a61f9939db7918622937c25d05efcd974}{C\+Lecteur\+Base}} (const char $\ast$pc\+Fichier)
+\begin{DoxyCompactList}\small\item\em Constructeur de confort qui cree et initialise le chemin de ce fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCLecteurBase_ad9559fda56f32baf5b6571cc21112927}\label{classCLecteurBase_ad9559fda56f32baf5b6571cc21112927}} 
+void \mbox{\hyperlink{classCLecteurBase_ad9559fda56f32baf5b6571cc21112927}{Load}} ()
+\begin{DoxyCompactList}\small\item\em Ouvre le fichier a l\textquotesingle{}adresse \char`\"{}pc\+Fichier\char`\"{}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_a3f7ecce338026892504c81307ef0349a}{Next\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Aller a la prochaine ligne dans le fichier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_af96a5f69c6262701044541764a305b1e}{Empty\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Verifie si la liste st vide. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCLecteurBase_ae62237694869b640a9ba2c55ed5db6f5}{Next\+Char}} (unsigned int longueur)
+\begin{DoxyCompactList}\small\item\em Aller au prochain caractere. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCLecteurBase_a78df221524a184f62da37ec460ba80c5}{Rewind\+To}} (char cible, unsigned int n=1, bool after\+Cible=false)
+\begin{DoxyCompactList}\small\item\em Retourner en arriere. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classCLecteurBase_a7bd9f5d0ba788cc02df78b015f89c14a}{L\+E\+C\+Lire\+Nom\+Fichier}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nom du chemin du fihier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCLecteurBase_a9bcf1e2af4a688b8ea76feb137ebd394}{L\+E\+C\+Modifier\+Fichier}} (const char $\ast$fichier)
+\begin{DoxyCompactList}\small\item\em Modifier le chemin du fichier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_a978e9c8d3acea28c961aab842e04b3ba}{Is\+Int}} (char $\ast$pc\+Input)
+\begin{DoxyCompactList}\small\item\em Est ce que la chaîne est un entier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_a1e5dec9a128fdb6d7298459ca858eb91}{Is\+Double}} (char $\ast$pc\+Input)
+\begin{DoxyCompactList}\small\item\em Est ce que la chaine est un double. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_a361d5c94e9377a7a608ded7196316c75}{To\+Int}} (char $\ast$pc\+Input, int \&i\+Var)
+\begin{DoxyCompactList}\small\item\em Convertir la chaine en entier. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_ac69666a8a044f874f2d4157286b4cfc0}{To\+Double}} (char $\ast$pc\+Input, double \&d\+Var)
+\begin{DoxyCompactList}\small\item\em Convertir la chaine en double. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCLecteurBase_a909df565d87fc015f2b7bb06f7212f0f}{Find\+Word\+In\+File\+Line}} (const char $\ast$pc\+Mot, char separateur)
+\begin{DoxyCompactList}\small\item\em Trouver le mot dans la ligne. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classCLecteurBase_a396ce7b598501719661221c87e97d18a}{To\+Lower}} (char c\+Valeur)
+\begin{DoxyCompactList}\small\item\em Convertir le caractere en miniscule. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classCLecteurBase_a6800316197b997af6246f8ec8be82b9a}{Find\+Int\+In\+Line}} (char separateur)
+\begin{DoxyCompactList}\small\item\em T\+Rouver l\textquotesingle{}entier qui precede le separateur. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classCLecteurBase_a8ee47c18ed8d239a5cb41b6cbeafa525}{Find\+Double\+In\+Line}} (char separateur)
+\begin{DoxyCompactList}\small\item\em T\+Rouver le double qui precede le separateur. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classCLecteurBase_a70b4157fa9005f2313189fd26ac38539}{Get\+Char}} ()
+\begin{DoxyCompactList}\small\item\em Retourner le char pointe par le curser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Boite a outil pour les lecteurs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCLecteurBase_a61f9939db7918622937c25d05efcd974}\label{classCLecteurBase_a61f9939db7918622937c25d05efcd974}} 
+\index{CLecteurBase@{CLecteurBase}!CLecteurBase@{CLecteurBase}}
+\index{CLecteurBase@{CLecteurBase}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{CLecteurBase()}{CLecteurBase()}}
+{\footnotesize\ttfamily C\+Lecteur\+Base\+::\+C\+Lecteur\+Base (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Fichier }\end{DoxyParamCaption})}
+
+
+
+Constructeur de confort qui cree et initialise le chemin de ce fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Fichier} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCLecteurBase_af96a5f69c6262701044541764a305b1e}\label{classCLecteurBase_af96a5f69c6262701044541764a305b1e}} 
+\index{CLecteurBase@{CLecteurBase}!EmptyLine@{EmptyLine}}
+\index{EmptyLine@{EmptyLine}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{EmptyLine()}{EmptyLine()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+Empty\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifie si la liste st vide. 
+
+\begin{DoxyReturn}{Returns}
+true si la ligne est vide sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a8ee47c18ed8d239a5cb41b6cbeafa525}\label{classCLecteurBase_a8ee47c18ed8d239a5cb41b6cbeafa525}} 
+\index{CLecteurBase@{CLecteurBase}!FindDoubleInLine@{FindDoubleInLine}}
+\index{FindDoubleInLine@{FindDoubleInLine}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{FindDoubleInLine()}{FindDoubleInLine()}}
+{\footnotesize\ttfamily char $\ast$ C\+Lecteur\+Base\+::\+Find\+Double\+In\+Line (\begin{DoxyParamCaption}\item[{char}]{separateur }\end{DoxyParamCaption})}
+
+
+
+T\+Rouver le double qui precede le separateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em separateur} & qui suit le double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le double trouve 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a6800316197b997af6246f8ec8be82b9a}\label{classCLecteurBase_a6800316197b997af6246f8ec8be82b9a}} 
+\index{CLecteurBase@{CLecteurBase}!FindIntInLine@{FindIntInLine}}
+\index{FindIntInLine@{FindIntInLine}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{FindIntInLine()}{FindIntInLine()}}
+{\footnotesize\ttfamily char $\ast$ C\+Lecteur\+Base\+::\+Find\+Int\+In\+Line (\begin{DoxyParamCaption}\item[{char}]{separateur }\end{DoxyParamCaption})}
+
+
+
+T\+Rouver l\textquotesingle{}entier qui precede le separateur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em separateur} & qui suit l\textquotesingle{}entier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}entier trouve 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a909df565d87fc015f2b7bb06f7212f0f}\label{classCLecteurBase_a909df565d87fc015f2b7bb06f7212f0f}} 
+\index{CLecteurBase@{CLecteurBase}!FindWordInFileLine@{FindWordInFileLine}}
+\index{FindWordInFileLine@{FindWordInFileLine}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{FindWordInFileLine()}{FindWordInFileLine()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+Find\+Word\+In\+File\+Line (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Mot,  }\item[{char}]{separateur }\end{DoxyParamCaption})}
+
+
+
+Trouver le mot dans la ligne. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Mot} & Le mot a trouver \\
+\hline
+{\em separateur} & le separateur qui suit le mot a trouver \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si le mot a ete trouver sinon faux 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a70b4157fa9005f2313189fd26ac38539}\label{classCLecteurBase_a70b4157fa9005f2313189fd26ac38539}} 
+\index{CLecteurBase@{CLecteurBase}!GetChar@{GetChar}}
+\index{GetChar@{GetChar}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{GetChar()}{GetChar()}}
+{\footnotesize\ttfamily char C\+Lecteur\+Base\+::\+Get\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retourner le char pointe par le curser. 
+
+\begin{DoxyReturn}{Returns}
+le char retourne 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCLecteurBase_a1e5dec9a128fdb6d7298459ca858eb91}\label{classCLecteurBase_a1e5dec9a128fdb6d7298459ca858eb91}} 
-bool {\bfseries Is\+Double} (char $\ast$pc\+Input)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_a361d5c94e9377a7a608ded7196316c75}\label{classCLecteurBase_a361d5c94e9377a7a608ded7196316c75}} 
-bool {\bfseries To\+Int} (char $\ast$pc\+Input, int \&i\+Var)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_acee5ae892a98c9057b5cd62563aebd0b}\label{classCLecteurBase_acee5ae892a98c9057b5cd62563aebd0b}} 
-bool {\bfseries Find\+Word\+In\+File\+Line} (ifstream \&fichier, const char $\ast$pc\+Mot, char $\ast$$\ast$ppc\+Ligne)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_a8fda024aaa772e9dd43346c7b6e4fa1e}\label{classCLecteurBase_a8fda024aaa772e9dd43346c7b6e4fa1e}} 
-bool {\bfseries Find\+Word\+In\+Same\+File\+Line} (const char $\ast$pc\+Mot, char $\ast$pc\+Ligne)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_ac4236844c654807c1ef0bd3d2c784dad}\label{classCLecteurBase_ac4236844c654807c1ef0bd3d2c784dad}} 
-bool {\bfseries Find\+Word\+In\+Same\+File\+With\+Separator} (const char $\ast$pc\+Mot, char $\ast$pc\+Ligne, const char separator)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_a5d1867ac03c4b1abdc82c76afb2448e8}\label{classCLecteurBase_a5d1867ac03c4b1abdc82c76afb2448e8}} 
-char {\bfseries To\+Lower} ()
-\item 
-\mbox{\Hypertarget{classCLecteurBase_a9711328f9e857cb036e05b469a0f4a37}\label{classCLecteurBase_a9711328f9e857cb036e05b469a0f4a37}} 
-char $\ast$ {\bfseries Find\+Int\+In\+Line} (char $\ast$pc\+Ligne)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_ac1674f2c67d60a3b9b5e0d354d5923f6}\label{classCLecteurBase_ac1674f2c67d60a3b9b5e0d354d5923f6}} 
-char $\ast$ {\bfseries Find\+Int\+In\+Line\+With\+Separator} (char $\ast$pc\+Ligne, const char separator)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_aa7b8793fdb8d3526693b98ce16fa9846}\label{classCLecteurBase_aa7b8793fdb8d3526693b98ce16fa9846}} 
-char $\ast$ {\bfseries Find\+Int\+In\+Line\+After\+Separator} (char $\ast$pc\+Ligne, const char separator)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_ac84e72343432aa44a58b795a1d0f37cb}\label{classCLecteurBase_ac84e72343432aa44a58b795a1d0f37cb}} 
-char $\ast$$\ast$ {\bfseries Find\+Values\+In\+Line} (char $\ast$pc\+Ligne, const char separator)
-\item 
-\mbox{\Hypertarget{classCLecteurBase_ae286e534777479ea3aebc723a850167f}\label{classCLecteurBase_ae286e534777479ea3aebc723a850167f}} 
-void {\bfseries Input\+Int\+Positif} (const char $\ast$pc\+Message, int \&i\+Variable)
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
+\index{CLecteurBase@{CLecteurBase}!IsDouble@{IsDouble}}
+\index{IsDouble@{IsDouble}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{IsDouble()}{IsDouble()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+Is\+Double (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Input }\end{DoxyParamCaption})}
+
+
+
+Est ce que la chaine est un double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Input} & La chaine a analyser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la chaine est un double sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a978e9c8d3acea28c961aab842e04b3ba}\label{classCLecteurBase_a978e9c8d3acea28c961aab842e04b3ba}} 
+\index{CLecteurBase@{CLecteurBase}!IsInt@{IsInt}}
+\index{IsInt@{IsInt}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{IsInt()}{IsInt()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+Is\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Input }\end{DoxyParamCaption})}
+
+
+
+Est ce que la chaîne est un entier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Input} & la chaine a verifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true is la chaine est une entier sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a7bd9f5d0ba788cc02df78b015f89c14a}\label{classCLecteurBase_a7bd9f5d0ba788cc02df78b015f89c14a}} 
+\index{CLecteurBase@{CLecteurBase}!LECLireNomFichier@{LECLireNomFichier}}
+\index{LECLireNomFichier@{LECLireNomFichier}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{LECLireNomFichier()}{LECLireNomFichier()}}
+{\footnotesize\ttfamily const char $\ast$ C\+Lecteur\+Base\+::\+L\+E\+C\+Lire\+Nom\+Fichier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le nom du chemin du fihier. 
+
+\begin{DoxyReturn}{Returns}
+la chaine lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a9bcf1e2af4a688b8ea76feb137ebd394}\label{classCLecteurBase_a9bcf1e2af4a688b8ea76feb137ebd394}} 
+\index{CLecteurBase@{CLecteurBase}!LECModifierFichier@{LECModifierFichier}}
+\index{LECModifierFichier@{LECModifierFichier}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{LECModifierFichier()}{LECModifierFichier()}}
+{\footnotesize\ttfamily void C\+Lecteur\+Base\+::\+L\+E\+C\+Modifier\+Fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Modifier le chemin du fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fichier} & le nouveau chemin du fichier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCLecteurBase_ae62237694869b640a9ba2c55ed5db6f5}\label{classCLecteurBase_ae62237694869b640a9ba2c55ed5db6f5}} 
+\index{CLecteurBase@{CLecteurBase}!NextChar@{NextChar}}
+\index{NextChar@{NextChar}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{NextChar()}{NextChar()}}
+{\footnotesize\ttfamily void C\+Lecteur\+Base\+::\+Next\+Char (\begin{DoxyParamCaption}\item[{unsigned int}]{longueur }\end{DoxyParamCaption})}
+
+
+
+Aller au prochain caractere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em longueur} & le nombre de caractere a sauter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCLecteurBase_a3f7ecce338026892504c81307ef0349a}\label{classCLecteurBase_a3f7ecce338026892504c81307ef0349a}} 
+\index{CLecteurBase@{CLecteurBase}!NextLine@{NextLine}}
+\index{NextLine@{NextLine}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{NextLine()}{NextLine()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+Next\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Aller a la prochaine ligne dans le fichier. 
+
+\begin{DoxyReturn}{Returns}
+true si le passage a ete effectue sinon false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a78df221524a184f62da37ec460ba80c5}\label{classCLecteurBase_a78df221524a184f62da37ec460ba80c5}} 
+\index{CLecteurBase@{CLecteurBase}!RewindTo@{RewindTo}}
+\index{RewindTo@{RewindTo}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{RewindTo()}{RewindTo()}}
+{\footnotesize\ttfamily void C\+Lecteur\+Base\+::\+Rewind\+To (\begin{DoxyParamCaption}\item[{char}]{cible,  }\item[{unsigned int}]{n = {\ttfamily 1},  }\item[{bool}]{after\+Cible = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Retourner en arriere. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cible} & le caractere a viser ~\newline
+ \\
+\hline
+{\em n} & marquer de la position actuelle \\
+\hline
+{\em after\+Cible} & true si on s\textquotesingle{}arrete apres avoir atteint la cible sinon false \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCLecteurBase_ac69666a8a044f874f2d4157286b4cfc0}\label{classCLecteurBase_ac69666a8a044f874f2d4157286b4cfc0}} 
-static bool {\bfseries To\+Double} (char $\ast$pc\+Input, double \&d\+Var)
-\end{DoxyCompactItemize}
+\index{CLecteurBase@{CLecteurBase}!ToDouble@{ToDouble}}
+\index{ToDouble@{ToDouble}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{ToDouble()}{ToDouble()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+To\+Double (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Input,  }\item[{double \&}]{d\+Var }\end{DoxyParamCaption})}
+
+
+
+Convertir la chaine en double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Input} & la chaine a convertir \\
+\hline
+{\em i\+Var} & le double qui accueillera la convertion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true seulement si la conversion a eu lieu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a361d5c94e9377a7a608ded7196316c75}\label{classCLecteurBase_a361d5c94e9377a7a608ded7196316c75}} 
+\index{CLecteurBase@{CLecteurBase}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}}
+{\footnotesize\ttfamily bool C\+Lecteur\+Base\+::\+To\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{pc\+Input,  }\item[{int \&}]{i\+Var }\end{DoxyParamCaption})}
+
+
+
+Convertir la chaine en entier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Input} & la chaine a convertir \\
+\hline
+{\em i\+Var} & l\textquotesingle{}entier qui accueillera la convertion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true seulement si la conversion a eu lieu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteurBase_a396ce7b598501719661221c87e97d18a}\label{classCLecteurBase_a396ce7b598501719661221c87e97d18a}} 
+\index{CLecteurBase@{CLecteurBase}!ToLower@{ToLower}}
+\index{ToLower@{ToLower}!CLecteurBase@{CLecteurBase}}
+\doxysubsubsection{\texorpdfstring{ToLower()}{ToLower()}}
+{\footnotesize\ttfamily char C\+Lecteur\+Base\+::\+To\+Lower (\begin{DoxyParamCaption}\item[{char}]{c\+Valeur }\end{DoxyParamCaption})}
+
+
+
+Convertir le caractere en miniscule. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c\+Valeur} & charactere a minimiser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+character minimise 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

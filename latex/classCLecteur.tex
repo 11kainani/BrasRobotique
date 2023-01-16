@@ -2,4 +2,194 @@
 \label{classCLecteur}\index{CLecteur@{CLecteur}}
 
 
-Inheritance diagram for C\+Lecteur\+:
+Classe permettant de lire des variables articulaires du bras robotique.  
+
+
+
+
+{\ttfamily \#include $<$C\+Lecteur.\+h$>$}
+
+
+
+Inheritance diagram for C\+Lecteur\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{classCLecteur__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for C\+Lecteur\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{classCLecteur__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCLecteur_a50a8ee57954a21cba5a24748459124cf}{C\+Lecteur}} (const char $\ast$pc\+Chemin\+Fichier)
+\begin{DoxyCompactList}\small\item\em Constructeur de confort qui cree et initialise l\textquotesingle{}objet \mbox{\hyperlink{classCLecteur}{C\+Lecteur}} avec le chemin du fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCLecteur_ad54d98707796271b05ee1ea8f4a33586}\label{classCLecteur_ad54d98707796271b05ee1ea8f4a33586}} 
+\mbox{\hyperlink{classCLecteur_ad54d98707796271b05ee1ea8f4a33586}{C\+Lecteur}} ()
+\begin{DoxyCompactList}\small\item\em Constructeur par default qui cree l\textquotesingle{}objet \mbox{\hyperlink{classCLecteur}{C\+Lecteur}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCLecteur_aa95838541cd4ee37d23903c090d1b239}\label{classCLecteur_aa95838541cd4ee37d23903c090d1b239}} 
+\mbox{\hyperlink{classCLecteur_aa95838541cd4ee37d23903c090d1b239}{$\sim$\+C\+Lecteur}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur par default. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classCLecteur_af130636f657d4133599ee2a3f39472bd}{Lire\+Nb\+Elements}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nombre d\textquotesingle{}element. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classCLecteur_a9c7b42ba3a7b6134443160371a2b16f1}{Lire\+Nb\+Variables}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nombre de variable. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classCLecteur_a294571b2f0b7c42ad1b92262794d82d1}{Lire\+Nb\+Parametres}} ()
+\begin{DoxyCompactList}\small\item\em Lire le nombre de parametre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \& \mbox{\hyperlink{classCLecteur_a63bf3cfcaf785099801c5d7134adfc09}{Lire\+Element}} (unsigned int ui\+Indice)
+\begin{DoxyCompactList}\small\item\em Lire le variable Articulaire a l\textquotesingle{}indice ui\+Indice dans la liste dynamique d\textquotesingle{}objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \& \mbox{\hyperlink{classCLecteur_a1a6fffcc5b632cefe1b31c5ae7381998}{Lire\+Variable}} (unsigned int ui\+Indice)
+\begin{DoxyCompactList}\small\item\em Lire le variable Articulaire a l\textquotesingle{}indice ui\+Indice dans la liste dynamique de pointeurs d\textquotesingle{}objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \& \mbox{\hyperlink{classCLecteur_a195ed57e10e8ac568e85a2695615c5dd}{Lire\+Parametre}} (unsigned int ui\+Indice)
+\begin{DoxyCompactList}\small\item\em Lire le denavit\+Parameter dans la liste dynamique de parametres de Denavit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classCLecteur_af0e3eea40881bca864f84f4da8905250}\label{classCLecteur_af0e3eea40881bca864f84f4da8905250}} 
+void \mbox{\hyperlink{classCLecteur_af0e3eea40881bca864f84f4da8905250}{Lire\+Fichier}} ()
+\begin{DoxyCompactList}\small\item\em Lire le fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCLecteur_a3f5eb43e1a8d8c4824e3d6ee34474402}{Modifier\+Fichier}} (const char $\ast$pc\+Fichier)
+\begin{DoxyCompactList}\small\item\em Modifier l\textquotesingle{}adressse du fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe permettant de lire des variables articulaires du bras robotique. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCLecteur_a50a8ee57954a21cba5a24748459124cf}\label{classCLecteur_a50a8ee57954a21cba5a24748459124cf}} 
+\index{CLecteur@{CLecteur}!CLecteur@{CLecteur}}
+\index{CLecteur@{CLecteur}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{CLecteur()}{CLecteur()}}
+{\footnotesize\ttfamily C\+Lecteur\+::\+C\+Lecteur (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Chemin\+Fichier }\end{DoxyParamCaption})}
+
+
+
+Constructeur de confort qui cree et initialise l\textquotesingle{}objet \mbox{\hyperlink{classCLecteur}{C\+Lecteur}} avec le chemin du fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Chemin\+Fichier} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCLecteur_a63bf3cfcaf785099801c5d7134adfc09}\label{classCLecteur_a63bf3cfcaf785099801c5d7134adfc09}} 
+\index{CLecteur@{CLecteur}!LireElement@{LireElement}}
+\index{LireElement@{LireElement}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireElement()}{LireElement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \& C\+Lecteur\+::\+Lire\+Element (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Indice }\end{DoxyParamCaption})}
+
+
+
+Lire le variable Articulaire a l\textquotesingle{}indice ui\+Indice dans la liste dynamique d\textquotesingle{}objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Indice} & indice de l\textquotesingle{}element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_af130636f657d4133599ee2a3f39472bd}\label{classCLecteur_af130636f657d4133599ee2a3f39472bd}} 
+\index{CLecteur@{CLecteur}!LireNbElements@{LireNbElements}}
+\index{LireNbElements@{LireNbElements}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireNbElements()}{LireNbElements()}}
+{\footnotesize\ttfamily unsigned int C\+Lecteur\+::\+Lire\+Nb\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le nombre d\textquotesingle{}element. 
+
+\begin{DoxyReturn}{Returns}
+le nombre lu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_a294571b2f0b7c42ad1b92262794d82d1}\label{classCLecteur_a294571b2f0b7c42ad1b92262794d82d1}} 
+\index{CLecteur@{CLecteur}!LireNbParametres@{LireNbParametres}}
+\index{LireNbParametres@{LireNbParametres}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireNbParametres()}{LireNbParametres()}}
+{\footnotesize\ttfamily unsigned int C\+Lecteur\+::\+Lire\+Nb\+Parametres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le nombre de parametre. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_a9c7b42ba3a7b6134443160371a2b16f1}\label{classCLecteur_a9c7b42ba3a7b6134443160371a2b16f1}} 
+\index{CLecteur@{CLecteur}!LireNbVariables@{LireNbVariables}}
+\index{LireNbVariables@{LireNbVariables}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireNbVariables()}{LireNbVariables()}}
+{\footnotesize\ttfamily unsigned int C\+Lecteur\+::\+Lire\+Nb\+Variables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lire le nombre de variable. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_a195ed57e10e8ac568e85a2695615c5dd}\label{classCLecteur_a195ed57e10e8ac568e85a2695615c5dd}} 
+\index{CLecteur@{CLecteur}!LireParametre@{LireParametre}}
+\index{LireParametre@{LireParametre}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireParametre()}{LireParametre()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDenavitParameter}{Denavit\+Parameter}} \& C\+Lecteur\+::\+Lire\+Parametre (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Indice }\end{DoxyParamCaption})}
+
+
+
+Lire le denavit\+Parameter dans la liste dynamique de parametres de Denavit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Indice} & l\textquotesingle{}indice de l\textquotesingle{}element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le denavit\+Parameter lu 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_a1a6fffcc5b632cefe1b31c5ae7381998}\label{classCLecteur_a1a6fffcc5b632cefe1b31c5ae7381998}} 
+\index{CLecteur@{CLecteur}!LireVariable@{LireVariable}}
+\index{LireVariable@{LireVariable}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{LireVariable()}{LireVariable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} \& C\+Lecteur\+::\+Lire\+Variable (\begin{DoxyParamCaption}\item[{unsigned int}]{ui\+Indice }\end{DoxyParamCaption})}
+
+
+
+Lire le variable Articulaire a l\textquotesingle{}indice ui\+Indice dans la liste dynamique de pointeurs d\textquotesingle{}objet \mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui\+Indice} & indice de l\textquotesingle{}element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classVariableArticulaire}{Variable\+Articulaire}} lue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCLecteur_a3f5eb43e1a8d8c4824e3d6ee34474402}\label{classCLecteur_a3f5eb43e1a8d8c4824e3d6ee34474402}} 
+\index{CLecteur@{CLecteur}!ModifierFichier@{ModifierFichier}}
+\index{ModifierFichier@{ModifierFichier}!CLecteur@{CLecteur}}
+\doxysubsubsection{\texorpdfstring{ModifierFichier()}{ModifierFichier()}}
+{\footnotesize\ttfamily void C\+Lecteur\+::\+Modifier\+Fichier (\begin{DoxyParamCaption}\item[{const char $\ast$}]{pc\+Fichier }\end{DoxyParamCaption})}
+
+
+
+Modifier l\textquotesingle{}adressse du fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pc\+Fichier} & l\textquotesingle{}adresse du nouveau fichier \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+Lecteur.\+h\item 
+C\+Lecteur.\+cpp\end{DoxyCompactItemize}
