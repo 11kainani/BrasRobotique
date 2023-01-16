@@ -110,57 +110,11 @@ void CMatriceBase::MATAffiche()
 	{
 		for (uiBoucleColonne = 0; uiBoucleColonne < uiMATNbColonne; uiBoucleColonne++)
 		{
-			cout << Precision(pdMATElement[uiBoucleLigne * uiMATNbColonne + uiBoucleColonne], 1) << "\t";
+			cout << pdMATElement[uiBoucleLigne * uiMATNbColonne + uiBoucleColonne] << "\t";
 		}
 		cout << endl;
 	}
 	return;
-}
-
-// A Supprimer
-double CMatriceBase::Superieur(double valeur, double min)
-{
-	if (valeur < min)
-	{
-		return 0;
-	}
-
-	return valeur;
-}
-
-double CMatriceBase::Precision(double valeur, int precision)
-{
-
-	return valeur;
-	/*
-	double p = 1;
-	bool retenue;
-	bool negatif = (valeur < 0);
-	
-	for (int i = 0; i < precision; i++)
-	{
-		p = 10 * p;
-	}
-
-	valeur *= p;
-
-	if (negatif == false)
-	{
-		retenue = (valeur - floor(valeur) > 0.5/p);
-		valeur = floor(valeur);
-		if (retenue) { valeur++; }
-	}
-	else
-	{
-		retenue = (valeur - ceil(valeur) > 0.5/p);
-		valeur = ceil(valeur);
-		if (retenue) { valeur--; }
-	}
-	valeur /= p;
-
-	return valeur;
-	*/
-	
 }
 
 CMatriceBase::CMatriceBase(unsigned int uiLignes, unsigned int uiColonnes, double* pfElements)
